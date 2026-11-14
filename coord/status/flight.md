@@ -2,6 +2,13 @@
 
 > Only the FLIGHT front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 13:05 — FLIGHT (INFRA chat, Claude Code)
+Done: `.github/workflows/ci.yml` with jobs `hygiene` (forbidden paths + gitleaks v8.30.1 over full history), `science` (uv 0.11.3, `uv sync --locked`, ruff, pytest) and `web` (npm ci, lint, typecheck, build).
+Next: after CI is green, Otávio marks `hygiene`, `science`, `web` as required on `main`; Vercel import.
+Blocked by: Otávio (branch protection, Vercel)
+Needs from others: none
+Contract changes: none
+
 ## 2026-11-14 12:50 — FLIGHT (INFRA chat, Claude Code)
 Done: bootstrap: npm workspaces (`apps/*`, `packages/*`), `apps/web` Next.js 16.4.6 + Tailwind 4 + shadcn (radix-nova) with English canary page, FR7 disclaimer and `src/i18n/en.ts`; `services/science` uv package (Python 3.12, pydantic, ruff, pytest); `packages/contracts` package; `.nvmrc`, `.npmrc`, `.editorconfig`, `scripts/check-public-repo.sh`.
 Next: CI workflow (hygiene + science + web, gitleaks pinned), then Vercel setup with Otávio.
