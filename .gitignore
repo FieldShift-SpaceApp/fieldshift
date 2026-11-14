@@ -1,0 +1,46 @@
+# secrets
+.env
+.env.*
+!.env.example
+.netrc
+*.pem
+*.key
+
+# raw satellite / large data
+data/raw/*
+!data/raw/.gitkeep
+*.h5
+*.hdf
+*.HDF5
+*.nc
+*.nc4
+*.tif
+*.tiff
+*.zip
+*.duckdb
+*.db
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# node
+node_modules/
+.next/
+dist/
+build/
+.vercel/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# local tooling
+.claude/settings.local.json
+.claude-verification-state.json
