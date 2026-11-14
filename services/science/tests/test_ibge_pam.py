@@ -121,3 +121,29 @@ def test_committed_cruz_alta_files_regenerate_from_committed_raw():
     assert (out / f"{stem}.csv").read_text(encoding="utf-8") == ibge_pam.to_csv(s)
     committed = json.loads((cache / f"{stem}.provenance.json").read_text(encoding="utf-8"))
     assert committed == ibge_pam.provenance(s)
+
+
+# Regressão (review do Codex sobre o #30): valor fora do formato do SIDRA vira erro, sem coerção
+@pytest.mark.parametrize(
+    "value", ["1.5", "-3", " 12", "+7", "1_000", "١٢", "", True, 3.7, 12, None]
+)
+def test_number_rejects_non_sidra_values(value):
+    with pytest.raises(PipelineError):
+        ibge_pam._number(value)
+
+
+@pytest.mark.parametrize(("value", "expected"), [("12", 12), ("0", 0), ("-", 0), ("..", None),
+                                                 ("...", None), ("X", None)])  # fmt: skip
+def test_number_accepts_sidra_formats(value, expected):
+    assert ibge_pam._number(value) == expected
+
+
+def test_harvest_year_note_is_specific_only_to_soybean_in_rs():
+    from types import SimpleNamespace
+
+    soy_rs = SimpleNamespace(product_id=ibge_pam.SOYBEAN, municipality_id="4306106")
+    soy_mt = SimpleNamespace(product_id=ibge_pam.SOYBEAN, municipality_id="5107925")
+    wheat_rs = SimpleNamespace(product_id="2716", municipality_id="4306106")
+    assert "soybean in RS" in ibge_pam._harvest_year_note(soy_rs)
+    assert "soybean" not in ibge_pam._harvest_year_note(soy_mt)
+    assert "soybean" not in ibge_pam._harvest_year_note(wheat_rs)
