@@ -10,6 +10,7 @@ from fieldshift.contracts import (
     SCHEMA_VERSION,
     TOP_LEVEL_MODELS,
     BareSoilCalendar,
+    EnsoRainSignal,
     EventTimeline,
     ForecastScorecard,
     Provenance,
@@ -169,7 +170,7 @@ def calendar(**over):
 
 
 def test_new_documents_are_top_level_and_in_the_schema():
-    for model in (ForecastScorecard, EventTimeline, BareSoilCalendar):
+    for model in (ForecastScorecard, EventTimeline, BareSoilCalendar, EnsoRainSignal):
         assert model in TOP_LEVEL_MODELS
         assert model.__name__ in build_schema()["$defs"]
     assert "ReplayExtraUnit" in build_schema()["$defs"]
@@ -363,3 +364,69 @@ def test_attribution_is_optional_and_grouped():
     assert [a.group for a in rec.attribution] == ["partner", "nasa", "other_public"]
     with pytest.raises(ValidationError):
         Provenance.model_validate(_record(attribution=[{"group": "private", "name": "x"}]))
+
+
+# --- EnsoRainSignal --------------------------------------------------------------------------
+
+
+def rain_signal(**over):
+    years = [
+        {"year": 2015, "oni": 1.8, "phase": "el_nino", "total_mm": 900.0, "heavy_days": 3},
+        {"year": 2016, "oni": -0.7, "phase": "la_nina", "total_mm": 400.0, "heavy_days": 0},
+        {"year": 2017, "oni": -0.2, "phase": "neutral", "total_mm": None, "heavy_days": None},
+    ]
+    stats = [
+        {"phase": p, "n_years": n, "mean_heavy_days": d, "mean_total_mm": t,
+         "median_total_mm": t, "years_with_heavy_day": h}
+        for p, n, d, t, h in (
+            ("el_nino", 1, 3.0, 900.0, 1),
+            ("la_nina", 1, 0.0, 400.0, 0),
+            ("neutral", 0, None, None, 0),
+        )
+    ]  # fmt: skip
+    data = {
+        "schema_version": SCHEMA_VERSION,
+        "site_id": "cruz-alta",
+        "label": {"en": "Heavy rain in September-November by ENSO phase"},
+        "months": [9, 10, 11],
+        "phase_season": "SON",
+        "heavy_rain_mm": 50.0,
+        "oni_provenance_id": "prov:noaa:global:oni",
+        "sources": [
+            {
+                "id": "nasa-power",
+                "label": {"en": "NASA POWER"},
+                "first_year": 2015,
+                "last_year": 2017,
+                "years": years,
+                "by_phase": stats,
+                "provenance_id": "prov:computed:cruz-alta:rain-signal:power",
+            }
+        ],
+    }
+    data.update(over)
+    return data
+
+
+def test_rain_signal_is_valid():
+    doc = EnsoRainSignal.model_validate(rain_signal())
+    assert doc.sources[0].by_phase[2].n_years == 0
+
+
+def test_rain_signal_counts_and_phases_are_checked():
+    data = rain_signal()
+    data["sources"][0]["by_phase"][0]["n_years"] = 2
+    with pytest.raises(ValidationError, match="complete years"):
+        EnsoRainSignal.model_validate(data)
+    data = rain_signal()
+    data["sources"][0]["by_phase"][2]["phase"] = "el_nino"
+    with pytest.raises(ValidationError):
+        EnsoRainSignal.model_validate(data)
+    data = rain_signal()
+    data["sources"][0]["years"].reverse()
+    with pytest.raises(ValidationError, match="ascending"):
+        EnsoRainSignal.model_validate(data)
+    data = rain_signal()
+    data["sources"].append(copy.deepcopy(data["sources"][0]))
+    with pytest.raises(ValidationError, match="unique"):
+        EnsoRainSignal.model_validate(data)

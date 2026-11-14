@@ -28,6 +28,7 @@ from fieldshift.contracts.indices import (
 )
 from fieldshift.contracts.manifest import LayerStatus, SiteManifest
 from fieldshift.contracts.provenance import Attribution, Provenance, ProvenanceRegistry
+from fieldshift.contracts.rain import EnsoRainSignal, PhaseRainStats, RainSourceSignal, RainYear
 from fieldshift.contracts.replay import EventTimeline, ReplayEvent, ReplayValue
 from fieldshift.contracts.rotation import (
     Rotation,
@@ -62,6 +63,7 @@ TOP_LEVEL_MODELS: tuple[type[Contract], ...] = (
     ForecastScorecard,  # v1.2.0
     EventTimeline,  # v1.2.0
     BareSoilCalendar,  # v1.2.0
+    EnsoRainSignal,  # v1.2.0
 )
 
 __all__ = [
@@ -74,6 +76,7 @@ __all__ = [
     "Confidence",
     "Contract",
     "CriterionValue",
+    "EnsoRainSignal",
     "EventTimeline",
     "Evidence",
     "ForecastRecord",
@@ -89,8 +92,11 @@ __all__ = [
     "MonthlyProfile",
     "ObservedWinter",
     "Period",
+    "PhaseRainStats",
     "Provenance",
     "ProvenanceRegistry",
+    "RainSourceSignal",
+    "RainYear",
     "Ref",
     "ReplayEvent",
     "ReplayValue",

@@ -93,6 +93,16 @@ export type Country = "US" | "BR";
 export type EnsoPhase = "el_nino" | "neutral" | "la_nina";
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "OniSeason".
+ */
+export type OniSeason = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "RainSourceId".
+ */
+export type RainSourceId = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "ReplayKey".
  */
 export type ReplayKey = string;
@@ -416,6 +426,80 @@ export interface CriterionValue {
   better: "higher" | "lower";
   provenance_id: ProvenanceId;
   confidence: Confidence;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "EnsoRainSignal".
+ */
+export interface EnsoRainSignal {
+  schema_version: SchemaVersion;
+  site_id: SiteId;
+  label: LocalizedText;
+  /**
+   * @minItems 1
+   * @maxItems 12
+   */
+  months:
+    | [Month]
+    | [Month, Month]
+    | [Month, Month, Month]
+    | [Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month, Month, Month, Month, Month]
+    | [Month, Month, Month, Month, Month, Month, Month, Month, Month, Month, Month, Month];
+  phase_season: OniSeason;
+  heavy_rain_mm: number;
+  oni_provenance_id: ProvenanceId;
+  /**
+   * @minItems 1
+   */
+  sources: [RainSourceSignal, ...RainSourceSignal[]];
+  notes?: LocalizedText[];
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "RainSourceSignal".
+ */
+export interface RainSourceSignal {
+  id: RainSourceId;
+  label: LocalizedText;
+  first_year: number;
+  last_year: number;
+  years: RainYear[];
+  /**
+   * @minItems 3
+   * @maxItems 3
+   */
+  by_phase: [PhaseRainStats, PhaseRainStats, PhaseRainStats];
+  provenance_id: ProvenanceId;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "RainYear".
+ */
+export interface RainYear {
+  year: number;
+  oni: number;
+  phase: EnsoPhase;
+  total_mm: number | null;
+  heavy_days?: number | null;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "PhaseRainStats".
+ */
+export interface PhaseRainStats {
+  phase: EnsoPhase;
+  n_years: number;
+  mean_heavy_days: number | null;
+  mean_total_mm: number | null;
+  median_total_mm: number | null;
+  years_with_heavy_day: number;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema

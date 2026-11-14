@@ -252,6 +252,63 @@
       ],
       "type": "string"
     },
+    "EnsoRainSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "months": {
+          "items": {
+            "$ref": "#/$defs/Month"
+          },
+          "maxItems": 12,
+          "minItems": 1,
+          "type": "array"
+        },
+        "phase_season": {
+          "$ref": "#/$defs/OniSeason"
+        },
+        "heavy_rain_mm": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "oni_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/RainSourceSignal"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "label",
+        "months",
+        "phase_season",
+        "heavy_rain_mm",
+        "oni_provenance_id",
+        "sources"
+      ],
+      "title": "EnsoRainSignal",
+      "type": "object"
+    },
     "EventTimeline": {
       "additionalProperties": false,
       "properties": {
@@ -1173,6 +1230,10 @@
       "title": "ObservedWinter",
       "type": "object"
     },
+    "OniSeason": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
     "Percent": {
       "maximum": 100,
       "minimum": 0,
@@ -1194,6 +1255,62 @@
         "end"
       ],
       "title": "Period",
+      "type": "object"
+    },
+    "PhaseRainStats": {
+      "additionalProperties": false,
+      "properties": {
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "n_years": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mean_heavy_days": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mean_total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "median_total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "years_with_heavy_day": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "phase",
+        "n_years",
+        "mean_heavy_days",
+        "mean_total_mm",
+        "median_total_mm",
+        "years_with_heavy_day"
+      ],
+      "title": "PhaseRainStats",
       "type": "object"
     },
     "PipelineInfo": {
@@ -1597,6 +1714,99 @@
         "provenance_id"
       ],
       "title": "ProvenancedValue",
+      "type": "object"
+    },
+    "RainSourceId": {
+      "pattern": "^[a-z0-9][a-z0-9-]{1,47}$",
+      "type": "string"
+    },
+    "RainSourceSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/RainSourceId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "first_year": {
+          "type": "integer"
+        },
+        "last_year": {
+          "type": "integer"
+        },
+        "years": {
+          "items": {
+            "$ref": "#/$defs/RainYear"
+          },
+          "type": "array"
+        },
+        "by_phase": {
+          "items": {
+            "$ref": "#/$defs/PhaseRainStats"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "first_year",
+        "last_year",
+        "years",
+        "by_phase",
+        "provenance_id"
+      ],
+      "title": "RainSourceSignal",
+      "type": "object"
+    },
+    "RainYear": {
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "oni": {
+          "type": "number"
+        },
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "heavy_days": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "year",
+        "oni",
+        "phase",
+        "total_mm"
+      ],
+      "title": "RainYear",
       "type": "object"
     },
     "Ref": {
