@@ -13,8 +13,7 @@ from typing import Annotated, Literal, get_args
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
-# 1.1.0 (MINOR, issue #22): climate-index keys, EVLAND/GWETPROF keys, Metric/MonthlyProfile
-# `index_key`, ProvenanceMethod `parameters`. Nothing removed or renamed.
+# 1.1.0 is a MINOR bump (issue #22): additions only, nothing removed or renamed.
 SCHEMA_VERSION = "1.1.0"
 
 type SchemaVersion = Annotated[str, StringConstraints(pattern=r"^\d+\.\d+\.\d+$")]
