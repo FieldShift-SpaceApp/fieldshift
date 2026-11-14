@@ -53,6 +53,17 @@ DEV_SITES: dict[str, SitePoint] = {
         label="DEV ONLY: Florianópolis development point (not a demo site)",
         dev=True,
     ),
+    # CANDIDATE location under study (issue #26), NOT a demo site (that is D-001/#8). Point: the
+    # centroid IBGE publishes for municipality 4306106 (Cruz Alta, RS), malhas API v3, 2022 mesh
+    # (-28.703, -53.5626), rounded to the 3 decimals POWER echoes back; see
+    # data/dev/dev-cruz-alta/README.md.
+    "dev-cruz-alta": SitePoint(
+        id="dev-cruz-alta",
+        lat=-28.703,
+        lon=-53.563,
+        label="DEV ONLY: Cruz Alta (RS) municipal centroid, candidate (not a demo site)",
+        dev=True,
+    ),
 }
 
 

@@ -2,6 +2,13 @@
 
 > Only the EECOM front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 14:55 — EECOM (CRUZ-ALTA front, Claude Code, issue #26)
+Done: Cruz Alta (RS) preparado como CANDIDATO só em `data/dev/dev-cruz-alta/` (fora do sync do app; nada em `data/sites/`; PR #30, com merge da main/#28: `validate --all` passa). JSON do IBGE (bruto + proveniência simples) em `data/cache/ibge/dev-cruz-alta/`, porque o validador só aceita contrato em `output/`. Código IBGE **4306106** confirmado na API de localidades; malha municipal 2022 (GeoJSON, qualidade máxima) e centróide IBGE (−28,703, −53,5626) com procedência e sha256; NASA POWER diário 1981→2026-10 no centróide pelo CLI (`--site dev-cruz-alta`, 13 parâmetros, cache 3,6 MB); PAM SIDRA 1612 soja 1974–2025 via `fieldshift fetch ibge-pam` (módulo `sources/ibge_pam.py` + testes com resposta gravada). Números de seca conferidos: 2022 = 1.337 kg/ha e 2021 = 3.920 kg/ha confirmados (PAM); "4 de 14 safras" depende do critério (3 a 6 com critérios simples; 4 = 2012, 2020, 2022, 2023 quando se exige queda de rendimento e chuva baixa juntas). Evento 2021/22 registrado como candidato da Story 2.5 no README.
+Next: nada até a equipe decidir (D-001/#8). Se Cruz Alta virar site: `site.yaml` do SURGEON e rodar `fetch power` para ele.
+Blocked by: D-001 / #8 (decisão humana).
+Needs from others: SURGEON: linha "IBGE malhas" em `RESOURCES.md` e status da PAM (hoje "candidate"); GUIDO/contratos: estatística oficial (PAM) não tem `DataType` nem unidades (t, kg/ha) no contrato v1.1.0 (nem a malha) — por isso a PAM saiu em CSV + proveniência simples; só vira contrato com PR `contract`.
+Contract changes: none
+
 ## 2026-11-14 14:35 — EECOM (DADOS-2 front, Claude Code)
 Done: #22 em `eecom/indices-validate`: contratos v1.1.0 (MINOR; `VariableKey` + `evap_land_modeled`, `soil_wetness_profile_modeled`, `heat_days`, `frost_days`, `extreme_precip_days`, `extreme_precip_total`, `water_deficit`, `growing_degree_days`; `IndexKey` e `index_key` opcional em `Metric`/`MonthlyProfile`; `ProvenanceMethod.parameters` opcional). Índices no diário antes de agregar (ADR-3), série mensal + perfil 1991–2020 por mês + média anual em `indices.json`, procedência `computed` com método, parâmetros e insumos. POWER agora traz `GWETPROF` e `EVLAND`. `fieldshift validate --all` (ADR-8 camada 1) no job science do CI. dev-floripa regenerado (séries antigas idênticas em valor).
 Next: rodar `fetch power` para brasil e nevada quando o `site.yaml` existir (#8), com limiares no bloco `indices:`.

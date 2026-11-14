@@ -50,7 +50,7 @@ uv run fieldshift validate --all                             # contracts + VL1 d
   When a default is used, the provenance says so ("generic default, not a crop- or site-specific value"). Unknown keys fail.
 - **`fieldshift validate --all`** (ADR-8 layer 1, CI): every JSON under `data/sites` and `data/dev` must have a known file name and match its contract; `schema_version` same major and not newer than the code; site id = folder; every `provenance_id`/`provenance_ids` and every record `inputs` exists in the site registry, without cycles; FR19 fields per data type; a series/metric/profile has the `data_type` of its record. A `method.doc_anchor` without a page in `content/methods/` is a warning here (the web unit test from #24 makes it a failure). The indices are documented in `content/methods/climate-indices.md`.
 - **Provenance merge:** `fetch power` merges `provenance.json` by `provenance_id` (records of other stages, e.g. rotation, are kept; same id is replaced).
-- **Dev point:** `dev-floripa` (−27.6, −48.5) is for development only and is NOT a demo site. Real sites (brasil, nevada) come from SURGEON (issue #8).
+- **Dev point:** `dev-floripa` (−27.6, −48.5) is for development only and is NOT a demo site. Real sites (brasil, nevada) come from SURGEON (issue #8). `dev-cruz-alta` is a candidate location (issue #26), also DEV only (`data/dev/dev-cruz-alta/`).
 
 ### Why `EVPTRNS` is not ingested
 
@@ -64,3 +64,11 @@ Live checks on 2026-11-14 (POWER Daily API v2.10.3, community AG, year 2023):
 | 42.0, −93.6 (US Midwest probe) | 0.002 / 2.97 | 0.31 / 3.03 |
 
 The monthly endpoint gave 0.0 for all 117 months of 2015–2023 at the dev point. POWER names it "Evapotranspiration Energy Flux", but in the MERRA-2 land diagnostics `EVPTRNS` is the transpiration energy flux only (bare-soil and interception evaporation are separate variables). The values swing between neighbouring cells and disagree with `EVLAND` in the same cell, so the parameter is not usable as "ET" for a site. `EVLAND` (modeled land evaporation, mm/day) looks plausible and is ingested as `evap_land_modeled` (monthly sum, `modeled`) since contracts v1.1.0, with a limitation saying it is not the field's actual ET.
+
+## IBGE PAM (issue #26)
+
+```bash
+uv run fieldshift fetch ibge-pam --municipality 4306106 \n  --cache-dir ../../data/cache/ibge/dev-cruz-alta --out-dir ../../data/dev/dev-cruz-alta/ibge [--product 2713] [--offline] [--refresh]
+```
+
+`fieldshift.sources.ibge_pam` reads SIDRA table 1612 (IBGE aggregates API v3, no credentials): planted and harvested area, production and yield of one temporary crop (default soybean, category 2713) in one municipality, every year. It writes the wrapped raw response and a plain provenance JSON to `--cache-dir`, and a CSV to `--out-dir`. SIDRA `-` is zero; `..`, `...`, `X` are empty. Official statistics have no data type and no units (t, kg/ha) in contracts v1.1.0, so these are not contract files; the JSON stays under `data/cache/`, because `fieldshift validate --all` accepts only contract files in `data/dev/<id>/output/` and no other JSON under `data/dev/`.

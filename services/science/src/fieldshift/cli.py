@@ -51,6 +51,19 @@ def build_parser() -> argparse.ArgumentParser:
     pw.add_argument("--refresh", action="store_true", help="ignore the cache and download again")
     pw.add_argument("--data-dir", type=Path, default=None, help="data/ root (default: repo data/)")
 
+    pam = fetch_sub.add_parser(
+        "ibge-pam",
+        help="IBGE PAM (SIDRA 1612): one crop in one municipality, every year -> CSV + provenance",
+    )
+    pam.add_argument("--municipality", required=True, help="IBGE 7-digit code (e.g. 4306106)")
+    pam.add_argument("--product", default="2713", help="classification 81 category (2713 = soy)")
+    pam.add_argument(
+        "--cache-dir", type=Path, required=True, help="raw response + provenance (data/cache/...)"
+    )
+    pam.add_argument("--out-dir", type=Path, required=True, help="folder for the CSV")
+    pam.add_argument("--offline", action="store_true", help="use the saved raw response only")
+    pam.add_argument("--refresh", action="store_true", help="ignore the saved response")
+
     val = sub.add_parser(
         "validate",
         help="contracts + VL1 data layer over every JSON in data/sites and data/dev (ADR-8)",
@@ -120,6 +133,31 @@ def _fetch_power(args: argparse.Namespace) -> int:
     return 0
 
 
+def _fetch_ibge_pam(args: argparse.Namespace) -> int:
+    from fieldshift.errors import LayerError, PipelineError
+    from fieldshift.io.store import dumps_stable, write_json_atomic
+    from fieldshift.sources import ibge_pam
+
+    try:
+        series = ibge_pam.fetch(args.municipality, args.product, cache_dir=args.cache_dir,
+                                offline=args.offline, refresh=args.refresh)  # fmt: skip
+    except (LayerError, PipelineError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    stem = ibge_pam.cache_name(args.municipality, args.product)
+    csv_path = write_json_atomic(args.out_dir / f"{stem}.csv", ibge_pam.to_csv(series))
+    # Plain JSON (no contract for official statistics): it stays next to the raw response,
+    # outside data/dev/<id>/output/, where `fieldshift validate --all` accepts contract files only.
+    prov_path = write_json_atomic(
+        args.cache_dir / f"{stem}.provenance.json", dumps_stable(ibge_pam.provenance(series))
+    )
+    first, last = series.years[0].year, series.years[-1].year
+    print(f"IBGE PAM {series.municipality_name} / {series.product_name}: {first}..{last}")
+    print(f"  csv:        {csv_path}")
+    print(f"  provenance: {prov_path}")
+    return 0
+
+
 def _validate(args: argparse.Namespace) -> int:
     from fieldshift.config import data_dir, repo_root
     from fieldshift.validate import validate_all
@@ -141,6 +179,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"contracts schema written: {path}")
     elif args.command == "fetch" and args.source == "power":
         return _fetch_power(args)
+    elif args.command == "fetch" and args.source == "ibge-pam":
+        return _fetch_ibge_pam(args)
     elif args.command == "validate":
         return _validate(args)
     elif args.command == "rotation":

@@ -161,6 +161,13 @@ def test_dev_site_is_marked_and_routed_to_data_dev(tmp_path):
     assert DEV.output_dir(tmp_path) == tmp_path / "dev" / "dev-floripa" / "output"
 
 
+def test_cruz_alta_candidate_is_dev_and_routed_to_data_dev(tmp_path):
+    site = DEV_SITES["dev-cruz-alta"]
+    assert site.dev and "DEV ONLY" in site.label
+    assert site.output_dir(tmp_path) == tmp_path / "dev" / "dev-cruz-alta" / "output"
+    assert resolve_site("dev-cruz-alta", tmp_path) is site
+
+
 def test_only_dev_prefixed_ids_can_be_dev():
     with pytest.raises(PipelineError):
         SitePoint("brasil", -27.6, -48.5, "x", dev=True)
@@ -196,15 +203,18 @@ def test_explicit_lat_lon_needs_both(tmp_path):
 # --- committed dev data (the CI works on the committed cache, never the network) ------------
 
 
-def test_committed_dev_outputs_regenerate_from_committed_cache():
+@pytest.mark.parametrize("site_id", sorted(DEV_SITES))
+def test_committed_dev_outputs_regenerate_from_committed_cache(site_id):
+    site = DEV_SITES[site_id]
     root = data_dir()
-    caches = sorted((root / "cache" / "power" / "dev-floripa").glob("daily_*.json"))
-    assert caches, "data/cache/power/dev-floripa/ must hold the committed raw response"
+    caches = sorted((root / "cache" / "power" / site_id).glob("daily_*.json"))
+    assert caches, f"data/cache/power/{site_id}/ must hold the committed raw response"
     cache = caches[-1]
+    assert cache.stat().st_size < 5_000_000  # .gitignore: data/cache/ committed only when < 5 MB
     _, start, end = cache.stem.split("_")
-    raw = power.parse(json.loads(cache.read_text(encoding="utf-8")), lat=DEV.lat, lon=DEV.lon)
-    bundle, registry, indices = build_all(DEV, raw)
-    out = DEV.output_dir(root)
+    raw = power.parse(json.loads(cache.read_text(encoding="utf-8")), lat=site.lat, lon=site.lon)
+    bundle, registry, indices = build_all(site, raw)
+    out = site.output_dir(root)
     for model, name in ((bundle, "series"), (registry, "provenance"), (indices, "indices")):
         committed = json.loads((out / f"{name}.json").read_text(encoding="utf-8"))
         assert model.model_dump(mode="json") == committed, name
