@@ -30,7 +30,7 @@ type ReplayKey = Annotated[str, StringConstraints(pattern=r"^[a-z0-9][a-z0-9._-]
 
 
 class ReplayValue(Contract):
-    key: ReplayKey
+    id: ReplayKey
     label: LocalizedText
     value: float
     unit: CanonicalUnit | ReplayExtraUnit
@@ -51,9 +51,9 @@ class ReplayEvent(Contract):
     def _when(self) -> ReplayEvent:
         if (self.date is None) == (self.period is None):
             raise ValueError(f"{self.id}: give exactly one of date or period")
-        keys = [v.key for v in self.values]
-        if len(keys) != len(set(keys)):
-            raise ValueError(f"{self.id}: value keys must be unique")
+        ids = [v.id for v in self.values]
+        if len(ids) != len(set(ids)):
+            raise ValueError(f"{self.id}: value ids must be unique")
         return self
 
     @property

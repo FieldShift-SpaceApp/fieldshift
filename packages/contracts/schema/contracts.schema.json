@@ -1944,7 +1944,7 @@
     "ReplayValue": {
       "additionalProperties": false,
       "properties": {
-        "key": {
+        "id": {
           "$ref": "#/$defs/ReplayKey"
         },
         "label": {
@@ -1965,7 +1965,7 @@
         }
       },
       "required": [
-        "key",
+        "id",
         "label",
         "value",
         "unit"
