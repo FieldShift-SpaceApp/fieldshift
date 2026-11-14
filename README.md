@@ -35,6 +35,12 @@ uv run --directory services/science fieldshift --version
 
 Checks (same as CI): `npm run lint`, `npm run typecheck`, `npm run build`, `npm run py:lint`, `npm run py:test`, `npm run hygiene`.
 
+## NASA data and credits
+
+The app's climate base is [NASA POWER](https://power.larc.nasa.gov/) (Daily API, community `AG`). Every dataset, library and font, with its license, is in [RESOURCES.md](RESOURCES.md); methods and limitations are in [`content/methods/`](content/methods/); AI use is in [SI-USAGE.md](SI-USAGE.md).
+
+> The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. The data was obtained from the POWER Project's Daily 2.10.3 version on 2026/11/14.
+
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md). AI assistants: read [AGENTS.md](AGENTS.md).
 

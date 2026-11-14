@@ -51,6 +51,7 @@ Not a guaranteed path: ORNL MODIS Subsets returned HTTP 503 on 2026-11-14 (`D-00
 | MapBiomas Collection 11 | MapBiomas | https://brasil.mapbiomas.org/download/ | CC BY 4.0; rasters only via Google Earth Engine (download suspended), municipal statistics as XLSX | yes | — | candidate |
 | ZARC (agricultural climate risk zoning) | MAPA (Brazil) | https://dados.agricultura.gov.br/dataset/tabua-de-risco-zoneamento-agricola-de-risco-climatico | Creative Commons Attribution (CKAN metadata) | yes | analysis only (fieldshift-hq), not yet in the app: sowing windows and the frost criterion cited from the ZARC ordinances for Rio Grande do Sul (wheat, soybean, oat); Cruz Alta's ten-day periods not extracted yet | candidate |
 | IBGE PAM / SIDRA | IBGE | https://servicodados.ibge.gov.br/api/v3/agregados/1612/metadados | public federal data; cite IBGE (no CC license seen) | yes, cite source | DEV only: `fieldshift fetch ibge-pam` (table 1612) for the Cruz Alta DEV candidate, `data/dev/dev-cruz-alta/`; analysis (fieldshift-hq): soybean and wheat yield, area and low-yield seasons | candidate |
+| IBGE localities and municipal meshes (APIs v1 `localidades`, v3 `malhas`, 2022 mesh) | IBGE | https://servicodados.ibge.gov.br/api/docs/malhas?versao=3 · https://servicodados.ibge.gov.br/api/docs/localidades | public federal data; cite IBGE (same terms as IBGE PAM above; not re-checked for these APIs) | yes, cite source | point of the site `cruz-alta` (IBGE centroid of municipality 4306106, `data/sites/cruz-alta/input/site.yaml`); DEV mesh and records in `data/dev/dev-cruz-alta/ibge/` and `data/cache/ibge/dev-cruz-alta/` (provenance and sha256 in `geo.provenance.json`) | candidate |
 | INMET weather stations | INMET | https://portal.inmet.gov.br/dadoshistoricos | public federal data; cite INMET (license not confirmed) | check | analysis only (fieldshift-hq), not yet in the app: automatic stations A853 (Cruz Alta, 2007–2025), A883 and A886 in the ground check ([method](content/methods/satellite-vs-ground.md)) | candidate |
 | ANA HidroWeb (rain gauges) | ANA (Brazil's National Water and Sanitation Agency) / SGB-CPRM | https://www.snirh.gov.br/hidroweb/ · legacy web service https://telemetriaws1.ana.gov.br/ServiceANA.asmx (`HidroSerieHistorica`, no account) | public federal data; cite ANA (license not confirmed) | check | analysis only (fieldshift-hq), not yet in the app: daily rain of gauges 2853015, 2853005 and 2853014 (raw, consistency level 1) in the ground check | candidate |
 | CONAB historical series | CONAB | https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/safras/series-historicas | public federal data; cite CONAB (license not confirmed) | check | — | candidate |
@@ -94,6 +95,11 @@ Versions as pinned in the lockfiles (`package-lock.json`, `services/science/uv.l
 | class-variance-authority | 0.7.1 | Apache-2.0 | https://cva.style | component variants |
 | cn | 0.5.2 | MIT | https://www.npmjs.com/package/cn | class name helper |
 | tw-animate-css | 1.4.0 | MIT | https://www.npmjs.com/package/tw-animate-css | animations |
+| @tailwindcss/turbopack | 4.3.5 | MIT | https://www.npmjs.com/package/@tailwindcss/turbopack | Tailwind CSS integration for the Next.js Turbopack build |
+| zustand | 5.1.0 | MIT | https://github.com/pmndrs/zustand | per-page UI state (unit system, provenance panel) |
+| Geist and Geist Mono fonts (Vercel) | via `next/font/google` (Next.js 16.4.6) | SIL OFL 1.1 | https://github.com/vercel/geist-font | UI and monospace typefaces, self-hosted at build time |
+| json-schema-to-typescript | 16.0.0 | MIT | https://github.com/bcherny/json-schema-to-typescript | TypeScript types generated from the contracts JSON Schema (`packages/contracts`) |
+| @types/node, @types/react, @types/react-dom (DefinitelyTyped) | 24.19.2, 19.3.0, 19.3.0 | MIT | https://github.com/DefinitelyTyped/DefinitelyTyped | type definitions |
 | react-markdown + remark-gfm | 10.1.0 + 4.0.1 | MIT | https://github.com/remarkjs/react-markdown | Data & Methods page rendered from this file, `SI-USAGE.md` and `content/` (no raw HTML) |
 | gray-matter | 4.0.3 | MIT | https://github.com/jonschlinkert/gray-matter | front-matter of `content/methods/*.md` |
 | yaml | 2.9.1 | ISC | https://eemeli.org/yaml/ | reading `content/glossary.yaml` |
@@ -105,7 +111,7 @@ Versions as pinned in the lockfiles (`package-lock.json`, `services/science/uv.l
 | Playwright | 1.65.1 | Apache-2.0 | https://playwright.dev | end-to-end tests (Chromium) |
 | Node.js | 24.x | MIT | https://nodejs.org | runtime |
 | Python | 3.12 | PSF-2.0 | https://www.python.org | science pipeline |
-| uv | 0.11.3 | MIT OR Apache-2.0 | https://docs.astral.sh/uv/ | Python packaging |
+| uv (incl. the `uv_build` build backend) | 0.11.3 | MIT OR Apache-2.0 | https://docs.astral.sh/uv/ | Python packaging |
 | pydantic | 2.14.3 | MIT | https://docs.pydantic.dev | data contracts and validation |
 | httpx | 0.28.1 | BSD-3-Clause | https://www.python-httpx.org | NASA POWER REST client (pipeline only) |
 | PyYAML | 6.0.3 | MIT | https://pyyaml.org | reading human-written `site.yaml` |

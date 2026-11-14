@@ -1,4 +1,4 @@
-"""`fieldshift contracts export` (ADR-4): pydantic → JSON Schema 2020-12, $defs compartilhados."""
+"""`fieldshift contracts export` (ADR-4): pydantic → JSON Schema 2020-12, shared $defs."""
 
 import json
 import re
@@ -11,14 +11,14 @@ from fieldshift.contracts.export import build_schema
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
 EXPECTED_DEFS = {
-    # documentos de topo
+    # top-level documents
     "ProvenanceRegistry", "Site", "SitesIndex", "SeriesBundle", "ClimateIndices",
     "RotationFile", "StrategySet", "SiteManifest", "ValidationFile",
-    # modelos citados no Data Models
+    # models cited in Data Models
     "Provenance", "TimeSeries", "Metric", "MonthlyProfile", "Rotation", "RotationSegment",
     "RotationTimeline", "Evidence", "Confidence", "Strategy", "RetrospectiveCheck",
     "LocalizedText", "Ref", "Period", "GeoJSONPolygon", "LayerStatus",
-    # aliases semânticos
+    # semantic aliases
     "SiteId", "ProvenanceId", "SeriesId", "DataType", "CanonicalUnit", "VariableKey",
     "LayerId", "LayerReasonCode", "Month", "SchemaVersion", "IndexKey",
 }  # fmt: skip
@@ -32,7 +32,7 @@ def test_schema_has_all_defs():
 
 
 def test_crop_and_ranker_are_not_contracts_yet():
-    # ⏸ D9/D7: dependem do conceito (DECISIONS.md)
+    # ⏸ D9/D7: depend on the concept (DECISIONS.md)
     assert not {"Crop", "Ranker", "RankedStrategy"} & set(build_schema()["$defs"])
 
 
@@ -44,7 +44,7 @@ def test_top_level_documents_carry_schema_version():
 
 
 def test_field_titles_are_dropped():
-    # títulos de campo virariam aliases inúteis no TS gerado (json2ts)
+    # field titles would become useless aliases in the generated TS (json2ts)
     text = json.dumps(build_schema())
     assert '"title": "Start Month"' not in text
 

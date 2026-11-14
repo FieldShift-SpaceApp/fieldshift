@@ -1,4 +1,4 @@
-"""Paridade do calendário agrícola (ADR-7): Python e TS passam pelo mesmo arquivo de casos."""
+"""Agricultural calendar parity (ADR-7): Python and TS run through the same cases file."""
 
 import json
 from datetime import date

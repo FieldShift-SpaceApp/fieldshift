@@ -639,7 +639,7 @@ def test_validation_file_is_valid():
 
 
 def test_copy_does_not_leak_between_tests():
-    # deepcopy dos builders: nenhum teste muta o dict de outro
+    # the builders deepcopy: no test mutates another test's dict
     a, b = site(), site()
     a["field"]["coordinates"][0][0][0] = 0
     assert b["field"]["coordinates"][0][0][0] == -55.7
