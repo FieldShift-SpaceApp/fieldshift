@@ -16,6 +16,7 @@ import csv
 import io
 import json
 import logging
+import re
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
@@ -145,15 +146,20 @@ def fetch(
     return series
 
 
-def _number(text: str) -> int | None:
+_NON_NEGATIVE_INT = re.compile(r"[0-9]+")
+
+
+def _number(text: object) -> int | None:
+    # SIDRA devolve texto; qualquer outro tipo ou formato é erro, nunca coerção silenciosa
+    if not isinstance(text, str):
+        raise PipelineError(f"unexpected SIDRA value type {type(text).__name__}: {text!r}")
     if text == ZERO_SYMBOL:
         return 0
     if text in NO_VALUE_SYMBOLS:
         return None
-    try:
-        return int(text)
-    except ValueError as exc:
-        raise PipelineError(f"unexpected SIDRA value {text!r}") from exc
+    if not _NON_NEGATIVE_INT.fullmatch(text):
+        raise PipelineError(f"unexpected SIDRA value {text!r}")
+    return int(text)
 
 
 def parse(wrapped: dict[str, Any], municipality: str, product: str) -> PamSeries:
@@ -204,6 +210,18 @@ def to_csv(series: PamSeries) -> str:
     return buf.getvalue()
 
 
+RS_STATE_CODE = "43"  # prefixo IBGE dos municípios do Rio Grande do Sul
+
+
+def _harvest_year_note(series: PamSeries) -> str:
+    # a regra da safra só é afirmada para o caso conferido (soja no RS); o resto fica genérico
+    if series.product_id == SOYBEAN and series.municipality_id.startswith(RS_STATE_CODE):
+        return ("PAM year = harvest year: for soybean in RS, year Y is the 1-season harvest "
+                "planted in late Y-1 (safra Y-1/Y).")  # fmt: skip
+    return ("PAM year = reference year of the harvest; check the crop calendar before "
+            "mapping it to a planting season.")  # fmt: skip
+
+
 def provenance(series: PamSeries) -> dict[str, Any]:
     """Plain FR19-style record (no contract covers official statistics yet)."""
     first, last = series.years[0].year, series.years[-1].year
@@ -234,8 +252,7 @@ def provenance(series: PamSeries) -> dict[str, Any]:
         },  # fmt: skip
         "data_type_note": "official statistics (survey), not satellite_observed/modeled",
         "limitations": [
-            "PAM year = harvest year: for soybean in RS, year Y is the 1-season harvest "
-            "planted in late Y-1 (safra Y-1/Y).",
+            _harvest_year_note(series),
             "Municipal totals reported by IBGE; not field measurements.",
             "SIDRA symbols: '-' is zero; '..', '...' and 'X' have no value (empty in the CSV).",
             f"Years without a value in this series: {empty_note}.",
