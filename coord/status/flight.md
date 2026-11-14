@@ -2,6 +2,13 @@
 
 > Only the FLIGHT front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 14:45 — FLIGHT (SUBMISSÃO front, Claude Code)
+Done: #27 submission kit (PR `flight/submission-kit`): `docs/submission/page-draft.md` (8 official fields in order, concept-independent parts filled, D-001 placeholders), `preflight.md` (11 PASS, 14 FAIL, 9 UNVERIFIED, 1 PENDING on `main` f21d8c6, incl. `.gitleaksignore` review), `demo-plan.md` (≤ 30 s / ≤ 7 slides, SI labels for the synthetic voice and illustrative cards, script skeletons), checklist items 10–18.
+Next: fill placeholders after D-001; re-run the preflight on the final commit.
+Blocked by: D-001 (team); Vercel import (Otávio).
+Needs from others: SURGEON — add zustand, json-schema-to-typescript, @tailwindcss/turbopack and Geist fonts to `RESOURCES.md`; EECOM, GUIDO, INCO, SURGEON — translate Portuguese lines in `coord/status/*.md` (GUIDO also `test_units_fixture.py`); member who made the demo video — `SI-USAGE.md` row with the voice and card tools; EECOM + INCO — NASA POWER values on an app page (#8).
+Contract changes: none
+
 ## 2026-11-14 13:25 — FLIGHT (INFRA chat, Claude Code)
 Done: #15 web tests: Vitest 5.1.0 + Testing Library + jsdom 29.1.1 (FR7 notice and sync-data unit tests), Playwright 1.65.1 Chromium smoke (canary opens, FR7 notice, zero external requests), `scripts/sync-data.mjs` as prebuild/dev (no site data = notice, not error), CI web job runs test + build + e2e. #14 Story 1.2: `SI-USAGE.md` in the PRD format (conventions, retroactive entries, header rule, watermark rule), `RESOURCES.md` (NASA POWER selected; NASA and other candidates with licenses and "In git?"), `DECISIONS.md` (D-000 = CO-1..CO-6, empty D-001 for the team), `docs/submission/checklist.md`, "SI-assisted" headers on files generated so far.
 Next: CI green on the PR; human review and merge by FLIGHT.
