@@ -1,0 +1,6 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
+# TEST FIXTURE. Not a demo site and not agronomic data: only the keys the rotation stage reads.
+# Real sites are filled by the agronomist in data/sites/<id>/input/ (issue #8).
+id: test-fixture
+name: { en: "TEST FIXTURE site (not a demo site)" }
+ag_year: { start_month: 9, label: split }
