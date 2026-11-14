@@ -6,7 +6,7 @@
 ## 1. Project
 - **Team:** FieldShift · NASA Space Apps Challenge 2026 · Local Event: Founder Haus, Florianópolis.
 - **Challenge:** *Field Shift: Adapting Farms with NASA Data*.
-- **Clock (America/Sao_Paulo):** internal submit **Sun 15/11 21:00** · official close **Sun 15/11 23:59**.
+- **Clock (America/Sao_Paulo):** internal submit **Sun 15/11 20:00** · official close **Sun 15/11 23:59**.
 
 ## 2. Hard rules (event compliance)
 1. **C1 — No AI ideation of the solution.** Do not propose the product concept, the differentiator or the name. Those are human decisions, recorded in `DECISIONS.md`. You may research, implement, review and explain.
