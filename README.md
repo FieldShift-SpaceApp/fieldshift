@@ -20,6 +20,19 @@ Team **FieldShift** · NASA Space Apps Challenge 2026 · *Field Shift: Adapting 
 | `coord/` | Team coordination: status per front |
 | `SI-USAGE.md` | How AI ("SI") tools were used |
 
+## Run locally
+
+Prerequisites: Node.js 24 (`.nvmrc`), npm 11, [uv](https://docs.astral.sh/uv/) ≥ 0.11 (installs Python 3.12 by itself).
+
+```bash
+npm ci                                   # JS dependencies (npm workspaces: apps/*, packages/*)
+npm run dev                              # web app on http://localhost:3000
+uv sync --directory services/science     # Python 3.12 venv for the science pipeline
+uv run --directory services/science fieldshift --version
+```
+
+Checks (same as CI): `npm run lint`, `npm run typecheck`, `npm run build`, `npm run py:lint`, `npm run py:test`, `npm run hygiene`.
+
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md). AI assistants: read [AGENTS.md](AGENTS.md).
 
