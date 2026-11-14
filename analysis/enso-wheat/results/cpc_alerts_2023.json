@@ -1,0 +1,30 @@
+[
+ {
+  "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_mar2023/ensodisc.shtml",
+  "accessed_utc": "2026-11-14T23:39:04+00:00",
+  "issued": "9 March 2023",
+  "status": "Final La Niña Advisory",
+  "synopsis": "La Niña has ended and ENSO-neutral conditions are expected to continue through the Northern Hemisphere spring and early summer 2023."
+ },
+ {
+  "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_apr2023/ensodisc.shtml",
+  "accessed_utc": "2026-11-14T23:39:04+00:00",
+  "issued": "13 April 2023",
+  "status": "El Niño Watch",
+  "synopsis": "ENSO-neutral conditions are expected to continue through the Northern Hemisphere spring, followed by a 62% chance of El Niño developing during May-July 2023."
+ },
+ {
+  "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2023/ensodisc.shtml",
+  "accessed_utc": "2026-11-14T23:39:05+00:00",
+  "issued": "11 May 2023",
+  "status": "El Niño Watch",
+  "synopsis": "A transition from ENSO-neutral is expected in the next couple of months, with a greater than 90% chance of El Niño persisting into the Northern Hemisphere winter."
+ },
+ {
+  "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_jun2023/ensodisc.shtml",
+  "accessed_utc": "2026-11-14T23:39:05+00:00",
+  "issued": "8 June 2023",
+  "status": "El Niño Advisory",
+  "synopsis": "El Niño conditions are present and are expected to gradually strengthen into the Northern Hemisphere winter 2023-24."
+ }
+]

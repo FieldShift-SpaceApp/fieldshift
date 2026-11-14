@@ -1,0 +1,1753 @@
+{
+ "sources": {
+  "_start": {
+   "utc": "2026-11-14T23:39:05+00:00"
+  },
+  "oni.ascii.txt": {
+   "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"
+  },
+  "ersst5.nino.mth.91-20.ascii": {
+   "url": "https://www.cpc.ncep.noaa.gov/data/indices/ersst5.nino.mth.91-20.ascii"
+  },
+  "nmme_enso": {
+   "url": "https://ftp.cpc.ncep.noaa.gov/NMME/ENSO/<model>/<MM>0100/",
+   "models": [
+    "CanCM4i",
+    "CFSv2",
+    "GEM5_NEMO",
+    "GFDL_SPEAR",
+    "NASA_GEOS5v2",
+    "NCAR_CCSM4"
+   ],
+   "files": 681
+  },
+  "iri_svg": {
+   "url": "https://ensoforecast.iri.columbia.edu/<figure4_plot|figure3_plot>/<year>/<month>",
+   "downloaded": {
+    "figure4_plot": 72,
+    "figure3_plot": 69
+   },
+   "requested_per_figure": 75
+  },
+  "iri_quicklook": {
+   "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/<year>-<month>-quick-look/",
+   "downloaded": 39
+  },
+  "cpc_disc_jan2026": {
+   "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_jan2026/ensodisc.shtml"
+  },
+  "cpc_disc_feb2026": {
+   "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_feb2026/ensodisc.shtml"
+  },
+  "cpc_disc_mar2026": {
+   "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_mar2026/ensodisc.shtml"
+  },
+  "_end": {
+   "utc": "2026-11-14T23:39:15+00:00",
+   "failures": 15
+  },
+  "_failures": {
+   "list": [
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure4_plot/2002/1",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure4_plot/2002/2",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure4_plot/2002/3",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2002/1",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2002/2",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2002/3",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2003/1",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2003/2",
+     "status": 500
+    },
+    {
+     "url": "https://ensoforecast.iri.columbia.edu/figure3_plot/2003/3",
+     "status": 500
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2012-january-quick-look/",
+     "status": 404
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2012-february-quick-look/",
+     "status": 404
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2012-march-quick-look/",
+     "status": 404
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2013-january-quick-look/",
+     "status": 404
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2013-february-quick-look/",
+     "status": 404
+    },
+    {
+     "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/2013-march-quick-look/",
+     "status": 404
+    }
+   ]
+  }
+ },
+ "oni_jja_last_year": 2026,
+ "el_nino_jja_years": [
+  1951,
+  1953,
+  1957,
+  1963,
+  1965,
+  1972,
+  1982,
+  1987,
+  1991,
+  1997,
+  2002,
+  2009,
+  2015,
+  2023,
+  2026
+ ],
+ "la_nina_jja_years": [
+  1950,
+  1954,
+  1955,
+  1956,
+  1964,
+  1970,
+  1971,
+  1973,
+  1975,
+  1988,
+  1998,
+  1999,
+  2010,
+  2022
+ ],
+ "nmme_files_with_nan": [
+  "CFSv2 2017-02",
+  "CFSv2 2017-03"
+ ],
+ "nmme_target0_check_annual_cycle_shape": {
+  "CFSv2 01": {
+   "target0=M": 0.92,
+   "target0=M+1": 0.722
+  },
+  "CFSv2 02": {
+   "target0=M": 0.964,
+   "target0=M+1": 0.742
+  },
+  "CFSv2 03": {
+   "target0=M": 0.899,
+   "target0=M+1": 0.671
+  },
+  "CanCM4i 01": {
+   "target0=M": 0.815,
+   "target0=M+1": 0.752
+  },
+  "CanCM4i 02": {
+   "target0=M": 0.921,
+   "target0=M+1": 0.859
+  },
+  "CanCM4i 03": {
+   "target0=M": 0.951,
+   "target0=M+1": 0.813
+  },
+  "GEM5_NEMO 01": {
+   "target0=M": 0.479,
+   "target0=M+1": 0.745
+  },
+  "GEM5_NEMO 02": {
+   "target0=M": 0.698,
+   "target0=M+1": 0.928
+  },
+  "GEM5_NEMO 03": {
+   "target0=M": 0.879,
+   "target0=M+1": 0.92
+  },
+  "GFDL_SPEAR 01": {
+   "target0=M": 0.928,
+   "target0=M+1": 0.928
+  },
+  "GFDL_SPEAR 02": {
+   "target0=M": 0.951,
+   "target0=M+1": 0.935
+  },
+  "GFDL_SPEAR 03": {
+   "target0=M": 0.978,
+   "target0=M+1": 0.869
+  },
+  "NASA_GEOS5v2 01": {
+   "target0=M": 0.84,
+   "target0=M+1": 0.29
+  },
+  "NASA_GEOS5v2 02": {
+   "target0=M": 0.887,
+   "target0=M+1": 0.428
+  },
+  "NASA_GEOS5v2 03": {
+   "target0=M": 0.764,
+   "target0=M+1": 0.437
+  },
+  "NCAR_CCSM4 01": {
+   "target0=M": 0.843,
+   "target0=M+1": 0.518
+  },
+  "NCAR_CCSM4 02": {
+   "target0=M": 0.776,
+   "target0=M+1": 0.564
+  },
+  "NCAR_CCSM4 03": {
+   "target0=M": 0.608,
+   "target0=M+1": 0.483
+  }
+ },
+ "nmme_target0_shift": 0,
+ "nmme_target0_votes_for_M": "14/18",
+ "iri_svg_read": {
+  "2003-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2003",
+   "ambiguous": [],
+   "n_models": 17,
+   "calibration": "reference_lines",
+   "y_labels_agree": false
+  },
+  "2003-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2003",
+   "ambiguous": [],
+   "n_models": 17,
+   "calibration": "reference_lines",
+   "y_labels_agree": false
+  },
+  "2003-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2003",
+   "ambiguous": [],
+   "n_models": 18,
+   "calibration": "reference_lines",
+   "y_labels_agree": false
+  },
+  "2004-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2004",
+   "ambiguous": [],
+   "n_models": 22,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2004-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2004",
+   "ambiguous": [],
+   "n_models": 22,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2004-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2004",
+   "ambiguous": [],
+   "n_models": 22,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2005-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2005",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2005-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2005",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2005-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2005",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2006-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2006",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2006-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2006",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2006-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2006",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2007-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2007",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2007-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2007",
+   "ambiguous": [],
+   "n_models": 23,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2007-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2007",
+   "ambiguous": [],
+   "n_models": 24,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2008-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2008",
+   "ambiguous": [],
+   "n_models": 25,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2008-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2008",
+   "ambiguous": [],
+   "n_models": 25,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2008-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2008",
+   "ambiguous": [],
+   "n_models": 25,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2009-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2009",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2009-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2009",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2009-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2009",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2010-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2010",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2010-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2010",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2010-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2010",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2011-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2011",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2011-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2011",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2011-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2011",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2012-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2012",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2012-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2012",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2012-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2012",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2013-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2013",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2013-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2013",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2013-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2013",
+   "ambiguous": [],
+   "n_models": 27,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2014-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2014",
+   "ambiguous": [],
+   "n_models": 25,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2014-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2014",
+   "ambiguous": [],
+   "n_models": 27,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2014-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2014",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2015-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2015",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2015-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2015",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2015-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2015",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2016-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2016",
+   "ambiguous": [
+    {
+     "model": "CPC CONSOL",
+     "lines": 0,
+     "in_legend": 1
+    }
+   ],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2016-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2016",
+   "ambiguous": [
+    {
+     "model": "CPC CONSOL",
+     "lines": 0,
+     "in_legend": 1
+    }
+   ],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2016-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2016",
+   "ambiguous": [
+    {
+     "model": "CPC CONSOL",
+     "lines": 0,
+     "in_legend": 1
+    }
+   ],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2017-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2017",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2017-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2017",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2017-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2017",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2018-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2018",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2018-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2018",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2018-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2018",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2019-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2019",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2019-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2019",
+   "ambiguous": [],
+   "n_models": 31,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2019-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2019",
+   "ambiguous": [],
+   "n_models": 31,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2020-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2020",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2020-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2020",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2020-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2020",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2021-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2021",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2021-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2021",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2021-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2021",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2022-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2022",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2022-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2022",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2022-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2022",
+   "ambiguous": [],
+   "n_models": 27,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2023-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2023",
+   "ambiguous": [],
+   "n_models": 27,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2023-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2023",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2023-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2023",
+   "ambiguous": [],
+   "n_models": 26,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2024-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2024",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2024-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2024",
+   "ambiguous": [],
+   "n_models": 29,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2024-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2024",
+   "ambiguous": [],
+   "n_models": 30,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2025-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2025",
+   "ambiguous": [],
+   "n_models": 31,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2025-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2025",
+   "ambiguous": [],
+   "n_models": 31,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2025-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2025",
+   "ambiguous": [],
+   "n_models": 32,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2026-01": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Jan 2026",
+   "ambiguous": [],
+   "n_models": 28,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2026-02": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Feb 2026",
+   "ambiguous": [],
+   "n_models": 25,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  },
+  "2026-03": {
+   "title": "CCSR/IRI Model Predictions of ENSO from Mar 2026",
+   "ambiguous": [],
+   "n_models": 27,
+   "calibration": "reference_lines",
+   "y_labels_agree": true
+  }
+ },
+ "iri_svg_y_labels_disagree": [
+  "2003-01",
+  "2003-02",
+  "2003-03"
+ ],
+ "cpc_synopses_2026": {
+  "jan2026": "La Niña persists, followed by a 75% chance of a transition to ENSO-neutral during January-March 2026. ENSO-neutral is likely through at least Northern Hemisphere late spring 2026.",
+  "feb2026": "A transition from La Niña to ENSO-neutral is expected in February-April 2026 (60% chance), with ENSO-neutral likely persisting through the Northern Hemisphere summer (56% chance in June-August 2026). La Niña continued in January 2026, with below-average sea surface temperatures (SSTs) observed in the east-central equatorial Pacific Ocean [Fig.",
+  "mar2026": "A transition from La Niña to ENSO-neutral is expected in the next month, with ENSO-neutral favored through May-July 2026 (55% chance). In June-August 2026, El Niño is likely to emerge (62% chance) and persist through at least the end of 2026."
+ },
+ "metrics": [
+  {
+   "source": "IRI plume: CPC CONSOL",
+   "issue": "jan",
+   "phase_hit_rate": 0.67,
+   "always_neutral_hit_rate": 0.67,
+   "obs_EN": 2,
+   "fcst_EN": 0,
+   "hits_EN": 0,
+   "POD_EN": 0.0,
+   "FAR_EN": null,
+   "obs_LN": 1,
+   "fcst_LN": 0,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": null,
+   "n": 9,
+   "r": 0.3,
+   "years": "2015-2024"
+  },
+  {
+   "source": "IRI plume: CPC CONSOL",
+   "issue": "feb",
+   "phase_hit_rate": 0.56,
+   "always_neutral_hit_rate": 0.67,
+   "obs_EN": 2,
+   "fcst_EN": 0,
+   "hits_EN": 0,
+   "POD_EN": 0.0,
+   "FAR_EN": null,
+   "obs_LN": 1,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 9,
+   "r": 0.55,
+   "years": "2015-2024"
+  },
+  {
+   "source": "IRI plume: CPC CONSOL",
+   "issue": "mar",
+   "phase_hit_rate": 0.56,
+   "always_neutral_hit_rate": 0.67,
+   "obs_EN": 2,
+   "fcst_EN": 2,
+   "hits_EN": 1,
+   "POD_EN": 0.5,
+   "FAR_EN": 0.5,
+   "obs_LN": 1,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 9,
+   "r": 0.65,
+   "years": "2015-2024"
+  },
+  {
+   "source": "IRI plume: NASA GMAO",
+   "issue": "jan",
+   "phase_hit_rate": 0.62,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 7,
+   "hits_EN": 4,
+   "POD_EN": 1.0,
+   "FAR_EN": 0.43,
+   "obs_LN": 2,
+   "fcst_LN": 6,
+   "hits_LN": 1,
+   "POD_LN": 0.5,
+   "FAR_LN": 0.83,
+   "n": 24,
+   "r": 0.66,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: NASA GMAO",
+   "issue": "feb",
+   "phase_hit_rate": 0.5,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 10,
+   "hits_EN": 4,
+   "POD_EN": 1.0,
+   "FAR_EN": 0.6,
+   "obs_LN": 2,
+   "fcst_LN": 6,
+   "hits_LN": 1,
+   "POD_LN": 0.5,
+   "FAR_LN": 0.83,
+   "n": 24,
+   "r": 0.54,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: NASA GMAO",
+   "issue": "mar",
+   "phase_hit_rate": 0.5,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 9,
+   "hits_EN": 4,
+   "POD_EN": 1.0,
+   "FAR_EN": 0.56,
+   "obs_LN": 2,
+   "fcst_LN": 9,
+   "hits_LN": 2,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.78,
+   "n": 24,
+   "r": 0.66,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of all models",
+   "issue": "jan",
+   "phase_hit_rate": 0.75,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 2,
+   "hits_EN": 1,
+   "POD_EN": 0.25,
+   "FAR_EN": 0.5,
+   "obs_LN": 2,
+   "fcst_LN": 0,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": null,
+   "n": 24,
+   "r": 0.44,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of all models",
+   "issue": "feb",
+   "phase_hit_rate": 0.75,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 5,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.4,
+   "obs_LN": 2,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 24,
+   "r": 0.59,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of all models",
+   "issue": "mar",
+   "phase_hit_rate": 0.75,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 5,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.4,
+   "obs_LN": 2,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 24,
+   "r": 0.71,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of dynamical models",
+   "issue": "jan",
+   "phase_hit_rate": 0.67,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 6,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.5,
+   "obs_LN": 2,
+   "fcst_LN": 2,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 24,
+   "r": 0.48,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of dynamical models",
+   "issue": "feb",
+   "phase_hit_rate": 0.67,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.57,
+   "obs_LN": 2,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 24,
+   "r": 0.66,
+   "years": "2003-2026"
+  },
+  {
+   "source": "IRI plume: mean of dynamical models",
+   "issue": "mar",
+   "phase_hit_rate": 0.67,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 4,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.57,
+   "obs_LN": 2,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 24,
+   "r": 0.77,
+   "years": "2003-2026"
+  },
+  {
+   "source": "NMME CFSv2",
+   "issue": "jan",
+   "phase_hit_rate": 0.54,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 6,
+   "hits_EN": 2,
+   "POD_EN": 0.29,
+   "FAR_EN": 0.67,
+   "obs_LN": 5,
+   "fcst_LN": 13,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.69,
+   "n": 41,
+   "r": 0.54,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME CFSv2",
+   "issue": "feb",
+   "phase_hit_rate": 0.55,
+   "always_neutral_hit_rate": 0.7,
+   "obs_EN": 7,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.57,
+   "obs_LN": 5,
+   "fcst_LN": 13,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.69,
+   "n": 40,
+   "r": 0.5,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME CFSv2",
+   "issue": "mar",
+   "phase_hit_rate": 0.42,
+   "always_neutral_hit_rate": 0.7,
+   "obs_EN": 7,
+   "fcst_EN": 9,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.67,
+   "obs_LN": 5,
+   "fcst_LN": 16,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.75,
+   "n": 40,
+   "r": 0.54,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME CanCM4i",
+   "issue": "jan",
+   "phase_hit_rate": 0.44,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 14,
+   "hits_EN": 5,
+   "POD_EN": 0.71,
+   "FAR_EN": 0.64,
+   "obs_LN": 5,
+   "fcst_LN": 14,
+   "hits_LN": 3,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.79,
+   "n": 41,
+   "r": 0.61,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME CanCM4i",
+   "issue": "feb",
+   "phase_hit_rate": 0.63,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 10,
+   "hits_EN": 4,
+   "POD_EN": 0.57,
+   "FAR_EN": 0.6,
+   "obs_LN": 5,
+   "fcst_LN": 9,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.56,
+   "n": 41,
+   "r": 0.66,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME CanCM4i",
+   "issue": "mar",
+   "phase_hit_rate": 0.51,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 11,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.73,
+   "obs_LN": 5,
+   "fcst_LN": 11,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.64,
+   "n": 41,
+   "r": 0.75,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME GEM5_NEMO",
+   "issue": "jan",
+   "phase_hit_rate": 0.55,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 5,
+   "fcst_EN": 6,
+   "hits_EN": 2,
+   "POD_EN": 0.4,
+   "FAR_EN": 0.67,
+   "obs_LN": 4,
+   "fcst_LN": 5,
+   "hits_LN": 1,
+   "POD_LN": 0.25,
+   "FAR_LN": 0.8,
+   "n": 31,
+   "r": 0.58,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME GEM5_NEMO",
+   "issue": "feb",
+   "phase_hit_rate": 0.45,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 5,
+   "fcst_EN": 8,
+   "hits_EN": 2,
+   "POD_EN": 0.4,
+   "FAR_EN": 0.75,
+   "obs_LN": 4,
+   "fcst_LN": 8,
+   "hits_LN": 2,
+   "POD_LN": 0.5,
+   "FAR_LN": 0.75,
+   "n": 31,
+   "r": 0.68,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME GEM5_NEMO",
+   "issue": "mar",
+   "phase_hit_rate": 0.61,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 5,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.6,
+   "FAR_EN": 0.57,
+   "obs_LN": 4,
+   "fcst_LN": 8,
+   "hits_LN": 3,
+   "POD_LN": 0.75,
+   "FAR_LN": 0.62,
+   "n": 31,
+   "r": 0.69,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME GFDL_SPEAR",
+   "issue": "jan",
+   "phase_hit_rate": 0.5,
+   "always_neutral_hit_rate": 0.72,
+   "obs_EN": 5,
+   "fcst_EN": 6,
+   "hits_EN": 2,
+   "POD_EN": 0.4,
+   "FAR_EN": 0.67,
+   "obs_LN": 4,
+   "fcst_LN": 5,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 32,
+   "r": 0.36,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME GFDL_SPEAR",
+   "issue": "feb",
+   "phase_hit_rate": 0.62,
+   "always_neutral_hit_rate": 0.72,
+   "obs_EN": 5,
+   "fcst_EN": 8,
+   "hits_EN": 4,
+   "POD_EN": 0.8,
+   "FAR_EN": 0.5,
+   "obs_LN": 4,
+   "fcst_LN": 5,
+   "hits_LN": 1,
+   "POD_LN": 0.25,
+   "FAR_LN": 0.8,
+   "n": 32,
+   "r": 0.4,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME GFDL_SPEAR",
+   "issue": "mar",
+   "phase_hit_rate": 0.62,
+   "always_neutral_hit_rate": 0.72,
+   "obs_EN": 5,
+   "fcst_EN": 6,
+   "hits_EN": 3,
+   "POD_EN": 0.6,
+   "FAR_EN": 0.5,
+   "obs_LN": 4,
+   "fcst_LN": 7,
+   "hits_LN": 2,
+   "POD_LN": 0.5,
+   "FAR_LN": 0.71,
+   "n": 32,
+   "r": 0.48,
+   "years": "1991-2022"
+  },
+  {
+   "source": "NMME NASA_GEOS5v2",
+   "issue": "jan",
+   "phase_hit_rate": 0.54,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 6,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.5,
+   "obs_LN": 5,
+   "fcst_LN": 17,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.76,
+   "n": 41,
+   "r": 0.51,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME NASA_GEOS5v2",
+   "issue": "feb",
+   "phase_hit_rate": 0.56,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 10,
+   "hits_EN": 4,
+   "POD_EN": 0.57,
+   "FAR_EN": 0.6,
+   "obs_LN": 5,
+   "fcst_LN": 12,
+   "hits_LN": 4,
+   "POD_LN": 0.8,
+   "FAR_LN": 0.67,
+   "n": 41,
+   "r": 0.77,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME NASA_GEOS5v2",
+   "issue": "mar",
+   "phase_hit_rate": 0.49,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 12,
+   "hits_EN": 4,
+   "POD_EN": 0.57,
+   "FAR_EN": 0.67,
+   "obs_LN": 5,
+   "fcst_LN": 15,
+   "hits_LN": 5,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.67,
+   "n": 41,
+   "r": 0.74,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME NCAR_CCSM4",
+   "issue": "jan",
+   "phase_hit_rate": 0.54,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 10,
+   "hits_EN": 4,
+   "POD_EN": 0.57,
+   "FAR_EN": 0.6,
+   "obs_LN": 5,
+   "fcst_LN": 12,
+   "hits_LN": 3,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.75,
+   "n": 41,
+   "r": 0.58,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME NCAR_CCSM4",
+   "issue": "feb",
+   "phase_hit_rate": 0.61,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 10,
+   "hits_EN": 5,
+   "POD_EN": 0.71,
+   "FAR_EN": 0.5,
+   "obs_LN": 5,
+   "fcst_LN": 10,
+   "hits_LN": 3,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.7,
+   "n": 41,
+   "r": 0.6,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME NCAR_CCSM4",
+   "issue": "mar",
+   "phase_hit_rate": 0.63,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.57,
+   "obs_LN": 5,
+   "fcst_LN": 12,
+   "hits_LN": 5,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.58,
+   "n": 41,
+   "r": 0.66,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean",
+   "issue": "jan",
+   "phase_hit_rate": 0.56,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 7,
+   "hits_EN": 3,
+   "POD_EN": 0.43,
+   "FAR_EN": 0.57,
+   "obs_LN": 5,
+   "fcst_LN": 11,
+   "hits_LN": 3,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.73,
+   "n": 41,
+   "r": 0.65,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean",
+   "issue": "feb",
+   "phase_hit_rate": 0.63,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 8,
+   "hits_EN": 5,
+   "POD_EN": 0.71,
+   "FAR_EN": 0.38,
+   "obs_LN": 5,
+   "fcst_LN": 11,
+   "hits_LN": 3,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.73,
+   "n": 41,
+   "r": 0.75,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean",
+   "issue": "mar",
+   "phase_hit_rate": 0.51,
+   "always_neutral_hit_rate": 0.71,
+   "obs_EN": 7,
+   "fcst_EN": 6,
+   "hits_EN": 2,
+   "POD_EN": 0.29,
+   "FAR_EN": 0.67,
+   "obs_LN": 5,
+   "fcst_LN": 16,
+   "hits_LN": 5,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.69,
+   "n": 41,
+   "r": 0.76,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean (2003-2022 only)",
+   "issue": "jan",
+   "phase_hit_rate": 0.7,
+   "always_neutral_hit_rate": 0.8,
+   "obs_EN": 2,
+   "fcst_EN": 4,
+   "hits_EN": 2,
+   "POD_EN": 1.0,
+   "FAR_EN": 0.5,
+   "obs_LN": 2,
+   "fcst_LN": 2,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 20,
+   "r": 0.61,
+   "years": "2003-2022"
+  },
+  {
+   "source": "NMME mean vs observed, fixed 1991-2020 base",
+   "issue": "jan",
+   "phase_hit_rate": 0.61,
+   "always_neutral_hit_rate": 0.61,
+   "obs_EN": 6,
+   "fcst_EN": 7,
+   "hits_EN": 2,
+   "POD_EN": 0.33,
+   "FAR_EN": 0.71,
+   "obs_LN": 10,
+   "fcst_LN": 11,
+   "hits_LN": 7,
+   "POD_LN": 0.7,
+   "FAR_LN": 0.36,
+   "n": 41,
+   "r": 0.67,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean (2003-2022 only)",
+   "issue": "feb",
+   "phase_hit_rate": 0.55,
+   "always_neutral_hit_rate": 0.8,
+   "obs_EN": 2,
+   "fcst_EN": 4,
+   "hits_EN": 2,
+   "POD_EN": 1.0,
+   "FAR_EN": 0.5,
+   "obs_LN": 2,
+   "fcst_LN": 5,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 20,
+   "r": 0.69,
+   "years": "2003-2022"
+  },
+  {
+   "source": "NMME mean vs observed, fixed 1991-2020 base",
+   "issue": "feb",
+   "phase_hit_rate": 0.63,
+   "always_neutral_hit_rate": 0.61,
+   "obs_EN": 6,
+   "fcst_EN": 8,
+   "hits_EN": 4,
+   "POD_EN": 0.67,
+   "FAR_EN": 0.5,
+   "obs_LN": 10,
+   "fcst_LN": 11,
+   "hits_LN": 6,
+   "POD_LN": 0.6,
+   "FAR_LN": 0.45,
+   "n": 41,
+   "r": 0.76,
+   "years": "1982-2022"
+  },
+  {
+   "source": "NMME mean (2003-2022 only)",
+   "issue": "mar",
+   "phase_hit_rate": 0.55,
+   "always_neutral_hit_rate": 0.8,
+   "obs_EN": 2,
+   "fcst_EN": 4,
+   "hits_EN": 1,
+   "POD_EN": 0.5,
+   "FAR_EN": 0.75,
+   "obs_LN": 2,
+   "fcst_LN": 7,
+   "hits_LN": 2,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.71,
+   "n": 20,
+   "r": 0.75,
+   "years": "2003-2022"
+  },
+  {
+   "source": "NMME mean vs observed, fixed 1991-2020 base",
+   "issue": "mar",
+   "phase_hit_rate": 0.61,
+   "always_neutral_hit_rate": 0.61,
+   "obs_EN": 6,
+   "fcst_EN": 6,
+   "hits_EN": 2,
+   "POD_EN": 0.33,
+   "FAR_EN": 0.67,
+   "obs_LN": 10,
+   "fcst_LN": 16,
+   "hits_LN": 9,
+   "POD_LN": 0.9,
+   "FAR_LN": 0.44,
+   "n": 41,
+   "r": 0.78,
+   "years": "1982-2022"
+  },
+  {
+   "source": "IRI objective probability",
+   "issue": "jan",
+   "phase_hit_rate": 0.83,
+   "always_neutral_hit_rate": 0.74,
+   "obs_EN": 4,
+   "fcst_EN": 4,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.25,
+   "obs_LN": 2,
+   "fcst_LN": 0,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": null,
+   "n": 23,
+   "r": null,
+   "years": "2004-2026",
+   "mean_p_el_nino_in_el_nino_years": 44.2,
+   "mean_p_el_nino_in_other_years": 26.0
+  },
+  {
+   "source": "IRI objective probability",
+   "issue": "feb",
+   "phase_hit_rate": 0.7,
+   "always_neutral_hit_rate": 0.74,
+   "obs_EN": 4,
+   "fcst_EN": 5,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.4,
+   "obs_LN": 2,
+   "fcst_LN": 2,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 23,
+   "r": null,
+   "years": "2004-2026",
+   "mean_p_el_nino_in_el_nino_years": 51.8,
+   "mean_p_el_nino_in_other_years": 25.9
+  },
+  {
+   "source": "IRI objective probability",
+   "issue": "mar",
+   "phase_hit_rate": 0.65,
+   "always_neutral_hit_rate": 0.74,
+   "obs_EN": 4,
+   "fcst_EN": 6,
+   "hits_EN": 3,
+   "POD_EN": 0.75,
+   "FAR_EN": 0.5,
+   "obs_LN": 2,
+   "fcst_LN": 2,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 23,
+   "r": null,
+   "years": "2004-2026",
+   "mean_p_el_nino_in_el_nino_years": 60.2,
+   "mean_p_el_nino_in_other_years": 26.2
+  },
+  {
+   "source": "CPC/IRI official (consensus)",
+   "issue": "jan",
+   "phase_hit_rate": 0.58,
+   "always_neutral_hit_rate": 0.75,
+   "obs_EN": 2,
+   "fcst_EN": 1,
+   "hits_EN": 0,
+   "POD_EN": 0.0,
+   "FAR_EN": 1.0,
+   "obs_LN": 1,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 12,
+   "r": null,
+   "years": "2014-2025",
+   "mean_p_el_nino_in_el_nino_years": 39.5,
+   "mean_p_el_nino_in_other_years": 24.5
+  },
+  {
+   "source": "CPC/IRI official (consensus)",
+   "issue": "feb",
+   "phase_hit_rate": 0.69,
+   "always_neutral_hit_rate": 0.69,
+   "obs_EN": 3,
+   "fcst_EN": 1,
+   "hits_EN": 1,
+   "POD_EN": 0.33,
+   "FAR_EN": 0.0,
+   "obs_LN": 1,
+   "fcst_LN": 1,
+   "hits_LN": 0,
+   "POD_LN": 0.0,
+   "FAR_LN": 1.0,
+   "n": 13,
+   "r": null,
+   "years": "2014-2026",
+   "mean_p_el_nino_in_el_nino_years": 47.0,
+   "mean_p_el_nino_in_other_years": 23.3
+  },
+  {
+   "source": "CPC/IRI official (consensus)",
+   "issue": "mar",
+   "phase_hit_rate": 0.77,
+   "always_neutral_hit_rate": 0.69,
+   "obs_EN": 3,
+   "fcst_EN": 3,
+   "hits_EN": 2,
+   "POD_EN": 0.67,
+   "FAR_EN": 0.33,
+   "obs_LN": 1,
+   "fcst_LN": 2,
+   "hits_LN": 1,
+   "POD_LN": 1.0,
+   "FAR_LN": 0.5,
+   "n": 13,
+   "r": null,
+   "years": "2014-2026",
+   "mean_p_el_nino_in_el_nino_years": 51.5,
+   "mean_p_el_nino_in_other_years": 23.5
+  }
+ ],
+ "cases": [
+  {
+   "year": 2002,
+   "oni_jja": 0.57
+  },
+  {
+   "year": 2009,
+   "oni_jja": 0.5,
+   "IRI plume: mean of all models|jan": -0.15,
+   "IRI plume: mean of dynamical models|jan": -0.03,
+   "IRI plume: NASA GMAO|jan": 1.05,
+   "IRI objective probability|jan": "25/50/25",
+   "IRI plume: mean of all models|feb": -0.08,
+   "IRI plume: mean of dynamical models|feb": 0.08,
+   "IRI plume: NASA GMAO|feb": 1.19,
+   "IRI objective probability|feb": "25/50/25",
+   "IRI plume: mean of all models|mar": -0.05,
+   "IRI plume: mean of dynamical models|mar": 0.15,
+   "IRI plume: NASA GMAO|mar": 1.78,
+   "IRI objective probability|mar": "25/50/25"
+  },
+  {
+   "year": 2010,
+   "oni_jja": -0.98,
+   "IRI plume: mean of all models|jan": 0.3,
+   "IRI plume: mean of dynamical models|jan": 0.35,
+   "IRI plume: NASA GMAO|jan": -0.06,
+   "IRI objective probability|jan": "22/48/30",
+   "IRI plume: mean of all models|feb": 0.18,
+   "IRI plume: mean of dynamical models|feb": 0.16,
+   "IRI plume: NASA GMAO|feb": -0.27,
+   "IRI objective probability|feb": "22/50/28",
+   "IRI plume: mean of all models|mar": 0.02,
+   "IRI plume: mean of dynamical models|mar": -0.02,
+   "IRI plume: NASA GMAO|mar": -0.9,
+   "IRI objective probability|mar": "17/58/25"
+  },
+  {
+   "year": 2015,
+   "oni_jja": 1.44,
+   "IRI plume: mean of all models|jan": 0.46,
+   "IRI plume: mean of dynamical models|jan": 0.69,
+   "IRI plume: NASA GMAO|jan": 0.65,
+   "IRI plume: CPC CONSOL|jan": 0.22,
+   "IRI objective probability|jan": "6/44/50",
+   "CPC/IRI official (consensus)|jan": "7/53/40",
+   "IRI plume: mean of all models|feb": 0.65,
+   "IRI plume: mean of dynamical models|feb": 0.94,
+   "IRI plume: NASA GMAO|feb": 1.18,
+   "IRI plume: CPC CONSOL|feb": 0.26,
+   "IRI objective probability|feb": "3/36/61",
+   "CPC/IRI official (consensus)|feb": "7/48/45",
+   "IRI plume: mean of all models|mar": 0.77,
+   "IRI plume: mean of dynamical models|mar": 1.07,
+   "IRI plume: NASA GMAO|mar": 1.61,
+   "IRI plume: CPC CONSOL|mar": 0.5,
+   "IRI objective probability|mar": "1/27/72",
+   "CPC/IRI official (consensus)|mar": "4/41/55"
+  },
+  {
+   "year": 2022,
+   "oni_jja": -0.7,
+   "IRI plume: mean of all models|jan": 0.01,
+   "IRI plume: mean of dynamical models|jan": 0.14,
+   "IRI plume: NASA GMAO|jan": -1.265,
+   "IRI plume: CPC CONSOL|jan": 0.08,
+   "IRI objective probability|jan": "22/57/21",
+   "CPC/IRI official (consensus)|jan": "30/56/14",
+   "IRI plume: mean of all models|feb": -0.03,
+   "IRI plume: mean of dynamical models|feb": -0.05,
+   "IRI plume: NASA GMAO|feb": -1.117,
+   "IRI plume: CPC CONSOL|feb": -0.02,
+   "IRI objective probability|feb": "27/59/14",
+   "CPC/IRI official (consensus)|feb": "35/57/8",
+   "IRI plume: mean of all models|mar": -0.26,
+   "IRI plume: mean of dynamical models|mar": -0.32,
+   "IRI plume: NASA GMAO|mar": -1.508,
+   "IRI plume: CPC CONSOL|mar": -0.22,
+   "IRI objective probability|mar": "37/56/7",
+   "CPC/IRI official (consensus)|mar": "53/45/2"
+  },
+  {
+   "year": 2023,
+   "oni_jja": 1.0,
+   "IRI plume: mean of all models|jan": 0.62,
+   "IRI plume: mean of dynamical models|jan": 0.76,
+   "IRI plume: NASA GMAO|jan": 1.303,
+   "IRI plume: CPC CONSOL|jan": 0.24,
+   "IRI objective probability|jan": "5/41/54",
+   "CPC/IRI official (consensus)|jan": "10/51/39",
+   "IRI plume: mean of all models|feb": 0.68,
+   "IRI plume: mean of dynamical models|feb": 0.85,
+   "IRI plume: NASA GMAO|feb": 1.047,
+   "IRI plume: CPC CONSOL|feb": 0.26,
+   "IRI objective probability|feb": "2/35/63",
+   "CPC/IRI official (consensus)|feb": "4/47/49",
+   "IRI plume: mean of all models|mar": 0.69,
+   "IRI plume: mean of dynamical models|mar": 0.84,
+   "IRI plume: NASA GMAO|mar": 0.934,
+   "IRI plume: CPC CONSOL|mar": 0.36,
+   "IRI objective probability|mar": "1/35/64",
+   "CPC/IRI official (consensus)|mar": "3/49/48"
+  },
+  {
+   "year": 2026,
+   "oni_jja": 1.8,
+   "IRI plume: mean of all models|jan": 0.41,
+   "IRI plume: mean of dynamical models|jan": 0.62,
+   "IRI plume: NASA GMAO|jan": 1.086,
+   "IRI objective probability|jan": "6/46/48",
+   "IRI plume: mean of all models|feb": 0.6,
+   "IRI plume: mean of dynamical models|feb": 0.78,
+   "IRI plume: NASA GMAO|feb": 1.016,
+   "IRI objective probability|feb": "3/39/58",
+   "CPC/IRI official (consensus)|feb": "N 56% (synopsis)",
+   "IRI plume: mean of all models|mar": 0.89,
+   "IRI plume: mean of dynamical models|mar": 1.18,
+   "IRI plume: NASA GMAO|mar": 1.472,
+   "IRI objective probability|mar": "0/20/80",
+   "CPC/IRI official (consensus)|mar": "EN 62% (synopsis)"
+  }
+ ]
+}

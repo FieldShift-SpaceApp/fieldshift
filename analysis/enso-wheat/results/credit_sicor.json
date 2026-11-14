@@ -1,0 +1,1220 @@
+{
+ "license": "ODbL 1.0 (derived from BCB SICOR, Matriz de Dados do Credito Rural)",
+ "sources": {
+  "sicor_trigo": {
+   "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto (filter codIbge + nomeProduto ~ TRIGO)",
+   "accessed_utc": "2026-11-14T23:04:19+00:00"
+  },
+  "sicor_aveia": {
+   "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto (filter codIbge + nomeProduto ~ AVEIA)",
+   "accessed_utc": "2026-11-14T23:04:21+00:00"
+  },
+  "sicor_cevada": {
+   "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto (filter codIbge + nomeProduto ~ CEVADA)",
+   "accessed_utc": "2026-11-14T23:04:23+00:00"
+  },
+  "sicor_canola": {
+   "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto (filter codIbge + nomeProduto ~ CANOLA)",
+   "accessed_utc": "2026-11-14T23:04:26+00:00"
+  },
+  "bcb_sgs_433_ipca": {
+   "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json",
+   "accessed_utc": "2026-11-14T23:39:02+00:00"
+  }
+ },
+ "municipalities": 18,
+ "rule": "calendar year of issue; real values in BRL of Dec/2025 (IPCA, SGS 433)",
+ "wheat": {
+  "products_matched": [
+   "\"TRIGO\""
+  ],
+  "series": [
+   {
+    "year": 2013,
+    "rows": 633,
+    "nominal_brl": 201867895,
+    "real_brl_dec2025": 403337760,
+    "area_ha": 0
+   },
+   {
+    "year": 2014,
+    "rows": 796,
+    "nominal_brl": 248147248,
+    "real_brl_dec2025": 468826939,
+    "area_ha": 0,
+    "change_nominal_pct": 22.9,
+    "change_real_pct": 16.2,
+    "change_area_pct": null
+   },
+   {
+    "year": 2015,
+    "rows": 572,
+    "nominal_brl": 176626350,
+    "real_brl_dec2025": 307824744,
+    "area_ha": 2301,
+    "change_nominal_pct": -28.8,
+    "change_real_pct": -34.3,
+    "change_area_pct": null
+   },
+   {
+    "year": 2016,
+    "rows": 401,
+    "nominal_brl": 77836828,
+    "real_brl_dec2025": 123488516,
+    "area_ha": 60078,
+    "change_nominal_pct": -55.9,
+    "change_real_pct": -59.9,
+    "change_area_pct": 2510.9
+   },
+   {
+    "year": 2017,
+    "rows": 465,
+    "nominal_brl": 112675709,
+    "real_brl_dec2025": 172532171,
+    "area_ha": 89178,
+    "change_nominal_pct": 44.8,
+    "change_real_pct": 39.7,
+    "change_area_pct": 48.4
+   },
+   {
+    "year": 2018,
+    "rows": 444,
+    "nominal_brl": 105019319,
+    "real_brl_dec2025": 155829201,
+    "area_ha": 80450,
+    "change_nominal_pct": -6.8,
+    "change_real_pct": -9.7,
+    "change_area_pct": -9.8
+   },
+   {
+    "year": 2019,
+    "rows": 592,
+    "nominal_brl": 133844318,
+    "real_brl_dec2025": 190312095,
+    "area_ha": 86407,
+    "change_nominal_pct": 27.4,
+    "change_real_pct": 22.1,
+    "change_area_pct": 7.4
+   },
+   {
+    "year": 2020,
+    "rows": 697,
+    "nominal_brl": 232479799,
+    "real_brl_dec2025": 322243883,
+    "area_ha": 134908,
+    "change_nominal_pct": 73.7,
+    "change_real_pct": 69.3,
+    "change_area_pct": 56.1
+   },
+   {
+    "year": 2021,
+    "rows": 811,
+    "nominal_brl": 363020616,
+    "real_brl_dec2025": 470395635,
+    "area_ha": 157825,
+    "change_nominal_pct": 56.2,
+    "change_real_pct": 46.0,
+    "change_area_pct": 17.0
+   },
+   {
+    "year": 2022,
+    "rows": 934,
+    "nominal_brl": 615685054,
+    "real_brl_dec2025": 714854836,
+    "area_ha": 170745,
+    "change_nominal_pct": 69.6,
+    "change_real_pct": 52.0,
+    "change_area_pct": 8.2
+   },
+   {
+    "year": 2023,
+    "rows": 974,
+    "nominal_brl": 618914365,
+    "real_brl_dec2025": 692860048,
+    "area_ha": 169824,
+    "change_nominal_pct": 0.5,
+    "change_real_pct": -3.1,
+    "change_area_pct": -0.5
+   },
+   {
+    "year": 2024,
+    "rows": 819,
+    "nominal_brl": 426770164,
+    "real_brl_dec2025": 457894846,
+    "area_ha": 134142,
+    "change_nominal_pct": -31.0,
+    "change_real_pct": -33.9,
+    "change_area_pct": -21.0
+   },
+   {
+    "year": 2025,
+    "rows": 744,
+    "nominal_brl": 282025804,
+    "real_brl_dec2025": 287686333,
+    "area_ha": 84934,
+    "change_nominal_pct": -33.9,
+    "change_real_pct": -37.2,
+    "change_area_pct": -36.7
+   },
+   {
+    "year": 2026,
+    "rows": 439,
+    "nominal_brl": 117425135,
+    "real_brl_dec2025": 114820030,
+    "area_ha": 37756,
+    "change_nominal_pct": -58.4,
+    "change_real_pct": -60.1,
+    "change_area_pct": -55.5
+   }
+  ],
+  "jan_oct": [
+   {
+    "year": 2013,
+    "area_ha": 0,
+    "real_brl_dec2025": 369752288
+   },
+   {
+    "year": 2014,
+    "area_ha": 0,
+    "real_brl_dec2025": 448050947
+   },
+   {
+    "year": 2015,
+    "area_ha": 2301,
+    "real_brl_dec2025": 307824744
+   },
+   {
+    "year": 2016,
+    "area_ha": 50284,
+    "real_brl_dec2025": 103221201,
+    "change_area_pct": 2085.3,
+    "change_real_pct": -66.5
+   },
+   {
+    "year": 2017,
+    "area_ha": 83698,
+    "real_brl_dec2025": 160971307,
+    "change_area_pct": 66.4,
+    "change_real_pct": 55.9
+   },
+   {
+    "year": 2018,
+    "area_ha": 75684,
+    "real_brl_dec2025": 146702635,
+    "change_area_pct": -9.6,
+    "change_real_pct": -8.9
+   },
+   {
+    "year": 2019,
+    "area_ha": 82196,
+    "real_brl_dec2025": 181075824,
+    "change_area_pct": 8.6,
+    "change_real_pct": 23.4
+   },
+   {
+    "year": 2020,
+    "area_ha": 129861,
+    "real_brl_dec2025": 308449672,
+    "change_area_pct": 58.0,
+    "change_real_pct": 70.3
+   },
+   {
+    "year": 2021,
+    "area_ha": 149486,
+    "real_brl_dec2025": 437214692,
+    "change_area_pct": 15.1,
+    "change_real_pct": 41.7
+   },
+   {
+    "year": 2022,
+    "area_ha": 152465,
+    "real_brl_dec2025": 633810924,
+    "change_area_pct": 2.0,
+    "change_real_pct": 45.0
+   },
+   {
+    "year": 2023,
+    "area_ha": 155964,
+    "real_brl_dec2025": 645168283,
+    "change_area_pct": 2.3,
+    "change_real_pct": 1.8
+   },
+   {
+    "year": 2024,
+    "area_ha": 126936,
+    "real_brl_dec2025": 433814192,
+    "change_area_pct": -18.6,
+    "change_real_pct": -32.8
+   },
+   {
+    "year": 2025,
+    "area_ha": 83015,
+    "real_brl_dec2025": 281173108,
+    "change_area_pct": -34.6,
+    "change_real_pct": -35.2
+   },
+   {
+    "year": 2026,
+    "area_ha": 37756,
+    "real_brl_dec2025": 114820030,
+    "change_area_pct": -54.5,
+    "change_real_pct": -59.2
+   }
+  ]
+ },
+ "oat": {
+  "products_matched": [
+   "\"AVEIA\""
+  ],
+  "series": [
+   {
+    "year": 2013,
+    "rows": 149,
+    "nominal_brl": 22823149,
+    "real_brl_dec2025": 45696324,
+    "area_ha": 0
+   },
+   {
+    "year": 2014,
+    "rows": 163,
+    "nominal_brl": 22561399,
+    "real_brl_dec2025": 42515127,
+    "area_ha": 0,
+    "change_nominal_pct": -1.1,
+    "change_real_pct": -7.0,
+    "change_area_pct": null
+   },
+   {
+    "year": 2015,
+    "rows": 233,
+    "nominal_brl": 32884202,
+    "real_brl_dec2025": 57266979,
+    "area_ha": 115,
+    "change_nominal_pct": 45.8,
+    "change_real_pct": 34.7,
+    "change_area_pct": null
+   },
+   {
+    "year": 2016,
+    "rows": 149,
+    "nominal_brl": 20839285,
+    "real_brl_dec2025": 33347909,
+    "area_ha": 22422,
+    "change_nominal_pct": -36.6,
+    "change_real_pct": -41.8,
+    "change_area_pct": 19465.5
+   },
+   {
+    "year": 2017,
+    "rows": 222,
+    "nominal_brl": 34675708,
+    "real_brl_dec2025": 53167032,
+    "area_ha": 37836,
+    "change_nominal_pct": 66.4,
+    "change_real_pct": 59.4,
+    "change_area_pct": 68.7
+   },
+   {
+    "year": 2018,
+    "rows": 224,
+    "nominal_brl": 29961213,
+    "real_brl_dec2025": 44543790,
+    "area_ha": 33716,
+    "change_nominal_pct": -13.6,
+    "change_real_pct": -16.2,
+    "change_area_pct": -10.9
+   },
+   {
+    "year": 2019,
+    "rows": 278,
+    "nominal_brl": 34440943,
+    "real_brl_dec2025": 48992570,
+    "area_ha": 33135,
+    "change_nominal_pct": 15.0,
+    "change_real_pct": 10.0,
+    "change_area_pct": -1.7
+   },
+   {
+    "year": 2020,
+    "rows": 268,
+    "nominal_brl": 41400646,
+    "real_brl_dec2025": 57359336,
+    "area_ha": 35900,
+    "change_nominal_pct": 20.2,
+    "change_real_pct": 17.1,
+    "change_area_pct": 8.3
+   },
+   {
+    "year": 2021,
+    "rows": 252,
+    "nominal_brl": 48227354,
+    "real_brl_dec2025": 62484385,
+    "area_ha": 33946,
+    "change_nominal_pct": 16.5,
+    "change_real_pct": 8.9,
+    "change_area_pct": -5.4
+   },
+   {
+    "year": 2022,
+    "rows": 270,
+    "nominal_brl": 58021255,
+    "real_brl_dec2025": 67555549,
+    "area_ha": 25208,
+    "change_nominal_pct": 20.3,
+    "change_real_pct": 8.1,
+    "change_area_pct": -25.7
+   },
+   {
+    "year": 2023,
+    "rows": 202,
+    "nominal_brl": 37738516,
+    "real_brl_dec2025": 42265596,
+    "area_ha": 16761,
+    "change_nominal_pct": -35.0,
+    "change_real_pct": -37.4,
+    "change_area_pct": -33.5
+   },
+   {
+    "year": 2024,
+    "rows": 246,
+    "nominal_brl": 48391925,
+    "real_brl_dec2025": 52090135,
+    "area_ha": 22451,
+    "change_nominal_pct": 28.2,
+    "change_real_pct": 23.2,
+    "change_area_pct": 33.9
+   },
+   {
+    "year": 2025,
+    "rows": 198,
+    "nominal_brl": 30250349,
+    "real_brl_dec2025": 30842208,
+    "area_ha": 13655,
+    "change_nominal_pct": -37.5,
+    "change_real_pct": -40.8,
+    "change_area_pct": -39.2
+   },
+   {
+    "year": 2026,
+    "rows": 152,
+    "nominal_brl": 22003025,
+    "real_brl_dec2025": 21518101,
+    "area_ha": 9845,
+    "change_nominal_pct": -27.3,
+    "change_real_pct": -30.2,
+    "change_area_pct": -27.9
+   }
+  ],
+  "jan_oct": [
+   {
+    "year": 2013,
+    "area_ha": 0,
+    "real_brl_dec2025": 45696324
+   },
+   {
+    "year": 2014,
+    "area_ha": 0,
+    "real_brl_dec2025": 42250712
+   },
+   {
+    "year": 2015,
+    "area_ha": 115,
+    "real_brl_dec2025": 57266979
+   },
+   {
+    "year": 2016,
+    "area_ha": 21502,
+    "real_brl_dec2025": 32276859,
+    "change_area_pct": 18662.7,
+    "change_real_pct": -43.6
+   },
+   {
+    "year": 2017,
+    "area_ha": 37242,
+    "real_brl_dec2025": 52280217,
+    "change_area_pct": 73.2,
+    "change_real_pct": 62.0
+   },
+   {
+    "year": 2018,
+    "area_ha": 33084,
+    "real_brl_dec2025": 43881638,
+    "change_area_pct": -11.2,
+    "change_real_pct": -16.1
+   },
+   {
+    "year": 2019,
+    "area_ha": 31633,
+    "real_brl_dec2025": 46670578,
+    "change_area_pct": -4.4,
+    "change_real_pct": 6.4
+   },
+   {
+    "year": 2020,
+    "area_ha": 34408,
+    "real_brl_dec2025": 54549107,
+    "change_area_pct": 8.8,
+    "change_real_pct": 16.9
+   },
+   {
+    "year": 2021,
+    "area_ha": 31247,
+    "real_brl_dec2025": 57281995,
+    "change_area_pct": -9.2,
+    "change_real_pct": 5.0
+   },
+   {
+    "year": 2022,
+    "area_ha": 23738,
+    "real_brl_dec2025": 62614847,
+    "change_area_pct": -24.0,
+    "change_real_pct": 9.3
+   },
+   {
+    "year": 2023,
+    "area_ha": 15224,
+    "real_brl_dec2025": 38424336,
+    "change_area_pct": -35.9,
+    "change_real_pct": -38.6
+   },
+   {
+    "year": 2024,
+    "area_ha": 21673,
+    "real_brl_dec2025": 50264181,
+    "change_area_pct": 42.4,
+    "change_real_pct": 30.8
+   },
+   {
+    "year": 2025,
+    "area_ha": 12558,
+    "real_brl_dec2025": 28825955,
+    "change_area_pct": -42.1,
+    "change_real_pct": -42.7
+   },
+   {
+    "year": 2026,
+    "area_ha": 9845,
+    "real_brl_dec2025": 21518101,
+    "change_area_pct": -21.6,
+    "change_real_pct": -25.4
+   }
+  ]
+ },
+ "barley": {
+  "products_matched": [
+   "\"CEVADA\""
+  ],
+  "series": [
+   {
+    "year": 2013,
+    "rows": 63,
+    "nominal_brl": 4702102,
+    "real_brl_dec2025": 9400210,
+    "area_ha": 0
+   },
+   {
+    "year": 2014,
+    "rows": 64,
+    "nominal_brl": 4719830,
+    "real_brl_dec2025": 8878380,
+    "area_ha": 0,
+    "change_nominal_pct": 0.4,
+    "change_real_pct": -5.6,
+    "change_area_pct": null
+   },
+   {
+    "year": 2015,
+    "rows": 75,
+    "nominal_brl": 5261388,
+    "real_brl_dec2025": 9146792,
+    "area_ha": 92,
+    "change_nominal_pct": 11.5,
+    "change_real_pct": 3.0,
+    "change_area_pct": null
+   },
+   {
+    "year": 2016,
+    "rows": 50,
+    "nominal_brl": 3840086,
+    "real_brl_dec2025": 6113527,
+    "area_ha": 2990,
+    "change_nominal_pct": -27.0,
+    "change_real_pct": -33.2,
+    "change_area_pct": 3160.2
+   },
+   {
+    "year": 2017,
+    "rows": 101,
+    "nominal_brl": 12109659,
+    "real_brl_dec2025": 18555753,
+    "area_ha": 9424,
+    "change_nominal_pct": 215.3,
+    "change_real_pct": 203.5,
+    "change_area_pct": 215.2
+   },
+   {
+    "year": 2018,
+    "rows": 54,
+    "nominal_brl": 4401570,
+    "real_brl_dec2025": 6537592,
+    "area_ha": 3460,
+    "change_nominal_pct": -63.7,
+    "change_real_pct": -64.8,
+    "change_area_pct": -63.3
+   },
+   {
+    "year": 2019,
+    "rows": 65,
+    "nominal_brl": 5063761,
+    "real_brl_dec2025": 7204669,
+    "area_ha": 3447,
+    "change_nominal_pct": 15.0,
+    "change_real_pct": 10.2,
+    "change_area_pct": -0.4
+   },
+   {
+    "year": 2020,
+    "rows": 23,
+    "nominal_brl": 1314583,
+    "real_brl_dec2025": 1824356,
+    "area_ha": 865,
+    "change_nominal_pct": -74.0,
+    "change_real_pct": -74.7,
+    "change_area_pct": -74.9
+   },
+   {
+    "year": 2021,
+    "rows": 39,
+    "nominal_brl": 3418585,
+    "real_brl_dec2025": 4446176,
+    "area_ha": 1711,
+    "change_nominal_pct": 160.1,
+    "change_real_pct": 143.7,
+    "change_area_pct": 97.8
+   },
+   {
+    "year": 2022,
+    "rows": 29,
+    "nominal_brl": 3552280,
+    "real_brl_dec2025": 4116665,
+    "area_ha": 1122,
+    "change_nominal_pct": 3.9,
+    "change_real_pct": -7.4,
+    "change_area_pct": -34.4
+   },
+   {
+    "year": 2023,
+    "rows": 54,
+    "nominal_brl": 5005060,
+    "real_brl_dec2025": 5607350,
+    "area_ha": 1648,
+    "change_nominal_pct": 40.9,
+    "change_real_pct": 36.2,
+    "change_area_pct": 46.9
+   },
+   {
+    "year": 2024,
+    "rows": 25,
+    "nominal_brl": 2794373,
+    "real_brl_dec2025": 2997953,
+    "area_ha": 899,
+    "change_nominal_pct": -44.2,
+    "change_real_pct": -46.5,
+    "change_area_pct": -45.5
+   },
+   {
+    "year": 2025,
+    "rows": 11,
+    "nominal_brl": 1954599,
+    "real_brl_dec2025": 1998566,
+    "area_ha": 601,
+    "change_nominal_pct": -30.1,
+    "change_real_pct": -33.3,
+    "change_area_pct": -33.2
+   },
+   {
+    "year": 2026,
+    "rows": 16,
+    "nominal_brl": 2750055,
+    "real_brl_dec2025": 2674965,
+    "area_ha": 875,
+    "change_nominal_pct": 40.7,
+    "change_real_pct": 33.8,
+    "change_area_pct": 45.7
+   }
+  ],
+  "jan_oct": [
+   {
+    "year": 2013,
+    "area_ha": 0,
+    "real_brl_dec2025": 9400210
+   },
+   {
+    "year": 2014,
+    "area_ha": 0,
+    "real_brl_dec2025": 8878380
+   },
+   {
+    "year": 2015,
+    "area_ha": 92,
+    "real_brl_dec2025": 9146792
+   },
+   {
+    "year": 2016,
+    "area_ha": 2990,
+    "real_brl_dec2025": 6113527,
+    "change_area_pct": 3160.2,
+    "change_real_pct": -33.2
+   },
+   {
+    "year": 2017,
+    "area_ha": 9424,
+    "real_brl_dec2025": 18555753,
+    "change_area_pct": 215.2,
+    "change_real_pct": 203.5
+   },
+   {
+    "year": 2018,
+    "area_ha": 3460,
+    "real_brl_dec2025": 6537592,
+    "change_area_pct": -63.3,
+    "change_real_pct": -64.8
+   },
+   {
+    "year": 2019,
+    "area_ha": 3447,
+    "real_brl_dec2025": 7204669,
+    "change_area_pct": -0.4,
+    "change_real_pct": 10.2
+   },
+   {
+    "year": 2020,
+    "area_ha": 865,
+    "real_brl_dec2025": 1824356,
+    "change_area_pct": -74.9,
+    "change_real_pct": -74.7
+   },
+   {
+    "year": 2021,
+    "area_ha": 1711,
+    "real_brl_dec2025": 4446176,
+    "change_area_pct": 97.8,
+    "change_real_pct": 143.7
+   },
+   {
+    "year": 2022,
+    "area_ha": 1122,
+    "real_brl_dec2025": 4116665,
+    "change_area_pct": -34.4,
+    "change_real_pct": -7.4
+   },
+   {
+    "year": 2023,
+    "area_ha": 1648,
+    "real_brl_dec2025": 5607350,
+    "change_area_pct": 46.9,
+    "change_real_pct": 36.2
+   },
+   {
+    "year": 2024,
+    "area_ha": 899,
+    "real_brl_dec2025": 2997953,
+    "change_area_pct": -45.5,
+    "change_real_pct": -46.5
+   },
+   {
+    "year": 2025,
+    "area_ha": 601,
+    "real_brl_dec2025": 1998566,
+    "change_area_pct": -33.2,
+    "change_real_pct": -33.3
+   },
+   {
+    "year": 2026,
+    "area_ha": 875,
+    "real_brl_dec2025": 2674965,
+    "change_area_pct": 45.7,
+    "change_real_pct": 33.8
+   }
+  ]
+ },
+ "canola": {
+  "products_matched": [
+   "\"CANOLA\""
+  ],
+  "series": [
+   {
+    "year": 2013,
+    "rows": 47,
+    "nominal_brl": 2308756,
+    "real_brl_dec2025": 4622224,
+    "area_ha": 0
+   },
+   {
+    "year": 2014,
+    "rows": 75,
+    "nominal_brl": 3718384,
+    "real_brl_dec2025": 6997147,
+    "area_ha": 0,
+    "change_nominal_pct": 61.1,
+    "change_real_pct": 51.4,
+    "change_area_pct": null
+   },
+   {
+    "year": 2015,
+    "rows": 78,
+    "nominal_brl": 5953320,
+    "real_brl_dec2025": 10356125,
+    "area_ha": 110,
+    "change_nominal_pct": 60.1,
+    "change_real_pct": 48.0,
+    "change_area_pct": null
+   },
+   {
+    "year": 2016,
+    "rows": 54,
+    "nominal_brl": 5388730,
+    "real_brl_dec2025": 8604919,
+    "area_ha": 4848,
+    "change_nominal_pct": -9.5,
+    "change_real_pct": -16.9,
+    "change_area_pct": 4307.6
+   },
+   {
+    "year": 2017,
+    "rows": 88,
+    "nominal_brl": 6337377,
+    "real_brl_dec2025": 9711791,
+    "area_ha": 5887,
+    "change_nominal_pct": 17.6,
+    "change_real_pct": 12.9,
+    "change_area_pct": 21.4
+   },
+   {
+    "year": 2018,
+    "rows": 56,
+    "nominal_brl": 3976935,
+    "real_brl_dec2025": 5906589,
+    "area_ha": 3611,
+    "change_nominal_pct": -37.2,
+    "change_real_pct": -39.2,
+    "change_area_pct": -38.7
+   },
+   {
+    "year": 2019,
+    "rows": 61,
+    "nominal_brl": 4402270,
+    "real_brl_dec2025": 6267802,
+    "area_ha": 3372,
+    "change_nominal_pct": 10.7,
+    "change_real_pct": 6.1,
+    "change_area_pct": -6.6
+   },
+   {
+    "year": 2020,
+    "rows": 65,
+    "nominal_brl": 5000125,
+    "real_brl_dec2025": 6939438,
+    "area_ha": 3633,
+    "change_nominal_pct": 13.6,
+    "change_real_pct": 10.7,
+    "change_area_pct": 7.7
+   },
+   {
+    "year": 2021,
+    "rows": 75,
+    "nominal_brl": 8240459,
+    "real_brl_dec2025": 10746615,
+    "area_ha": 4573,
+    "change_nominal_pct": 64.8,
+    "change_real_pct": 54.9,
+    "change_area_pct": 25.9
+   },
+   {
+    "year": 2022,
+    "rows": 98,
+    "nominal_brl": 17363529,
+    "real_brl_dec2025": 20202584,
+    "area_ha": 5903,
+    "change_nominal_pct": 110.7,
+    "change_real_pct": 88.0,
+    "change_area_pct": 29.1
+   },
+   {
+    "year": 2023,
+    "rows": 138,
+    "nominal_brl": 26097450,
+    "real_brl_dec2025": 29063869,
+    "area_ha": 8784,
+    "change_nominal_pct": 50.3,
+    "change_real_pct": 43.9,
+    "change_area_pct": 48.8
+   },
+   {
+    "year": 2024,
+    "rows": 224,
+    "nominal_brl": 44328457,
+    "real_brl_dec2025": 47592036,
+    "area_ha": 17503,
+    "change_nominal_pct": 69.9,
+    "change_real_pct": 63.7,
+    "change_area_pct": 99.3
+   },
+   {
+    "year": 2025,
+    "rows": 149,
+    "nominal_brl": 24766324,
+    "real_brl_dec2025": 25309392,
+    "area_ha": 8962,
+    "change_nominal_pct": -44.1,
+    "change_real_pct": -46.8,
+    "change_area_pct": -48.8
+   },
+   {
+    "year": 2026,
+    "rows": 210,
+    "nominal_brl": 39463355,
+    "real_brl_dec2025": 38653381,
+    "area_ha": 14576,
+    "change_nominal_pct": 59.3,
+    "change_real_pct": 52.7,
+    "change_area_pct": 62.6
+   }
+  ],
+  "jan_oct": [
+   {
+    "year": 2013,
+    "area_ha": 0,
+    "real_brl_dec2025": 4622224
+   },
+   {
+    "year": 2014,
+    "area_ha": 0,
+    "real_brl_dec2025": 6997147
+   },
+   {
+    "year": 2015,
+    "area_ha": 110,
+    "real_brl_dec2025": 10356125
+   },
+   {
+    "year": 2016,
+    "area_ha": 4707,
+    "real_brl_dec2025": 8340596,
+    "change_area_pct": 4179.4,
+    "change_real_pct": -19.5
+   },
+   {
+    "year": 2017,
+    "area_ha": 5887,
+    "real_brl_dec2025": 9711791,
+    "change_area_pct": 25.1,
+    "change_real_pct": 16.4
+   },
+   {
+    "year": 2018,
+    "area_ha": 3611,
+    "real_brl_dec2025": 5906589,
+    "change_area_pct": -38.7,
+    "change_real_pct": -39.2
+   },
+   {
+    "year": 2019,
+    "area_ha": 3372,
+    "real_brl_dec2025": 6267802,
+    "change_area_pct": -6.6,
+    "change_real_pct": 6.1
+   },
+   {
+    "year": 2020,
+    "area_ha": 3633,
+    "real_brl_dec2025": 6939438,
+    "change_area_pct": 7.7,
+    "change_real_pct": 10.7
+   },
+   {
+    "year": 2021,
+    "area_ha": 4573,
+    "real_brl_dec2025": 10746615,
+    "change_area_pct": 25.9,
+    "change_real_pct": 54.9
+   },
+   {
+    "year": 2022,
+    "area_ha": 5650,
+    "real_brl_dec2025": 19228708,
+    "change_area_pct": 23.5,
+    "change_real_pct": 78.9
+   },
+   {
+    "year": 2023,
+    "area_ha": 6417,
+    "real_brl_dec2025": 21524072,
+    "change_area_pct": 13.6,
+    "change_real_pct": 11.9
+   },
+   {
+    "year": 2024,
+    "area_ha": 16821,
+    "real_brl_dec2025": 45609797,
+    "change_area_pct": 162.1,
+    "change_real_pct": 111.9
+   },
+   {
+    "year": 2025,
+    "area_ha": 8913,
+    "real_brl_dec2025": 25106914,
+    "change_area_pct": -47.0,
+    "change_real_pct": -45.0
+   },
+   {
+    "year": 2026,
+    "area_ha": 14576,
+    "real_brl_dec2025": 38653381,
+    "change_area_pct": 63.5,
+    "change_real_pct": 54.0
+   }
+  ]
+ },
+ "all_winter_crops": {
+  "products_matched": [
+   "\"AVEIA\"",
+   "\"CANOLA\"",
+   "\"CEVADA\"",
+   "\"TRIGO\""
+  ],
+  "series": [
+   {
+    "year": 2013,
+    "rows": 892,
+    "nominal_brl": 231701903,
+    "real_brl_dec2025": 463056519,
+    "area_ha": 0
+   },
+   {
+    "year": 2014,
+    "rows": 1098,
+    "nominal_brl": 279146862,
+    "real_brl_dec2025": 527217592,
+    "area_ha": 0,
+    "change_nominal_pct": 20.5,
+    "change_real_pct": 13.9,
+    "change_area_pct": null
+   },
+   {
+    "year": 2015,
+    "rows": 958,
+    "nominal_brl": 220725260,
+    "real_brl_dec2025": 384594640,
+    "area_ha": 2617,
+    "change_nominal_pct": -20.9,
+    "change_real_pct": -27.1,
+    "change_area_pct": null
+   },
+   {
+    "year": 2016,
+    "rows": 654,
+    "nominal_brl": 107904930,
+    "real_brl_dec2025": 171554870,
+    "area_ha": 90338,
+    "change_nominal_pct": -51.1,
+    "change_real_pct": -55.4,
+    "change_area_pct": 3351.5
+   },
+   {
+    "year": 2017,
+    "rows": 876,
+    "nominal_brl": 165798453,
+    "real_brl_dec2025": 253966747,
+    "area_ha": 142325,
+    "change_nominal_pct": 53.7,
+    "change_real_pct": 48.0,
+    "change_area_pct": 57.5
+   },
+   {
+    "year": 2018,
+    "rows": 778,
+    "nominal_brl": 143359036,
+    "real_brl_dec2025": 212817173,
+    "area_ha": 121237,
+    "change_nominal_pct": -13.5,
+    "change_real_pct": -16.2,
+    "change_area_pct": -14.8
+   },
+   {
+    "year": 2019,
+    "rows": 996,
+    "nominal_brl": 177751292,
+    "real_brl_dec2025": 252777136,
+    "area_ha": 126362,
+    "change_nominal_pct": 24.0,
+    "change_real_pct": 18.8,
+    "change_area_pct": 4.2
+   },
+   {
+    "year": 2020,
+    "rows": 1053,
+    "nominal_brl": 280195153,
+    "real_brl_dec2025": 388367013,
+    "area_ha": 175307,
+    "change_nominal_pct": 57.6,
+    "change_real_pct": 53.6,
+    "change_area_pct": 38.7
+   },
+   {
+    "year": 2021,
+    "rows": 1177,
+    "nominal_brl": 422907014,
+    "real_brl_dec2025": 548072810,
+    "area_ha": 198055,
+    "change_nominal_pct": 50.9,
+    "change_real_pct": 41.1,
+    "change_area_pct": 13.0
+   },
+   {
+    "year": 2022,
+    "rows": 1331,
+    "nominal_brl": 694622118,
+    "real_brl_dec2025": 806729635,
+    "area_ha": 202978,
+    "change_nominal_pct": 64.2,
+    "change_real_pct": 47.2,
+    "change_area_pct": 2.5
+   },
+   {
+    "year": 2023,
+    "rows": 1368,
+    "nominal_brl": 687755391,
+    "real_brl_dec2025": 769796864,
+    "area_ha": 197018,
+    "change_nominal_pct": -1.0,
+    "change_real_pct": -4.6,
+    "change_area_pct": -2.9
+   },
+   {
+    "year": 2024,
+    "rows": 1314,
+    "nominal_brl": 522284919,
+    "real_brl_dec2025": 560574970,
+    "area_ha": 174996,
+    "change_nominal_pct": -24.1,
+    "change_real_pct": -27.2,
+    "change_area_pct": -11.2
+   },
+   {
+    "year": 2025,
+    "rows": 1102,
+    "nominal_brl": 338997075,
+    "real_brl_dec2025": 345836499,
+    "area_ha": 108151,
+    "change_nominal_pct": -35.1,
+    "change_real_pct": -38.3,
+    "change_area_pct": -38.2
+   },
+   {
+    "year": 2026,
+    "rows": 817,
+    "nominal_brl": 181641570,
+    "real_brl_dec2025": 177666477,
+    "area_ha": 63052,
+    "change_nominal_pct": -46.4,
+    "change_real_pct": -48.6,
+    "change_area_pct": -41.7
+   }
+  ],
+  "jan_oct": [
+   {
+    "year": 2013,
+    "area_ha": 0,
+    "real_brl_dec2025": 429471046
+   },
+   {
+    "year": 2014,
+    "area_ha": 0,
+    "real_brl_dec2025": 506177186
+   },
+   {
+    "year": 2015,
+    "area_ha": 2617,
+    "real_brl_dec2025": 384594640
+   },
+   {
+    "year": 2016,
+    "area_ha": 79483,
+    "real_brl_dec2025": 149952183,
+    "change_area_pct": 2936.8,
+    "change_real_pct": -61.0
+   },
+   {
+    "year": 2017,
+    "area_ha": 136250,
+    "real_brl_dec2025": 241519068,
+    "change_area_pct": 71.4,
+    "change_real_pct": 61.1
+   },
+   {
+    "year": 2018,
+    "area_ha": 115839,
+    "real_brl_dec2025": 203028454,
+    "change_area_pct": -15.0,
+    "change_real_pct": -15.9
+   },
+   {
+    "year": 2019,
+    "area_ha": 120649,
+    "real_brl_dec2025": 241218873,
+    "change_area_pct": 4.2,
+    "change_real_pct": 18.8
+   },
+   {
+    "year": 2020,
+    "area_ha": 168768,
+    "real_brl_dec2025": 371762573,
+    "change_area_pct": 39.9,
+    "change_real_pct": 54.1
+   },
+   {
+    "year": 2021,
+    "area_ha": 187016,
+    "real_brl_dec2025": 509689477,
+    "change_area_pct": 10.8,
+    "change_real_pct": 37.1
+   },
+   {
+    "year": 2022,
+    "area_ha": 182974,
+    "real_brl_dec2025": 719771143,
+    "change_area_pct": -2.2,
+    "change_real_pct": 41.2
+   },
+   {
+    "year": 2023,
+    "area_ha": 179254,
+    "real_brl_dec2025": 710724042,
+    "change_area_pct": -2.0,
+    "change_real_pct": -1.3
+   },
+   {
+    "year": 2024,
+    "area_ha": 166328,
+    "real_brl_dec2025": 532686123,
+    "change_area_pct": -7.2,
+    "change_real_pct": -25.1
+   },
+   {
+    "year": 2025,
+    "area_ha": 105087,
+    "real_brl_dec2025": 337104542,
+    "change_area_pct": -36.8,
+    "change_real_pct": -36.7
+   },
+   {
+    "year": 2026,
+    "area_ha": 63052,
+    "real_brl_dec2025": 177666477,
+    "change_area_pct": -40.0,
+    "change_real_pct": -47.3
+   }
+  ]
+ }
+}
