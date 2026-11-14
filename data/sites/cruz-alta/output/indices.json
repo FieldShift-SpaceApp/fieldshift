@@ -1,0 +1,363 @@
+{
+ "metrics": [
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "heat_days_gt35c.annual_mean.1991_2020",
+   "index_key": "heat_days",
+   "label": {
+    "en": "Heat days (daily Tmax > 35 °C), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:heat_days:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "days",
+   "value": 5.3
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "frost_days_le0c.annual_mean.1991_2020",
+   "index_key": "frost_days",
+   "label": {
+    "en": "Frost days (daily Tmin ≤ 0 °C), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:frost_days:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "days",
+   "value": 3.7
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "gdd_base10c.annual_mean.1991_2020",
+   "index_key": "growing_degree_days",
+   "label": {
+    "en": "Growing degree-days (base 10 °C), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:growing_degree_days:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "degC_d",
+   "value": 3484.8
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "water_deficit.annual_mean.1991_2020",
+   "index_key": "water_deficit",
+   "label": {
+    "en": "Climatic water deficit (ET0 − precipitation), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:water_deficit:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "mm",
+   "value": -614.5
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "extreme_precip_days_gt_p95.annual_mean.1991_2020",
+   "index_key": "extreme_precip_days",
+   "label": {
+    "en": "Extreme precipitation days (> P95 of wet days, 1991–2020), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:extreme_precip_days:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "days",
+   "value": 7.5
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "extreme_precip_total_gt_p95.annual_mean.1991_2020",
+   "index_key": "extreme_precip_total",
+   "label": {
+    "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:extreme_precip_total:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "mm",
+   "value": 390.0
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "et0.annual_mean.1991_2020",
+   "index_key": "et0",
+   "label": {
+    "en": "Reference evapotranspiration ET0 (FAO-56), annual mean 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:et0:annual_mean:1991_2020",
+   "tags": [],
+   "unit": "mm",
+   "value": 1162.2
+  },
+  {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "precip_p95_wet_days.1991_2020",
+   "index_key": "extreme_precip_threshold",
+   "label": {
+    "en": "P95 of daily precipitation on wet days (>= 1 mm), 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:precip_p95:1991_2020",
+   "tags": [],
+   "unit": "mm/d",
+   "value": 38.3
+  }
+ ],
+ "profiles": [
+  {
+   "data_type": "computed",
+   "id": "heat_days_gt35c.by_month.1991_2020",
+   "index_key": "heat_days",
+   "label": {
+    "en": "Heat days (daily Tmax > 35 °C), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:heat_days:by_month:1991_2020",
+   "unit": "days",
+   "values": [
+    1.0,
+    1.5,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.3,
+    1.5
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "frost_days_le0c.by_month.1991_2020",
+   "index_key": "frost_days",
+   "label": {
+    "en": "Frost days (daily Tmin ≤ 0 °C), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:frost_days:by_month:1991_2020",
+   "unit": "days",
+   "values": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.1,
+    0.9,
+    1.9,
+    0.7,
+    0.1,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "gdd_base10c.by_month.1991_2020",
+   "index_key": "growing_degree_days",
+   "label": {
+    "en": "Growing degree-days (base 10 °C), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:growing_degree_days:by_month:1991_2020",
+   "unit": "degC_d",
+   "values": [
+    442.8,
+    397.1,
+    399.2,
+    304.4,
+    205.4,
+    144.7,
+    128.8,
+    172.6,
+    215.3,
+    305.4,
+    345.7,
+    423.4
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "water_deficit.by_month.1991_2020",
+   "index_key": "water_deficit",
+   "label": {
+    "en": "Climatic water deficit (ET0 − precipitation), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:water_deficit:by_month:1991_2020",
+   "unit": "mm",
+   "values": [
+    -10.4,
+    -6.6,
+    -13.0,
+    -66.0,
+    -84.9,
+    -96.4,
+    -88.8,
+    -45.6,
+    -65.2,
+    -115.9,
+    -12.5,
+    -9.2
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "extreme_precip_days_gt_p95.by_month.1991_2020",
+   "index_key": "extreme_precip_days",
+   "label": {
+    "en": "Extreme precipitation days (> P95 of wet days, 1991–2020), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:extreme_precip_days:by_month:1991_2020",
+   "unit": "days",
+   "values": [
+    0.5,
+    0.2,
+    0.5,
+    0.7,
+    1.0,
+    0.7,
+    0.4,
+    0.4,
+    0.7,
+    1.1,
+    0.8,
+    0.5
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "extreme_precip_total_gt_p95.by_month.1991_2020",
+   "index_key": "extreme_precip_total",
+   "label": {
+    "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:extreme_precip_total:by_month:1991_2020",
+   "unit": "mm",
+   "values": [
+    24.9,
+    9.4,
+    23.4,
+    37.0,
+    53.7,
+    33.2,
+    23.0,
+    21.3,
+    35.4,
+    61.6,
+    38.2,
+    28.9
+   ]
+  },
+  {
+   "data_type": "computed",
+   "id": "et0.by_month.1991_2020",
+   "index_key": "et0",
+   "label": {
+    "en": "Reference evapotranspiration ET0 (FAO-56), mean by calendar month 1991–2020",
+    "pt": null
+   },
+   "period": {
+    "end": "2020-12-31",
+    "start": "1991-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:et0:by_month:1991_2020",
+   "unit": "mm",
+   "values": [
+    150.2,
+    125.2,
+    114.8,
+    80.1,
+    57.1,
+    42.4,
+    46.0,
+    64.5,
+    81.4,
+    109.8,
+    137.4,
+    153.2
+   ]
+  }
+ ],
+ "schema_version": "1.1.0",
+ "site_id": "cruz-alta"
+}
