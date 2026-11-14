@@ -59,12 +59,13 @@ Not a guaranteed path: ORNL MODIS Subsets returned HTTP 503 on 2026-11-14 (`D-00
 | FAOSTAT | FAO | https://www.fao.org/faostat/ | CC BY 4.0 (not confirmed); bulk download open, API needs a token | check | — | candidate |
 | FAO WaPOR v3 | FAO | https://data.apps.fao.org/wapor/ | CC BY 4.0 (not confirmed) | check | — | candidate |
 | Open-Meteo Historical | Open-Meteo (serves ERA5) | https://open-meteo.com/en/terms | data CC BY 4.0; **free API is non-commercial only**, < 10,000 calls/day | yes (data), API terms apply | — | candidate |
-| Embrapa SATVeg / AgroAPI | Embrapa (derived from NASA MODIS) | https://www.satveg.cnptia.embrapa.br/ | portal terms: all rights reserved (Brazilian Law 9.610); API needs a token | **no** | — | candidate |
+| Embrapa SATVeg / AgroAPI | Embrapa (derived from NASA MODIS: NDVI/EVI, 250 m, 16-day, 2000 →) | https://www.satveg.cnptia.embrapa.br/ | portal terms: all rights reserved (Brazilian Law 9.610); the API needs app registration, a consumer key/secret and an access token, under AgroAPI's "Termo de Acesso e Uso" ([AgroAPI](https://www.agroapi.cnptia.embrapa.br/), checked 2026-11-14) | **no** | — | candidate |
 | **CEPEA/ESALQ price indicators** | CEPEA (USP) | https://cepea.org.br/br/politica-de-direitos-autorais-1.aspx | **restricted**: retransmission requires formal authorization | **no** | — | candidate |
 | SAGE crop calendar (Sacks et al. 2010) | University of Wisconsin–Madison | https://sage.nelson.wisc.edu/data-and-models/datasets/crop-calendar-dataset/ | no explicit license on the page; authors ask for an email | **no** (until confirmed) | — | candidate |
 | USDA Cropland Data Layer (US only) | USDA NASS | https://www.nass.usda.gov/Research_and_Science/Cropland/SARS1a.php | US government, public domain (not confirmed) | check | — | candidate (Nevada site) |
 | SSURGO / Web Soil Survey (US only) | USDA NRCS | https://websoilsurvey.nrcs.usda.gov/ | US government, public domain (not confirmed) | check | — | candidate (Nevada site) |
-| OpenET (western US only) | OpenET | https://etdata.org/ | data CC BY 4.0 (not confirmed); API key required | check | — | candidate (Nevada site) |
+| OpenET (30 m; 48 US states since 2025-12-15, per [NASA Science](https://science.nasa.gov/blogs/science-news/2025/12/16/expanding-crucial-water-tracking/)) | OpenET | https://etdata.org/ | **conflicting terms** (checked 2026-11-14): the [OpenET Terms of Service](https://etdata.org/terms-of-service/) grant a personal, non-commercial licence to the services (API key required); the Earth Engine catalogue lists the data as CC BY 4.0. Resolve with OpenET before committing any derived value | **no** (until resolved) | — | candidate (Nevada site) |
+| Cover crop selectors: MCCC, NECCC, WCCC (US) | Midwest / Northeast / Western Cover Crops Councils | https://midwestcovercrops.org/decision-tool/ · https://northeastcovercrops.com/decision-tool/ · https://westerncovercrops.org/decision-tools/ | **no licence statement for the species data** found on the tools or council sites (checked 2026-11-14); the selector code ([precision-sustainable-ag/dst-selector](https://github.com/precision-sustainable-ag/dst-selector)) is MIT, which covers code only. Cite as related work; do not copy species ratings | **no** | related work (`content/related-work.md`) | reference only |
 | USGS Water Data (US only) | USGS | https://api.waterdata.usgs.gov/ | US government, public domain (not confirmed); legacy NWIS `gwlevels` service is off | check | — | candidate (Nevada site) |
 
 Also restricted, never commit (details in the team's source map): CEAGESP (all rights reserved), Agritempo (raw data restricted), EPAGRI/CIRAM, Infoagro and CIIAGRO (no open license), CABI (CC BY-NC-ND). Personal data is never committed raw (rural insurance PSR, SICAR per property, water-rights owners, GBIF/iNaturalist observer names): aggregates only.
@@ -85,6 +86,9 @@ Versions as pinned in the lockfiles (`package-lock.json`, `services/science/uv.l
 | class-variance-authority | 0.7.1 | Apache-2.0 | https://cva.style | component variants |
 | cn | 0.5.2 | MIT | https://www.npmjs.com/package/cn | class name helper |
 | tw-animate-css | 1.4.0 | MIT | https://www.npmjs.com/package/tw-animate-css | animations |
+| react-markdown + remark-gfm | 10.1.0 + 4.0.1 | MIT | https://github.com/remarkjs/react-markdown | Data & Methods page rendered from this file, `SI-USAGE.md` and `content/` (no raw HTML) |
+| gray-matter | 4.0.3 | MIT | https://github.com/jonschlinkert/gray-matter | front-matter of `content/methods/*.md` |
+| yaml | 2.9.1 | ISC | https://eemeli.org/yaml/ | reading `content/glossary.yaml` |
 | ESLint + eslint-config-next | 9.39.5 + 16.4.6 | MIT | https://eslint.org | lint |
 | Vitest | 5.1.0 | MIT | https://vitest.dev | unit tests |
 | Vite + @vitejs/plugin-react | 8.3.8 + 6.3.0 | MIT | https://vite.dev | test transform (Vitest) |
