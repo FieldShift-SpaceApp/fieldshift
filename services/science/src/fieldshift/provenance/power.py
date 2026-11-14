@@ -12,6 +12,7 @@ from fieldshift.contracts.provenance import (
     ProvenanceTemporal,
     ProvenanceVariable,
 )
+from fieldshift.provenance.ground_check import ground_check_limitations
 from fieldshift.sites import SitePoint
 from fieldshift.sources.power import COMMUNITY, TERMS_URL, PowerParam, PowerRaw
 
@@ -93,6 +94,7 @@ def power_record(site: SitePoint, raw: PowerRaw, p: PowerParam) -> Provenance:
                 "README)."
             )
         )
+    limitations.extend(ground_check_limitations(p.code))  # issue #31
     return Provenance(
         id=power_prov_id(site.id, p.code),
         data_type="modeled",
