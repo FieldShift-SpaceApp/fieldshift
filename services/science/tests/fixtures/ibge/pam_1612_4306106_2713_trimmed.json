@@ -1,0 +1,152 @@
+{
+ "fieldshift_request": {
+  "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1612/periodos/-100/variaveis/109|216|214|112?localidades=N6[4306106]&classificacao=81[2713]",
+  "accessed_at": "2026-11-14T14:40:50-03:00"
+ },
+ "response": [
+  {
+   "id": "109",
+   "variavel": "Área plantada",
+   "unidade": "",
+   "resultados": [
+    {
+     "classificacoes": [
+      {
+       "id": "81",
+       "nome": "Produto das lavouras temporárias",
+       "categoria": {
+        "2713": "Soja (em grão)"
+       }
+      }
+     ],
+     "series": [
+      {
+       "localidade": {
+        "id": "4306106",
+        "nivel": {
+         "id": "N6",
+         "nome": "Município"
+        },
+        "nome": "Cruz Alta (RS)"
+       },
+       "serie": {
+        "1987": "...",
+        "1988": "90000",
+        "2021": "91500",
+        "2022": "92200"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "216",
+   "variavel": "Área colhida",
+   "unidade": "Hectares",
+   "resultados": [
+    {
+     "classificacoes": [
+      {
+       "id": "81",
+       "nome": "Produto das lavouras temporárias",
+       "categoria": {
+        "2713": "Soja (em grão)"
+       }
+      }
+     ],
+     "series": [
+      {
+       "localidade": {
+        "id": "4306106",
+        "nivel": {
+         "id": "N6",
+         "nome": "Município"
+        },
+        "nome": "Cruz Alta (RS)"
+       },
+       "serie": {
+        "1987": "90000",
+        "1988": "90000",
+        "2021": "91500",
+        "2022": "92200"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "214",
+   "variavel": "Quantidade produzida",
+   "unidade": "Toneladas",
+   "resultados": [
+    {
+     "classificacoes": [
+      {
+       "id": "81",
+       "nome": "Produto das lavouras temporárias",
+       "categoria": {
+        "2713": "Soja (em grão)"
+       }
+      }
+     ],
+     "series": [
+      {
+       "localidade": {
+        "id": "4306106",
+        "nivel": {
+         "id": "N6",
+         "nome": "Município"
+        },
+        "nome": "Cruz Alta (RS)"
+       },
+       "serie": {
+        "1987": "162000",
+        "1988": "97200",
+        "2021": "358650",
+        "2022": "123240"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "112",
+   "variavel": "Rendimento médio da produção",
+   "unidade": "Quilogramas por Hectare",
+   "resultados": [
+    {
+     "classificacoes": [
+      {
+       "id": "81",
+       "nome": "Produto das lavouras temporárias",
+       "categoria": {
+        "2713": "Soja (em grão)"
+       }
+      }
+     ],
+     "series": [
+      {
+       "localidade": {
+        "id": "4306106",
+        "nivel": {
+         "id": "N6",
+         "nome": "Município"
+        },
+        "nome": "Cruz Alta (RS)"
+       },
+       "serie": {
+        "1987": "1800",
+        "1988": "1080",
+        "2021": "3920",
+        "2022": "1337"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

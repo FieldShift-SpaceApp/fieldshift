@@ -29,7 +29,15 @@ uv run fieldshift fetch power --site dev-x --lat <lat> --lon <lon> [--start YYYY
 - **Monthly rule (ADR-3):** sum for precipitation and ET0, mean for the rest. A month gets a value only when every day of it is valid; otherwise `null` with `q: "gap"` and a `known_gaps` entry. POWER's fill value `-999` is read as missing, never as a number.
 - **ET0:** FAO-56 Penman-Monteith, daily, in plain Python (`fieldshift.indices.et0`), tested against FAO-56 Examples 8 and 18. pyet 1.5.0 was not used: it requires `pandas<3.0` and xarray (stack: pandas 3.1.1). Inputs: Tmax, Tmin, dewpoint (ea, eq. 14), wind at 2 m, all-sky shortwave, surface pressure, and the elevation of the POWER cell. Its provenance record is `computed`, with `inputs` pointing to the six POWER records and `method.doc_anchor = "et0-fao56"`.
 - **Event indices:** `fieldshift.indices.events` flags heat days (threshold per site, from `site.yaml`) and frost days (Tmin ≤ 0 °C) on daily data, to be counted per month before aggregation. They are not written yet: the contract has no `VariableKey` for them (they belong in `ClimateIndices`).
-- **Dev point:** `dev-floripa` (−27.6, −48.5) is for development only and is NOT a demo site. Real sites (brasil, nevada) come from SURGEON (issue #8).
+- **Dev point:** `dev-floripa` (−27.6, −48.5) is for development only and is NOT a demo site. Real sites (brasil, nevada) come from SURGEON (issue #8). `dev-cruz-alta` is a candidate location (issue #26), also DEV only, written to `data/dev/cruz-alta/`.
+
+## IBGE PAM (issue #26)
+
+```bash
+uv run fieldshift fetch ibge-pam --municipality 4306106 --out-dir ../../data/dev/cruz-alta/ibge [--product 2713] [--offline] [--refresh]
+```
+
+`fieldshift.sources.ibge_pam` reads SIDRA table 1612 (IBGE aggregates API v3, no credentials): planted and harvested area, production and yield of one temporary crop (default soybean, category 2713) in one municipality, every year. It writes the wrapped raw response, a CSV and a plain provenance JSON. SIDRA `-` is zero; `..`, `...`, `X` are empty. Official statistics have no data type or units in contracts v1.0.0, so these are not contract files.
 
 ### Why `EVPTRNS` is not ingested
 

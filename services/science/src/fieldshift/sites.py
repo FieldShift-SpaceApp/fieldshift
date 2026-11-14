@@ -31,17 +31,23 @@ class SitePoint:
     lon: float
     label: str
     dev: bool
+    # Folder under data/dev/ when it differs from the id (DEV sites only; real sites use the id).
+    folder: str | None = None
 
     def __post_init__(self) -> None:
         if not SITE_ID.match(self.id):
             raise PipelineError(f"invalid site id {self.id!r} (expected {SITE_ID.pattern})")
         if self.dev != self.id.startswith(DEV_PREFIX):
             raise PipelineError(f"{self.id}: development sites, and only them, start with 'dev-'")
+        if self.folder is not None and (not self.dev or not SITE_ID.match(self.folder)):
+            raise PipelineError(
+                f"{self.id}: only DEV sites may set a folder, and it must be a slug"
+            )
         GeoPoint(lat=self.lat, lon=self.lon)  # range check
 
     def output_dir(self, data_dir: Path) -> Path:
         base = data_dir / "dev" if self.dev else data_dir / "sites"
-        return base / self.id / "output"
+        return base / (self.folder or self.id) / "output"
 
 
 DEV_SITES: dict[str, SitePoint] = {
@@ -52,6 +58,18 @@ DEV_SITES: dict[str, SitePoint] = {
         lon=-48.5,
         label="DEV ONLY: Florianópolis development point (not a demo site)",
         dev=True,
+    ),
+    # CANDIDATE location under study (issue #26), NOT a demo site (that is D-001/#8). Point: the
+    # centroid IBGE publishes for municipality 4306106 (Cruz Alta, RS), malhas API v3, 2022 mesh
+    # (-28.703, -53.5626), rounded to the 3 decimals POWER echoes back; see
+    # data/dev/cruz-alta/README.md.
+    "dev-cruz-alta": SitePoint(
+        id="dev-cruz-alta",
+        lat=-28.703,
+        lon=-53.563,
+        label="DEV ONLY: Cruz Alta (RS) municipal centroid, candidate (not a demo site)",
+        dev=True,
+        folder="cruz-alta",
     ),
 }
 
