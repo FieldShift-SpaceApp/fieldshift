@@ -1,0 +1,62 @@
+{
+ "access": {
+  "accessed_at": "2026-11-14T20:05:38-03:00",
+  "terms": "IBGE public data; cite IBGE as the source",
+  "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1612/periodos/-100/variaveis/109|216|214|112?localidades=N6[4314308]&classificacao=81[2716]"
+ },
+ "data_type_note": "official statistics (survey), not satellite_observed/modeled",
+ "dataset": "IBGE Produção Agrícola Municipal (PAM)",
+ "limitations": [
+  "PAM year = reference year of the harvest; check the crop calendar before mapping it to a planting season.",
+  "Municipal totals reported by IBGE; not field measurements.",
+  "SIDRA symbols: '-' is zero; '..', '...' and 'X' have no value (empty in the CSV).",
+  "Years without a value in this series: area_planted_ha: [1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987]."
+ ],
+ "metadata_url": "https://servicodados.ibge.gov.br/api/v3/agregados/1612/metadados",
+ "municipality": {
+  "id": "4314308",
+  "name": "Pejuçara (RS)"
+ },
+ "product": {
+  "classification": "81",
+  "id": "2716",
+  "name": "Trigo (em grão)"
+ },
+ "provider": "Instituto Brasileiro de Geografia e Estatística (IBGE)",
+ "si_assisted": "file written by code generated with Claude Code (Anthropic); the numbers come from the IBGE response, not from the AI",
+ "spatial": {
+  "support": "municipality"
+ },
+ "table": "SIDRA 1612",
+ "table_url": "https://sidra.ibge.gov.br/tabela/1612",
+ "temporal": {
+  "period": "1974/2025",
+  "resolution": "annual"
+ },
+ "variables": [
+  {
+   "code": "109",
+   "column": "area_planted_ha",
+   "name_pt": "Área plantada",
+   "unit_pt": "Hectares"
+  },
+  {
+   "code": "216",
+   "column": "area_harvested_ha",
+   "name_pt": "Área colhida",
+   "unit_pt": "Hectares"
+  },
+  {
+   "code": "214",
+   "column": "production_t",
+   "name_pt": "Quantidade produzida",
+   "unit_pt": "Toneladas"
+  },
+  {
+   "code": "112",
+   "column": "yield_kg_ha",
+   "name_pt": "Rendimento médio da produção",
+   "unit_pt": "Quilogramas por Hectare"
+  }
+ ]
+}

@@ -87,7 +87,40 @@ def build_parser() -> argparse.ArgumentParser:
     )
     rot.add_argument("--site", required=True, help="site id (e.g. brasil)")
     rot.add_argument("--data-dir", type=Path, default=None, help="data/ root (default: repo data/)")
+
+    comp = sub.add_parser(
+        "complements",
+        help="forecast scorecard, season replay, bare-soil calendar, heavy-rain signal (v1.2.0)",
+        description=(
+            "Reads the site's input/ files, data/cache/noaa (ONI), data/cache/power/<id> and "
+            "data/cache/power-imerg/<id>; writes four documents to output/ and merges provenance."
+        ),
+    )
+    comp.add_argument("--site", required=True, help="site id (e.g. cruz-alta)")
+    comp.add_argument(
+        "--offline", action="store_true", help="use data/cache only; never the network"
+    )
+    comp.add_argument(
+        "--data-dir", type=Path, default=None, help="data/ root (default: repo data/)"
+    )
     return parser
+
+
+def _complements(args: argparse.Namespace) -> int:
+    from fieldshift.complements.stage import run_complements
+    from fieldshift.config import data_dir
+    from fieldshift.errors import LayerError, PipelineError
+
+    try:
+        out = run_complements(args.site, data_dir=args.data_dir or data_dir(), offline=args.offline)
+    except (LayerError, PipelineError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    print(f"complements {args.site}: {out.records} provenance records")
+    for path in out.paths.values():
+        print(f"  {path}")
+    print(f"  provenance: {out.provenance_path}")
+    return 0
 
 
 def _rotation(args: argparse.Namespace) -> int:
@@ -185,6 +218,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _validate(args)
     elif args.command == "rotation":
         return _rotation(args)
+    elif args.command == "complements":
+        return _complements(args)
     return 0
 
 
