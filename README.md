@@ -1,5 +1,7 @@
 # FieldShift
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 Team **FieldShift** · NASA Space Apps Challenge 2026 · *Field Shift: Adapting Farms with NASA Data* · Local Event: Florianópolis, Brazil.
 
 > Work in progress during the hackathon (Nov 14–15, 2026). Project description, demo and live link will be added here.

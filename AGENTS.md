@@ -1,5 +1,7 @@
 # AGENTS.md — shared rules for every AI assistant on this repo
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 > Read by Codex, Cursor, Copilot, Gemini CLI and others. Claude Code reads it through `CLAUDE.md` (`@AGENTS.md`).
 > Six people, six AI assistants, one repo. **The repo is how the AIs talk to each other.** Follow this file exactly.
 

@@ -1,3 +1,4 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 # CI: hygiene · science · web. Branch protection: these three jobs are required to merge into main (NFR11).
 name: ci
 on:
@@ -58,4 +59,9 @@ jobs:
       - run: npm run typecheck -w packages/contracts
       - run: npm run lint
       - run: npm run typecheck
-      - run: npm run build
+      - run: npm run test # Vitest
+      - run: npm run build # prebuild: scripts/sync-data.mjs
+      - name: install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+        working-directory: apps/web
+      - run: npm run e2e # Playwright: smoke (FR7 notice, zero external request)
