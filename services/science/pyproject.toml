@@ -5,7 +5,9 @@ description = "FieldShift science pipeline: NASA data ingestion, harmonization a
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
 dependencies = [
+    "httpx==0.28.1",
     "pydantic==2.14.3",
+    "pyyaml==6.0.3",
 ]
 
 [project.scripts]
