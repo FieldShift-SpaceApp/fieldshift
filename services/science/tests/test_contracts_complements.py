@@ -12,6 +12,7 @@ from fieldshift.contracts import (
     BareSoilCalendar,
     EventTimeline,
     ForecastScorecard,
+    Provenance,
 )
 from fieldshift.contracts.export import build_schema
 
@@ -323,3 +324,42 @@ def test_calendar_allows_a_fortnight_without_scenes_and_needs_a_caveat():
     assert BareSoilCalendar.model_validate(calendar(fortnights=empty)).fortnights[5].s2_years == 0
     with pytest.raises(ValidationError):
         BareSoilCalendar.model_validate(calendar(caveats=[]))
+
+
+# --- Provenance.attribution (v1.2.0) ---------------------------------------------------------
+
+
+def _record(**over):
+    data = {
+        "id": "prov:computed:cruz-alta:s2",
+        "data_type": "computed",
+        "title": {"en": "t"},
+        "variable": {"code": "x", "name": {"en": "x"}, "unit": "%"},
+        "spatial": {"resolution": "10 m", "support": "regional"},
+        "temporal": {
+            "resolution": "16-day",
+            "period": {"start": "2019-01-01", "end": "2025-12-31"},
+        },
+        "aggregation": {"en": "a"},
+        "method": {"name": "m", "ref": {"label": "r"}, "doc_anchor": "a"},
+        "inputs": ["prov:esa:cruz-alta:s2"],
+        "limitations": [],
+    }
+    data.update(over)
+    return data
+
+
+def test_attribution_is_optional_and_grouped():
+    assert Provenance.model_validate(_record()).attribution == []
+    rec = Provenance.model_validate(
+        _record(
+            attribution=[
+                {"group": "partner", "name": "ESA Copernicus Sentinel-2", "credit": "Copernicus"},
+                {"group": "nasa", "name": "MODIS MOD13Q1"},
+                {"group": "other_public", "name": "IBGE"},
+            ]
+        )
+    )
+    assert [a.group for a in rec.attribution] == ["partner", "nasa", "other_public"]
+    with pytest.raises(ValidationError):
+        Provenance.model_validate(_record(attribution=[{"group": "private", "name": "x"}]))

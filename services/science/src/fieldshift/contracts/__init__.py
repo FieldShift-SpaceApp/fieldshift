@@ -27,7 +27,7 @@ from fieldshift.contracts.indices import (
     MonthlyProfile,
 )
 from fieldshift.contracts.manifest import LayerStatus, SiteManifest
-from fieldshift.contracts.provenance import Provenance, ProvenanceRegistry
+from fieldshift.contracts.provenance import Attribution, Provenance, ProvenanceRegistry
 from fieldshift.contracts.replay import EventTimeline, ReplayEvent, ReplayValue
 from fieldshift.contracts.rotation import (
     Rotation,
@@ -68,6 +68,7 @@ __all__ = [
     "CANONICAL_UNITS",
     "SCHEMA_VERSION",
     "TOP_LEVEL_MODELS",
+    "Attribution",
     "BareSoilCalendar",
     "ClimateIndices",
     "Confidence",

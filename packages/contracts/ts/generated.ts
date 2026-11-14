@@ -12,6 +12,11 @@
 export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "AttributionGroup".
+ */
+export type AttributionGroup = "nasa" | "partner" | "other_public";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "SchemaVersion".
  */
 export type SchemaVersion = string;
@@ -229,6 +234,15 @@ export interface FieldShiftContracts {
 export interface AgYear {
   start_month: Month;
   label: "single" | "split";
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "Attribution".
+ */
+export interface Attribution {
+  group: AttributionGroup;
+  name: string;
+  credit?: string | null;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
@@ -645,6 +659,7 @@ export interface Provenance {
   refs?: Ref[];
   access?: ProvenanceAccess | null;
   limitations: LocalizedText[];
+  attribution?: Attribution[];
 }
 /**
  * Required for satellite_observed and modeled.

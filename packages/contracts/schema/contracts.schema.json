@@ -24,6 +24,43 @@
       "title": "AgYear",
       "type": "object"
     },
+    "Attribution": {
+      "additionalProperties": false,
+      "properties": {
+        "group": {
+          "$ref": "#/$defs/AttributionGroup"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "credit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "group",
+        "name"
+      ],
+      "title": "Attribution",
+      "type": "object"
+    },
+    "AttributionGroup": {
+      "enum": [
+        "nasa",
+        "partner",
+        "other_public"
+      ],
+      "type": "string"
+    },
     "BareSoilCalendar": {
       "additionalProperties": false,
       "properties": {
@@ -1268,6 +1305,12 @@
         "limitations": {
           "items": {
             "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        },
+        "attribution": {
+          "items": {
+            "$ref": "#/$defs/Attribution"
           },
           "type": "array"
         }
