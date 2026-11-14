@@ -8,3 +8,4 @@ Required by the Space Apps Project Submission Guide: describe how AI tools were 
 |---|---|---|---|---|
 | 2026-11-14 | FLIGHT | Claude Code (Anthropic) | Research on past winners, official challenge text and NASA data access; repository scaffolding (structure, templates, AGENTS.md) | initial commit |
 | 2026-11-14 12:20 | FLIGHT (INFRA chat) | Claude Code (Anthropic) | Repository restructure to the architecture v0.1 layout (CO-2): moved files, updated path references | PR `infra/restructure` |
+| 2026-11-14 12:50 | FLIGHT (INFRA chat) | Claude Code (Anthropic) | Monorepo bootstrap: npm workspaces, `apps/web` scaffold (create-next-app + shadcn CLI) with canary page and strings file, `services/science` uv package with CLI stub and tests, hygiene script, editor/runtime config | PR `infra/bootstrap` |

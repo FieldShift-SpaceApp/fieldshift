@@ -1,0 +1,6 @@
+{
+  "name": "@fieldshift/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Data contracts between the science pipeline and the web app. Generated from pydantic models (ADR-4); do not edit generated files by hand."
+}

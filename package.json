@@ -1,0 +1,20 @@
+{
+  "name": "fieldshift",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "lint": "npm run lint -w apps/web",
+    "typecheck": "npm run typecheck -w apps/web",
+    "py:test": "uv run --directory services/science pytest -q",
+    "py:lint": "uv run --directory services/science ruff check . && uv run --directory services/science ruff format --check .",
+    "hygiene": "bash scripts/check-public-repo.sh"
+  }
+}
