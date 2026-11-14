@@ -4,7 +4,7 @@
 
 Team **FieldShift** · NASA Space Apps Challenge 2026 · *Field Shift: Adapting Farms with NASA Data* · Local Event: Florianópolis, Brazil.
 
-> Work in progress during the hackathon (Nov 14–15, 2026). Project description, demo and live link will be added here.
+> Work in progress during the hackathon (Nov 14–15, 2026). **Live app:** https://fieldshift-spaceapp.vercel.app — project description and demo will be added here.
 
 ## Repository layout
 
