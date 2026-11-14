@@ -1,3 +1,4 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 """Command-line entry point (`fieldshift`). Subcommands are added by the pipeline stories."""
 
 import argparse

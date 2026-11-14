@@ -1,3 +1,4 @@
+// SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 // All user-facing strings live here (NFR15). Portuguese (pt.ts) is a stretch goal.
 // The product name and concept are team decisions (C1): keep the working title until DECISIONS.md says otherwise.
 export const en = {

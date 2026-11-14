@@ -1,19 +1,104 @@
 # Resources
 
-> Every dataset, resource and tool used by the project. Feeds the submission page ("NASA data used" + "all data, resources and tools") and the Data & Methods page.
-> Owners: EECOM (datasets) + SURGEON (agronomic sources). Methods live in [`content/methods/`](content/methods/).
+> **SI-assisted:** written with Claude Code (Anthropic) from the team's data source map (live access and license checks of 2026-11-14); human review pending. See [`SI-USAGE.md`](SI-USAGE.md).
+
+Every dataset, resource and tool used by the project. Feeds the submission page ("NASA data used" + "all data, resources and tools") and the Data & Methods page (Story 1.4). Owners: EECOM (datasets) + SURGEON (agronomic sources). Methods live in [`content/methods/`](content/methods/).
+
+**Status:** `selected` = will be used whatever the concept (Epic 2) · `candidate` = inventoried and tested, used only if the concept needs it (decided after `D-001` in [`DECISIONS.md`](DECISIONS.md)). When a candidate is adopted, change its status and fill "Feeds" in the same PR as the code that reads it. Never list a number in the app whose dataset is not here (AGENTS.md §2.5).
+
+**License rule (repo is Apache-2.0):** Apache-2.0 covers our code only. Data or derived data committed to the repo keeps its original license and must be attributed here. Column "In git?" says whether derived data may be committed: **yes** (open license, with attribution) · **no** (non-commercial, restricted or unclear: link to the source or fetch at run time, never commit) · **check** (license not confirmed: confirm on the provider's page before committing).
 
 ## NASA datasets
-| Dataset | Product / version | Variable | Resolution | Period | URL | Terms of use | Feeds |
-|---|---|---|---|---|---|---|---|
+
+Terms for every NASA row unless stated otherwise: [NASA Earthdata data use guidance](https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance): data from NASA-led missions are CC0 unless marked; no restriction on use; citation strongly requested. Access legend: open = no account · Earthdata = free [Earthdata Login](https://urs.earthdata.nasa.gov).
+
+| Dataset | Product / version | Variable | Resolution | Period | URL | Terms of use | Feeds | Status |
+|---|---|---|---|---|---|---|---|---|
+| **NASA POWER** | POWER Daily API v2.10.3 (source: MERRA-2), community `AG` | daily T2M max/min/mean, precipitation (`PRECTOTCORR`), humidity, wind, solar radiation, modeled soil wetness (`GWETTOP/ROOT/PROF`) | ~0.5° × 0.625°, daily | 1981 → present | https://power.larc.nasa.gov/ | open, no account. Cite both: "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division." and "The data was obtained from the POWER Project's Daily 2.10.3 version on YYYY/MM/DD." (template from the [referencing guide](https://power.larc.nasa.gov/docs/referencing/), filled with the Daily API version returned on 2026-11-14); the project asks to be notified of publications and redistribution. `EVPTRNS` returned a suspicious 0.0 in a test: check before use | climate series of both sites (Epic 2); method notes in `content/methods/` | selected |
+| MERRA-2 | `M2T1NXSLV` v5.12.4 | meteorological reanalysis (base of POWER) | ~0.5°, hourly | 1980 → | https://search.earthdata.nasa.gov/search?q=M2T1NXSLV | Earthdata | — | candidate |
+| NEX-GDDP-CMIP6 | NCCS / AWS Open Data, v2.0 | downscaled climate projections (CMIP6; e.g. `tasmax` under SSP2-4.5) | 0.25° grid, daily (seen in a point test) | historical + SSP scenarios (span to confirm on the product page) | https://registry.opendata.aws/nex-gddp-cmip6/ | open; **CC0** (AWS Registry) | — | candidate |
+| SMAP L3 | `SPL3SMP_E` | surface soil moisture (observed) | 9 km, daily | 2015 → | https://search.earthdata.nasa.gov/search?q=SPL3SMP_E | Earthdata | — | candidate |
+| SMAP L4 | `SPL4SMGP` | surface and root-zone soil moisture | 9 km, 3-hourly | 2015 → | https://search.earthdata.nasa.gov/search?q=SPL4SMGP | Earthdata | — | candidate |
+| GPM IMERG | Final / Late, daily and monthly | precipitation | 0.1°, daily / monthly | 1998 → (Final to Sep 2025; Late to present) | https://search.earthdata.nasa.gov/search?q=GPM%20IMERG | Earthdata | — | candidate |
+| GLDAS Noah | `GLDAS_NOAH025_3H`, `GLDAS_NOAH025_M` | modeled soil moisture by layer, ET, runoff | 0.25°, 3-hourly / monthly | 2000 → | https://search.earthdata.nasa.gov/search?q=GLDAS_NOAH025_M | Earthdata | — | candidate |
+| GRACE / GRACE-FO | JPL mascon | terrestrial water storage anomaly | ~300 km effective, monthly | 2002 → (gap 2017–18) | https://search.earthdata.nasa.gov/search?q=GRACE%20mascon%20JPL | Earthdata | — | candidate |
+| MODIS vegetation indices | `MOD13Q1`, `MYD13Q1` | NDVI, EVI | 250 m, 16-day | 2000 → | https://search.earthdata.nasa.gov/search?q=MOD13Q1 | Earthdata (or via AppEEARS) | — | candidate |
+| VIIRS vegetation indices | `VNP13A1` | NDVI, EVI (MODIS continuity) | 500 m, 16-day | 2012 → | https://search.earthdata.nasa.gov/search?q=VNP13A1 | Earthdata | — | candidate |
+| HLS | `HLSL30`, `HLSS30` | harmonized Landsat/Sentinel-2 reflectance (field-scale NDVI) | 30 m, 2–3 days | 2013 → | https://search.earthdata.nasa.gov/search?q=HLSL30 | Earthdata | — | candidate |
+| MODIS land cover | `MCD12Q1` | annual land cover class | 500 m, annual | 2001 → | https://search.earthdata.nasa.gov/search?q=MCD12Q1 | Earthdata | — | candidate |
+| MODIS phenology | `MCD12Q2` | green-up, peak, dormancy | 500 m, annual | 2001 → | https://search.earthdata.nasa.gov/search?q=MCD12Q2 | Earthdata | — | candidate |
+| MODIS ET | `MOD16A2GF` | evapotranspiration | 500 m, 8-day | 2000 → | https://search.earthdata.nasa.gov/search?q=MOD16A2GF | Earthdata | — | candidate |
+| ECOSTRESS | `ECO_L3T_JET` (ET), LST | evapotranspiration, land surface temperature | 70 m, irregular | 2018 → | https://search.earthdata.nasa.gov/search?q=ECOSTRESS | Earthdata | — | candidate |
+| MODIS LST | `MOD11A2` | land surface temperature | 1 km, 8-day | 2000 → | https://search.earthdata.nasa.gov/search?q=MOD11A2 | Earthdata | — | candidate |
+| GFSAD | `GFSAD30SACE`, `GFSAD1KCM` | cropland mask (South America); irrigated vs rainfed | 30 m (~2015) / 1 km (~2010) | static | https://search.earthdata.nasa.gov/search?q=GFSAD30SACE | Earthdata | — | candidate |
+| SRTM / NASADEM | `SRTMGL1`, NASADEM | elevation → slope | 30 m | 2000 | https://search.earthdata.nasa.gov/search?q=SRTMGL1 | Earthdata | — | candidate |
+| OPERA DSWx-HLS | `OPERA_L3_DSWX-HLS_V1` | surface water | 30 m | 2016 → | https://search.earthdata.nasa.gov/search?q=OPERA%20DSWx-HLS | Earthdata | — | candidate |
+| GIBS / Worldview | WMTS imagery | ready-made map imagery (no numeric values) | tiles | varies | https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api | open | — | candidate |
+| AppEEARS | service | point/area extraction of MODIS, VIIRS, SMAP and others | per product | per product | https://appeears.earthdatacloud.nasa.gov/ | Earthdata | — | candidate (fallback extraction path) |
+
+Not a guaranteed path: ORNL MODIS Subsets returned HTTP 503 on 2026-11-14 (`D-000/CO-4`).
 
 ## Other data
-| Dataset | Provider | URL | License / terms | Feeds |
-|---|---|---|---|---|
+
+| Dataset | Provider | URL | License / terms | In git? | Feeds | Status |
+|---|---|---|---|---|---|---|
+| ERA5 / ERA5-Land | ECMWF / Copernicus C3S | https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land | CC BY 4.0 (CDS catalog); free account and per-dataset license acceptance | yes | — | candidate |
+| C3S / ESA CCI Soil Moisture | ESA / Copernicus C3S | https://climate.esa.int/en/projects/soil-moisture/ | CC BY 4.0 (C3S) | yes | — | candidate |
+| ESA WorldCover | ESA | https://esa-worldcover.org/en/data-access | CC BY 4.0 | yes | — | candidate |
+| Sentinel-2 L2A (Earth Search) | ESA Copernicus, via Element 84 | https://earth-search.aws.element84.com/v1 | Sentinel Data Legal Notice: free use with attribution "Contains modified Copernicus Sentinel data [year]" | yes | — | candidate |
+| CHIRPS v3.0 | UCSB Climate Hazards Center | https://www.chc.ucsb.edu/data/chirps3 | public domain / CC BY 4.0 (v2.0 is offline) | yes | — | candidate |
+| MapBiomas Collection 11 | MapBiomas | https://brasil.mapbiomas.org/download/ | CC BY 4.0; rasters only via Google Earth Engine (download suspended), municipal statistics as XLSX | yes | — | candidate |
+| ZARC (agricultural climate risk zoning) | MAPA (Brazil) | https://dados.agricultura.gov.br/dataset/tabua-de-risco-zoneamento-agricola-de-risco-climatico | Creative Commons Attribution (CKAN metadata) | yes | — | candidate |
+| IBGE PAM / SIDRA | IBGE | https://servicodados.ibge.gov.br/api/v3/agregados/1612/metadados | public federal data; cite IBGE (no CC license seen) | yes, cite source | — | candidate |
+| INMET weather stations | INMET | https://portal.inmet.gov.br/dadoshistoricos | public federal data; cite INMET (license not confirmed) | check | — | candidate |
+| CONAB historical series | CONAB | https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/safras/series-historicas | public federal data; cite CONAB (license not confirmed) | check | — | candidate |
+| INPE BDC (CBERS-4/4A, Amazonia-1) | INPE / AEB | https://data.inpe.br/stac/browser/ | CBERS/Amazonia: CC BY 4.0; Sentinel-2/Landsat cubes follow ESA/USGS terms | yes | — | candidate |
+| ISRIC SoilGrids 2.0 | ISRIC | https://soilgrids.org | CC BY 4.0 (not confirmed in this session); point REST queries returned `null` on 2026-11-14 (use WCS/VRT) | check | — | candidate |
+| **HWSD v2.0** | FAO / IIASA | https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/ | **license not confirmed** (catalog says "Unknown"; possibly CC BY-NC-SA 3.0 IGO): treat as non-commercial | **no** | — | candidate |
+| **FAO GAEZ v4 / v5** | FAO / IIASA | https://gaez.fao.org/ | **non-commercial use only** (GAEZ v4 terms; CC BY-NC-SA 3.0 IGO per a secondary source): incompatible with committing to an Apache-2.0 repo | **no** | — | candidate |
+| FAOSTAT | FAO | https://www.fao.org/faostat/ | CC BY 4.0 (not confirmed); bulk download open, API needs a token | check | — | candidate |
+| FAO WaPOR v3 | FAO | https://data.apps.fao.org/wapor/ | CC BY 4.0 (not confirmed) | check | — | candidate |
+| Open-Meteo Historical | Open-Meteo (serves ERA5) | https://open-meteo.com/en/terms | data CC BY 4.0; **free API is non-commercial only**, < 10,000 calls/day | yes (data), API terms apply | — | candidate |
+| Embrapa SATVeg / AgroAPI | Embrapa (derived from NASA MODIS) | https://www.satveg.cnptia.embrapa.br/ | portal terms: all rights reserved (Brazilian Law 9.610); API needs a token | **no** | — | candidate |
+| **CEPEA/ESALQ price indicators** | CEPEA (USP) | https://cepea.org.br/br/politica-de-direitos-autorais-1.aspx | **restricted**: retransmission requires formal authorization | **no** | — | candidate |
+| SAGE crop calendar (Sacks et al. 2010) | University of Wisconsin–Madison | https://sage.nelson.wisc.edu/data-and-models/datasets/crop-calendar-dataset/ | no explicit license on the page; authors ask for an email | **no** (until confirmed) | — | candidate |
+| USDA Cropland Data Layer (US only) | USDA NASS | https://www.nass.usda.gov/Research_and_Science/Cropland/SARS1a.php | US government, public domain (not confirmed) | check | — | candidate (Nevada site) |
+| SSURGO / Web Soil Survey (US only) | USDA NRCS | https://websoilsurvey.nrcs.usda.gov/ | US government, public domain (not confirmed) | check | — | candidate (Nevada site) |
+| OpenET (western US only) | OpenET | https://etdata.org/ | data CC BY 4.0 (not confirmed); API key required | check | — | candidate (Nevada site) |
+| USGS Water Data (US only) | USGS | https://api.waterdata.usgs.gov/ | US government, public domain (not confirmed); legacy NWIS `gwlevels` service is off | check | — | candidate (Nevada site) |
+
+Also restricted, never commit (details in the team's source map): CEAGESP (all rights reserved), Agritempo (raw data restricted), EPAGRI/CIRAM, Infoagro and CIIAGRO (no open license), CABI (CC BY-NC-ND). Personal data is never committed raw (rural insurance PSR, SICAR per property, water-rights owners, GBIF/iNaturalist observer names): aggregates only.
 
 ## Tools and libraries
+
+Versions as pinned in the lockfiles (`package-lock.json`, `services/science/uv.lock`); licenses read from each package's metadata (npm / PyPI).
+
 | Tool / library | Version | License | URL | Used for |
 |---|---|---|---|---|
+| Next.js | 16.4.6 | MIT | https://nextjs.org | web app (static generation) |
+| React / React DOM | 19.3.1 | MIT | https://react.dev | UI |
+| TypeScript | 6.0.3 | Apache-2.0 | https://www.typescriptlang.org | types |
+| Tailwind CSS | 4.3.5 | MIT | https://tailwindcss.com | styles |
+| shadcn (CLI) | 4.23.0 | MIT | https://ui.shadcn.com | component scaffolding |
+| radix-ui | 1.8.1 | MIT | https://www.radix-ui.com | accessible UI primitives |
+| lucide-react | 1.73.0 | ISC | https://lucide.dev | icons |
+| class-variance-authority | 0.7.1 | Apache-2.0 | https://cva.style | component variants |
+| cn | 0.5.2 | MIT | https://www.npmjs.com/package/cn | class name helper |
+| tw-animate-css | 1.4.0 | MIT | https://www.npmjs.com/package/tw-animate-css | animations |
+| ESLint + eslint-config-next | 9.39.5 + 16.4.6 | MIT | https://eslint.org | lint |
+| Vitest | 5.1.0 | MIT | https://vitest.dev | unit tests |
+| Vite + @vitejs/plugin-react | 8.3.8 + 6.3.0 | MIT | https://vite.dev | test transform (Vitest) |
+| Testing Library (react, dom) | 16.3.3, 10.4.2 | MIT | https://testing-library.com | component tests |
+| jsdom | 29.1.1 | MIT | https://github.com/jsdom/jsdom | DOM for unit tests |
+| Playwright | 1.65.1 | Apache-2.0 | https://playwright.dev | end-to-end tests (Chromium) |
+| Node.js | 24.x | MIT | https://nodejs.org | runtime |
+| Python | 3.12 | PSF-2.0 | https://www.python.org | science pipeline |
+| uv | 0.11.3 | MIT OR Apache-2.0 | https://docs.astral.sh/uv/ | Python packaging |
+| pydantic | 2.14.3 | MIT | https://docs.pydantic.dev | data contracts and validation |
+| pytest | 9.2.0 | MIT | https://pytest.org | Python tests |
+| Ruff | 0.17.5 | MIT | https://docs.astral.sh/ruff/ | Python lint and format |
+| gitleaks | 8.30.1 | MIT | https://github.com/gitleaks/gitleaks | secret scan in CI |
+| GitHub Actions | — | service terms | https://github.com/features/actions | CI |
 
 ## AI usage
 See [SI-USAGE.md](SI-USAGE.md).

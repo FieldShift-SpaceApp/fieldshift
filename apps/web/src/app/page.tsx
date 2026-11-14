@@ -1,3 +1,4 @@
+// SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 import { t } from "@/i18n";
 
 export default function Home() {

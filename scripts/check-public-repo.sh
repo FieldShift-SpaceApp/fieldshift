@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 # scripts/check-public-repo.sh — NFR9 / ADR-5: fails if anything from the private workspace enters the public repo.
 # AGENTS.md and CLAUDE.md (team AI protocol) are allowed; agent tool folders are not.
 set -euo pipefail
