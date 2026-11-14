@@ -1,5 +1,7 @@
 # Contracts (`@fieldshift/contracts`)
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 Data contracts v1.0.0 between the science pipeline and the web app (architecture ADR-4).
 
 - **Source of truth:** pydantic models in `services/science/src/fieldshift/contracts/`.

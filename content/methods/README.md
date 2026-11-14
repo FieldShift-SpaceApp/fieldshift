@@ -1,5 +1,7 @@
 # Methods
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 One method per file (`<method>.md`), with front-matter `anchor`, `title` and `refs`.
 The `method.doc_anchor` of every provenance record must point to an anchor defined here.
 

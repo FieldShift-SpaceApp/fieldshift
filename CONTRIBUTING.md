@@ -1,5 +1,7 @@
 # Contributing (team FieldShift)
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 ## Setup (5 min, once)
 1. Accept the invite to `FieldShift-SpaceApp`, then `git clone https://github.com/FieldShift-SpaceApp/fieldshift`.
 2. Install and log in to the GitHub CLI: `gh auth login` (your AI uses it to read/write issues).

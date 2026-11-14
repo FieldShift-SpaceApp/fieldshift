@@ -1,3 +1,4 @@
+<!-- SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md) -->
 ## What
 <!-- one or two lines -->
 

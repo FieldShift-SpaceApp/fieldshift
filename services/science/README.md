@@ -1,5 +1,7 @@
 # Science service (EECOM + GUIDO)
 
+> **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
+
 Offline Python pipeline (`fieldshift` CLI), managed with [uv](https://docs.astral.sh/uv/) on Python 3.12. Layout follows the architecture v0.1: code in `src/fieldshift/`, tests in `tests/`.
 
 ```bash
