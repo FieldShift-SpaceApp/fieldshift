@@ -13,6 +13,9 @@
     "build": "npm run build -w apps/web",
     "lint": "npm run lint -w apps/web",
     "typecheck": "npm run typecheck -w apps/web",
+    "test": "npm run test -w apps/web",
+    "e2e": "npm run e2e -w apps/web",
+    "data:sync": "node scripts/sync-data.mjs",
     "py:test": "uv run --directory services/science pytest -q",
     "py:lint": "uv run --directory services/science ruff check . && uv run --directory services/science ruff format --check .",
     "hygiene": "bash scripts/check-public-repo.sh"
