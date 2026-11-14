@@ -119,6 +119,26 @@ def test_run_power_offline_writes_dev_outputs_outside_data_sites(data_root):
     assert b"\r\n" not in first
 
 
+def test_run_power_merges_provenance_records_of_other_stages(data_root):
+    """#25: the rotation stage writes to the same provenance.json; POWER must not drop it."""
+    first = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
+    other = first.registry.records["prov:power:dev-floripa:t2m:daily"].model_copy(
+        update={"id": "prov:power:dev-floripa:other_stage:daily"}
+    )
+    path = first.provenance_path
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc["records"][other.id] = other.model_dump(mode="json")
+    doc["records"]["prov:power:dev-floripa:t2m:daily"]["title"]["en"] = "stale title"
+    path.write_text(json.dumps(doc), encoding="utf-8")
+    again = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
+    written = ProvenanceRegistry.model_validate_json(path.read_text(encoding="utf-8"))
+    assert other.id in written.records  # other stage's record kept
+    assert set(first.registry.records) <= set(written.records)
+    t2m = written.records["prov:power:dev-floripa:t2m:daily"]
+    assert t2m.title.en != "stale title"  # same id: replaced by the new record
+    assert again.registry == written
+
+
 def test_cli_fetch_power_offline(data_root, capsys):
     code = main(["fetch", "power", "--site", "dev-floripa", "--start", "2024-01-01",
                  "--end", "2024-02-29", "--offline", "--data-dir", str(data_root)])  # fmt: skip

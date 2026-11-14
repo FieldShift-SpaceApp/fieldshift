@@ -128,3 +128,55 @@
     @apply font-sans;
   }
 }
+/*
+ * Soil-state tokens (PRD §3: covered, residue, transition, bare). Neutral placeholders: the
+ * visual direction is a team decision (D4). Each state also has its own fill pattern and icon,
+ * so it never depends on color alone (SoilCoverStrip).
+ */
+:root {
+  --soil-covered: oklch(0.45 0 0);
+  --soil-covered-foreground: oklch(0.985 0 0);
+  --soil-residue: oklch(0.7 0 0);
+  --soil-transition: oklch(0.82 0 0);
+  --soil-bare: oklch(1 0 0);
+  --soil-ink: oklch(0.205 0 0);
+}
+
+.dark {
+  --soil-covered: oklch(0.8 0 0);
+  --soil-covered-foreground: oklch(0.145 0 0);
+  --soil-residue: oklch(0.55 0 0);
+  --soil-transition: oklch(0.4 0 0);
+  --soil-bare: oklch(0.145 0 0);
+  --soil-ink: oklch(0.985 0 0);
+}
+
+@layer components {
+  .soil-cell[data-state="covered"] {
+    background-color: var(--soil-covered);
+    color: var(--soil-covered-foreground);
+  }
+  .soil-cell[data-state="residue"] {
+    color: var(--soil-ink);
+    background-color: var(--soil-bare);
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--soil-residue) 0 3px,
+      transparent 3px 6px
+    );
+  }
+  .soil-cell[data-state="transition"] {
+    color: var(--soil-ink);
+    background-color: var(--soil-bare);
+    background-image: radial-gradient(var(--soil-transition) 1.5px, transparent 1.5px);
+    background-size: 6px 6px;
+    outline: 1px solid var(--soil-transition);
+    outline-offset: -1px;
+  }
+  .soil-cell[data-state="bare"] {
+    color: var(--soil-ink);
+    background-color: var(--soil-bare);
+    outline: 1px dashed var(--soil-ink);
+    outline-offset: -1px;
+  }
+}

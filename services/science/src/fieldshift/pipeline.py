@@ -32,6 +32,7 @@ from fieldshift.io.rounding import round_value
 from fieldshift.io.store import write_model
 from fieldshift.provenance import indices as pix
 from fieldshift.provenance.power import et0_prov_id, et0_record, power_prov_id, power_record
+from fieldshift.rotation.stage import merge_registry
 from fieldshift.sites import SitePoint
 from fieldshift.sources import power
 
@@ -362,11 +363,15 @@ def run_power(
     params, site_set = ix.load_index_params(site_yaml_path(site, data_dir))
     bundle, registry, indices = build_all(site, raw, params, site_set)
     out = site.output_dir(data_dir)
+    provenance_path = out / "provenance.json"
+    # Other stages (rotation, #25) write records to the same registry: merge by provenance_id,
+    # never drop theirs. A record this stage no longer produces stays until removed by hand.
+    merged = merge_registry(provenance_path, registry)
     return PowerOutputs(
         series_path=write_model(bundle, out / "series.json"),
-        provenance_path=write_model(registry, out / "provenance.json"),
+        provenance_path=write_model(merged, provenance_path),
         indices_path=write_model(indices, out / "indices.json"),
         bundle=bundle,
-        registry=registry,
+        registry=merged,
         indices=indices,
     )

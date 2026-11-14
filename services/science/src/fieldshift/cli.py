@@ -63,7 +63,35 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="method pages (default: repo content/methods)",
     )
+
+    rot = sub.add_parser(
+        "rotation",
+        help="current rotation -> monthly soil-cover timeline (Story 2.3)",
+        description=(
+            "Reads input/site.yaml (ag_year) and input/rotation-current.yaml of the site and "
+            "writes output/rotation-current.json; provenance is merged into output/provenance.json."
+        ),
+    )
+    rot.add_argument("--site", required=True, help="site id (e.g. brasil)")
+    rot.add_argument("--data-dir", type=Path, default=None, help="data/ root (default: repo data/)")
     return parser
+
+
+def _rotation(args: argparse.Namespace) -> int:
+    from fieldshift.config import data_dir
+    from fieldshift.errors import PipelineError
+    from fieldshift.rotation.stage import run_rotation
+
+    try:
+        out = run_rotation(args.site, data_dir=args.data_dir or data_dir())
+    except PipelineError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    bare = out.file.timeline.bare_months_per_year.value
+    print(f"rotation {args.site}: {out.file.rotation.id} ({out.file.rotation.cycle_years} y)")
+    print(f"  timeline:   {out.rotation_path} (bare-soil months per year: {bare})")
+    print(f"  provenance: {out.provenance_path}")
+    return 0
 
 
 def _fetch_power(args: argparse.Namespace) -> int:
@@ -115,6 +143,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _fetch_power(args)
     elif args.command == "validate":
         return _validate(args)
+    elif args.command == "rotation":
+        return _rotation(args)
     return 0
 
 
