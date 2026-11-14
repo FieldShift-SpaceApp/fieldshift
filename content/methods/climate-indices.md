@@ -14,6 +14,8 @@ refs:
 limitations:
   - "The heat threshold (35 °C) and the growing degree-day base (10 °C) are generic defaults until the agronomist sets them per site and per crop; when a default is used, the provenance record of the number says so."
   - "All indices use the NASA POWER grid cell that contains the site point (about 50 km): local frost in low spots and short local storms are smoothed out."
+  - "Heat days read POWER Tmax, which shifted warm against the ground from about 2019 at Cruz Alta (+1.84 °C in January-February 2019-2025 against INMET A853, +0.41 °C before): a rise in heat days that appears only after 2019 may be an artifact of the data. Check it against a local weather station."
+  - "Extreme rain days use POWER daily rain, which smooths heavy rain (on days with 60 mm or more at a Cruz Alta gauge, POWER recorded 46-57% of the amount) and rains a little on too many days, so dry spells are underestimated. Check extremes and dry spells against a rain gauge or GPM IMERG."
   - "The water deficit (ET0 minus rain) is a climate indicator, not a soil water balance: it has no runoff, soil storage or crop coefficient."
 ---
 
@@ -39,4 +41,4 @@ The 95th percentile uses linear interpolation between ordered values (Hyndman an
 
 **Checks.** `services/science/tests/test_indices.py`: reference values for the percentile (for 1 to 100, the 95th percentile is 95.05) and for growing degree-days, threshold edges (a day at exactly 35 °C is not a heat day; a day at exactly 0 °C is a frost day), and the rule that a missing day makes the month and its climatology empty.
 
-**Provenance.** Each index value has a `computed` provenance record whose inputs are the NASA POWER records it reads (and the ET0 record for the water deficit) and whose method points to this section.
+**Provenance.** Each index value has a `computed` provenance record whose inputs are the NASA POWER records it reads (and the ET0 record for the water deficit) and whose method points to this section. The records of the heat-day and extreme-rain indices (and of their climatology and percentile) also carry the result of the team's [ground check](#satellite-vs-ground-check) as a limitation, with the recommended cross-check.
