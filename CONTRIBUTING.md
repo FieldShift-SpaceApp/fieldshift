@@ -1,7 +1,7 @@
 # Contributing (team FieldShift)
 
 ## Setup (5 min, once)
-1. Accept the invite to `FieldShift-SpaceApp`, then `git clone https://github.com/FieldShift-SpaceApp/fieldshift`.
+1. Join: open https://github.com/FieldShift-SpaceApp/fieldshift/issues/new?template=join.yml, type the team code from the team chat, submit, then accept the invitation (email or https://github.com/notifications). Then `git clone https://github.com/FieldShift-SpaceApp/fieldshift`.
 2. Install and log in to the GitHub CLI: `gh auth login` (your AI uses it to read/write issues).
 3. Create a free NASA **Earthdata Login** account (https://urs.earthdata.nasa.gov) if you touch data; copy `.env.example` to `.env`.
 4. Open your AI assistant **in the repo root** so it loads `AGENTS.md` (Claude Code loads it via `CLAUDE.md`).

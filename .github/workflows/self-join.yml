@@ -1,0 +1,72 @@
+# Auto-convite: quem abre a issue "Join team" com o código certo vira colaborador dos repositórios.
+# Segredos necessários (Settings → Secrets → Actions): JOIN_CODE e INVITE_TOKEN
+# (token fine-grained da organização, só fieldshift e fieldshift-hq, Administration + Issues: read/write).
+name: Team self-join
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+concurrency:
+  group: self-join
+  cancel-in-progress: false
+
+jobs:
+  join:
+    if: contains(github.event.issue.labels.*.name, 'join')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          JOIN_CODE: ${{ secrets.JOIN_CODE }}
+        with:
+          github-token: ${{ secrets.INVITE_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const user = issue.user.login;
+            const owner = context.repo.owner;
+            const repos = ['fieldshift', 'fieldshift-hq'];
+            // time de 6 = dono da organização + 5 convidados
+            const MAX_INVITED = 5;
+
+            // 1) apagar a issue antes de tudo: o código não pode ficar público
+            try {
+              await github.graphql(
+                'mutation($id: ID!) { deleteIssue(input: { issueId: $id }) { clientMutationId } }',
+                { id: issue.node_id });
+            } catch (e) {
+              core.warning('não foi possível apagar a issue; fechando e removendo o texto');
+              await github.rest.issues.update({
+                owner, repo: context.repo.repo, issue_number: issue.number,
+                title: 'join (processed)', body: '(removed)', state: 'closed' });
+              await github.rest.issues.lock({ owner, repo: context.repo.repo, issue_number: issue.number });
+            }
+
+            // 2) conferir o código (o payload do evento ainda tem o texto original)
+            const m = (issue.body || '').match(/### Team code\s+([^\r\n]+)/);
+            const code = m ? m[1].trim() : '';
+            if (!process.env.JOIN_CODE || code !== process.env.JOIN_CODE) {
+              core.info(`recusado: ${user} (código inválido)`);
+              return;
+            }
+
+            // 3) limite de pessoas (colaboradores externos + convites pendentes)
+            const collabs = await github.paginate(github.rest.repos.listCollaborators,
+              { owner, repo: 'fieldshift', affiliation: 'outside', per_page: 100 });
+            const invites = await github.paginate(github.rest.repos.listInvitations,
+              { owner, repo: 'fieldshift', per_page: 100 });
+            const people = new Set([
+              ...collabs.map(c => c.login),
+              ...invites.map(i => i.invitee && i.invitee.login).filter(Boolean)]);
+            if (!people.has(user) && people.size >= MAX_INVITED) {
+              core.info(`recusado: ${user} (time cheio)`);
+              return;
+            }
+
+            // 4) convidar para os dois repositórios com permissão de escrita
+            for (const repo of repos) {
+              await github.rest.repos.addCollaborator({ owner, repo, username: user, permission: 'push' });
+            }
+            core.info(`convite enviado: ${user}`);

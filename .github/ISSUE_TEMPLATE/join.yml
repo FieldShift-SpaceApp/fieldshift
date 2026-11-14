@@ -1,0 +1,18 @@
+name: Join team FieldShift
+description: Self-join with the team code shared in the team chat
+title: "join"
+labels: ["join"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Type the **team code** you received in the team chat and submit.
+        This issue is **deleted automatically** a few seconds after it is read, so the code does not stay public.
+        If the code is right, you get a GitHub **invitation** to the team repositories (email + https://github.com/notifications). Accept it and you are in.
+  - type: input
+    id: code
+    attributes:
+      label: Team code
+      placeholder: fs-xxxxxxxxxx
+    validations:
+      required: true
