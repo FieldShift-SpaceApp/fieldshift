@@ -12,7 +12,7 @@ from fieldshift.cli import main
 from fieldshift.config import data_dir
 from fieldshift.contracts import ProvenanceRegistry, SeriesBundle
 from fieldshift.errors import PipelineError
-from fieldshift.pipeline import build_power, run_power
+from fieldshift.pipeline import build_all, build_power, run_power
 from fieldshift.sites import DEV_SITES, SitePoint, resolve_site
 from fieldshift.sources import power
 
@@ -111,11 +111,32 @@ def test_missing_day_leaves_month_null_and_declares_gap(wrapped):
 def test_run_power_offline_writes_dev_outputs_outside_data_sites(data_root):
     out = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
     assert out.series_path == data_root / "dev" / "dev-floripa" / "output" / "series.json"
+    assert out.indices_path.name == "indices.json" and out.indices_path.is_file()
     assert not (data_root / "sites").exists()  # scripts/sync-data.mjs publishes data/sites only
     first = out.series_path.read_bytes()
     run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
     assert out.series_path.read_bytes() == first  # deterministic
     assert b"\r\n" not in first
+
+
+def test_run_power_merges_provenance_records_of_other_stages(data_root):
+    """#25: the rotation stage writes to the same provenance.json; POWER must not drop it."""
+    first = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
+    other = first.registry.records["prov:power:dev-floripa:t2m:daily"].model_copy(
+        update={"id": "prov:power:dev-floripa:other_stage:daily"}
+    )
+    path = first.provenance_path
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc["records"][other.id] = other.model_dump(mode="json")
+    doc["records"]["prov:power:dev-floripa:t2m:daily"]["title"]["en"] = "stale title"
+    path.write_text(json.dumps(doc), encoding="utf-8")
+    again = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
+    written = ProvenanceRegistry.model_validate_json(path.read_text(encoding="utf-8"))
+    assert other.id in written.records  # other stage's record kept
+    assert set(first.registry.records) <= set(written.records)
+    t2m = written.records["prov:power:dev-floripa:t2m:daily"]
+    assert t2m.title.en != "stale title"  # same id: replaced by the new record
+    assert again.registry == written
 
 
 def test_cli_fetch_power_offline(data_root, capsys):
@@ -140,18 +161,11 @@ def test_dev_site_is_marked_and_routed_to_data_dev(tmp_path):
     assert DEV.output_dir(tmp_path) == tmp_path / "dev" / "dev-floripa" / "output"
 
 
-def test_cruz_alta_candidate_is_dev_and_routed_to_its_folder(tmp_path):
+def test_cruz_alta_candidate_is_dev_and_routed_to_data_dev(tmp_path):
     site = DEV_SITES["dev-cruz-alta"]
     assert site.dev and "DEV ONLY" in site.label
-    assert site.output_dir(tmp_path) == tmp_path / "dev" / "cruz-alta" / "output"
+    assert site.output_dir(tmp_path) == tmp_path / "dev" / "dev-cruz-alta" / "output"
     assert resolve_site("dev-cruz-alta", tmp_path) is site
-
-
-def test_folder_only_for_dev_sites():
-    with pytest.raises(PipelineError):
-        SitePoint("brasil", -27.6, -48.5, "x", dev=False, folder="other")
-    with pytest.raises(PipelineError):
-        SitePoint("dev-x", -27.6, -48.5, "x", dev=True, folder="../sites")
 
 
 def test_only_dev_prefixed_ids_can_be_dev():
@@ -199,10 +213,9 @@ def test_committed_dev_outputs_regenerate_from_committed_cache(site_id):
     assert cache.stat().st_size < 5_000_000  # .gitignore: data/cache/ committed only when < 5 MB
     _, start, end = cache.stem.split("_")
     raw = power.parse(json.loads(cache.read_text(encoding="utf-8")), lat=site.lat, lon=site.lon)
-    bundle, registry = build_power(site, raw)
+    bundle, registry, indices = build_all(site, raw)
     out = site.output_dir(root)
-    committed_series = json.loads((out / "series.json").read_text(encoding="utf-8"))
-    committed_prov = json.loads((out / "provenance.json").read_text(encoding="utf-8"))
-    assert bundle.model_dump(mode="json") == committed_series
-    assert registry.model_dump(mode="json") == committed_prov
+    for model, name in ((bundle, "series"), (registry, "provenance"), (indices, "indices")):
+        committed = json.loads((out / f"{name}.json").read_text(encoding="utf-8"))
+        assert model.model_dump(mode="json") == committed, name
     assert raw.first_day.strftime("%Y%m%d") == start and raw.last_day.strftime("%Y%m%d") == end

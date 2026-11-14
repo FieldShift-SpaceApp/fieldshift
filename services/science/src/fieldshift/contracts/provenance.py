@@ -54,6 +54,10 @@ class ProvenanceMethod(Contract):
     name: str
     ref: Ref
     doc_anchor: str
+    # v1.1.0: parameters the method was run with (thresholds, base temperature, reference
+    # period...), so a number can be traced to the exact setting. Units go in the key name,
+    # e.g. {"tmax_threshold_degC": 35.0}.
+    parameters: dict[str, float | str] | None = None
 
 
 class ProvenanceAccess(Contract):

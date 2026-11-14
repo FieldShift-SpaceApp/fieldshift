@@ -120,7 +120,7 @@ def fetch(
     municipality: str,
     product: str,
     *,
-    out_dir: Path,
+    cache_dir: Path,
     offline: bool = False,
     refresh: bool = False,
     client: httpx.Client | None = None,
@@ -128,7 +128,7 @@ def fetch(
 ) -> PamSeries:
     """Return the PAM series. Idempotent: an existing raw file wins unless `refresh`."""
     url = build_url(municipality, product)
-    path = out_dir / f"{cache_name(municipality, product)}.raw.json"
+    path = cache_dir / f"{cache_name(municipality, product)}.raw.json"
     if path.exists() and not refresh:
         log.info("IBGE PAM: using %s", path)
         return parse(json.loads(path.read_text(encoding="utf-8")), municipality, product)

@@ -2,7 +2,7 @@
 """DEV ONLY check for issue #26: soybean yield (IBGE PAM) next to season rainfall (NASA POWER).
 
 Reads only committed files in this folder and prints the Markdown tables used in README.md:
-    uv run --directory services/science python ../../data/dev/cruz-alta/drought_check.py
+    uv run --directory services/science python ../../data/dev/dev-cruz-alta/drought_check.py
 
 Windows (analysis convention for this check, not a project decision): PAM year Y is the harvest
 of the season planted in late Y-1, so rainfall is summed over Nov(Y-1)..Mar(Y) and Dec(Y-1)..Feb(Y).

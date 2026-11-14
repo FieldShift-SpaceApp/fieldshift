@@ -7,7 +7,7 @@
   "confirmed_by": "IBGE localidades API v1: the RS municipality list (497 entries) has one 'Cruz Alta' with id 4306106; the single-municipality endpoint returns the same id and name",
   "list_url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/RS/municipios",
   "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/4306106",
-  "file": "localidades_municipio_4306106.json",
+  "file": "data/cache/ibge/dev-cruz-alta/localidades_municipio_4306106.json",
   "accessed_at": "2026-11-14T14:42:06-03:00"
  },
  "polygon": {
@@ -16,7 +16,7 @@
   "mesh_version": "2022 (periodo=2022; it is also the API default: the response without periodo is byte-identical; periodo=2023..2026 returned HTTP 500 on 2026-11-14)",
   "quality": "qualidade=maxima",
   "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/4306106?formato=application/vnd.geo%2Bjson&qualidade=maxima&periodo=2022",
-  "file": "malha_municipio_4306106_2022.geojson",
+  "file": "data/dev/dev-cruz-alta/ibge/malha_municipio_4306106_2022.geojson",
   "sha256": "eaba02c68f9142927be78230239cabe61bb9f7de24ec0d4691d3e3c9d067c3b2",
   "geometry": "one Feature, Polygon, outer ring of 993 vertices, closed, no holes",
   "datum": "not stated in the response; IBGE publishes its meshes in SIRGAS 2000 (not checked in this file)",
@@ -27,7 +27,7 @@
   "lon": -53.5626,
   "source": "IBGE malhas API v3 metadata (centroide) for the 2022 mesh",
   "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/4306106/metadados?periodo=2022",
-  "file": "malha_municipio_4306106_2022.metadados.json",
+  "file": "data/cache/ibge/dev-cruz-alta/malha_municipio_4306106_2022.metadados.json",
   "cross_check": "planar centroid of the polygon outer ring = (-28.70297, -53.56259), same as IBGE to 1e-4 degree",
   "area_km2": "1360.548 (IBGE metadata)",
   "power_point": "(-28.703, -53.563): IBGE centroid rounded to the 3 decimals NASA POWER echoes back (about 40 m from the IBGE value; the POWER cell is 0.5 x 0.625 degree)",

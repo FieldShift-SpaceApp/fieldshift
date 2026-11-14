@@ -8,15 +8,15 @@
 
 | File | What | Source |
 |---|---|---|
-| `ibge/localidades_municipio_4306106.json` | municipality record: **IBGE code 4306106** = Cruz Alta, RS (confirmed on the RS list of 497 municipalities; only one "Cruz Alta") | IBGE localidades API v1 |
+| `data/cache/ibge/dev-cruz-alta/localidades_municipio_4306106.json` | municipality record: **IBGE code 4306106** = Cruz Alta, RS (confirmed on the RS list of 497 municipalities; only one "Cruz Alta") | IBGE localidades API v1 |
 | `ibge/malha_municipio_4306106_2022.geojson` | official municipal boundary, 2022 mesh, maximum quality (1 Polygon, 993 vertices) | IBGE malhas API v3 |
-| `ibge/malha_municipio_4306106_2022.metadados.json` | IBGE centroid (−28.703, −53.5626) and area (1,360.548 km²) | IBGE malhas API v3 |
-| `ibge/geo.provenance.json` | URLs, mesh version, sha256, access times (BRT), centroid cross-check | — |
-| `ibge/pam_1612_4306106_2713.{raw.json,csv,provenance.json}` | soybean planted/harvested area, production and yield, 1974–2025 | IBGE PAM, SIDRA table 1612 |
-| `output/series.json`, `output/provenance.json` | NASA POWER daily 1981-01-01 → 2026-10-31 at the centroid, as monthly series + ET0 (contracts v1.0.0, every record marked "DEV ONLY") | NASA POWER Daily API, community AG |
+| `data/cache/ibge/dev-cruz-alta/malha_municipio_4306106_2022.metadados.json` | IBGE centroid (−28.703, −53.5626) and area (1,360.548 km²) | IBGE malhas API v3 |
+| `data/cache/ibge/dev-cruz-alta/geo.provenance.json` | URLs, mesh version, sha256, access times (BRT), centroid cross-check | — |
+| `ibge/pam_1612_4306106_2713.csv`; raw response and provenance in `data/cache/ibge/dev-cruz-alta/pam_1612_4306106_2713.{raw,provenance}.json` | soybean planted/harvested area, production and yield, 1974–2025 | IBGE PAM, SIDRA table 1612 |
+| `output/series.json`, `output/provenance.json`, `output/indices.json` | NASA POWER daily 1981-01-01 → 2026-10-31 at the centroid, as monthly series, ET0 and climate indices with generic default thresholds (contracts v1.1.0, every record marked "DEV ONLY"; passes `fieldshift validate --all`) | NASA POWER Daily API, community AG |
 | `drought_check.py` | prints the yield/rainfall table below from the committed files | — |
 
-The raw POWER response (3.0 MB) is in `data/cache/power/dev-cruz-alta/`.
+Paths without a folder are relative to this folder. The raw POWER response (3.6 MB) is in `data/cache/power/dev-cruz-alta/`. The IBGE JSON files sit under `data/cache/` because `fieldshift validate --all` accepts only contract files in `output/` and no other JSON under `data/dev/`; official statistics and boundaries have no data type in contracts v1.1.0, so their provenance is a plain JSON, not a contract record.
 
 **POWER point.** The CLI site id is `dev-cruz-alta` (the `dev-` prefix is what keeps it out of `data/sites/`). The point is the IBGE centroid rounded to the 3 decimals POWER echoes back: (−28.703, −53.563), about 40 m from the IBGE value. POWER returns the value of the grid cell that contains it (meteorology 0.5° × 0.625°, radiation 1° × 1°), a regional signal, not a field measurement.
 
@@ -27,11 +27,11 @@ The raw POWER response (3.0 MB) is in `data/cache/power/dev-cruz-alta/`.
 ```bash
 cd services/science
 uv run fieldshift fetch power --site dev-cruz-alta --offline        # from the committed cache
-uv run fieldshift fetch ibge-pam --municipality 4306106 --out-dir ../../data/dev/cruz-alta/ibge --offline
-uv run python ../../data/dev/cruz-alta/drought_check.py              # tables below
+uv run fieldshift fetch ibge-pam --municipality 4306106 --cache-dir ../../data/cache/ibge/dev-cruz-alta \n  --out-dir ../../data/dev/dev-cruz-alta/ibge --offline
+uv run python ../../data/dev/dev-cruz-alta/drought_check.py          # tables below
 ```
 
-Drop `--offline` (and add `--refresh`) to download again. The boundary files were downloaded with the URLs in `ibge/geo.provenance.json`.
+Drop `--offline` (and add `--refresh`) to download again. The boundary files were downloaded with the URLs in `data/cache/ibge/dev-cruz-alta/geo.provenance.json`.
 
 ## Drought figures quoted by a teammate: check
 
@@ -56,7 +56,7 @@ Windows used for this check (an analysis convention here, not a project decision
 | 2024 (2023/24) | 3671 | 125% | 1021.3 | 138% | 460.0 | 101% |
 | 2025 (2024/25) | 2389 | 81% | 472.6 | 64% | 322.7 | 71% |
 
-Median yield 2012–2025: 2,934.5 kg/ha. Sources: IBGE PAM table 1612 (accessed 2026-11-14 14:40 BRT); NASA POWER Daily API v2.10.3, community AG (accessed 2026-11-14 14:39 BRT).
+Median yield 2012–2025: 2,934.5 kg/ha. Sources: IBGE PAM table 1612 (accessed 2026-11-14 14:40 BRT); NASA POWER Daily API v2.10.3, community AG (accessed 2026-11-14 14:51 BRT; a first download at 14:39 gave the same rainfall table).
 
 **Verdict.**
 

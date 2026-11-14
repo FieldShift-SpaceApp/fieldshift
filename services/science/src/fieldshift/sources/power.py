@@ -78,6 +78,11 @@ PARAMS: tuple[PowerParam, ...] = (
                "mean", "1", RES_METEO, "MERRA-2"),
     PowerParam("GWETROOT", "soil_wetness_root_modeled", "Root zone soil wetness (modeled)", "1",
                "1", "mean", "1", RES_METEO, "MERRA-2"),
+    # Issue #22 (contracts v1.1.0). Units confirmed live on 2026-11-14 (dev point, v2.10.3).
+    PowerParam("GWETPROF", "soil_wetness_profile_modeled", "Profile soil wetness (modeled)",
+               "1", "1", "mean", "1", RES_METEO, "MERRA-2"),
+    PowerParam("EVLAND", "evap_land_modeled", "Land evaporation (modeled)", "mm/day", "mm/d",
+               "sum", "mm", RES_METEO, "MERRA-2"),
 )  # fmt: skip
 
 PARAMS_BY_CODE = {p.code: p for p in PARAMS}

@@ -84,6 +84,15 @@ def power_record(site: SitePoint, raw: PowerRaw, p: PowerParam) -> Provenance:
                 "volumetric soil moisture (m3/m3) and not a satellite observation."
             )
         )
+    if p.code == "EVLAND":
+        limitations.append(
+            _text(
+                "Land evaporation from the MERRA-2 land-surface model for the whole grid cell: "
+                "not the actual evapotranspiration of the field and not a satellite observation. "
+                "POWER EVPTRNS is not used (transpiration energy flux only; see the science "
+                "README)."
+            )
+        )
     return Provenance(
         id=power_prov_id(site.id, p.code),
         data_type="modeled",

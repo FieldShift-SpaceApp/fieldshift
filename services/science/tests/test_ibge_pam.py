@@ -79,7 +79,7 @@ def test_csv_and_provenance(wrapped):
 
 def test_fetch_offline_without_file_fails(tmp_path):
     with pytest.raises(LayerError, match="NOT_EXTRACTED_YET"):
-        ibge_pam.fetch(MUN, SOY, out_dir=tmp_path, offline=True)
+        ibge_pam.fetch(MUN, SOY, cache_dir=tmp_path, offline=True)
 
 
 def test_fetch_downloads_wraps_and_writes(tmp_path, wrapped):
@@ -87,7 +87,7 @@ def test_fetch_downloads_wraps_and_writes(tmp_path, wrapped):
         return httpx.Response(200, json=wrapped["response"])
 
     client = httpx.Client(transport=httpx.MockTransport(handler))
-    s = ibge_pam.fetch(MUN, SOY, out_dir=tmp_path, client=client)
+    s = ibge_pam.fetch(MUN, SOY, cache_dir=tmp_path, client=client)
     saved = json.loads((tmp_path / f"{ibge_pam.cache_name(MUN, SOY)}.raw.json").read_text("utf-8"))
     assert saved["fieldshift_request"]["url"] == ibge_pam.build_url(MUN, SOY)
     assert s.by_year()[2022].yield_kg_ha == 1337
@@ -96,24 +96,28 @@ def test_fetch_downloads_wraps_and_writes(tmp_path, wrapped):
 def test_fetch_http_error_is_reported(tmp_path):
     client = httpx.Client(transport=httpx.MockTransport(lambda r: httpx.Response(500, text="x")))
     with pytest.raises(PipelineError, match="500"):
-        ibge_pam.fetch(MUN, SOY, out_dir=tmp_path, client=client)
+        ibge_pam.fetch(MUN, SOY, cache_dir=tmp_path, client=client)
 
 
 def test_cli_offline_writes_csv_and_provenance(tmp_path, capsys):
-    shutil.copy(FIXTURE, tmp_path / f"{ibge_pam.cache_name(MUN, SOY)}.raw.json")
-    code = main(["fetch", "ibge-pam", "--municipality", MUN, "--out-dir", str(tmp_path),
-                 "--offline"])  # fmt: skip
+    cache, out = tmp_path / "cache", tmp_path / "out"
+    cache.mkdir()
+    shutil.copy(FIXTURE, cache / f"{ibge_pam.cache_name(MUN, SOY)}.raw.json")
+    code = main(["fetch", "ibge-pam", "--municipality", MUN, "--cache-dir", str(cache),
+                 "--out-dir", str(out), "--offline"])  # fmt: skip
     assert code == 0
     assert "Cruz Alta (RS)" in capsys.readouterr().out
-    assert (tmp_path / "pam_1612_4306106_2713.csv").read_bytes().count(b"\n") == 5
-    assert (tmp_path / "pam_1612_4306106_2713.provenance.json").is_file()
+    assert (out / "pam_1612_4306106_2713.csv").read_bytes().count(b"\n") == 5
+    assert (cache / "pam_1612_4306106_2713.provenance.json").is_file()
+    assert not list(out.glob("*.json"))  # no plain JSON where validate expects contracts
 
 
 def test_committed_cruz_alta_files_regenerate_from_committed_raw():
-    folder = data_dir() / "dev" / "cruz-alta" / "ibge"
+    cache = data_dir() / "cache" / "ibge" / "dev-cruz-alta"
+    out = data_dir() / "dev" / "dev-cruz-alta" / "ibge"
     stem = ibge_pam.cache_name(MUN, SOY)
-    raw = json.loads((folder / f"{stem}.raw.json").read_text(encoding="utf-8"))
+    raw = json.loads((cache / f"{stem}.raw.json").read_text(encoding="utf-8"))
     s = ibge_pam.parse(raw, MUN, SOY)
-    assert (folder / f"{stem}.csv").read_text(encoding="utf-8") == ibge_pam.to_csv(s)
-    committed = json.loads((folder / f"{stem}.provenance.json").read_text(encoding="utf-8"))
+    assert (out / f"{stem}.csv").read_text(encoding="utf-8") == ibge_pam.to_csv(s)
+    committed = json.loads((cache / f"{stem}.provenance.json").read_text(encoding="utf-8"))
     assert committed == ibge_pam.provenance(s)

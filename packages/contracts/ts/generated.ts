@@ -60,6 +60,19 @@ export type DataType = "satellite_observed" | "modeled" | "computed" | "user_pro
 export type ProvenanceId = string;
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "IndexKey".
+ */
+export type IndexKey =
+  | "heat_days"
+  | "frost_days"
+  | "extreme_precip_days"
+  | "extreme_precip_total"
+  | "extreme_precip_threshold"
+  | "water_deficit"
+  | "growing_degree_days"
+  | "et0";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "Country".
  */
 export type Country = "US" | "BR";
@@ -138,7 +151,15 @@ export type VariableKey =
   | "surface_pressure"
   | "soil_wetness_top_modeled"
   | "soil_wetness_root_modeled"
+  | "soil_wetness_profile_modeled"
+  | "evap_land_modeled"
   | "et0"
+  | "heat_days"
+  | "frost_days"
+  | "extreme_precip_days"
+  | "extreme_precip_total"
+  | "water_deficit"
+  | "growing_degree_days"
   | "soil_moisture_surface"
   | "soil_moisture_rootzone"
   | "precip_satellite"
@@ -156,7 +177,7 @@ export type VariableKey =
 export type UnitSystem = "metric" | "imperial";
 
 /**
- * FieldShift data contracts v1.0.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
+ * FieldShift data contracts v1.1.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
  */
 export interface FieldShiftContracts {
   [k: string]: unknown;
@@ -194,6 +215,7 @@ export interface Metric {
   comparison?: MetricComparison | null;
   confidence?: Confidence | null;
   tags?: string[];
+  index_key?: IndexKey | null;
 }
 /**
  * NFR15: Portuguese can be added without refactoring.
@@ -265,6 +287,7 @@ export interface MonthlyProfile {
   period: Period;
   data_type: DataType;
   provenance_id: ProvenanceId;
+  index_key?: IndexKey | null;
 }
 /**
  * ⏸ keys and computation depend on D6, D7, D18, D19.
@@ -437,6 +460,9 @@ export interface ProvenanceMethod {
   name: string;
   ref: Ref;
   doc_anchor: string;
+  parameters?: {
+    [k: string]: number | string;
+  } | null;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
