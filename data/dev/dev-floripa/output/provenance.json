@@ -268,7 +268,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with precipitation above the baseline wet-day percentile",
     "parameters": {
      "baseline": "1991-2020",
@@ -356,7 +356,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with precipitation above the baseline wet-day percentile",
     "parameters": {
      "baseline": "1991-2020",
@@ -441,7 +441,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with precipitation above the baseline wet-day percentile",
     "parameters": {
      "baseline": "1991-2020",
@@ -529,7 +529,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
     "parameters": {
      "baseline": "1991-2020",
@@ -617,7 +617,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
     "parameters": {
      "baseline": "1991-2020",
@@ -702,7 +702,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
     "parameters": {
      "baseline": "1991-2020",
@@ -790,7 +790,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "frost-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
     "parameters": {
      "comparison": "<=",
@@ -869,7 +869,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "frost-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
     "parameters": {
      "comparison": "<=",
@@ -948,7 +948,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "frost-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
     "parameters": {
      "comparison": "<=",
@@ -1031,7 +1031,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "growing-degree-days",
+    "doc_anchor": "climate-indices",
     "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
     "parameters": {
      "base_temperature_degC": 10.0,
@@ -1114,7 +1114,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "growing-degree-days",
+    "doc_anchor": "climate-indices",
     "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
     "parameters": {
      "base_temperature_degC": 10.0,
@@ -1198,7 +1198,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "growing-degree-days",
+    "doc_anchor": "climate-indices",
     "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
     "parameters": {
      "base_temperature_degC": 10.0,
@@ -1281,7 +1281,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "heat-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily maximum temperature above a threshold",
     "parameters": {
      "comparison": ">",
@@ -1364,7 +1364,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "heat-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily maximum temperature above a threshold",
     "parameters": {
      "comparison": ">",
@@ -1447,7 +1447,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "heat-days",
+    "doc_anchor": "climate-indices",
     "name": "Count of days with daily maximum temperature above a threshold",
     "parameters": {
      "comparison": ">",
@@ -1530,7 +1530,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "extreme-precip-p95",
+    "doc_anchor": "climate-indices",
     "name": "Wet-day precipitation percentile (ETCCDI R95p threshold)",
     "parameters": {
      "baseline": "1991-2020",
@@ -1618,7 +1618,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "water-deficit",
+    "doc_anchor": "climate-indices",
     "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
     "parameters": null,
     "ref": {
@@ -1694,7 +1694,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "water-deficit",
+    "doc_anchor": "climate-indices",
     "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
     "parameters": null,
     "ref": {
@@ -1771,7 +1771,7 @@
     }
    ],
    "method": {
-    "doc_anchor": "water-deficit",
+    "doc_anchor": "climate-indices",
     "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
     "parameters": null,
     "ref": {

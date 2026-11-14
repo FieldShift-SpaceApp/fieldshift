@@ -48,7 +48,8 @@ uv run fieldshift validate --all                             # contracts + VL1 d
     gdd_base_c: 10       # per crop once the crops are decided (D9)
   ```
   When a default is used, the provenance says so ("generic default, not a crop- or site-specific value"). Unknown keys fail.
-- **`fieldshift validate --all`** (ADR-8 layer 1, CI): every JSON under `data/sites` and `data/dev` must have a known file name and match its contract; `schema_version` same major and not newer than the code; site id = folder; every `provenance_id`/`provenance_ids` and every record `inputs` exists in the site registry, without cycles; FR19 fields per data type; a series/metric/profile has the `data_type` of its record. A `method.doc_anchor` without a page in `content/methods/` is a warning until the method pages exist (VL6).
+- **`fieldshift validate --all`** (ADR-8 layer 1, CI): every JSON under `data/sites` and `data/dev` must have a known file name and match its contract; `schema_version` same major and not newer than the code; site id = folder; every `provenance_id`/`provenance_ids` and every record `inputs` exists in the site registry, without cycles; FR19 fields per data type; a series/metric/profile has the `data_type` of its record. A `method.doc_anchor` without a page in `content/methods/` is a warning here (the web unit test from #24 makes it a failure). The indices are documented in `content/methods/climate-indices.md`.
+- **Provenance merge:** `fetch power` merges `provenance.json` by `provenance_id` (records of other stages, e.g. rotation, are kept; same id is replaced).
 - **Dev point:** `dev-floripa` (−27.6, −48.5) is for development only and is NOT a demo site. Real sites (brasil, nevada) come from SURGEON (issue #8).
 
 ### Why `EVPTRNS` is not ingested

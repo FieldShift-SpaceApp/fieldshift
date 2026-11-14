@@ -54,13 +54,15 @@ QUANTILE_REF = Ref(
     ),
 )
 
-# Method pages in content/methods must define these anchors (VL6; GUIDO + SURGEON).
+# Method pages in content/methods must define these anchors (VL6): content/methods/
+# climate-indices.md documents every index below.
+CLIMATE_INDICES_ANCHOR = "climate-indices"
 DOC_ANCHORS = {
-    "heat_days": "heat-days",
-    "frost_days": "frost-days",
-    "growing_degree_days": "growing-degree-days",
-    "water_deficit": "water-deficit",
-    "extreme_precip": "extreme-precip-p95",
+    "heat_days": CLIMATE_INDICES_ANCHOR,
+    "frost_days": CLIMATE_INDICES_ANCHOR,
+    "growing_degree_days": CLIMATE_INDICES_ANCHOR,
+    "water_deficit": CLIMATE_INDICES_ANCHOR,
+    "extreme_precip": CLIMATE_INDICES_ANCHOR,
     "et0": ET0_DOC_ANCHOR,
 }
 
