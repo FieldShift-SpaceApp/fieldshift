@@ -10,11 +10,14 @@ Team **FieldShift** · NASA Space Apps Challenge 2026 · *Field Shift: Adapting 
 |---|---|
 | `apps/web/` | Web app |
 | `services/science/` | Data ingestion and model |
-| `contracts/` | JSON contracts between components (+ fixtures) |
+| `packages/contracts/` | Data contracts between pipeline and app (generated JSON Schema + TS types, fixtures) |
 | `data/crops/` | Curated crop base, every attribute with a source |
-| `data/processed/` | Small processed outputs (raw satellite files are not committed) |
-| `docs/data-and-methods.md` | Datasets, methods, limitations |
-| `coord/` | Team coordination: status per front, decisions log |
+| `data/sites/` | Per-site inputs (written by people) and pipeline outputs |
+| `data/cache/` | Small raw extracts from the sources (large raw files are not committed) |
+| `content/methods/` | Methods and limitations |
+| `RESOURCES.md` | Datasets, resources and tools, with licenses |
+| `DECISIONS.md` | Human decisions log |
+| `coord/` | Team coordination: status per front |
 | `SI-USAGE.md` | How AI ("SI") tools were used |
 
 ## Contributing

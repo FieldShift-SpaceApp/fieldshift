@@ -7,7 +7,7 @@ Closes #
 - [ ] FLIGHT  - [ ] EECOM  - [ ] GUIDO  - [ ] INCO  - [ ] SURGEON  - [ ] CAPCOM
 
 ## Checks
-- [ ] Touches only my front's folders (or `contracts/` in a contract-only PR)
+- [ ] Touches only my front's folders (or `packages/contracts/` in a contract-only PR)
 - [ ] No secrets, no raw satellite files
 - [ ] Numbers shown to users come from a cited dataset
 - [ ] `coord/status/<front>.md` updated

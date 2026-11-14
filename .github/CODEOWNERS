@@ -1,11 +1,14 @@
 # Fill in GitHub usernames once the team is in the org, then uncomment.
 # Shared contracts: every consuming front reviews.
-# /contracts/                 @eecom-user @guido-user @inco-user
+# /packages/contracts/        @eecom-user @guido-user @inco-user
 # /services/science/ingest/   @eecom-user
-# /data/processed/            @eecom-user
+# /data/sites/*/output/       @eecom-user
+# /data/cache/                @eecom-user
 # /services/science/model/    @guido-user
 # /apps/web/                  @inco-user
 # /data/crops/                @surgeon-user
-# /docs/data-and-methods.md   @surgeon-user
+# /data/sites/*/input/        @surgeon-user
+# /RESOURCES.md               @surgeon-user
+# /content/methods/           @guido-user @surgeon-user
 # /docs/pitch/                @capcom-user
-# /coord/ /SI-USAGE.md        @flight-user
+# /coord/ /SI-USAGE.md /DECISIONS.md  @flight-user

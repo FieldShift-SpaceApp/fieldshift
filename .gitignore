@@ -6,9 +6,7 @@
 *.pem
 *.key
 
-# raw satellite / large data
-data/raw/*
-!data/raw/.gitkeep
+# raw satellite / large data (data/cache/ is committed only when < 5 MB per site)
 *.h5
 *.hdf
 *.HDF5
