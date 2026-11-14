@@ -2,7 +2,7 @@
 
 > **SI-assisted:** written with Claude Code (Anthropic); human review pending. See `SI-USAGE.md` at the repo root.
 
-Owner: FLIGHT. Run before the internal submit (Sun 15/11 20:00 BRT). Each item is checked by a person, with the evidence written next to it.
+Owner: FLIGHT. Run before the internal submit (Sun 15/11 20:00 BRT). Each item is checked by a person, with the evidence written next to it. Latest automated run, with corrections and owners: [`preflight.md`](preflight.md).
 
 | # | Rule | Check | Evidence |
 |---|---|---|---|
@@ -15,3 +15,12 @@ Owner: FLIGHT. Run before the internal submit (Sun 15/11 20:00 BRT). Each item i
 | 7 | Licenses | every dataset used is in `RESOURCES.md` with its license; nothing marked "In git? no" is committed (`data/`, `apps/web/public/`) | |
 | 8 | Public link | production URL opens without login (`curl -s -o /dev/null -w '%{http_code}' <url>` → 200) | |
 | 9 | Secrets | CI `hygiene` job green on the submitted commit (forbidden paths + gitleaks) | |
+| 10 | Eligibility | all members (≤ 6) on the Members tab, confirmed at the Florianópolis Local Event, none on the waitlist; official challenge selected | |
+| 11 | Required fields | every field of [`page-draft.md`](page-draft.md) filled, no `[PENDING …]` left | |
+| 12 | English everywhere | page text **and every linked material** (repo files incl. `coord/` and code comments, app, demo); a video in another language has English captions | |
+| 13 | Demo limits | video ≤ 30.0 s (`ffprobe` output here) **or** ≤ 7 slides incl. title and intro — over the limit = not eligible for Global Judging ([`demo-plan.md`](demo-plan.md)) | |
+| 14 | Demo SI labels | synthetic voice acknowledged in description, metadata and `SI-USAGE.md`; SI cards watermarked "AI-generated"; non-data cards labeled "Illustrative" | |
+| 15 | Minors | no image, video, audio or likeness of anyone under 18 in the demo or the project | |
+| 16 | References field complete | every library, font, icon, image and music track used is in `RESOURCES.md` and in field 8 (the final declaration checkbox depends on it) | |
+| 17 | Demo and app links | demo link and app URL open in a private window, logged out, and on a phone; no Google Drive link set to "Restricted" | |
+| 18 | Submit | "Submit for Judging" by 20:00 BRT Sun; confirmation screenshot in `coord/status/flight.md`; only the last save before 23:59 counts | |
