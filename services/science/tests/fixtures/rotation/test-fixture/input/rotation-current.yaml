@@ -1,0 +1,70 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
+# TEST FIXTURE. Not agronomic data: every text field says so. Months and roles are chosen to cover
+# the cases of the soil-cover rule (Story 2.3), not to describe any real farm. The agronomist fills
+# the real rotations in data/sites/<id>/input/rotation-current.yaml (issue #8).
+#
+# Agricultural year starts in September (site.yaml). Two-year cycle:
+#   year 0: TEST FIXTURE cash crop Oct -> Feb (crosses the new year), TEST FIXTURE second crop
+#           Feb -> Jun (sown before the first harvest: overlap), explicit bare fallow Jul -> Aug
+#   year 1: September with no segment (implicit bare), TEST FIXTURE cash crop Oct -> Feb, TEST FIXTURE
+#           cover crop Mar -> Jul, fallow with residue Aug -> Sep of year 0 (wraps the cycle end)
+id: test-fixture-current
+name: { en: "TEST FIXTURE rotation (not agronomic data)" }
+cycle_years: 2
+reference_ag_year: 2000
+authored_by: "TEST FIXTURE (no agronomist)"
+segments:
+  - id: tf-cash-1
+    label: { en: "TEST FIXTURE cash crop, year 1" }
+    role: cash_crop
+    crop_id: test-fixture-crop-a
+    start: { year_index: 0, month: 10 }
+    end: { year_index: 0, month: 2 }
+    soil: { main: covered, establishment_months: 1 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]
+  - id: tf-second-1
+    label: { en: "TEST FIXTURE second crop, year 1" }
+    role: second_crop
+    crop_id: test-fixture-crop-b
+    start: { year_index: 0, month: 2 }
+    end: { year_index: 0, month: 6 }
+    soil: { main: covered, establishment_months: 1 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]
+  - id: tf-fallow-bare
+    label: { en: "TEST FIXTURE bare fallow" }
+    role: fallow
+    crop_id: null
+    start: { year_index: 0, month: 7 }
+    end: { year_index: 0, month: 8 }
+    soil: { main: bare, establishment_months: 0 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]
+  - id: tf-cash-2
+    label: { en: "TEST FIXTURE cash crop, year 2" }
+    role: cash_crop
+    crop_id: test-fixture-crop-a
+    start: { year_index: 1, month: 10 }
+    end: { year_index: 1, month: 2 }
+    soil: { main: covered, establishment_months: 1 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]
+  - id: tf-cover-2
+    label: { en: "TEST FIXTURE cover crop, year 2" }
+    role: cover_crop
+    crop_id: test-fixture-crop-c
+    start: { year_index: 1, month: 3 }
+    end: { year_index: 1, month: 7 }
+    soil: { main: covered, establishment_months: 1 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]
+  - id: tf-fallow-residue
+    label: { en: "TEST FIXTURE fallow with residue" }
+    role: fallow
+    crop_id: null
+    start: { year_index: 1, month: 8 }
+    end: { year_index: 0, month: 9 }
+    soil: { main: residue, establishment_months: 0 }
+    irrigated: false
+    refs: [ { label: "TEST FIXTURE: not a calendar source" } ]

@@ -1,0 +1,437 @@
+{
+ "rotation": {
+  "cycle_years": 2,
+  "data_type": "user_provided",
+  "id": "test-fixture-current",
+  "kind": "current",
+  "name": {
+   "en": "TEST FIXTURE rotation (not agronomic data)",
+   "pt": null
+  },
+  "provenance_id": "prov:user:test-fixture:rotation-current",
+  "segments": [
+   {
+    "crop_id": "test-fixture-crop-a",
+    "end": {
+     "month": 2,
+     "year_index": 0
+    },
+    "id": "tf-cash-1",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE cash crop, year 1",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "cash_crop",
+    "soil": {
+     "establishment_months": 1,
+     "main": "covered"
+    },
+    "start": {
+     "month": 10,
+     "year_index": 0
+    }
+   },
+   {
+    "crop_id": "test-fixture-crop-b",
+    "end": {
+     "month": 6,
+     "year_index": 0
+    },
+    "id": "tf-second-1",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE second crop, year 1",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "second_crop",
+    "soil": {
+     "establishment_months": 1,
+     "main": "covered"
+    },
+    "start": {
+     "month": 2,
+     "year_index": 0
+    }
+   },
+   {
+    "crop_id": null,
+    "end": {
+     "month": 8,
+     "year_index": 0
+    },
+    "id": "tf-fallow-bare",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE bare fallow",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "fallow",
+    "soil": {
+     "establishment_months": 0,
+     "main": "bare"
+    },
+    "start": {
+     "month": 7,
+     "year_index": 0
+    }
+   },
+   {
+    "crop_id": "test-fixture-crop-a",
+    "end": {
+     "month": 2,
+     "year_index": 1
+    },
+    "id": "tf-cash-2",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE cash crop, year 2",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "cash_crop",
+    "soil": {
+     "establishment_months": 1,
+     "main": "covered"
+    },
+    "start": {
+     "month": 10,
+     "year_index": 1
+    }
+   },
+   {
+    "crop_id": "test-fixture-crop-c",
+    "end": {
+     "month": 7,
+     "year_index": 1
+    },
+    "id": "tf-cover-2",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE cover crop, year 2",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "cover_crop",
+    "soil": {
+     "establishment_months": 1,
+     "main": "covered"
+    },
+    "start": {
+     "month": 3,
+     "year_index": 1
+    }
+   },
+   {
+    "crop_id": null,
+    "end": {
+     "month": 9,
+     "year_index": 0
+    },
+    "id": "tf-fallow-residue",
+    "irrigated": false,
+    "label": {
+     "en": "TEST FIXTURE fallow with residue",
+     "pt": null
+    },
+    "refs": [
+     {
+      "citation": null,
+      "doi": null,
+      "label": "TEST FIXTURE: not a calendar source",
+      "url": null
+     }
+    ],
+    "role": "fallow",
+    "soil": {
+     "establishment_months": 0,
+     "main": "residue"
+    },
+    "start": {
+     "month": 8,
+     "year_index": 1
+    }
+   }
+  ],
+  "site_id": "test-fixture"
+ },
+ "schema_version": "1.0.0",
+ "site_id": "test-fixture",
+ "timeline": {
+  "bare_months_per_year": {
+   "comparison": null,
+   "confidence": null,
+   "data_type": "computed",
+   "id": "bare_soil_months.per_year.cycle_mean",
+   "label": {
+    "en": "Bare-soil months per year (mean over the rotation cycle)",
+    "pt": null
+   },
+   "period": {
+    "end": "2002-08-31",
+    "start": "2000-09-01"
+   },
+   "provenance_id": "prov:computed:test-fixture:soil-cover:monthly",
+   "tags": [],
+   "unit": "count",
+   "value": 1.5
+  },
+  "months": [
+   {
+    "month": 9,
+    "position": 0,
+    "segment_ids": [
+     "tf-fallow-residue"
+    ],
+    "state": "residue",
+    "year_index": 0
+   },
+   {
+    "month": 10,
+    "position": 1,
+    "segment_ids": [
+     "tf-cash-1"
+    ],
+    "state": "transition",
+    "year_index": 0
+   },
+   {
+    "month": 11,
+    "position": 2,
+    "segment_ids": [
+     "tf-cash-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 12,
+    "position": 3,
+    "segment_ids": [
+     "tf-cash-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 1,
+    "position": 4,
+    "segment_ids": [
+     "tf-cash-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 2,
+    "position": 5,
+    "segment_ids": [
+     "tf-cash-1",
+     "tf-second-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 3,
+    "position": 6,
+    "segment_ids": [
+     "tf-second-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 4,
+    "position": 7,
+    "segment_ids": [
+     "tf-second-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 5,
+    "position": 8,
+    "segment_ids": [
+     "tf-second-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 6,
+    "position": 9,
+    "segment_ids": [
+     "tf-second-1"
+    ],
+    "state": "covered",
+    "year_index": 0
+   },
+   {
+    "month": 7,
+    "position": 10,
+    "segment_ids": [
+     "tf-fallow-bare"
+    ],
+    "state": "bare",
+    "year_index": 0
+   },
+   {
+    "month": 8,
+    "position": 11,
+    "segment_ids": [
+     "tf-fallow-bare"
+    ],
+    "state": "bare",
+    "year_index": 0
+   },
+   {
+    "month": 9,
+    "position": 12,
+    "segment_ids": [],
+    "state": "bare",
+    "year_index": 1
+   },
+   {
+    "month": 10,
+    "position": 13,
+    "segment_ids": [
+     "tf-cash-2"
+    ],
+    "state": "transition",
+    "year_index": 1
+   },
+   {
+    "month": 11,
+    "position": 14,
+    "segment_ids": [
+     "tf-cash-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 12,
+    "position": 15,
+    "segment_ids": [
+     "tf-cash-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 1,
+    "position": 16,
+    "segment_ids": [
+     "tf-cash-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 2,
+    "position": 17,
+    "segment_ids": [
+     "tf-cash-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 3,
+    "position": 18,
+    "segment_ids": [
+     "tf-cover-2"
+    ],
+    "state": "transition",
+    "year_index": 1
+   },
+   {
+    "month": 4,
+    "position": 19,
+    "segment_ids": [
+     "tf-cover-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 5,
+    "position": 20,
+    "segment_ids": [
+     "tf-cover-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 6,
+    "position": 21,
+    "segment_ids": [
+     "tf-cover-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 7,
+    "position": 22,
+    "segment_ids": [
+     "tf-cover-2"
+    ],
+    "state": "covered",
+    "year_index": 1
+   },
+   {
+    "month": 8,
+    "position": 23,
+    "segment_ids": [
+     "tf-fallow-residue"
+    ],
+    "state": "residue",
+    "year_index": 1
+   }
+  ],
+  "provenance_id": "prov:computed:test-fixture:soil-cover:monthly",
+  "rotation_id": "test-fixture-current"
+ }
+}
