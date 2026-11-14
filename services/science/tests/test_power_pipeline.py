@@ -12,7 +12,7 @@ from fieldshift.cli import main
 from fieldshift.config import data_dir
 from fieldshift.contracts import ProvenanceRegistry, SeriesBundle
 from fieldshift.errors import PipelineError
-from fieldshift.pipeline import build_power, run_power
+from fieldshift.pipeline import build_all, build_power, run_power
 from fieldshift.sites import DEV_SITES, SitePoint, resolve_site
 from fieldshift.sources import power
 
@@ -111,6 +111,7 @@ def test_missing_day_leaves_month_null_and_declares_gap(wrapped):
 def test_run_power_offline_writes_dev_outputs_outside_data_sites(data_root):
     out = run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
     assert out.series_path == data_root / "dev" / "dev-floripa" / "output" / "series.json"
+    assert out.indices_path.name == "indices.json" and out.indices_path.is_file()
     assert not (data_root / "sites").exists()  # scripts/sync-data.mjs publishes data/sites only
     first = out.series_path.read_bytes()
     run_power(DEV, data_dir=data_root, start=START, end=END, offline=True)
@@ -182,10 +183,9 @@ def test_committed_dev_outputs_regenerate_from_committed_cache():
     cache = caches[-1]
     _, start, end = cache.stem.split("_")
     raw = power.parse(json.loads(cache.read_text(encoding="utf-8")), lat=DEV.lat, lon=DEV.lon)
-    bundle, registry = build_power(DEV, raw)
+    bundle, registry, indices = build_all(DEV, raw)
     out = DEV.output_dir(root)
-    committed_series = json.loads((out / "series.json").read_text(encoding="utf-8"))
-    committed_prov = json.loads((out / "provenance.json").read_text(encoding="utf-8"))
-    assert bundle.model_dump(mode="json") == committed_series
-    assert registry.model_dump(mode="json") == committed_prov
+    for model, name in ((bundle, "series"), (registry, "provenance"), (indices, "indices")):
+        committed = json.loads((out / f"{name}.json").read_text(encoding="utf-8"))
+        assert model.model_dump(mode="json") == committed, name
     assert raw.first_day.strftime("%Y%m%d") == start and raw.last_day.strftime("%Y%m%d") == end
