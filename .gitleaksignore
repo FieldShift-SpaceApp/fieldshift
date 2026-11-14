@@ -1,0 +1,4 @@
+# gitleaks fingerprints of reviewed false positives (commit:file:rule:line). One per line.
+# PR #28: a code comment listing contract additions matched generic-api-key; the comment was
+# reworded in a later commit, this entry only covers the old commit in the branch history.
+3edf140db28fae26e4a2bd8f8f9b41fb24bb9ad5:services/science/src/fieldshift/contracts/common.py:generic-api-key:16

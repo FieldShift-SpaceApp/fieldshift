@@ -51,6 +51,19 @@ def build_parser() -> argparse.ArgumentParser:
     pw.add_argument("--refresh", action="store_true", help="ignore the cache and download again")
     pw.add_argument("--data-dir", type=Path, default=None, help="data/ root (default: repo data/)")
 
+    val = sub.add_parser(
+        "validate",
+        help="contracts + VL1 data layer over every JSON in data/sites and data/dev (ADR-8)",
+    )
+    val.add_argument("--all", action="store_true", required=True, help="every site folder")
+    val.add_argument("--data-dir", type=Path, default=None, help="data/ root (default: repo)")
+    val.add_argument(
+        "--methods-dir",
+        type=Path,
+        default=None,
+        help="method pages (default: repo content/methods)",
+    )
+
     rot = sub.add_parser(
         "rotation",
         help="current rotation -> monthly soil-cover timeline (Story 2.3)",
@@ -107,6 +120,17 @@ def _fetch_power(args: argparse.Namespace) -> int:
     return 0
 
 
+def _validate(args: argparse.Namespace) -> int:
+    from fieldshift.config import data_dir, repo_root
+    from fieldshift.validate import validate_all
+
+    root = args.data_dir or data_dir()
+    methods = args.methods_dir or repo_root() / "content" / "methods"
+    report = validate_all(root, methods)
+    print(report.render())
+    return 0 if report.ok else 1
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -117,6 +141,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"contracts schema written: {path}")
     elif args.command == "fetch" and args.source == "power":
         return _fetch_power(args)
+    elif args.command == "validate":
+        return _validate(args)
     elif args.command == "rotation":
         return _rotation(args)
     return 0

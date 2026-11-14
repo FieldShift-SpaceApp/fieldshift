@@ -1,4 +1,4 @@
-"""Data contracts v1.0.0 between the pipeline and the app (ADR-4). Single source: these models.
+"""Data contracts v1.1.0 between the pipeline and the app (ADR-4). Single source: these models.
 
 ⏸ Crop (D9) and Ranker (D7) depend on the concept (DECISIONS.md) and are not defined yet.
 """
@@ -12,7 +12,12 @@ from fieldshift.contracts.common import (
     Ref,
 )
 from fieldshift.contracts.evidence import Confidence, Evidence
-from fieldshift.contracts.indices import ClimateIndices, Metric, MetricComparison, MonthlyProfile
+from fieldshift.contracts.indices import (
+    ClimateIndices,
+    Metric,
+    MetricComparison,
+    MonthlyProfile,
+)
 from fieldshift.contracts.manifest import LayerStatus, SiteManifest
 from fieldshift.contracts.provenance import Provenance, ProvenanceRegistry
 from fieldshift.contracts.rotation import (
