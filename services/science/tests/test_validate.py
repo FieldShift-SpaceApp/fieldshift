@@ -57,7 +57,9 @@ def test_valid_pipeline_output_passes(tree):
 
 def test_method_page_anchor_clears_the_warning(tree):
     page = tree.parent / "content" / "methods" / "et0.md"
-    page.write_text("---\nanchor: et0-fao56\ntitle: ET0\nrefs: []\n---\n# ET0\n", encoding="utf-8")
+    page.write_text(
+        "---\nanchor: et0-fao56   # comment\ntitle: ET0\nrefs: []\n---\n# ET0\n", encoding="utf-8"
+    )
     assert not any("'et0-fao56'" in w for w in run(tree).warnings)
 
 

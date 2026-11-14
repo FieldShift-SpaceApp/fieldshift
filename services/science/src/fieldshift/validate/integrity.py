@@ -23,6 +23,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+import yaml
 from pydantic import BaseModel, ValidationError
 
 from fieldshift.contracts import (
@@ -151,19 +152,24 @@ def _cycles(records: dict[str, Provenance]) -> list[str]:
     return found
 
 
+FRONT_MATTER = re.compile(r"^---\s*\n(.*?)\n---\s*(?:\n|$)", flags=re.S)
+
+
 def method_anchors(methods_dir: Path) -> set[str]:
-    """`anchor:` values in the front matter of content/methods/*.md."""
+    """`anchor` values in the YAML front matter of content/methods/*.md."""
     anchors: set[str] = set()
     if not methods_dir.is_dir():
         return anchors
     for md in sorted(methods_dir.glob("*.md")):
-        text = md.read_text(encoding="utf-8")
-        m = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, flags=re.S)
-        if m:
-            for line in m.group(1).splitlines():
-                key, _, value = line.partition(":")
-                if key.strip() == "anchor" and value.strip():
-                    anchors.add(value.strip().strip("'\""))
+        m = FRONT_MATTER.match(md.read_text(encoding="utf-8"))
+        if not m:
+            continue
+        try:
+            front = yaml.safe_load(m.group(1)) or {}
+        except yaml.YAMLError:
+            continue
+        if isinstance(front, dict) and isinstance(front.get("anchor"), str):
+            anchors.add(front["anchor"].strip())
     return anchors
 
 
