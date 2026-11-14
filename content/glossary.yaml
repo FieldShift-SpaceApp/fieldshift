@@ -125,6 +125,94 @@ terms:
         url: https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
     reviewed_by: pending
 
+  - id: reanalysis-bias
+    term:
+      en: Reanalysis bias
+    definition:
+      en: >-
+        The systematic difference between a reanalysis value and what a ground station measures
+        at the same place and time, for example being warmer on cool days and cooler on hot
+        days. A bias can also change over the years when the observations or models behind the
+        reanalysis change, which can create a false trend. At Cruz Alta (Brazil), NASA POWER
+        maximum temperature shifted warm against the ground station from about 2019.
+    refs:
+      - label: "Our ground check at Cruz Alta (Brazil)"
+        url: /data-methods#satellite-vs-ground-check
+    reviewed_by: pending
+
+  - id: dry-spell
+    term:
+      en: Dry spell (veranico)
+    definition:
+      en: >-
+        A run of consecutive days without meaningful rain (here, less than 1 mm a day) during
+        the growing season. In southern Brazil a summer dry spell is called "veranico". Gridded
+        rain products that rain a little on many days make dry spells look shorter than a rain
+        gauge does, so a long dry spell in the data deserves a check against a local gauge.
+    refs:
+      - label: "Our ground check at Cruz Alta (Brazil)"
+        url: /data-methods#satellite-vs-ground-check
+    reviewed_by: pending
+
+  - id: enso
+    term:
+      en: ENSO (El Niño–Southern Oscillation), El Niño and La Niña
+    definition:
+      en: >-
+        A natural swing of the tropical Pacific Ocean and the air above it. In El Niño the
+        central and eastern Pacific is warmer than normal; in La Niña it is cooler; in between
+        the state is called neutral. Each phase shifts rain and temperature in far-away regions:
+        in southern Brazil, El Niño tends to bring more rain in spring and La Niña less. A phase
+        usually lasts several months to a year and can be forecast a few months ahead.
+    refs:
+      - label: "NOAA Climate Prediction Center: ENSO overview"
+        url: https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml
+    reviewed_by: pending
+
+  - id: oni
+    term:
+      en: ONI (Oceanic Niño Index)
+    definition:
+      en: >-
+        NOAA's main index for ENSO: the sea surface temperature difference from normal in the
+        Niño 3.4 region of the tropical Pacific, averaged over three consecutive months. Values
+        of +0.5 °C or more point to El Niño, −0.5 °C or less to La Niña; NOAA calls an episode
+        only when the threshold holds for at least five overlapping three-month periods.
+    refs:
+      - label: "NOAA CPC: ONI table and definition"
+        url: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php
+      - label: "NOAA CPC: ONI data file"
+        url: https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt
+    reviewed_by: pending
+
+  - id: probabilistic-forecast
+    term:
+      en: Probabilistic forecast
+    definition:
+      en: >-
+        A forecast that gives the chance of each possible outcome instead of a single answer,
+        for example the chances of La Niña, neutral and El Niño next winter, which add up to
+        100%. It is judged over many forecasts, not one: an outcome given a 60% chance should
+        happen about 6 times in 10. The most likely outcome can still fail to happen.
+    refs:
+      - label: "NOAA CPC: ENSO probabilistic outlook"
+        url: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml
+    reviewed_by: pending
+
+  - id: hindcast
+    term:
+      en: Hindcast
+    definition:
+      en: >-
+        A forecast run today for past dates, with today's model, as if it had been made at the
+        time. Hindcasts are used to measure how skilful a forecast system is over many years,
+        but they were not available to anyone back then, so they are not the forecasts that
+        people actually received.
+    refs:
+      - label: "NOAA CPC: North American Multi-Model Ensemble (NMME)"
+        url: https://www.cpc.ncep.noaa.gov/products/NMME/
+    reviewed_by: pending
+
   - id: satellite-vs-ground
     term:
       en: Satellite vs. ground measurements
@@ -139,6 +227,8 @@ terms:
     refs:
       - label: How each number is labeled
         url: /data-methods#provenance
+      - label: "Our ground check: NASA POWER, IMERG and CHIRPS against weather stations at Cruz Alta (Brazil)"
+        url: /data-methods#satellite-vs-ground-check
     reviewed_by: pending
 
   - id: satellite-observed
