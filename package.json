@@ -13,6 +13,7 @@
     "build": "npm run build -w apps/web",
     "lint": "npm run lint -w apps/web",
     "typecheck": "npm run typecheck -w apps/web",
+    "contracts": "uv run --directory services/science fieldshift contracts export && npm run gen -w packages/contracts",
     "py:test": "uv run --directory services/science pytest -q",
     "py:lint": "uv run --directory services/science ruff check . && uv run --directory services/science ruff format --check .",
     "hygiene": "bash scripts/check-public-repo.sh"

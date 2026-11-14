@@ -1,0 +1,2115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FieldShiftContracts",
+  "description": "FieldShift data contracts v1.0.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.",
+  "$defs": {
+    "AgYear": {
+      "additionalProperties": false,
+      "properties": {
+        "start_month": {
+          "$ref": "#/$defs/Month"
+        },
+        "label": {
+          "enum": [
+            "single",
+            "split"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "start_month",
+        "label"
+      ],
+      "title": "AgYear",
+      "type": "object"
+    },
+    "CanonicalUnit": {
+      "enum": [
+        "degC",
+        "delta_degC",
+        "degC_d",
+        "mm",
+        "mm/d",
+        "mm/month",
+        "m3/m3",
+        "MJ/m2/d",
+        "m/s",
+        "kPa",
+        "%",
+        "m",
+        "ha",
+        "deg",
+        "days",
+        "count",
+        "probability",
+        "1"
+      ],
+      "type": "string"
+    },
+    "ClimateIndices": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "metrics": {
+          "items": {
+            "$ref": "#/$defs/Metric"
+          },
+          "type": "array"
+        },
+        "profiles": {
+          "items": {
+            "$ref": "#/$defs/MonthlyProfile"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "metrics",
+        "profiles"
+      ],
+      "title": "ClimateIndices",
+      "type": "object"
+    },
+    "Confidence": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        },
+        "reason": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "independent_sources": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "level",
+        "reason",
+        "independent_sources"
+      ],
+      "title": "Confidence",
+      "type": "object"
+    },
+    "Country": {
+      "enum": [
+        "US",
+        "BR"
+      ],
+      "type": "string"
+    },
+    "CriterionValue": {
+      "additionalProperties": false,
+      "description": "⏸ keys and computation depend on D6, D7, D18, D19.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ],
+          "type": "string"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "better",
+        "provenance_id",
+        "confidence"
+      ],
+      "title": "CriterionValue",
+      "type": "object"
+    },
+    "DataType": {
+      "enum": [
+        "satellite_observed",
+        "modeled",
+        "computed",
+        "user_provided"
+      ],
+      "type": "string"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "VL3: every evidence item has a number, a dataset and a period.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "statement": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "dataset_label": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "series_ids": {
+          "items": {
+            "$ref": "#/$defs/SeriesId"
+          },
+          "type": "array"
+        },
+        "provenance_ids": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceId"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "data_type": {
+          "$ref": "#/$defs/DataType"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "value",
+        "unit",
+        "period",
+        "dataset_label",
+        "series_ids",
+        "provenance_ids",
+        "data_type",
+        "confidence"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "GeoJSONPolygon": {
+      "additionalProperties": false,
+      "description": "WGS84, RFC 7946: positions are [lon, lat]; every ring is closed (last = first).",
+      "properties": {
+        "type": {
+          "const": "Polygon",
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "title": "GeoJSONPolygon",
+      "type": "object"
+    },
+    "GeoPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "maximum": 90,
+          "minimum": -90,
+          "type": "number"
+        },
+        "lon": {
+          "maximum": 180,
+          "minimum": -180,
+          "type": "number"
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "title": "GeoPoint",
+      "type": "object"
+    },
+    "Hemisphere": {
+      "enum": [
+        "N",
+        "S"
+      ],
+      "type": "string"
+    },
+    "IsoDate": {
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$",
+      "type": "string"
+    },
+    "IsoDateTime": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$",
+      "type": "string"
+    },
+    "IsoMonth": {
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+      "type": "string"
+    },
+    "KnownGap": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/IsoMonth"
+        },
+        "end": {
+          "$ref": "#/$defs/IsoMonth"
+        },
+        "reason": {
+          "$ref": "#/$defs/LocalizedText"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "reason"
+      ],
+      "title": "KnownGap",
+      "type": "object"
+    },
+    "LayerId": {
+      "enum": [
+        "power",
+        "smap",
+        "imerg",
+        "modis_ndvi",
+        "landsat_ndvi",
+        "grace",
+        "srtm",
+        "openet",
+        "cdl",
+        "mapbiomas",
+        "satveg",
+        "ecostress"
+      ],
+      "type": "string"
+    },
+    "LayerReason": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/LayerReasonCode"
+        },
+        "message": {
+          "$ref": "#/$defs/LocalizedText"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "LayerReason",
+      "type": "object"
+    },
+    "LayerReasonCode": {
+      "enum": [
+        "AUTH_REQUIRED",
+        "SOURCE_TIMEOUT",
+        "NO_DATA_FOR_AREA",
+        "QUOTA_EXCEEDED",
+        "NOT_EXTRACTED_YET",
+        "OUT_OF_REGION",
+        "CUT_BY_FLIGHT_RULE"
+      ],
+      "type": "string"
+    },
+    "LayerStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/LayerId"
+        },
+        "status": {
+          "enum": [
+            "available",
+            "partial",
+            "unavailable",
+            "not_applicable"
+          ],
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LayerReason"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "series_ids": {
+          "items": {
+            "$ref": "#/$defs/SeriesId"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "series_ids"
+      ],
+      "title": "LayerStatus",
+      "type": "object"
+    },
+    "LocalizedText": {
+      "additionalProperties": false,
+      "description": "NFR15: Portuguese can be added without refactoring.",
+      "properties": {
+        "en": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "pt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "en"
+      ],
+      "title": "LocalizedText",
+      "type": "object"
+    },
+    "ManifestFile": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "contract": {
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "path",
+        "contract",
+        "sha256",
+        "required"
+      ],
+      "title": "ManifestFile",
+      "type": "object"
+    },
+    "Metric": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "data_type": {
+          "$ref": "#/$defs/DataType"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "comparison": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MetricComparison"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Confidence"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "value",
+        "unit",
+        "period",
+        "data_type",
+        "provenance_id"
+      ],
+      "title": "Metric",
+      "type": "object"
+    },
+    "MetricComparison": {
+      "additionalProperties": false,
+      "description": "'Before vs. now' (⏸ D5 decides which periods are shown).",
+      "properties": {
+        "baseline_value": {
+          "type": "number"
+        },
+        "baseline_period": {
+          "$ref": "#/$defs/Period"
+        },
+        "delta": {
+          "type": "number"
+        },
+        "delta_unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        }
+      },
+      "required": [
+        "baseline_value",
+        "baseline_period",
+        "delta",
+        "delta_unit"
+      ],
+      "title": "MetricComparison",
+      "type": "object"
+    },
+    "Month": {
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "type": "integer"
+    },
+    "MonthlyProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxItems": 12,
+          "minItems": 12,
+          "type": "array"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "data_type": {
+          "$ref": "#/$defs/DataType"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "unit",
+        "values",
+        "period",
+        "data_type",
+        "provenance_id"
+      ],
+      "title": "MonthlyProfile",
+      "type": "object"
+    },
+    "Period": {
+      "additionalProperties": false,
+      "description": "Inclusive period.",
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/IsoDate"
+        },
+        "end": {
+          "$ref": "#/$defs/IsoDate"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "Period",
+      "type": "object"
+    },
+    "PipelineInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "git_sha": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        },
+        "package_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "git_sha",
+        "command",
+        "package_version"
+      ],
+      "title": "PipelineInfo",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "data_type": {
+          "$ref": "#/$defs/DataType"
+        },
+        "title": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceSource"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "variable": {
+          "$ref": "#/$defs/ProvenanceVariable"
+        },
+        "spatial": {
+          "$ref": "#/$defs/ProvenanceSpatial"
+        },
+        "temporal": {
+          "$ref": "#/$defs/ProvenanceTemporal"
+        },
+        "aggregation": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "method": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceMethod"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceId"
+          },
+          "type": "array"
+        },
+        "authored_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "refs": {
+          "items": {
+            "$ref": "#/$defs/Ref"
+          },
+          "type": "array"
+        },
+        "access": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceAccess"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "data_type",
+        "title",
+        "variable",
+        "spatial",
+        "temporal",
+        "aggregation",
+        "limitations"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "ProvenanceAccess": {
+      "additionalProperties": false,
+      "description": "Required for satellite_observed and modeled.",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "accessed_at": {
+          "$ref": "#/$defs/IsoDateTime"
+        },
+        "terms_url": {
+          "type": "string"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "url",
+        "accessed_at",
+        "terms_url"
+      ],
+      "title": "ProvenanceAccess",
+      "type": "object"
+    },
+    "ProvenanceId": {
+      "pattern": "^prov:[a-z0-9:._-]+$",
+      "type": "string"
+    },
+    "ProvenanceMethod": {
+      "additionalProperties": false,
+      "description": "Required for computed; `doc_anchor` points to content/methods (VL1).",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "doc_anchor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "ref",
+        "doc_anchor"
+      ],
+      "title": "ProvenanceMethod",
+      "type": "object"
+    },
+    "ProvenanceRegistry": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SiteId"
+            },
+            {
+              "const": "global",
+              "type": "string"
+            }
+          ]
+        },
+        "records": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Provenance"
+          },
+          "propertyNames": {
+            "$ref": "#/$defs/ProvenanceId"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "records"
+      ],
+      "title": "ProvenanceRegistry",
+      "type": "object"
+    },
+    "ProvenanceSource": {
+      "additionalProperties": false,
+      "description": "Required for satellite_observed and modeled.",
+      "properties": {
+        "dataset": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "collection_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "dataset",
+        "provider",
+        "product",
+        "version"
+      ],
+      "title": "ProvenanceSource",
+      "type": "object"
+    },
+    "ProvenanceSpatial": {
+      "additionalProperties": false,
+      "properties": {
+        "resolution": {
+          "type": "string"
+        },
+        "resolution_m": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "support": {
+          "enum": [
+            "point",
+            "polygon",
+            "containing_pixel",
+            "regional"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "resolution",
+        "support"
+      ],
+      "title": "ProvenanceSpatial",
+      "type": "object"
+    },
+    "ProvenanceTemporal": {
+      "additionalProperties": false,
+      "properties": {
+        "resolution": {
+          "enum": [
+            "daily",
+            "3-hourly",
+            "16-day",
+            "monthly",
+            "annual",
+            "static"
+          ],
+          "type": "string"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        }
+      },
+      "required": [
+        "resolution",
+        "period"
+      ],
+      "title": "ProvenanceTemporal",
+      "type": "object"
+    },
+    "ProvenanceVariable": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "native_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "code",
+        "name",
+        "unit"
+      ],
+      "title": "ProvenanceVariable",
+      "type": "object"
+    },
+    "ProvenancedValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "value",
+        "provenance_id"
+      ],
+      "title": "ProvenancedValue",
+      "type": "object"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "citation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "title": "Ref",
+      "type": "object"
+    },
+    "RetrospectiveCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "event": {
+          "$ref": "#/$defs/RetrospectiveEvent"
+        },
+        "observed": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "type": "array"
+        },
+        "result": {
+          "enum": [
+            "confirms",
+            "does_not_confirm",
+            "inconclusive"
+          ],
+          "type": "string"
+        },
+        "discussion": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        },
+        "checked_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "event",
+        "observed",
+        "result",
+        "discussion",
+        "limitations",
+        "checked_by"
+      ],
+      "title": "RetrospectiveCheck",
+      "type": "object"
+    },
+    "RetrospectiveEvent": {
+      "additionalProperties": false,
+      "description": "Event chosen by the agronomist (Q12).",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "source": {
+          "$ref": "#/$defs/Ref"
+        }
+      },
+      "required": [
+        "name",
+        "period",
+        "source"
+      ],
+      "title": "RetrospectiveEvent",
+      "type": "object"
+    },
+    "Rotation": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "kind": {
+          "enum": [
+            "current",
+            "alternative"
+          ],
+          "type": "string"
+        },
+        "cycle_years": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "segments": {
+          "items": {
+            "$ref": "#/$defs/RotationSegment"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "data_type": {
+          "enum": [
+            "user_provided",
+            "computed"
+          ],
+          "type": "string"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "name",
+        "kind",
+        "cycle_years",
+        "segments",
+        "data_type",
+        "provenance_id"
+      ],
+      "title": "Rotation",
+      "type": "object"
+    },
+    "RotationFile": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "rotation": {
+          "$ref": "#/$defs/Rotation"
+        },
+        "timeline": {
+          "$ref": "#/$defs/RotationTimeline"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "rotation",
+        "timeline"
+      ],
+      "title": "RotationFile",
+      "type": "object"
+    },
+    "RotationMonthRef": {
+      "additionalProperties": false,
+      "description": "Position inside the cycle: cycle year (relative to the agricultural year) + CIVIL month.",
+      "properties": {
+        "year_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "month": {
+          "$ref": "#/$defs/Month"
+        }
+      },
+      "required": [
+        "year_index",
+        "month"
+      ],
+      "title": "RotationMonthRef",
+      "type": "object"
+    },
+    "RotationSegment": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "role": {
+          "$ref": "#/$defs/SegmentRole"
+        },
+        "crop_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "start": {
+          "$ref": "#/$defs/RotationMonthRef"
+        },
+        "end": {
+          "$ref": "#/$defs/RotationMonthRef"
+        },
+        "soil": {
+          "$ref": "#/$defs/SegmentSoil"
+        },
+        "irrigated": {
+          "type": "boolean"
+        },
+        "refs": {
+          "items": {
+            "$ref": "#/$defs/Ref"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "role",
+        "crop_id",
+        "start",
+        "end",
+        "soil",
+        "irrigated",
+        "refs"
+      ],
+      "title": "RotationSegment",
+      "type": "object"
+    },
+    "RotationTimeline": {
+      "additionalProperties": false,
+      "description": "Derived by the pipeline (data_type 'computed').",
+      "properties": {
+        "rotation_id": {
+          "type": "string"
+        },
+        "months": {
+          "items": {
+            "$ref": "#/$defs/SoilCoverMonth"
+          },
+          "type": "array"
+        },
+        "bare_months_per_year": {
+          "$ref": "#/$defs/Metric"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "rotation_id",
+        "months",
+        "bare_months_per_year",
+        "provenance_id"
+      ],
+      "title": "RotationTimeline",
+      "type": "object"
+    },
+    "SchemaVersion": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "SegmentRole": {
+      "enum": [
+        "cash_crop",
+        "second_crop",
+        "cover_crop",
+        "forage_perennial",
+        "fallow"
+      ],
+      "type": "string"
+    },
+    "SegmentSoil": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "enum": [
+            "covered",
+            "residue",
+            "bare"
+          ],
+          "type": "string"
+        },
+        "establishment_months": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "main",
+        "establishment_months"
+      ],
+      "title": "SegmentSoil",
+      "type": "object"
+    },
+    "SeriesAggregation": {
+      "additionalProperties": false,
+      "properties": {
+        "temporal": {
+          "enum": [
+            "mean",
+            "sum",
+            "min",
+            "max",
+            "count",
+            "p95",
+            "composite",
+            "none"
+          ],
+          "type": "string"
+        },
+        "spatial": {
+          "enum": [
+            "point",
+            "containing_pixel",
+            "polygon_mean",
+            "polygon_median"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "temporal",
+        "spatial"
+      ],
+      "title": "SeriesAggregation",
+      "type": "object"
+    },
+    "SeriesBaseline": {
+      "additionalProperties": false,
+      "description": "Climatology used for anomalies (ADR-3).",
+      "properties": {
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "monthly_mean": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxItems": 12,
+          "minItems": 12,
+          "type": "array"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "period",
+        "monthly_mean",
+        "provenance_id"
+      ],
+      "title": "SeriesBaseline",
+      "type": "object"
+    },
+    "SeriesBundle": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "series": {
+          "items": {
+            "$ref": "#/$defs/TimeSeries"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "series"
+      ],
+      "title": "SeriesBundle",
+      "type": "object"
+    },
+    "SeriesCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "first": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IsoMonth"
+            },
+            {
+              "$ref": "#/$defs/IsoDate"
+            }
+          ]
+        },
+        "last": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IsoMonth"
+            },
+            {
+              "$ref": "#/$defs/IsoDate"
+            }
+          ]
+        },
+        "valid_pct": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "known_gaps": {
+          "items": {
+            "$ref": "#/$defs/KnownGap"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "first",
+        "last",
+        "valid_pct",
+        "known_gaps"
+      ],
+      "title": "SeriesCoverage",
+      "type": "object"
+    },
+    "SeriesId": {
+      "pattern": "^[a-z0-9._-]+$",
+      "type": "string"
+    },
+    "SeriesPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "t": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IsoMonth"
+            },
+            {
+              "$ref": "#/$defs/IsoDate"
+            }
+          ]
+        },
+        "v": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "q": {
+          "anyOf": [
+            {
+              "enum": [
+                "ok",
+                "gap",
+                "partial",
+                "estimated"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "title": "SeriesPoint",
+      "type": "object"
+    },
+    "Site": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "country": {
+          "$ref": "#/$defs/Country"
+        },
+        "hemisphere": {
+          "$ref": "#/$defs/Hemisphere"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "point": {
+          "$ref": "#/$defs/GeoPoint"
+        },
+        "field": {
+          "$ref": "#/$defs/GeoJSONPolygon"
+        },
+        "area_ha": {
+          "$ref": "#/$defs/ProvenancedValue"
+        },
+        "elevation_m": {
+          "$ref": "#/$defs/ProvenancedValue"
+        },
+        "ag_year": {
+          "$ref": "#/$defs/AgYear"
+        },
+        "default_units": {
+          "$ref": "#/$defs/UnitSystem"
+        },
+        "context": {
+          "$ref": "#/$defs/SiteContext"
+        },
+        "validated_by": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Validation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "name",
+        "country",
+        "hemisphere",
+        "timezone",
+        "point",
+        "field",
+        "area_ha",
+        "elevation_m",
+        "ag_year",
+        "default_units",
+        "context",
+        "validated_by"
+      ],
+      "title": "Site",
+      "type": "object"
+    },
+    "SiteContext": {
+      "additionalProperties": false,
+      "properties": {
+        "region": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "summary": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "refs": {
+          "items": {
+            "$ref": "#/$defs/Ref"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "region",
+        "summary",
+        "refs"
+      ],
+      "title": "SiteContext",
+      "type": "object"
+    },
+    "SiteId": {
+      "pattern": "^[a-z][a-z0-9-]{1,31}$",
+      "type": "string"
+    },
+    "SiteManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "generated_at": {
+          "$ref": "#/$defs/IsoDateTime"
+        },
+        "pipeline": {
+          "$ref": "#/$defs/PipelineInfo"
+        },
+        "contracts": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SchemaVersion"
+          },
+          "type": "object"
+        },
+        "files": {
+          "items": {
+            "$ref": "#/$defs/ManifestFile"
+          },
+          "type": "array"
+        },
+        "layers": {
+          "items": {
+            "$ref": "#/$defs/LayerStatus"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "generated_at",
+        "pipeline",
+        "contracts",
+        "files",
+        "layers"
+      ],
+      "title": "SiteManifest",
+      "type": "object"
+    },
+    "SitesIndex": {
+      "additionalProperties": false,
+      "description": "data/sites/index.json (landing page, T1).",
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "sites": {
+          "items": {
+            "$ref": "#/$defs/SitesIndexEntry"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "sites"
+      ],
+      "title": "SitesIndex",
+      "type": "object"
+    },
+    "SitesIndexEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "country": {
+          "$ref": "#/$defs/Country"
+        },
+        "hemisphere": {
+          "$ref": "#/$defs/Hemisphere"
+        },
+        "default_units": {
+          "$ref": "#/$defs/UnitSystem"
+        },
+        "summary": {
+          "$ref": "#/$defs/LocalizedText"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "country",
+        "hemisphere",
+        "default_units",
+        "summary"
+      ],
+      "title": "SitesIndexEntry",
+      "type": "object"
+    },
+    "SoilCoverMonth": {
+      "additionalProperties": false,
+      "properties": {
+        "position": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "year_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "month": {
+          "$ref": "#/$defs/Month"
+        },
+        "state": {
+          "$ref": "#/$defs/SoilState"
+        },
+        "segment_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "position",
+        "year_index",
+        "month",
+        "state",
+        "segment_ids"
+      ],
+      "title": "SoilCoverMonth",
+      "type": "object"
+    },
+    "SoilState": {
+      "enum": [
+        "covered",
+        "residue",
+        "transition",
+        "bare"
+      ],
+      "type": "string"
+    },
+    "Strategy": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "is_current": {
+          "type": "boolean"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "rotation_id": {
+          "type": "string"
+        },
+        "blocks": {
+          "$ref": "#/$defs/StrategyBlocks"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        },
+        "criteria": {
+          "additionalProperties": {
+            "$ref": "#/$defs/CriterionValue"
+          },
+          "type": "object"
+        },
+        "requirements": {
+          "$ref": "#/$defs/StrategyRequirements"
+        },
+        "generator": {
+          "$ref": "#/$defs/StrategyGenerator"
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "is_current",
+        "name",
+        "rotation_id",
+        "blocks",
+        "confidence",
+        "criteria",
+        "requirements",
+        "generator"
+      ],
+      "title": "Strategy",
+      "type": "object"
+    },
+    "StrategyBlocks": {
+      "additionalProperties": false,
+      "properties": {
+        "why": {
+          "items": {
+            "$ref": "#/$defs/TextItem"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "benefits": {
+          "items": {
+            "$ref": "#/$defs/TextItem"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "gaps": {
+          "items": {
+            "$ref": "#/$defs/TextItem"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "local_review": {
+          "items": {
+            "$ref": "#/$defs/TextItem"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "why",
+        "evidence",
+        "benefits",
+        "gaps",
+        "local_review"
+      ],
+      "title": "StrategyBlocks",
+      "type": "object"
+    },
+    "StrategyGenerator": {
+      "additionalProperties": false,
+      "description": "⏸ D8.",
+      "properties": {
+        "method_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "method_id",
+        "version",
+        "provenance_id"
+      ],
+      "title": "StrategyGenerator",
+      "type": "object"
+    },
+    "StrategyRequirements": {
+      "additionalProperties": false,
+      "description": "⏸ extension (FR16): basis of the constraint filters.",
+      "properties": {
+        "irrigation": {
+          "type": "boolean"
+        },
+        "livestock": {
+          "type": "boolean"
+        },
+        "equipment": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "irrigation",
+        "livestock",
+        "equipment"
+      ],
+      "title": "StrategyRequirements",
+      "type": "object"
+    },
+    "StrategySet": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "rotations": {
+          "items": {
+            "$ref": "#/$defs/Rotation"
+          },
+          "type": "array"
+        },
+        "timelines": {
+          "items": {
+            "$ref": "#/$defs/RotationTimeline"
+          },
+          "type": "array"
+        },
+        "strategies": {
+          "items": {
+            "$ref": "#/$defs/Strategy"
+          },
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "rotations",
+        "timelines",
+        "strategies"
+      ],
+      "title": "StrategySet",
+      "type": "object"
+    },
+    "TextItem": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "provenance_ids": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceId"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TextItem",
+      "type": "object"
+    },
+    "TimeSeries": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/SeriesId"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "variable_key": {
+          "$ref": "#/$defs/VariableKey"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "unit": {
+          "$ref": "#/$defs/CanonicalUnit"
+        },
+        "frequency": {
+          "enum": [
+            "daily",
+            "monthly",
+            "annual",
+            "static"
+          ],
+          "type": "string"
+        },
+        "aggregation": {
+          "$ref": "#/$defs/SeriesAggregation"
+        },
+        "data_type": {
+          "$ref": "#/$defs/DataType"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/SeriesPoint"
+          },
+          "type": "array"
+        },
+        "coverage": {
+          "$ref": "#/$defs/SeriesCoverage"
+        },
+        "baseline": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SeriesBaseline"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "variable_key",
+        "label",
+        "unit",
+        "frequency",
+        "aggregation",
+        "data_type",
+        "provenance_id",
+        "points",
+        "coverage"
+      ],
+      "title": "TimeSeries",
+      "type": "object"
+    },
+    "UnitSystem": {
+      "enum": [
+        "metric",
+        "imperial"
+      ],
+      "type": "string"
+    },
+    "Validation": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "at": {
+          "$ref": "#/$defs/IsoDateTime"
+        }
+      },
+      "required": [
+        "name",
+        "at"
+      ],
+      "title": "Validation",
+      "type": "object"
+    },
+    "ValidationFile": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/RetrospectiveCheck"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "checks"
+      ],
+      "title": "ValidationFile",
+      "type": "object"
+    },
+    "VariableKey": {
+      "enum": [
+        "air_temp_mean",
+        "air_temp_max",
+        "air_temp_min",
+        "dewpoint",
+        "rel_humidity",
+        "precip",
+        "wind_2m",
+        "solar_rad",
+        "surface_pressure",
+        "soil_wetness_top_modeled",
+        "soil_wetness_root_modeled",
+        "et0",
+        "soil_moisture_surface",
+        "soil_moisture_rootzone",
+        "precip_satellite",
+        "ndvi",
+        "evi",
+        "tws_anomaly",
+        "et_actual",
+        "elevation",
+        "slope",
+        "land_cover_class"
+      ],
+      "type": "string"
+    }
+  }
+}
