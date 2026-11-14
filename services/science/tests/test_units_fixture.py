@@ -1,8 +1,8 @@
-"""Guarda do fixture de unidades (ADR-7).
+"""Guard for the units fixture (ADR-7).
 
-A conversão de unidade só existe na exibição (apps/web/src/lib/units.ts). Este teste não é
-código de produção: confere, com uma referência independente, que o fixture que o TS consome
-está certo — em especial delta_degC x1,8 sem o +32.
+Unit conversion only exists at display time (apps/web/src/lib/units.ts). This test is not
+production code: it checks, against an independent reference, that the fixture the TS code
+consumes is right — in particular delta_degC x1.8 without the +32.
 """
 
 import json
@@ -19,8 +19,8 @@ FIXTURE = json.loads(
     )
 )
 
-# Referência independente (fatores exatos por definição: 1 in = 25,4 mm; 1 ft = 0,3048 m;
-# 1 ac = 4046,8564224 m²; 1 mph = 0,44704 m/s).
+# Independent reference (factors exact by definition: 1 in = 25.4 mm; 1 ft = 0.3048 m;
+# 1 ac = 4046.8564224 m²; 1 mph = 0.44704 m/s).
 IMPERIAL = {
     "degC": ("degF", lambda v: v * 1.8 + 32),
     "delta_degC": ("delta_degF", lambda v: v * 1.8),

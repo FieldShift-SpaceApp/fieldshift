@@ -123,7 +123,7 @@ def test_committed_cruz_alta_files_regenerate_from_committed_raw():
     assert committed == ibge_pam.provenance(s)
 
 
-# Regressão (review do Codex sobre o #30): valor fora do formato do SIDRA vira erro, sem coerção
+# Regression (Codex review of #30): a value outside the SIDRA format is an error, no coercion
 @pytest.mark.parametrize(
     "value", ["1.5", "-3", " 12", "+7", "1_000", "١٢", "", True, 3.7, 12, None]
 )

@@ -5,7 +5,8 @@ import { expect, test } from "@playwright/test";
 import { scanVl1 } from "../support/vl1-dom";
 
 // /data-methods and /glossary show documentation, not data values; their blocks are exempt and listed.
-const ROUTES = ["/", "/data-methods", "/glossary"];
+// /sites/cruz-alta shows data: every number has data-prov (the registry check is in site-page.spec.ts).
+const ROUTES = ["/", "/data-methods", "/glossary", "/sites/cruz-alta"];
 
 for (const route of ROUTES) {
   test(`VL1: every number in <main> on ${route} has provenance or a reviewed exemption`, async ({ page }) => {
