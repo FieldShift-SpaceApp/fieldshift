@@ -2,6 +2,13 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 21:30 — coordination (Claude Code), REPRODUTIBILIDADE front
+Done: the statistical validation behind the ENSO × wheat numbers is now public and reproducible (PR `surgeon/analysis-enso-wheat`): `analysis/enso-wheat/` (scripts ported from the HQ's independent verification, one command `reproduce.py`, small results with access times, README with limitations), method page `content/methods/enso-wheat.md` (listed on /data-methods with no code change), `RESOURCES.md` rows marked "used in `analysis/enso-wheat/`". Rerun on 2026-11-14 reproduced the HQ numbers exactly (53.3% vs 3.5%, p = 0.003, 14/18 in 2023).
+Next: human review of the README wording; the station-vs-satellite scripts (method `satellite-vs-ground-check`) are still only in the HQ.
+Blocked by: Atlas licence not declared (derived counts kept out of git).
+Needs from others: CAPCOM: pitch can now link `analysis/enso-wheat/README.md` instead of the private repo.
+Contract changes: none
+
 ## 2026-11-14 19:10 — coordination (Claude Code), CONTEÚDO-2 front, issue #31
 Done: Validity criterion, concept-agnostic (PR `surgeon/methods-validation`). New page `content/methods/satellite-vs-ground.md` (anchor `satellite-vs-ground-check`; the anchor `satellite-vs-ground` is already a section id of /data-methods): POWER, IMERG and CHIRPS × INMET A853 and ANA 2853015, numbers only from the HQ's `estacao-vs-satelite.md`/`verificacao-dados.md`. New limitations in `nasa-power.md` and `climate-indices.md`. In the pipeline, `fieldshift.provenance.ground_check`: POWER Tmax deviation since ~2019 in the records of `T2M_MAX`, `heat_days` and climatology; rain on too many days / short dry spells / smoothed extremes in those of `PRECTOTCORR`, `extreme_precip_*` and P95; test `test_ground_check.py`; DEV outputs regenerated offline (only the limitation text changes). `RESOURCES.md`: IMERG (via POWER), MODIS v061 via Planetary Computer, GEOS-S2S, CHIRPS v3/ClimateSERV, ZARC, IBGE PAM, INMET, ANA, CONAB costs, CPC ONI, NMME, IRI, SICOR (ODbL), Atlas (license not declared), with "analysis only (fieldshift-hq), not yet in the app". Glossary: `reanalysis-bias`, `dry-spell`, `enso`, `oni`, `probabilistic-forecast`, `hindcast` (pending the agronomist).
 Next: agronomist review of the 6 new terms; when a concept adopts IMERG or a station, change the status in `RESOURCES.md` in the same PR as the code.
