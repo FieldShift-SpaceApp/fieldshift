@@ -8,4 +8,4 @@
 |---|---|---|---|
 | `dev-floripa` | −27.6, −48.5 | develop and test the NASA POWER layer (issue #11) while the real sites come from SURGEON (issue #8) | `cd services/science && uv run fieldshift fetch power --site dev-floripa --offline` (from the committed cache) or without `--offline` and with `--refresh` (new download) |
 
-The raw response is in `data/cache/power/dev-floripa/`. Data: NASA POWER (see `RESOURCES.md` for the citation and terms).
+Outputs: `series.json`, `provenance.json` and `indices.json` (climate indices with the default thresholds, which the provenance declares as generic placeholders). The raw response is in `data/cache/power/dev-floripa/`. Data: NASA POWER (see `RESOURCES.md` for the citation and terms).

@@ -193,7 +193,7 @@
   ],
   "site_id": "test-fixture"
  },
- "schema_version": "1.0.0",
+ "schema_version": "1.1.0",
  "site_id": "test-fixture",
  "timeline": {
   "bare_months_per_year": {
@@ -201,6 +201,7 @@
    "confidence": null,
    "data_type": "computed",
    "id": "bare_soil_months.per_year.cycle_mean",
+   "index_key": null,
    "label": {
     "en": "Bare-soil months per year (mean over the rotation cycle)",
     "pt": null
