@@ -167,6 +167,66 @@ export const en = {
   "dataMethods.section.glossary.body": "Plain-language definitions of the technical terms used on this site.",
   "dataMethods.methodFrom": "From",
 
+  // Entry page: list of sites (T1)
+  "home.sites.heading": "Sites",
+  "home.sites.intro": "Climate context from NASA POWER, with the source of every number one click away.",
+
+  // Site names, by site id. Text only: coordinates and numbers come from the site's data files.
+  "site.name.cruz-alta": "Cruz Alta, RS, Brazil",
+
+  // Site page (T2, FR2, FR19)
+  "site.meta.title": "{name} · FieldShift (working title)",
+  "site.meta.description": "Climate of {name} from NASA POWER, with the provenance of every number.",
+  "site.eyebrow": "Site",
+  "site.header.point": "Point sent to NASA POWER",
+  "site.header.lat": "Latitude",
+  "site.header.lon": "Longitude",
+  "site.header.pointNote":
+    "A point inside one NASA POWER grid cell, not a farm field.",
+  "site.header.source": "Data source",
+  "site.header.record": "Monthly record",
+  "site.header.recordRange": "{first} to {last}",
+  "site.header.accessed": "Downloaded on {date}",
+  "site.header.units": "Units",
+  "site.header.howTo": "Select any underlined number to see where it comes from.",
+
+  "site.recent.heading": "Recent months: rain and temperature",
+  "site.recent.intro":
+    "Monthly values from the NASA POWER record for the most recent months with data. Precipitation is the monthly total; temperatures are the monthly mean of the daily maximum and minimum.",
+  "site.recent.noClimatology":
+    "A monthly climate normal of rain and temperature is not in this site's data files yet, so this chart shows recorded months, not a climate average.",
+  "site.recent.precipChart": "Monthly precipitation, {first} to {last}",
+  "site.recent.tempChart": "Monthly mean of daily maximum and minimum temperature, {first} to {last}",
+  "site.recent.chartDesc":
+    "The same values are listed in the table below the charts. Each value there opens its data source.",
+  "site.recent.legend.precip": "Precipitation (bars)",
+  "site.recent.legend.tmax": "Daily maximum (solid line, circles)",
+  "site.recent.legend.tmin": "Daily minimum (dashed line, squares)",
+  "site.recent.table.show": "Show the numbers as a table",
+  "site.recent.table.caption": "Monthly values, {first} to {last}",
+  "site.recent.table.month": "Month",
+  "site.recent.table.precip": "Precipitation",
+  "site.recent.table.tmax": "Daily max. temperature",
+  "site.recent.table.tmin": "Daily min. temperature",
+
+  "site.indices.heading": "Climate indices, {start}–{end}",
+  "site.indices.intro":
+    "Computed from NASA POWER daily values for the reference period. Thresholds are generic defaults until the agronomist sets them for this site.",
+  "site.indices.method": "How the indices are computed",
+
+  "site.profiles.heading": "Month by month, {start}–{end}",
+  "site.profiles.intro": "Mean of each calendar month over the reference period.",
+  "site.profiles.caption": "Climate indices by calendar month, mean {start}–{end}",
+  "site.profiles.scroll": "Table of climate indices by month; scroll sideways to see every column",
+  "site.profiles.month": "Month",
+
+  "site.limits.heading": "What the ground check found",
+  "site.limits.intro":
+    "The team compared NASA POWER with weather stations in Cruz Alta. These notes are part of the data source of the numbers listed under each one.",
+  "site.limits.appliesTo": "Applies to:",
+  "site.limits.more": "Satellite and reanalysis vs. ground stations",
+  "site.limits.general": "Every number on this page is a regional value of one grid cell, not a field measurement.",
+
   // Glossary (FR8)
   "glossary.meta.title": "Glossary · FieldShift (working title)",
   "glossary.meta.description": "Plain-language definitions of the technical terms used in the project.",
