@@ -15,6 +15,7 @@ from fieldshift.contracts.provenance import (
     ProvenanceVariable,
 )
 from fieldshift.indices.climate import IndexParams
+from fieldshift.provenance.ground_check import ground_check_limitations
 from fieldshift.provenance.power import (
     COMPLETE_MONTH_RULE,
     ET0_DOC_ANCHOR,
@@ -245,6 +246,7 @@ def daily_index_record(
             *_common_limitations(site, raw),
             *[_text(t) for t in spec.extra_limitations],
             *placeholder_limitations(spec.key, params, site_set),
+            *ground_check_limitations(spec.key),
         ],
     )
 
@@ -289,6 +291,7 @@ def p95_record(site: SitePoint, raw: PowerRaw, params: IndexParams) -> Provenanc
                 "Grid-cell precipitation smooths local storms: the percentile is lower than at a "
                 "rain gauge."
             ),
+            *ground_check_limitations("precip_percentile"),
         ],
     )
 
@@ -341,5 +344,6 @@ def clim_record(
             *_common_limitations(site, raw),
             _text(f"Climatology of the reference period {span} (ADR-3), not a forecast."),
             *(extra_limitations or []),
+            *ground_check_limitations(key),
         ],
     )
