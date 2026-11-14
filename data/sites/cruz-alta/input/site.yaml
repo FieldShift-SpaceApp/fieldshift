@@ -1,0 +1,20 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
+# Cruz Alta (RS, Brazil), promoted from the DEV candidate data/dev/dev-cruz-alta/ (issue #26) at the
+# coordination's request. Only facts with a source are filled here; the pipeline reads `id`, `name`
+# and `point` (services/science/src/fieldshift/sites.py).
+#
+# point: centroid that IBGE publishes for municipality 4306106 (malhas API v3, 2022 mesh:
+# -28.703, -53.5626), rounded to the 3 decimals NASA POWER echoes back (about 40 m away). Source,
+# URLs and sha256: data/cache/ibge/dev-cruz-alta/geo.provenance.json. It is a municipal centroid,
+# not a demo field.
+#
+# Not filled (agronomist decisions, SURGEON, issue #8; no defaults invented here): `field` (demo
+# field polygon), `ag_year`, `default_units`, `context`, and the `indices:` thresholds
+# (heat_tmax_c, gdd_base_c). Until `indices:` exists, the provenance declares the index thresholds
+# as generic placeholders.
+id: cruz-alta
+name: { en: "Cruz Alta, RS (municipal centroid)" }
+country: BR
+hemisphere: S
+timezone: America/Sao_Paulo
+point: { lat: -28.703, lon: -53.563 }

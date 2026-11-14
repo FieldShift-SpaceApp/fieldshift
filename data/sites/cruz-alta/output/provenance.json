@@ -1,0 +1,2734 @@
+{
+ "records": {
+  "prov:computed:cruz-alta:et0:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:et0:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:et0:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "et0-fao56",
+    "name": "FAO-56 Penman-Monteith reference evapotranspiration, daily step",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° × 0.625° (meteorology) and 1° × 1° (radiation)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Reference evapotranspiration ET0 (FAO-56), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0",
+    "name": {
+     "en": "Reference evapotranspiration ET0 (FAO-56)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:et0:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:et0:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:et0:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "et0-fao56",
+    "name": "FAO-56 Penman-Monteith reference evapotranspiration, daily step",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° × 0.625° (meteorology) and 1° × 1° (radiation)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Reference evapotranspiration ET0 (FAO-56), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0",
+    "name": {
+     "en": "Reference evapotranspiration ET0 (FAO-56)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:et0:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "ET0 computed for each day (FAO-56 eq. 6, G = 0), then summed per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:et0:daily",
+   "inputs": [
+    "prov:power:cruz-alta:t2m_max:daily",
+    "prov:power:cruz-alta:t2m_min:daily",
+    "prov:power:cruz-alta:t2mdew:daily",
+    "prov:power:cruz-alta:ws2m:daily",
+    "prov:power:cruz-alta:allsky_sfc_sw_dwn:daily",
+    "prov:power:cruz-alta:ps:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Inputs: actual vapour pressure from POWER dewpoint (FAO-56 eq. 14), solar radiation from POWER all-sky shortwave, pressure from POWER surface pressure, elevation of the POWER grid cell (377 m) for clear-sky radiation.",
+     "pt": null
+    },
+    {
+     "en": "ET0 is the demand of a hypothetical grass reference surface, not the actual evapotranspiration of the crop.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "et0-fao56",
+    "name": "FAO-56 Penman-Monteith reference evapotranspiration, daily step",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° × 0.625° (meteorology) and 1° × 1° (radiation)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Reference evapotranspiration ET0 (FAO-56 Penman-Monteith) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0",
+    "name": {
+     "en": "Reference evapotranspiration",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm/d"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_days:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_days:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:extreme_precip_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with precipitation above the baseline wet-day percentile",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Extreme precipitation days (> P95 of wet days, 1991–2020), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95P_DAYS",
+    "name": {
+     "en": "Extreme precipitation days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_days:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_days:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:extreme_precip_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with precipitation above the baseline wet-day percentile",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Extreme precipitation days (> P95 of wet days, 1991–2020), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95P_DAYS",
+    "name": {
+     "en": "Extreme precipitation days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_days:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_days:daily",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:computed:cruz-alta:precip_p95:1991_2020"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with precipitation above the baseline wet-day percentile",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Extreme precipitation days (> P95 of wet days, 1991–2020) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95P_DAYS",
+    "name": {
+     "en": "Extreme precipitation days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_total:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_total:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:extreme_precip_total:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95PTOT",
+    "name": {
+     "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_total:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_total:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:extreme_precip_total:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95PTOT",
+    "name": {
+     "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:extreme_precip_total:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:extreme_precip_total:daily",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:computed:cruz-alta:precip_p95:1991_2020"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Precipitation total on days above the baseline wet-day percentile (ETCCDI R95pTOT)",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "R95PTOT",
+    "name": {
+     "en": "Precipitation on extreme days (> P95 of wet days, 1991–2020)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm/d"
+   }
+  },
+  "prov:computed:cruz-alta:frost_days:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:frost_days:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:frost_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
+    "parameters": {
+     "comparison": "<=",
+     "tmin_threshold_degC": 0.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Frost days (daily Tmin ≤ 0 °C), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "FROST_DAY",
+    "name": {
+     "en": "Frost days (daily Tmin ≤ 0 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:frost_days:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:frost_days:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:frost_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
+    "parameters": {
+     "comparison": "<=",
+     "tmin_threshold_degC": 0.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Frost days (daily Tmin ≤ 0 °C), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "FROST_DAY",
+    "name": {
+     "en": "Frost days (daily Tmin ≤ 0 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:frost_days:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:frost_days:daily",
+   "inputs": [
+    "prov:power:cruz-alta:t2m_min:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Air temperature at 2 m from a ~50 km grid cell: ground frost in low spots can occur on days not flagged here. ETCCDI 'frost days' uses Tmin < 0 °C (strict); this index uses ≤ (architecture definition).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily minimum air temperature (2 m) at or below a threshold",
+    "parameters": {
+     "comparison": "<=",
+     "tmin_threshold_degC": 0.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Frost days (daily Tmin ≤ 0 °C) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "FROST_DAY",
+    "name": {
+     "en": "Frost days (daily Tmin ≤ 0 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:growing_degree_days:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, degC_d). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:growing_degree_days:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:growing_degree_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "The base temperature (10 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.gdd_base_c).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
+    "parameters": {
+     "base_temperature_degC": 10.0,
+     "upper_cutoff": "none"
+    },
+    "ref": {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   },
+   "refs": [
+    {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Growing degree-days (base 10 °C), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "GDD",
+    "name": {
+     "en": "Growing degree-days (base 10 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "degC_d"
+   }
+  },
+  "prov:computed:cruz-alta:growing_degree_days:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (degC_d) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:growing_degree_days:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:growing_degree_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "The base temperature (10 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.gdd_base_c).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
+    "parameters": {
+     "base_temperature_degC": 10.0,
+     "upper_cutoff": "none"
+    },
+    "ref": {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   },
+   "refs": [
+    {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Growing degree-days (base 10 °C), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "GDD",
+    "name": {
+     "en": "Growing degree-days (base 10 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "degC_d"
+   }
+  },
+  "prov:computed:cruz-alta:growing_degree_days:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (degC_d). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:growing_degree_days:daily",
+   "inputs": [
+    "prov:power:cruz-alta:t2m_max:daily",
+    "prov:power:cruz-alta:t2m_min:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "No upper temperature cutoff (McMaster and Wilhelm 1997, method 1).",
+     "pt": null
+    },
+    {
+     "en": "The base temperature (10 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.gdd_base_c).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Growing degree-days, simple average method: max(0, (Tmax + Tmin) / 2 - Tbase)",
+    "parameters": {
+     "base_temperature_degC": 10.0,
+     "upper_cutoff": "none"
+    },
+    "ref": {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   },
+   "refs": [
+    {
+     "citation": "McMaster, G.S., Wilhelm, W.W. (1997). Growing degree-days: one equation, two interpretations. Agricultural and Forest Meteorology 87, 291-300.",
+     "doi": "10.1016/S0168-1923(97)00027-0",
+     "label": "McMaster and Wilhelm (1997), growing degree-days",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Growing degree-days (base 10 °C) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "GDD",
+    "name": {
+     "en": "Growing degree-days (base 10 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "degC_d"
+   }
+  },
+  "prov:computed:cruz-alta:heat_days:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:heat_days:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:heat_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "The heat threshold (35 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.heat_tmax_c).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853): in January-February, POWER daily Tmax ran +0.41 °C above the station in 2008-2018 and +1.84 °C in 2019-2025, while two neighbouring INMET stations (A883, A886) kept a stable offset to A853, so the shift is in POWER, from about 2019. In 2019-2025 POWER counted 204 January-February days above 32 °C against 128 at the station. Hot-day counts and any trend in them from POWER alone may be inflated after 2019: check them against a local weather station. Other grid cells were not checked. Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily maximum temperature above a threshold",
+    "parameters": {
+     "comparison": ">",
+     "tmax_threshold_degC": 35.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Heat days (daily Tmax > 35 °C), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "HEAT_DAY",
+    "name": {
+     "en": "Heat days (daily Tmax > 35 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:heat_days:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:heat_days:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:heat_days:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    },
+    {
+     "en": "The heat threshold (35 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.heat_tmax_c).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853): in January-February, POWER daily Tmax ran +0.41 °C above the station in 2008-2018 and +1.84 °C in 2019-2025, while two neighbouring INMET stations (A883, A886) kept a stable offset to A853, so the shift is in POWER, from about 2019. In 2019-2025 POWER counted 204 January-February days above 32 °C against 128 at the station. Hot-day counts and any trend in them from POWER alone may be inflated after 2019: check them against a local weather station. Other grid cells were not checked. Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily maximum temperature above a threshold",
+    "parameters": {
+     "comparison": ">",
+     "tmax_threshold_degC": 35.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Heat days (daily Tmax > 35 °C), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "HEAT_DAY",
+    "name": {
+     "en": "Heat days (daily Tmax > 35 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:heat_days:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:heat_days:daily",
+   "inputs": [
+    "prov:power:cruz-alta:t2m_max:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Same form as the ETCCDI 'summer days' index (Tmax > 25 °C) with a site threshold.",
+     "pt": null
+    },
+    {
+     "en": "The heat threshold (35 °C) is a generic default, not a crop- or site-specific value; the agronomist sets it per site (site.yaml, indices.heat_tmax_c).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853): in January-February, POWER daily Tmax ran +0.41 °C above the station in 2008-2018 and +1.84 °C in 2019-2025, while two neighbouring INMET stations (A883, A886) kept a stable offset to A853, so the shift is in POWER, from about 2019. In 2019-2025 POWER counted 204 January-February days above 32 °C against 128 at the station. Hot-day counts and any trend in them from POWER alone may be inflated after 2019: check them against a local weather station. Other grid cells were not checked. Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Count of days with daily maximum temperature above a threshold",
+    "parameters": {
+     "comparison": ">",
+     "tmax_threshold_degC": 35.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Heat days (daily Tmax > 35 °C) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "HEAT_DAY",
+    "name": {
+     "en": "Heat days (daily Tmax > 35 °C)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:precip_p95:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Percentile P95 (linear interpolation, Hyndman-Fan type 7) of daily precipitation on wet days (>= 1 mm) of 1991–2020. Computed only when every day of the baseline is valid.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:precip_p95:1991_2020",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "ETCCDI uses the 1961–1990 base period; POWER starts in 1981, so the baseline here is 1991–2020 (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Grid-cell precipitation smooths local storms: the percentile is lower than at a rain gauge.",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Wet-day precipitation percentile (ETCCDI R95p threshold)",
+    "parameters": {
+     "baseline": "1991-2020",
+     "comparison": ">",
+     "percentile": 95.0,
+     "quantile_method": "Hyndman-Fan type 7",
+     "wet_day_threshold_mm": 1.0
+    },
+    "ref": {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Zhang, X., Alexander, L., Hegerl, G.C., Jones, P., Klein Tank, A., Peterson, T.C., Trewin, B., Zwiers, F.W. (2011). Indices for monitoring changes in extremes based on daily temperature and precipitation data. WIREs Climate Change 2, 851-870.",
+     "doi": "10.1002/wcc.147",
+     "label": "Zhang et al. (2011), ETCCDI indices for climate extremes",
+     "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml"
+    },
+    {
+     "citation": "Hyndman, R.J., Fan, Y. (1996). Sample quantiles in statistical packages. The American Statistician 50(4), 361-365.",
+     "doi": "10.1080/00031305.1996.10473566",
+     "label": "Hyndman and Fan (1996), sample quantiles (type 7)",
+     "url": null
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "P95 of wet-day precipitation, 1991–2020, from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "PRECIP_P95",
+    "name": {
+     "en": "Daily precipitation percentile P95 (wet days)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm/d"
+   }
+  },
+  "prov:computed:cruz-alta:water_deficit:annual_mean:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:water_deficit:annual_mean:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:water_deficit:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid) and 1° × 1° (CERES SYN1deg grid) (via ET0)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Climatic water deficit (ET0 − precipitation), annual mean 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0_MINUS_P",
+    "name": {
+     "en": "Climatic water deficit (ET0 − precipitation)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:water_deficit:by_month:1991_2020": {
+   "access": null,
+   "aggregation": {
+    "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:water_deficit:by_month:1991_2020",
+   "inputs": [
+    "prov:computed:cruz-alta:water_deficit:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Climatology of the reference period 1991–2020 (ADR-3), not a forecast.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid) and 1° × 1° (CERES SYN1deg grid) (via ET0)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2020-12-31",
+     "start": "1991-01-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Climatic water deficit (ET0 − precipitation), mean by calendar month 1991–2020 (NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0_MINUS_P",
+    "name": {
+     "en": "Climatic water deficit (ET0 − precipitation)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
+   }
+  },
+  "prov:computed:cruz-alta:water_deficit:daily": {
+   "access": null,
+   "aggregation": {
+    "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:water_deficit:daily",
+   "inputs": [
+    "prov:computed:cruz-alta:et0:daily",
+    "prov:power:cruz-alta:prectotcorr:daily"
+   ],
+   "limitations": [
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Positive = atmospheric demand above rainfall (deficit); negative = surplus. It is a climate indicator, not a soil water balance: no runoff, storage or crop coefficient.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "climate-indices",
+    "name": "Climatic water deficit: FAO-56 reference evapotranspiration minus precipitation",
+    "parameters": null,
+    "ref": {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   },
+   "refs": [
+    {
+     "citation": "Allen, R.G., Pereira, L.S., Raes, D., Smith, M. (1998). Crop evapotranspiration - Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome.",
+     "doi": null,
+     "label": "Allen et al. (1998), FAO Irrigation and Drainage Paper 56",
+     "url": "https://www.fao.org/4/x0490e/x0490e00.htm"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid) and 1° × 1° (CERES SYN1deg grid) (via ET0)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Climatic water deficit (ET0 − precipitation) from NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "ET0_MINUS_P",
+    "name": {
+     "en": "Climatic water deficit (ET0 − precipitation)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm/d"
+   }
+  },
+  "prov:power:cruz-alta:allsky_sfc_sw_dwn:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:allsky_sfc_sw_dwn:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream CERES SYN1deg",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "1° × 1° (CERES SYN1deg grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · All Sky Surface Shortwave Downward Irradiance",
+    "pt": null
+   },
+   "variable": {
+    "code": "ALLSKY_SFC_SW_DWN",
+    "name": {
+     "en": "All-sky surface shortwave downward irradiance",
+     "pt": null
+    },
+    "native_unit": "MJ/m^2/day",
+    "unit": "MJ/m2/d"
+   }
+  },
+  "prov:power:cruz-alta:evland:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:evland:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Land evaporation from the MERRA-2 land-surface model for the whole grid cell: not the actual evapotranspiration of the field and not a satellite observation. POWER EVPTRNS is not used (transpiration energy flux only; see the science README).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Evaporation Land",
+    "pt": null
+   },
+   "variable": {
+    "code": "EVLAND",
+    "name": {
+     "en": "Land evaporation (modeled)",
+     "pt": null
+    },
+    "native_unit": "mm/day",
+    "unit": "mm/d"
+   }
+  },
+  "prov:power:cruz-alta:gwetprof:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:gwetprof:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Soil wetness is a 0-1 fraction of saturation from a land-surface model, not volumetric soil moisture (m3/m3) and not a satellite observation.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Profile Soil Wetness",
+    "pt": null
+   },
+   "variable": {
+    "code": "GWETPROF",
+    "name": {
+     "en": "Profile soil wetness (modeled)",
+     "pt": null
+    },
+    "native_unit": "1",
+    "unit": "1"
+   }
+  },
+  "prov:power:cruz-alta:gwetroot:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:gwetroot:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Soil wetness is a 0-1 fraction of saturation from a land-surface model, not volumetric soil moisture (m3/m3) and not a satellite observation.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Root Zone Soil Wetness",
+    "pt": null
+   },
+   "variable": {
+    "code": "GWETROOT",
+    "name": {
+     "en": "Root zone soil wetness (modeled)",
+     "pt": null
+    },
+    "native_unit": "1",
+    "unit": "1"
+   }
+  },
+  "prov:power:cruz-alta:gwettop:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:gwettop:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Soil wetness is a 0-1 fraction of saturation from a land-surface model, not volumetric soil moisture (m3/m3) and not a satellite observation.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Surface Soil Wetness",
+    "pt": null
+   },
+   "variable": {
+    "code": "GWETTOP",
+    "name": {
+     "en": "Surface soil wetness (modeled)",
+     "pt": null
+    },
+    "native_unit": "1",
+    "unit": "1"
+   }
+  },
+  "prov:power:cruz-alta:prectotcorr:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:prectotcorr:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853 and ANA rain gauge 2853015): POWER flags rain (1 mm or more) on 38-41% of days against 24-28% at the gauges, so dry spells are shorter in POWER (longest January-February dry spell 7.3 days on average against 11.7 at gauge 2853015, 41 seasons) and heavy rain is smoothed (on days with 60 mm or more at the gauge, POWER recorded 46-57% of the amount; a neighbouring gauge, 66-68%). Dry spells and extreme rain from POWER underestimate what a rain gauge records: check them against a rain gauge or GPM IMERG (daily r with A853: 0.85 for IMERG, 0.78 for POWER). Monthly totals agree better (monthly r with A853: 0.92). Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Precipitation Corrected",
+    "pt": null
+   },
+   "variable": {
+    "code": "PRECTOTCORR",
+    "name": {
+     "en": "Precipitation (bias-corrected)",
+     "pt": null
+    },
+    "native_unit": "mm/day",
+    "unit": "mm/d"
+   }
+  },
+  "prov:power:cruz-alta:ps:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:ps:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Surface Pressure",
+    "pt": null
+   },
+   "variable": {
+    "code": "PS",
+    "name": {
+     "en": "Surface pressure",
+     "pt": null
+    },
+    "native_unit": "kPa",
+    "unit": "kPa"
+   }
+  },
+  "prov:power:cruz-alta:rh2m:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:rh2m:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Relative Humidity at 2 Meters",
+    "pt": null
+   },
+   "variable": {
+    "code": "RH2M",
+    "name": {
+     "en": "Relative humidity at 2 m",
+     "pt": null
+    },
+    "native_unit": "%",
+    "unit": "%"
+   }
+  },
+  "prov:power:cruz-alta:t2m:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:t2m:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Temperature at 2 Meters",
+    "pt": null
+   },
+   "variable": {
+    "code": "T2M",
+    "name": {
+     "en": "Mean air temperature at 2 m",
+     "pt": null
+    },
+    "native_unit": "C",
+    "unit": "degC"
+   }
+  },
+  "prov:power:cruz-alta:t2m_max:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:t2m_max:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    },
+    {
+     "en": "Ground check (team analysis, Cruz Alta, RS, Brazil; INMET station A853): in January-February, POWER daily Tmax ran +0.41 °C above the station in 2008-2018 and +1.84 °C in 2019-2025, while two neighbouring INMET stations (A883, A886) kept a stable offset to A853, so the shift is in POWER, from about 2019. In 2019-2025 POWER counted 204 January-February days above 32 °C against 128 at the station. Hot-day counts and any trend in them from POWER alone may be inflated after 2019: check them against a local weather station. Other grid cells were not checked. Details: Data & Methods, #satellite-vs-ground-check.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Temperature at 2 Meters Maximum",
+    "pt": null
+   },
+   "variable": {
+    "code": "T2M_MAX",
+    "name": {
+     "en": "Daily maximum air temperature at 2 m",
+     "pt": null
+    },
+    "native_unit": "C",
+    "unit": "degC"
+   }
+  },
+  "prov:power:cruz-alta:t2m_min:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:t2m_min:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Temperature at 2 Meters Minimum",
+    "pt": null
+   },
+   "variable": {
+    "code": "T2M_MIN",
+    "name": {
+     "en": "Daily minimum air temperature at 2 m",
+     "pt": null
+    },
+    "native_unit": "C",
+    "unit": "degC"
+   }
+  },
+  "prov:power:cruz-alta:t2mdew:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:t2mdew:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Dew/Frost Point at 2 Meters",
+    "pt": null
+   },
+   "variable": {
+    "code": "T2MDEW",
+    "name": {
+     "en": "Dew/frost point at 2 m",
+     "pt": null
+    },
+    "native_unit": "C",
+    "unit": "degC"
+   }
+  },
+  "prov:power:cruz-alta:ws2m:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T19:29:08-03:00",
+    "doi": null,
+    "license": "NASA open data; cite as in the POWER Referencing Guide",
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON"
+   },
+   "aggregation": {
+    "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
+    "pt": null
+   },
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:power:cruz-alta:ws2m:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Modeled (reanalysis-based) data, labeled 'modeled' (FR9).",
+     "pt": null
+    },
+    {
+     "en": "Regional signal: value of the grid cell that contains the site point (about 50-100 km), not a field measurement; no downscaling (ADR-3).",
+     "pt": null
+    },
+    {
+     "en": "Daily values follow the time standard reported by the API (LST).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. POWER Daily API v2.10.3, accessed 2026/11/14.",
+     "doi": null,
+     "label": "NASA POWER Referencing Guide",
+     "url": "https://power.larc.nasa.gov/docs/referencing/"
+    }
+   ],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA POWER",
+    "product": "POWER Daily API (point), community AG; upstream MERRA-2",
+    "provider": "NASA Langley Research Center (LaRC)",
+    "version": "v2.10.3"
+   },
+   "spatial": {
+    "resolution": "0.5° lat × 0.625° lon (MERRA-2 grid)",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "NASA POWER · Wind Speed at 2 Meters",
+    "pt": null
+   },
+   "variable": {
+    "code": "WS2M",
+    "name": {
+     "en": "Wind speed at 2 m",
+     "pt": null
+    },
+    "native_unit": "m/s",
+    "unit": "m/s"
+   }
+  }
+ },
+ "schema_version": "1.1.0",
+ "site_id": "cruz-alta"
+}
