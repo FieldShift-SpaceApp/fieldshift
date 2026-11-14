@@ -539,7 +539,7 @@ export interface ReplayEvent {
  * via the `definition` "ReplayValue".
  */
 export interface ReplayValue {
-  key: ReplayKey;
+  id: ReplayKey;
   label: LocalizedText;
   value: number;
   unit: CanonicalUnit | ReplayExtraUnit;

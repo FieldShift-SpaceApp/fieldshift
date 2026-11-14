@@ -111,7 +111,7 @@ def timeline(**over):
                 "title": {"en": "El Niño Watch"},
                 "detail": {"en": "62% chance of El Niño in May-July"},
                 "values": [
-                    {"key": "p", "label": {"en": "chance"}, "value": 0.62, "unit": "probability"}
+                    {"id": "p", "label": {"en": "chance"}, "value": 0.62, "unit": "probability"}
                 ],
                 "provenance_id": "prov:user:cruz-alta:replay-2023",
                 "refs": [{"label": "CPC", "url": URL}],
@@ -123,8 +123,8 @@ def timeline(**over):
                 "title": {"en": "Result"},
                 "detail": {"en": "per hectare"},
                 "values": [
-                    {"key": "wheat", "label": {"en": "wheat"}, "value": -3829, "unit": "BRL/ha"},
-                    {"key": "yield", "label": {"en": "yield"}, "value": 1500, "unit": "kg/ha"},
+                    {"id": "wheat", "label": {"en": "wheat"}, "value": -3829, "unit": "BRL/ha"},
+                    {"id": "yield", "label": {"en": "yield"}, "value": 1500, "unit": "kg/ha"},
                 ],
                 "provenance_id": "prov:user:cruz-alta:replay-2023",
                 "refs": [{"label": "IBGE", "url": URL}],
