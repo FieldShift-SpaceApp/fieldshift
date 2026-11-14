@@ -5,3 +5,13 @@
 # PR #29: the submission preflight quoted that same comment while reviewing the entry above; the
 # quote was removed in a later commit, this entry only covers the old commit in the branch history.
 0c653c0fc640a171e5543a2f51aeebc49da11c5a:docs/submission/preflight.md:generic-api-key:74
+# PR #42: replay value identifiers (e.g. municipalities_below_75pct) after a "key" field matched
+# generic-api-key; the field was renamed to "id" (contract PR #38) in a later commit, so these
+# entries only cover the old commit in the branch history.
+3eb3b3460439b2c051a10d0bb263e63809818d6d:services/science/src/fieldshift/complements/replay.py:generic-api-key:238
+3eb3b3460439b2c051a10d0bb263e63809818d6d:services/science/src/fieldshift/complements/replay.py:generic-api-key:244
+3eb3b3460439b2c051a10d0bb263e63809818d6d:services/science/src/fieldshift/complements/replay.py:generic-api-key:250
+3eb3b3460439b2c051a10d0bb263e63809818d6d:data/sites/cruz-alta/output/replay.json:generic-api-key:70
+3eb3b3460439b2c051a10d0bb263e63809818d6d:data/sites/cruz-alta/output/replay.json:generic-api-key:183
+3eb3b3460439b2c051a10d0bb263e63809818d6d:data/sites/cruz-alta/output/replay.json:generic-api-key:192
+3eb3b3460439b2c051a10d0bb263e63809818d6d:data/sites/cruz-alta/output/replay.json:generic-api-key:201

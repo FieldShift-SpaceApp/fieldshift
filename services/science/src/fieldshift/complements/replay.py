@@ -131,7 +131,7 @@ def build_replay(site_id: str, input_dir: Path) -> tuple[EventTimeline, list[Pro
                 detail=LocalizedText(en=" ".join(str(ev["detail"]).split())),
                 values=[
                     ReplayValue(
-                        key=v["key"],
+                        id=v["id"],
                         label=LocalizedText(en=v["label"]),
                         value=v["value"],
                         unit=v["unit"],
@@ -235,37 +235,37 @@ def _failures_event(
         f"of {f['home_trend']:,.0f} kg/ha.",
         "values": [
             {
-                "key": "municipalities_below_75pct",
+                "id": "municipalities_below_75pct",
                 "label": "Municipalities below 75% of trend",
                 "value": f["below_75"],
                 "unit": "count",
             },
             {
-                "key": "municipalities_below_70pct",
+                "id": "municipalities_below_70pct",
                 "label": "Municipalities below 70% of trend",
                 "value": f["below_70"],
                 "unit": "count",
             },
             {
-                "key": "municipalities_below_80pct",
+                "id": "municipalities_below_80pct",
                 "label": "Municipalities below 80% of trend",
                 "value": f["below_80"],
                 "unit": "count",
             },
             {
-                "key": "municipalities",
+                "id": "municipalities",
                 "label": "Municipalities with a 2023 wheat yield",
                 "value": f["municipalities"],
                 "unit": "count",
             },
             {
-                "key": "cruz_alta_yield",
+                "id": "cruz_alta_yield",
                 "label": "Cruz Alta wheat yield 2023",
                 "value": f["home_yield"],
                 "unit": "kg/ha",
             },
             {
-                "key": "cruz_alta_trend",
+                "id": "cruz_alta_trend",
                 "label": "Cruz Alta linear-trend yield for 2023",
                 "value": f["home_trend"],
                 "unit": "kg/ha",

@@ -18,7 +18,7 @@ events:
       ENSO-neutral expected through spring, followed by a 62% chance of El Niño developing during
       May-July 2023. The previous discussion (9 March 2023) had been the "Final La Niña Advisory".
     values:
-      - { key: p_el_nino_mjj, label: "Chance of El Niño developing in May-July 2023", value: 0.62, unit: probability }
+      - { id: p_el_nino_mjj, label: "Chance of El Niño developing in May-July 2023", value: 0.62, unit: probability }
     source:
       authored_by: "NOAA Climate Prediction Center, ENSO Diagnostic Discussion (status and synopsis transcribed)"
       attribution: [{ group: other_public, name: "NOAA CPC ENSO Diagnostic Discussion" }]
@@ -39,7 +39,7 @@ events:
       ending on 20 July; the 30% class opens on 21 May. The same window holds for the three soil
       types of that table.
     values:
-      - { key: dekads_20pct_risk, label: "Ten-day periods in the 20% risk class (cycle group 22)", value: 5, unit: count }
+      - { id: dekads_20pct_risk, label: "Ten-day periods in the 20% risk class (cycle group 22)", value: 5, unit: count }
     source:
       authored_by: "MAPA, ZARC risk table (Tábua de risco) 2022/2023, rows of municipality 4306106 transcribed"
       attribution: [{ group: other_public, name: "MAPA (Brazil), ZARC agricultural risk zoning" }]
@@ -78,8 +78,8 @@ events:
       was 2.3% above January-October 2022 (155,964 against 152,465 ha). The annual financed area
       was 0.5% lower.
     values:
-      - { key: credit_value_real_change_pct, label: "Credit value 2023 vs 2022, constant reais", value: -3.1, unit: "%" }
-      - { key: financed_area_jan_oct_change_pct, label: "Financed area Jan-Oct 2023 vs Jan-Oct 2022", value: 2.3, unit: "%" }
+      - { id: credit_value_real_change_pct, label: "Credit value 2023 vs 2022, constant reais", value: -3.1, unit: "%" }
+      - { id: financed_area_jan_oct_change_pct, label: "Financed area Jan-Oct 2023 vs Jan-Oct 2022", value: 2.3, unit: "%" }
     source:
       authored_by: "Banco Central do Brasil, SICOR open data (CusteioMunicipioProduto), recomputed by the team's independent verification of 14/11/2026"
       attribution: [{ group: other_public, name: "Banco Central do Brasil, SICOR rural credit" }]
@@ -107,9 +107,9 @@ events:
       official cost found (Embrapa Trigo, 2007 prices updated by IPCA). Fallow has no sourced cost
       and is not given a value.
     values:
-      - { key: wheat_margin_operating_cost, label: "Wheat margin over CONAB operating cost (without land rent)", value: -3829, unit: "BRL/ha" }
-      - { key: wheat_margin_variable_cost, label: "Wheat margin over CONAB variable cost", value: -3268, unit: "BRL/ha" }
-      - { key: cover_crop_cost, label: "Black oat cover crop cost (seed and sowing; no revenue)", value: 332, unit: "BRL/ha" }
+      - { id: wheat_margin_operating_cost, label: "Wheat margin over CONAB operating cost (without land rent)", value: -3829, unit: "BRL/ha" }
+      - { id: wheat_margin_variable_cost, label: "Wheat margin over CONAB variable cost", value: -3268, unit: "BRL/ha" }
+      - { id: cover_crop_cost, label: "Black oat cover crop cost (seed and sowing; no revenue)", value: 332, unit: "BRL/ha" }
     source:
       authored_by: "FieldShift team analysis 'money per winter' (14/11/2026) from IBGE, CONAB, IPCA and Embrapa; values transcribed"
       attribution:

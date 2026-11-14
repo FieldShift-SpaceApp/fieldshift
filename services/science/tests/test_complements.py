@@ -63,11 +63,11 @@ def test_rain_signal_reproduces_the_research_numbers():
 
 def test_replay_counts_wheat_failures_and_keeps_fallow_without_value():
     events = {e["id"]: e for e in committed("replay.json")["events"]}
-    vals = {v["key"]: v["value"] for v in events["wheat-failures"]["values"]}
+    vals = {v["id"]: v["value"] for v in events["wheat-failures"]["values"]}
     assert (vals["municipalities_below_75pct"], vals["municipalities"]) == (14, 18)
     assert (vals["municipalities_below_70pct"], vals["municipalities_below_80pct"]) == (11, 16)
     assert (vals["cruz_alta_yield"], vals["cruz_alta_trend"]) == (1500, 2736)
-    money = {v["key"] for v in events["winter-paths-2023"]["values"]}
+    money = {v["id"] for v in events["winter-paths-2023"]["values"]}
     assert money == {"wheat_margin_operating_cost", "wheat_margin_variable_cost", "cover_crop_cost"}
     assert list(events)[:1] == ["el-nino-watch"]
 

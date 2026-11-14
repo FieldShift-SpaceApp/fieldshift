@@ -30,7 +30,7 @@
    },
    "values": [
     {
-     "key": "p_el_nino_mjj",
+     "id": "p_el_nino_mjj",
      "label": {
       "en": "Chance of El Niño developing in May-July 2023",
       "pt": null
@@ -67,7 +67,7 @@
    },
    "values": [
     {
-     "key": "dekads_20pct_risk",
+     "id": "dekads_20pct_risk",
      "label": {
       "en": "Ten-day periods in the 20% risk class (cycle group 22)",
       "pt": null
@@ -134,7 +134,7 @@
    },
    "values": [
     {
-     "key": "credit_value_real_change_pct",
+     "id": "credit_value_real_change_pct",
      "label": {
       "en": "Credit value 2023 vs 2022, constant reais",
       "pt": null
@@ -143,7 +143,7 @@
      "value": -3.1
     },
     {
-     "key": "financed_area_jan_oct_change_pct",
+     "id": "financed_area_jan_oct_change_pct",
      "label": {
       "en": "Financed area Jan-Oct 2023 vs Jan-Oct 2022",
       "pt": null
@@ -180,7 +180,7 @@
    },
    "values": [
     {
-     "key": "municipalities_below_75pct",
+     "id": "municipalities_below_75pct",
      "label": {
       "en": "Municipalities below 75% of trend",
       "pt": null
@@ -189,7 +189,7 @@
      "value": 14.0
     },
     {
-     "key": "municipalities_below_70pct",
+     "id": "municipalities_below_70pct",
      "label": {
       "en": "Municipalities below 70% of trend",
       "pt": null
@@ -198,7 +198,7 @@
      "value": 11.0
     },
     {
-     "key": "municipalities_below_80pct",
+     "id": "municipalities_below_80pct",
      "label": {
       "en": "Municipalities below 80% of trend",
       "pt": null
@@ -207,7 +207,7 @@
      "value": 16.0
     },
     {
-     "key": "municipalities",
+     "id": "municipalities",
      "label": {
       "en": "Municipalities with a 2023 wheat yield",
       "pt": null
@@ -216,7 +216,7 @@
      "value": 18.0
     },
     {
-     "key": "cruz_alta_yield",
+     "id": "cruz_alta_yield",
      "label": {
       "en": "Cruz Alta wheat yield 2023",
       "pt": null
@@ -225,7 +225,7 @@
      "value": 1500.0
     },
     {
-     "key": "cruz_alta_trend",
+     "id": "cruz_alta_trend",
      "label": {
       "en": "Cruz Alta linear-trend yield for 2023",
       "pt": null
@@ -280,7 +280,7 @@
    },
    "values": [
     {
-     "key": "wheat_margin_operating_cost",
+     "id": "wheat_margin_operating_cost",
      "label": {
       "en": "Wheat margin over CONAB operating cost (without land rent)",
       "pt": null
@@ -289,7 +289,7 @@
      "value": -3829.0
     },
     {
-     "key": "wheat_margin_variable_cost",
+     "id": "wheat_margin_variable_cost",
      "label": {
       "en": "Wheat margin over CONAB variable cost",
       "pt": null
@@ -298,7 +298,7 @@
      "value": -3268.0
     },
     {
-     "key": "cover_crop_cost",
+     "id": "cover_crop_cost",
      "label": {
       "en": "Black oat cover crop cost (seed and sowing; no revenue)",
       "pt": null
