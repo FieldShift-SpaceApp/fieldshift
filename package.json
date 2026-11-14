@@ -16,6 +16,7 @@
     "test": "npm run test -w apps/web",
     "e2e": "npm run e2e -w apps/web",
     "data:sync": "node scripts/sync-data.mjs",
+    "contracts": "uv run --directory services/science fieldshift contracts export && npm run gen -w packages/contracts",
     "py:test": "uv run --directory services/science pytest -q",
     "py:lint": "uv run --directory services/science ruff check . && uv run --directory services/science ruff format --check .",
     "hygiene": "bash scripts/check-public-repo.sh"

@@ -1,0 +1,110 @@
+"""Provenance: the record every number on screen points to (FR19; VL1 data layer)."""
+
+from __future__ import annotations
+
+from typing import Literal
+
+from pydantic import Field, model_validator
+
+from fieldshift.contracts.common import (
+    CanonicalUnit,
+    Contract,
+    DataType,
+    IsoDateTime,
+    LocalizedText,
+    Period,
+    ProvenanceId,
+    Ref,
+    SchemaVersion,
+    SiteId,
+)
+
+
+class ProvenanceSource(Contract):
+    """Required for satellite_observed and modeled."""
+
+    dataset: str
+    provider: str
+    product: str
+    version: str
+    collection_id: str | None = None
+
+
+class ProvenanceVariable(Contract):
+    code: str
+    name: LocalizedText
+    unit: CanonicalUnit
+    native_unit: str | None = None
+
+
+class ProvenanceSpatial(Contract):
+    resolution: str
+    resolution_m: float | None = None
+    support: Literal["point", "polygon", "containing_pixel", "regional"]  # ADR-3
+
+
+class ProvenanceTemporal(Contract):
+    resolution: Literal["daily", "3-hourly", "16-day", "monthly", "annual", "static"]
+    period: Period
+
+
+class ProvenanceMethod(Contract):
+    """Required for computed; `doc_anchor` points to content/methods (VL1)."""
+
+    name: str
+    ref: Ref
+    doc_anchor: str
+
+
+class ProvenanceAccess(Contract):
+    """Required for satellite_observed and modeled."""
+
+    url: str
+    doi: str | None = None
+    accessed_at: IsoDateTime
+    terms_url: str
+    license: str | None = None
+
+
+class Provenance(Contract):
+    id: ProvenanceId
+    data_type: DataType
+    title: LocalizedText
+    source: ProvenanceSource | None = None
+    variable: ProvenanceVariable
+    spatial: ProvenanceSpatial
+    temporal: ProvenanceTemporal
+    aggregation: LocalizedText
+    method: ProvenanceMethod | None = None
+    inputs: list[ProvenanceId] = Field(default_factory=list)
+    authored_by: str | None = None
+    refs: list[Ref] = Field(default_factory=list)
+    access: ProvenanceAccess | None = None
+    limitations: list[LocalizedText]
+
+    @model_validator(mode="after")
+    def _fr19_completeness(self) -> Provenance:
+        """VL1 (data layer): FR19 fields required for each data type."""
+        if self.data_type in ("satellite_observed", "modeled"):
+            if self.source is None or self.access is None:
+                raise ValueError(f"{self.id}: {self.data_type} requires source and access (FR19)")
+            if not (self.source.version or self.source.collection_id):
+                raise ValueError(f"{self.id}: set version or collection_id (FR19)")
+        if self.data_type == "computed" and (self.method is None or not self.inputs):
+            raise ValueError(f"{self.id}: computed requires method and inputs (lineage)")
+        if self.data_type == "user_provided" and (not self.authored_by or not self.refs):
+            raise ValueError(f"{self.id}: user_provided requires authored_by and refs")
+        return self
+
+
+class ProvenanceRegistry(Contract):
+    schema_version: SchemaVersion
+    site_id: SiteId | Literal["global"]
+    records: dict[ProvenanceId, Provenance]
+
+    @model_validator(mode="after")
+    def _keys_match_ids(self) -> ProvenanceRegistry:
+        for key, record in self.records.items():
+            if key != record.id:
+                raise ValueError(f"registry key {key!r} != record id {record.id!r}")
+        return self
