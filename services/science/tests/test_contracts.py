@@ -217,7 +217,7 @@ def site(**over):
 
 
 def test_schema_version_is_semver():
-    assert SCHEMA_VERSION == "1.1.0"
+    assert SCHEMA_VERSION == "1.2.0"
 
 
 def test_period_rejects_end_before_start():

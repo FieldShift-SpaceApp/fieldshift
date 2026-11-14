@@ -12,6 +12,31 @@
 export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "SchemaVersion".
+ */
+export type SchemaVersion = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "SiteId".
+ */
+export type SiteId = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "IsoDate".
+ */
+export type IsoDate = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "Percent".
+ */
+export type Percent = number;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ProvenanceId".
+ */
+export type ProvenanceId = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "CanonicalUnit".
  */
 export type CanonicalUnit =
@@ -35,29 +60,9 @@ export type CanonicalUnit =
   | "1";
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "SchemaVersion".
- */
-export type SchemaVersion = string;
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "SiteId".
- */
-export type SiteId = string;
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "IsoDate".
- */
-export type IsoDate = string;
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "DataType".
  */
 export type DataType = "satellite_observed" | "modeled" | "computed" | "user_provided";
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "ProvenanceId".
- */
-export type ProvenanceId = string;
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "IndexKey".
@@ -78,9 +83,44 @@ export type IndexKey =
 export type Country = "US" | "BR";
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "EnsoPhase".
+ */
+export type EnsoPhase = "el_nino" | "neutral" | "la_nina";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReplayKey".
+ */
+export type ReplayKey = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReplayEventKind".
+ */
+export type ReplayEventKind = "forecast" | "planting_window" | "credit" | "yield" | "outcome";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReplayExtraUnit".
+ */
+export type ReplayExtraUnit = "BRL/ha" | "kg/ha";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "SeriesId".
  */
 export type SeriesId = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastKind".
+ */
+export type ForecastKind = "probability" | "nino34_anomaly";
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastSourceId".
+ */
+export type ForecastSourceId = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "Probability".
+ */
+export type Probability = number;
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "Hemisphere".
@@ -177,7 +217,7 @@ export type VariableKey =
 export type UnitSystem = "metric" | "imperial";
 
 /**
- * FieldShift data contracts v1.1.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
+ * FieldShift data contracts v1.2.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
  */
 export interface FieldShiftContracts {
   [k: string]: unknown;
@@ -189,6 +229,87 @@ export interface FieldShiftContracts {
 export interface AgYear {
   start_month: Month;
   label: "single" | "split";
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "BareSoilCalendar".
+ */
+export interface BareSoilCalendar {
+  schema_version: SchemaVersion;
+  site_id: SiteId;
+  period: Period;
+  ndvi_threshold: number;
+  /**
+   * @minItems 24
+   * @maxItems 24
+   */
+  fortnights: [
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover,
+    FortnightCover
+  ];
+  s2_provenance_id: ProvenanceId;
+  modis_provenance_id: ProvenanceId;
+  /**
+   * @minItems 1
+   */
+  caveats: [LocalizedText, ...LocalizedText[]];
+}
+/**
+ * Inclusive period.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "Period".
+ */
+export interface Period {
+  start: IsoDate;
+  end: IsoDate;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "FortnightCover".
+ */
+export interface FortnightCover {
+  index: number;
+  month: Month;
+  half: 1 | 2;
+  s2_median_pct: Percent | null;
+  s2_min_pct: Percent | null;
+  s2_max_pct: Percent | null;
+  s2_years: number;
+  modis_median_pct: Percent | null;
+  modis_years: number;
+}
+/**
+ * NFR15: Portuguese can be added without refactoring.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "LocalizedText".
+ */
+export interface LocalizedText {
+  en: string;
+  pt?: string | null;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
@@ -216,26 +337,6 @@ export interface Metric {
   confidence?: Confidence | null;
   tags?: string[];
   index_key?: IndexKey | null;
-}
-/**
- * NFR15: Portuguese can be added without refactoring.
- *
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "LocalizedText".
- */
-export interface LocalizedText {
-  en: string;
-  pt?: string | null;
-}
-/**
- * Inclusive period.
- *
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "Period".
- */
-export interface Period {
-  start: IsoDate;
-  end: IsoDate;
 }
 /**
  * 'Before vs. now' (⏸ D5 decides which periods are shown).
@@ -303,6 +404,59 @@ export interface CriterionValue {
   confidence: Confidence;
 }
 /**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "EventTimeline".
+ */
+export interface EventTimeline {
+  schema_version: SchemaVersion;
+  site_id: SiteId;
+  id: ReplayKey;
+  title: LocalizedText;
+  period: Period;
+  /**
+   * @minItems 1
+   */
+  events: [ReplayEvent, ...ReplayEvent[]];
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReplayEvent".
+ */
+export interface ReplayEvent {
+  id: ReplayKey;
+  kind: ReplayEventKind;
+  date?: IsoDate | null;
+  period?: Period | null;
+  title: LocalizedText;
+  detail: LocalizedText;
+  values?: ReplayValue[];
+  provenance_id: ProvenanceId;
+  /**
+   * @minItems 1
+   */
+  refs: [Ref, ...Ref[]];
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReplayValue".
+ */
+export interface ReplayValue {
+  key: ReplayKey;
+  label: LocalizedText;
+  value: number;
+  unit: CanonicalUnit | ReplayExtraUnit;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "Ref".
+ */
+export interface Ref {
+  label: string;
+  url?: string | null;
+  doi?: string | null;
+  citation?: string | null;
+}
+/**
  * VL3: every evidence item has a number, a dataset and a period.
  *
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
@@ -322,6 +476,88 @@ export interface Evidence {
   provenance_ids: [ProvenanceId, ...ProvenanceId[]];
   data_type: DataType;
   confidence: Confidence;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastRecord".
+ */
+export interface ForecastRecord {
+  source_id: ForecastSourceId;
+  issue_month: Month;
+  target_year: number;
+  p_la_nina?: Probability | null;
+  p_neutral?: Probability | null;
+  p_el_nino?: Probability | null;
+  nino34_anomaly?: number | null;
+  predicted_phase: EnsoPhase;
+  observed_phase: EnsoPhase;
+  hit: boolean;
+  source_url: string;
+}
+/**
+ * Verification of one source for one issue month over the target years it covers.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastScore".
+ */
+export interface ForecastScore {
+  source_id: ForecastSourceId;
+  issue_month: Month;
+  first_year: number;
+  last_year: number;
+  n: number;
+  phase_hit_rate: Probability;
+  always_neutral_hit_rate: Probability;
+  el_nino_observed: number;
+  el_nino_hits: number;
+  el_nino_forecasts: number;
+  false_alarm_ratio?: Probability | null;
+  brier_el_nino?: Probability | null;
+  brier_climatology?: Probability | null;
+  brier_always_neutral?: Probability | null;
+  brier_skill_score?: number | null;
+  provenance_id: ProvenanceId;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastScorecard".
+ */
+export interface ForecastScorecard {
+  schema_version: SchemaVersion;
+  site_id: SiteId;
+  target_season: "JJA";
+  /**
+   * @minItems 1
+   */
+  observed: [ObservedWinter, ...ObservedWinter[]];
+  observed_provenance_id: ProvenanceId;
+  /**
+   * @minItems 1
+   */
+  sources: [ForecastSource, ...ForecastSource[]];
+  forecasts: ForecastRecord[];
+  scores: ForecastScore[];
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ObservedWinter".
+ */
+export interface ObservedWinter {
+  year: number;
+  oni_jja: number;
+  phase: EnsoPhase;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ForecastSource".
+ */
+export interface ForecastSource {
+  id: ForecastSourceId;
+  label: LocalizedText;
+  kind: ForecastKind;
+  provider: string;
+  real_time_from?: number | null;
+  provenance_id: ProvenanceId;
 }
 /**
  * WGS84, RFC 7946: positions are [lon, lat]; every ring is closed (last = first).
@@ -463,16 +699,6 @@ export interface ProvenanceMethod {
   parameters?: {
     [k: string]: number | string;
   } | null;
-}
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "Ref".
- */
-export interface Ref {
-  label: string;
-  url?: string | null;
-  doi?: string | null;
-  citation?: string | null;
 }
 /**
  * Required for satellite_observed and modeled.
