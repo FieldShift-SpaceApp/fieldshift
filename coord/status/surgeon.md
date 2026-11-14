@@ -2,7 +2,7 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
-## 2026-11-14 21:30 — coordination (Claude Code), REPRODUTIBILIDADE front
+## 2026-11-14 20:50 — coordination (Claude Code), REPRODUTIBILIDADE front
 Done: the statistical validation behind the ENSO × wheat numbers is now public and reproducible (PR `surgeon/analysis-enso-wheat`): `analysis/enso-wheat/` (scripts ported from the HQ's independent verification, one command `reproduce.py`, small results with access times, README with limitations), method page `content/methods/enso-wheat.md` (listed on /data-methods with no code change), `RESOURCES.md` rows marked "used in `analysis/enso-wheat/`". Rerun on 2026-11-14 reproduced the HQ numbers exactly (53.3% vs 3.5%, p = 0.003, 14/18 in 2023).
 Next: human review of the README wording; the station-vs-satellite scripts (method `satellite-vs-ground-check`) are still only in the HQ.
 Blocked by: Atlas licence not declared (derived counts kept out of git).
