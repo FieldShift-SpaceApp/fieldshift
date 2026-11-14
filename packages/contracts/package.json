@@ -1,6 +1,21 @@
 {
   "name": "@fieldshift/contracts",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Data contracts between the science pipeline and the web app. Generated from pydantic models (ADR-4); do not edit generated files by hand."
+  "description": "Data contracts between the science pipeline and the web app. Generated from pydantic models (ADR-4); do not edit generated files by hand.",
+  "type": "module",
+  "types": "./ts/index.ts",
+  "exports": {
+    ".": "./ts/index.ts",
+    "./schema": "./schema/contracts.schema.json",
+    "./fixtures/*": "./fixtures/*"
+  },
+  "scripts": {
+    "gen": "node scripts/gen.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "16.0.0",
+    "typescript": "6.0.3"
+  }
 }

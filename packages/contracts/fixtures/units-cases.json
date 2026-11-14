@@ -1,0 +1,26 @@
+{
+  "description": "Display-unit parity cases (ADR-7). Data stays in canonical SI; conversion happens only at display time (apps/web/src/lib/units.ts). A temperature DIFFERENCE (delta_degC, and degree-days degC_d) converts with x1.8 and NO +32. Units not listed for a system pass through unchanged. Compare with abs(actual - expected) <= tolerance.",
+  "tolerance": 1e-9,
+  "cases": [
+    { "value": 0, "unit": "degC", "system": "imperial", "expected_value": 32, "expected_unit": "degF" },
+    { "value": 100, "unit": "degC", "system": "imperial", "expected_value": 212, "expected_unit": "degF" },
+    { "value": -40, "unit": "degC", "system": "imperial", "expected_value": -40, "expected_unit": "degF" },
+    { "value": 0, "unit": "delta_degC", "system": "imperial", "expected_value": 0, "expected_unit": "delta_degF" },
+    { "value": 1, "unit": "delta_degC", "system": "imperial", "expected_value": 1.8, "expected_unit": "delta_degF" },
+    { "value": 2.5, "unit": "delta_degC", "system": "imperial", "expected_value": 4.5, "expected_unit": "delta_degF" },
+    { "value": -1, "unit": "delta_degC", "system": "imperial", "expected_value": -1.8, "expected_unit": "delta_degF" },
+    { "value": 100, "unit": "degC_d", "system": "imperial", "expected_value": 180, "expected_unit": "degF_d" },
+    { "value": 25.4, "unit": "mm", "system": "imperial", "expected_value": 1, "expected_unit": "in" },
+    { "value": 5.08, "unit": "mm/d", "system": "imperial", "expected_value": 0.2, "expected_unit": "in/d" },
+    { "value": 254, "unit": "mm/month", "system": "imperial", "expected_value": 10, "expected_unit": "in/month" },
+    { "value": 0.3048, "unit": "m", "system": "imperial", "expected_value": 1, "expected_unit": "ft" },
+    { "value": 1, "unit": "ha", "system": "imperial", "expected_value": 2.471053814671653, "expected_unit": "ac" },
+    { "value": 0.44704, "unit": "m/s", "system": "imperial", "expected_value": 1, "expected_unit": "mph" },
+    { "value": 0.25, "unit": "probability", "system": "imperial", "expected_value": 0.25, "expected_unit": "probability" },
+    { "value": 50, "unit": "%", "system": "imperial", "expected_value": 50, "expected_unit": "%" },
+    { "value": 0.31, "unit": "m3/m3", "system": "imperial", "expected_value": 0.31, "expected_unit": "m3/m3" },
+    { "value": 12, "unit": "days", "system": "imperial", "expected_value": 12, "expected_unit": "days" },
+    { "value": 21.5, "unit": "degC", "system": "metric", "expected_value": 21.5, "expected_unit": "degC" },
+    { "value": 1.2, "unit": "delta_degC", "system": "metric", "expected_value": 1.2, "expected_unit": "delta_degC" }
+  ]
+}

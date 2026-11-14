@@ -1,0 +1,20 @@
+{
+  "description": "Agricultural-year parity cases (ADR-7). The Python (fieldshift.calendar.agyear) and TypeScript (apps/web/src/lib/agyear.ts) implementations must both pass every case. ag_year = year if month >= start_month else year - 1; ag_month_index = (month - start_month) mod 12; label 'split' -> 'YYYY/YY', 'single' -> 'YYYY'. No season or hemisphere logic.",
+  "cases": [
+    { "t": "2024-09", "start_month": 9, "label": "split", "ag_year": 2024, "ag_month_index": 0, "ag_year_label": "2024/25" },
+    { "t": "2024-12-31", "start_month": 9, "label": "split", "ag_year": 2024, "ag_month_index": 3, "ag_year_label": "2024/25" },
+    { "t": "2025-01-01", "start_month": 9, "label": "split", "ag_year": 2024, "ag_month_index": 4, "ag_year_label": "2024/25" },
+    { "t": "2025-08-31", "start_month": 9, "label": "split", "ag_year": 2024, "ag_month_index": 11, "ag_year_label": "2024/25" },
+    { "t": "2025-09-01", "start_month": 9, "label": "split", "ag_year": 2025, "ag_month_index": 0, "ag_year_label": "2025/26" },
+    { "t": "2000-03", "start_month": 9, "label": "split", "ag_year": 1999, "ag_month_index": 6, "ag_year_label": "1999/00" },
+    { "t": "2024-10", "start_month": 10, "label": "split", "ag_year": 2024, "ag_month_index": 0, "ag_year_label": "2024/25" },
+    { "t": "2024-09-30", "start_month": 10, "label": "split", "ag_year": 2023, "ag_month_index": 11, "ag_year_label": "2023/24" },
+    { "t": "2024-01", "start_month": 1, "label": "single", "ag_year": 2024, "ag_month_index": 0, "ag_year_label": "2024" },
+    { "t": "2024-12-15", "start_month": 1, "label": "single", "ag_year": 2024, "ag_month_index": 11, "ag_year_label": "2024" },
+    { "t": "2024-06", "start_month": 7, "label": "split", "ag_year": 2023, "ag_month_index": 11, "ag_year_label": "2023/24" },
+    { "t": "2024-07", "start_month": 7, "label": "split", "ag_year": 2024, "ag_month_index": 0, "ag_year_label": "2024/25" },
+    { "t": "2024-11", "start_month": 12, "label": "split", "ag_year": 2023, "ag_month_index": 11, "ag_year_label": "2023/24" },
+    { "t": "2024-12", "start_month": 12, "label": "split", "ag_year": 2024, "ag_month_index": 0, "ag_year_label": "2024/25" },
+    { "t": "2025-02-28", "start_month": 3, "label": "single", "ag_year": 2024, "ag_month_index": 11, "ag_year_label": "2024" }
+  ]
+}
