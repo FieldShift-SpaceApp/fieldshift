@@ -85,6 +85,58 @@ export const en = {
   "dataType.computed": "Computed",
   "dataType.user_provided": "User-provided",
   "dataType.unknown": "Unknown data type",
+
+  // Navigation
+  "nav.label": "Pages",
+  "nav.home": "Home",
+  "nav.dataMethods": "Data & Methods",
+  "nav.glossary": "Glossary",
+
+  // Shared content blocks
+  "content.pending": "Pending",
+  "content.refs": "References",
+  "content.externalLink": "(opens in a new tab)",
+
+  // Data & Methods (Story 1.4, FR17, FR18)
+  "dataMethods.meta.title": "Data & Methods · FieldShift (working title)",
+  "dataMethods.meta.description":
+    "Datasets, methods, limitations, validation, related work and use of AI behind the project.",
+  "dataMethods.heading": "Data & Methods",
+  "dataMethods.intro":
+    "Every dataset, method and tool behind this project, how each number is produced, what it cannot tell you, related work and how AI was used. Sections marked Pending are filled as the work ships.",
+  "dataMethods.toc": "On this page",
+  "dataMethods.section.data": "Data, resources and tools",
+  "dataMethods.section.data.intro":
+    "Generated from RESOURCES.md, the single list of datasets, licences and tools in the repository.",
+  "dataMethods.section.satelliteGround": "Satellite vs. ground",
+  "dataMethods.section.satelliteGround.legend": "Every number carries one of these four data-type labels:",
+  "dataMethods.section.methods": "Methods",
+  "dataMethods.section.methods.pending":
+    "Methods for the satellite layers and for the comparison itself are added here as each one is implemented.",
+  "dataMethods.section.limitations": "Limitations",
+  "dataMethods.section.limitations.pending":
+    "Limitations of layers that are not implemented yet are added with them.",
+  "dataMethods.section.validation": "Validation",
+  "dataMethods.section.validation.pending":
+    "For each site, a known past event (for example a drought year) will be compared with what the NASA data recorded, and the result will be published here, including negative or inconclusive results.",
+  "dataMethods.section.scale": "Scale of the problem",
+  "dataMethods.section.scale.pending":
+    "The figures on the scale of the problem are shown here once each one has a source record, like every other number in the app.",
+  "dataMethods.section.relatedWork": "Related work",
+  "dataMethods.section.useOfAi": "Use of AI",
+  "dataMethods.section.useOfAi.intro":
+    "AI tools were used for research, code and text, never to choose the concept, the differentiator or the name. Every AI-assisted change is logged below (generated from SI-USAGE.md).",
+  "dataMethods.section.glossary": "Glossary",
+  "dataMethods.section.glossary.body": "Plain-language definitions of the technical terms used on this site.",
+  "dataMethods.methodFrom": "From",
+
+  // Glossary (FR8)
+  "glossary.meta.title": "Glossary · FieldShift (working title)",
+  "glossary.meta.description": "Plain-language definitions of the technical terms used in the project.",
+  "glossary.heading": "Glossary",
+  "glossary.intro": "Technical terms used on this site, in plain language.",
+  "glossary.reviewPending": "Agronomist review pending",
+  "glossary.reviewedBy": "Reviewed by {name}",
 } as const;
 
 export type MessageKey = keyof typeof en;
