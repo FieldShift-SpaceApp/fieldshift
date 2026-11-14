@@ -32,8 +32,8 @@ log = logging.getLogger(__name__)
 
 API_URL = "https://servicodados.ibge.gov.br/api/v3/agregados"
 TABLE = "1612"
-CLASSIFICATION = "81"  # Produto das lavouras temporárias
-SOYBEAN = "2713"  # Soja (em grão)
+CLASSIFICATION = "81"  # temporary crop products (IBGE label "Produto das lavouras temporárias")
+SOYBEAN = "2713"  # soybean, grain (IBGE label "Soja (em grão)")
 TABLE_URL = f"https://sidra.ibge.gov.br/tabela/{TABLE}"
 METADATA_URL = f"{API_URL}/{TABLE}/metadados"
 TIMEOUT_S = 60.0
@@ -150,7 +150,7 @@ _NON_NEGATIVE_INT = re.compile(r"[0-9]+")
 
 
 def _number(text: object) -> int | None:
-    # SIDRA devolve texto; qualquer outro tipo ou formato é erro, nunca coerção silenciosa
+    # SIDRA returns text; any other type or format is an error, never a silent coercion
     if not isinstance(text, str):
         raise PipelineError(f"unexpected SIDRA value type {type(text).__name__}: {text!r}")
     if text == ZERO_SYMBOL:
@@ -210,11 +210,11 @@ def to_csv(series: PamSeries) -> str:
     return buf.getvalue()
 
 
-RS_STATE_CODE = "43"  # prefixo IBGE dos municípios do Rio Grande do Sul
+RS_STATE_CODE = "43"  # IBGE code prefix of the municipalities of Rio Grande do Sul
 
 
 def _harvest_year_note(series: PamSeries) -> str:
-    # a regra da safra só é afirmada para o caso conferido (soja no RS); o resto fica genérico
+    # the harvest-year rule is stated only for the checked case (soybean in RS); rest is generic
     if series.product_id == SOYBEAN and series.municipality_id.startswith(RS_STATE_CODE):
         return ("PAM year = harvest year: for soybean in RS, year Y is the 1-season harvest "
                 "planted in late Y-1 (safra Y-1/Y).")  # fmt: skip
