@@ -12,4 +12,4 @@ labels: ["request"]
 
 **Why / what it unblocks**
 
-**Contract involved:** <!-- contracts/<file> or none -->
+**Contract involved:** <!-- packages/contracts/<file> or none -->

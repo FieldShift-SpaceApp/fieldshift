@@ -9,10 +9,10 @@
 - **Clock (America/Sao_Paulo):** internal submit **Sun 15/11 21:00** · official close **Sun 15/11 23:59**.
 
 ## 2. Hard rules (event compliance)
-1. **C1 — No AI ideation of the solution.** Do not propose the product concept, the differentiator or the name. Those are human decisions, recorded in `coord/decisions.md`. You may research, implement, review and explain.
+1. **C1 — No AI ideation of the solution.** Do not propose the product concept, the differentiator or the name. Those are human decisions, recorded in `DECISIONS.md`. You may research, implement, review and explain.
 2. **C2 — Declare AI use.** Every AI-assisted change gets a line in `SI-USAGE.md` and the PR checkbox. AI images/videos need a visible watermark.
 3. **C3 — No NASA logos, flags or mission insignia** anywhere. Dataset names (SMAP, GPM…) may be cited as sources.
-4. **C4 — Use at least one NASA dataset**, cited by name and link in `docs/data-and-methods.md`.
+4. **C4 — Use at least one NASA dataset**, cited by name and link in `RESOURCES.md`.
 5. **Never invent numbers.** Every number shown to users comes from code that reads a cited dataset.
 6. **No secrets in git.** Earthdata/API credentials live in `.env` or `~/.netrc` only. No raw HDF/NetCDF in git.
 
@@ -20,14 +20,14 @@
 
 | Front | Code name | Owns |
 |---|---|---|
-| Flight Director (cadence, compliance, submission page) | FLIGHT | `coord/`, `SI-USAGE.md`, `docs/submission/` |
-| Data (NASA ingestion, harmonization) | EECOM | `services/science/ingest/`, `data/processed/` |
-| Model (scoring, uncertainty, explainability) | GUIDO | `services/science/model/` |
+| Flight Director (cadence, compliance, submission page) | FLIGHT | `coord/`, `SI-USAGE.md`, `DECISIONS.md`, `docs/submission/` |
+| Data (NASA ingestion, harmonization) | EECOM | `services/science/ingest/`, `data/sites/*/output/`, `data/cache/` |
+| Model (scoring, uncertainty, explainability) | GUIDO | `services/science/model/`, `content/methods/` (with SURGEON) |
 | App (front-end, map, inputs) | INCO | `apps/web/` |
-| Agro & Science (crop base, evidence, glossary) | SURGEON | `data/crops/`, `docs/data-and-methods.md` |
-| Story & Pitch (demo, video/slides) | CAPCOM | `docs/pitch/` |
+| Agro & Science (crop base, evidence, glossary) | SURGEON | `data/crops/`, `data/sites/*/input/`, `RESOURCES.md`, `content/methods/` (with GUIDO) |
+| Story & Pitch (demo, video/slides) | CAPCOM | `docs/pitch/`, `content/related-work.md` |
 
-`contracts/` is **shared**: the JSON contracts between fronts. A change there needs approval from every front that reads it.
+`packages/contracts/` is **shared**: the JSON contracts between fronts. A change there needs approval from every front that reads it.
 
 **Do not edit another front's folder.** Ask through an issue (§4.3).
 
@@ -35,7 +35,7 @@
 
 ### 4.1 Before you start a work block
 1. `git pull` on `main`.
-2. Read **all** `coord/status/*.md` (one file per front) and `coord/decisions.md`.
+2. Read **all** `coord/status/*.md` (one file per front) and `DECISIONS.md`.
 3. List open issues for your front: `gh issue list --label front:<code> --state open` and `gh issue list --label needs:<code>`.
 
 ### 4.2 After every work block (or every ~2 h)
@@ -59,11 +59,11 @@ gh issue create --label needs:<their-code> --label front:<your-code> \
 When you finish a request addressed to you, comment the PR link and close the issue.
 
 ### 4.4 Contracts
-- Producers and consumers code against `contracts/*.schema.json` and the fixtures in `contracts/fixtures/`.
-- Changing a contract = a PR that touches `contracts/` only, labeled `contract`, approved by every front that consumes it. Never change a contract silently inside a feature PR.
+- Producers and consumers code against `packages/contracts/schema/` and the fixtures in `packages/contracts/fixtures/`.
+- Changing a contract = a PR that touches only the contract models and `packages/contracts/`, labeled `contract`, approved by every front that consumes it. Never change a contract silently inside a feature PR.
 
 ### 4.5 Decisions
-Human decisions (concept, scope cuts, stack, demo format) are appended to `coord/decisions.md` with date, people and reason. Never edit or delete past entries; supersede them with a new one.
+Human decisions (concept, scope cuts, stack, demo format) are appended to `DECISIONS.md` with date, people and reason. Never edit or delete past entries; supersede them with a new one.
 
 ## 5. Git workflow
 - Never commit to `main`. Branch: `<code>/<topic>` (e.g. `eecom/power-ingest`).

@@ -22,7 +22,7 @@ Open an issue labeled `needs:<their-front>`. Do not edit their folder.
 
 ## Secrets and data
 - Copy `.env.example` to `.env`. Never commit `.env`.
-- Raw satellite files go in `data/raw/` (git-ignored). Commit only small processed outputs.
+- Raw source extracts go in `data/cache/` (committed only when < 5 MB per site; raw HDF/NetCDF/GeoTIFF are git-ignored). Pipeline outputs go in `data/sites/<site>/output/`.
 
 ## AI use
 Allowed for code, research and review — **not** for coming up with the solution idea (event rule). Declare every use in `SI-USAGE.md` and in the PR template.
