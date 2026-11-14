@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import Field
 
 from fieldshift.contracts.common import (
@@ -15,6 +17,17 @@ from fieldshift.contracts.common import (
     SiteId,
 )
 from fieldshift.contracts.evidence import Confidence
+
+# Controlled vocabulary of the concept-agnostic climate indices (architecture, "Índices
+# conceito-agnósticos"; issue #22). Lets the app find an index without parsing `id`.
+# Thresholds are not part of the key: they live in the provenance `method.parameters`.
+# New value = MINOR version.
+type IndexKey = Literal[
+    "heat_days", "frost_days",
+    "extreme_precip_days", "extreme_precip_total", "extreme_precip_threshold",
+    "water_deficit", "growing_degree_days",
+    "et0",
+]  # fmt: skip
 
 
 class MetricComparison(Contract):
@@ -37,6 +50,7 @@ class Metric(Contract):
     comparison: MetricComparison | None = None
     confidence: Confidence | None = None
     tags: list[str] = Field(default_factory=list)  # e.g. ["impact_finding"] (FR25)
+    index_key: IndexKey | None = None  # v1.1.0
 
 
 class MonthlyProfile(Contract):
@@ -48,6 +62,7 @@ class MonthlyProfile(Contract):
     period: Period
     data_type: DataType
     provenance_id: ProvenanceId
+    index_key: IndexKey | None = None  # v1.1.0
 
 
 class ClimateIndices(Contract):

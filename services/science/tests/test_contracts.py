@@ -217,7 +217,7 @@ def site(**over):
 
 
 def test_schema_version_is_semver():
-    assert SCHEMA_VERSION == "1.0.0"
+    assert SCHEMA_VERSION == "1.1.0"
 
 
 def test_period_rejects_end_before_start():
@@ -423,6 +423,29 @@ def test_climate_indices_is_valid():
                 "profiles": [{**prof, "values": [0.0] * 13}],
             }
         )
+
+
+def test_v1_1_index_key_is_optional_and_controlled():
+    """MINOR 1.1.0: a 1.0.0 document (no `index_key`) still validates; unknown keys fail."""
+    base = {"schema_version": SCHEMA_VERSION, "site_id": "brasil", "profiles": []}
+    ClimateIndices.model_validate({**base, "metrics": [metric()]})
+    ClimateIndices.model_validate({**base, "metrics": [metric(index_key="heat_days")]})
+    with pytest.raises(ValidationError):
+        ClimateIndices.model_validate({**base, "metrics": [metric(index_key="hot_days")]})
+
+
+def test_v1_1_new_variable_keys_and_method_parameters():
+    for key in ("evap_land_modeled", "soil_wetness_profile_modeled", "water_deficit"):
+        TimeSeries.model_validate(series(variable_key=key))
+    method = {
+        "name": "heat days",
+        "ref": {"label": "x"},
+        "doc_anchor": "heat-days",
+        "parameters": {"tmax_threshold_degC": 35.0, "comparison": ">"},
+    }
+    rec = Provenance.model_validate(prov_computed(method=method))
+    assert rec.method.parameters == {"tmax_threshold_degC": 35.0, "comparison": ">"}
+    Provenance.model_validate(prov_computed())  # 1.0.0 record without `parameters`
 
 
 # --- Evidence / Confidence (VL3, VL4) --------------------------------------------------------

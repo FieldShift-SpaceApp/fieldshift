@@ -20,7 +20,7 @@ EXPECTED_DEFS = {
     "LocalizedText", "Ref", "Period", "GeoJSONPolygon", "LayerStatus",
     # aliases semânticos
     "SiteId", "ProvenanceId", "SeriesId", "DataType", "CanonicalUnit", "VariableKey",
-    "LayerId", "LayerReasonCode", "Month", "SchemaVersion",
+    "LayerId", "LayerReasonCode", "Month", "SchemaVersion", "IndexKey",
 }  # fmt: skip
 
 
