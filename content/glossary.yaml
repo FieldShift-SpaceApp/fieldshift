@@ -1,0 +1,178 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
+# Glossary (FR8). Plain-language definitions shown on /glossary and, later, next to each term on screen.
+# Schema (architecture, "Content"): terms: [{ id, term: {en}, definition: {en}, reviewed_by, refs?: [{label, url}] }]
+# reviewed_by stays "pending" until the team agronomist (SURGEON) reviews the entry (Story 1.4, AC7).
+terms:
+  - id: et
+    term:
+      en: Evapotranspiration (ET)
+    definition:
+      en: >-
+        The water a field loses to the air: evaporation from the soil plus transpiration through
+        the plants' leaves. It is the main way water leaves a farm field, and it depends on
+        weather, crop and how much water the soil holds.
+    refs:
+      - label: "FAO-56, Chapter 1: Introduction to evapotranspiration"
+        url: https://www.fao.org/4/x0490e/x0490e04.htm
+    reviewed_by: pending
+
+  - id: et0
+    term:
+      en: Reference evapotranspiration (ET0)
+    definition:
+      en: >-
+        How much water a well-watered reference grass would lose in a day under the local
+        weather. It measures how "thirsty" the air is, independent of the crop. A crop's water
+        need is estimated by scaling ET0 for that crop and its growth stage.
+    refs:
+      - label: "FAO-56, Chapter 1: Introduction to evapotranspiration"
+        url: https://www.fao.org/4/x0490e/x0490e04.htm
+      - label: How this project computes ET0
+        url: /data-methods#et0-fao56
+    reviewed_by: pending
+
+  - id: ndvi
+    term:
+      en: NDVI (Normalized Difference Vegetation Index)
+    definition:
+      en: >-
+        A satellite measure of how green and dense the vegetation is, calculated from the
+        visible and near-infrared light that plants reflect. It ranges from minus one to plus
+        one: values near zero mean no vegetation, values close to one mean dense green leaves.
+        Bare soil between crops shows up as low NDVI.
+    refs:
+      - label: "NASA Earth Observatory: Measuring Vegetation (NDVI and EVI)"
+        url: https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi
+    reviewed_by: pending
+
+  - id: soil-moisture
+    term:
+      en: Soil moisture
+    definition:
+      en: >-
+        How much water the soil holds. Satellites such as SMAP measure it only in the top few
+        centimetres of soil; models estimate deeper layers, such as the root zone. A model may
+        report it as a fraction of saturation (from empty to full) rather than as a volume of
+        water per volume of soil.
+    refs:
+      - label: "NASA SMAP mission"
+        url: https://smap.jpl.nasa.gov/
+    reviewed_by: pending
+
+  - id: anomaly
+    term:
+      en: Anomaly (for example, soil moisture anomaly)
+    definition:
+      en: >-
+        How much a value differs from what is normal for that place and month. "Normal" is the
+        average of the same month over a fixed reference period. A negative soil moisture
+        anomaly means the soil is drier than usual for that time of year, even if it is not dry
+        in absolute terms.
+    refs:
+      - label: How this project computes anomalies
+        url: /data-methods#monthly-harmonization
+    reviewed_by: pending
+
+  - id: water-balance
+    term:
+      en: Water balance
+    definition:
+      en: >-
+        The bookkeeping of water in a field over a period: what comes in (rain, irrigation)
+        minus what goes out (evapotranspiration, runoff, drainage below the roots). A negative
+        balance means the crop needs more water than it received.
+    refs:
+      - label: "FAO-56, Chapter 1: Introduction to evapotranspiration"
+        url: https://www.fao.org/4/x0490e/x0490e04.htm
+    reviewed_by: pending
+
+  - id: growing-degree-days
+    term:
+      en: Growing degree days (GDD)
+    definition:
+      en: >-
+        A running total of daily warmth above a base temperature that a crop needs to grow.
+        Each day adds the amount by which its mean temperature exceeds the base (or nothing on
+        cold days). Crops reach each growth stage after a roughly fixed total, so GDD tells how
+        fast a season is advancing.
+    refs:
+      - label: "Midwestern Regional Climate Center: Corn GDD tool"
+        url: https://mrcc.purdue.edu/tools/corngdd
+    reviewed_by: pending
+
+  - id: frost-risk
+    term:
+      en: Frost risk
+    definition:
+      en: >-
+        The chance of temperatures low enough to damage crops. In this project a frost day is a
+        day whose minimum air temperature, measured at 2 m, is at or below 0 °C. Plants near the
+        ground can be colder than the air at 2 m, so local frost can happen on days the data do
+        not flag.
+    reviewed_by: pending
+
+  - id: reanalysis
+    term:
+      en: Reanalysis
+    definition:
+      en: >-
+        A long, consistent weather record made by feeding past observations from satellites,
+        weather stations and balloons into a fixed weather model. It fills the places and times
+        that have no measurement. It is modeled data, not a direct measurement. NASA POWER's
+        weather data come from the MERRA-2 reanalysis.
+    refs:
+      - label: "NASA GMAO: MERRA-2"
+        url: https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
+    reviewed_by: pending
+
+  - id: satellite-vs-ground
+    term:
+      en: Satellite vs. ground measurements
+    definition:
+      en: >-
+        A satellite sees large areas, everywhere on Earth and for many years, but it measures
+        indirectly (light or microwaves) and averages over each pixel, which can be larger than a
+        field. A ground sensor or station measures directly and precisely, but only at one spot.
+        Combined, the satellite gives the long, wide view and ground measurements check it and
+        add local detail. Field conditions that vary over short distances, such as soil type,
+        drainage or frost pockets, still need checking on site.
+    refs:
+      - label: How each number is labeled
+        url: /data-methods#provenance
+    reviewed_by: pending
+
+  - id: satellite-observed
+    term:
+      en: Satellite-observed (data type)
+    definition:
+      en: >-
+        A value measured by an instrument on a satellite and processed into a data product, for
+        example soil moisture from SMAP or NDVI from MODIS.
+    reviewed_by: pending
+
+  - id: modeled
+    term:
+      en: Modeled (data type)
+    definition:
+      en: >-
+        A value produced by a model or a reanalysis that combines observations with physics, for
+        example NASA POWER weather. Useful where nothing was measured, but it is an estimate.
+    reviewed_by: pending
+
+  - id: computed
+    term:
+      en: Computed (data type)
+    definition:
+      en: >-
+        A value this project calculated from other values with a documented method, for example
+        ET0 from NASA POWER weather. Its source panel lists the method and its inputs.
+    reviewed_by: pending
+
+  - id: user-provided
+    term:
+      en: User-provided (data type)
+    definition:
+      en: >-
+        Information entered by a person, such as a site's current crop rotation. Its source panel
+        says who provided it and on what reference.
+    reviewed_by: pending
