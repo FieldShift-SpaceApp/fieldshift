@@ -47,9 +47,9 @@ Owner: FLIGHT. This is the text to paste into the Space Apps project page. Field
 
 > *Official prompt:* "a website [...] code repository, or platforms such as YouTube, Google Drive, GitHub [...] should not require a password, permission, or registration".
 
-- Web app: `[PENDING: production URL — the Vercel project is not connected yet (preflight D4)]`
+- Web app: https://fieldshift-spaceapp.vercel.app
 - Code repository (public, Apache-2.0): https://github.com/FieldShift-SpaceApp/fieldshift
-- Data & Methods (datasets, methods, limitations, use of AI): `[PENDING: <production URL>/data-methods]`; source today: https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/content/methods
+- Data & Methods (datasets, methods, limitations, use of AI): https://fieldshift-spaceapp.vercel.app/data-methods (source: https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/content/methods)
 
 ## 5. Detailed Project Description
 
@@ -85,7 +85,7 @@ Full list, per method: Data & Methods page (link in field 4).
 
 **Answer: Yes.**
 
-We used SI tools as assistants for research, code, documentation and review. The solution concept, the differentiator and the project name were decided by the team at a human meeting, without SI (decision record `D-001` in `DECISIONS.md`); SI was not used to come up with the idea of how to solve the challenge. `[PENDING D-001: keep this sentence only if D-001 is FINAL and its "Origin of the idea" field confirms it; add the time and names]`
+We used SI tools as assistants for research, code, documentation and review. **Origin of the idea, stated as it happened:** the team generated the starting ideas at a human ideation meeting on 14 November (transcribed in the team workspace), and the farmer on the team described the real winter decision in an interview. At the team lead's request, an SI tool (Claude Code) then helped **compare and synthesize concepts from those human ideas** and from data the team had verified, and drafted the pitch text. The team chose the final concept and wrote the one-line statement in its own words (decision record `D-001` in `DECISIONS.md`). `[PENDING D-001: names and time of the decision; quote the human ideas the concept builds on (e.g. analog years); confirm the wording with the Local Lead if possible]`
 
 - **Code (SI-generated, human-directed):** Claude Code (Anthropic) wrote most of the code in the repository under the team's instructions: the NASA POWER ingestion and monthly aggregation, the FAO-56 ET0 computation, the climate indices and data validation, the data contracts and their code generation, the web app components and pages, the tests and the CI workflow. Every SI-assisted file carries an "SI-assisted" header naming the tool and the reviewer, and every SI-assisted pull request has a row in `SI-USAGE.md`. Codex (OpenAI) was used to review one planning document.
 - **Text (SI-generated, human-directed):** Claude Code and Claude (Anthropic) drafted the documentation (README, methods, glossary, related work, resources and licenses, this submission text) and the team's internal planning documents (research notes, requirements, architecture). Research used Claude Code with the Firecrawl CLI and web search to read official pages; facts were checked against their sources and the sources are cited.
@@ -151,10 +151,11 @@ Full log with dates, tools and files: https://github.com/FieldShift-SpaceApp/fie
 | Vite + @vitejs/plugin-react | 8.3.8 + 6.3.0 | MIT |
 | Testing Library (react, dom) | 16.3.3, 10.4.2 | MIT |
 | jsdom | 29.1.1 | MIT |
+| @types/node, @types/react, @types/react-dom (DefinitelyTyped) | 24.19.2, 19.3.0, 19.3.0 | MIT |
 | Playwright | 1.65.1 | Apache-2.0 |
 | Node.js | 24.x | MIT |
 | Python | 3.12 | PSF-2.0 |
-| uv | 0.11.3 | MIT OR Apache-2.0 |
+| uv (incl. `uv_build`) | 0.11.3 | MIT OR Apache-2.0 |
 | pydantic | 2.14.3 | MIT |
 | httpx | 0.28.1 | BSD-3-Clause |
 | PyYAML | 6.0.3 | MIT |
@@ -165,12 +166,12 @@ Full log with dates, tools and files: https://github.com/FieldShift-SpaceApp/fie
 
 **Fonts and images**
 - Geist and Geist Mono fonts (Vercel), loaded through `next/font/google` — SIL Open Font License 1.1.
-- Favicon: default `favicon.ico` from `create-next-app` (Next.js mark) — `[PENDING: replace with a team icon or keep and cite]`.
+- App icon: `apps/web/src/app/icon.svg`, three geometric bars drawn as SVG code for this project with Claude Code (declared in `SI-USAGE.md`); no third-party mark, no NASA logo. It replaced the `create-next-app` default favicon (Next.js mark).
 - `[PENDING: every image, card, icon and music track used in the app, slides or demo video, with source and license]`
 
 **SI tools** (details in field 6): Claude Code and Claude (Anthropic), Codex (OpenAI), Firecrawl CLI. `[PENDING: voice and image tools used in the demo]`
 
-`zustand`, `json-schema-to-typescript`, `@tailwindcss/turbopack` and the Geist fonts are in the code but not yet in `RESOURCES.md` (preflight B8).
+Every direct dependency of `package.json` (root, `apps/web`, `packages/contracts`) and `services/science/pyproject.toml`, and the Geist fonts, has a row in `RESOURCES.md` (preflight B8, run 2).
 
 ---
 

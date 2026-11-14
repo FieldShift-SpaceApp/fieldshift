@@ -18,8 +18,8 @@ from fieldshift.contracts.common import (
 )
 from fieldshift.contracts.evidence import Confidence
 
-# Controlled vocabulary of the concept-agnostic climate indices (architecture, "Índices
-# conceito-agnósticos"; issue #22). Lets the app find an index without parsing `id`.
+# Controlled vocabulary of the concept-agnostic climate indices (architecture, section on
+# concept-agnostic indices; issue #22). Lets the app find an index without parsing `id`.
 # Thresholds are not part of the key: they live in the provenance `method.parameters`.
 # New value = MINOR version.
 type IndexKey = Literal[

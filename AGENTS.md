@@ -74,5 +74,5 @@ Human decisions (concept, scope cuts, stack, demo format) are appended to `DECIS
 - Conventional commits: `feat(web): …`, `fix(ingest): …`, `docs(crops): …`.
 
 ## 6. Language
-- Code, identifiers, UI, submission material: **English**.
-- Team chat and `coord/` notes: Portuguese is fine.
+- **English everywhere in the repo** (code, identifiers, comments, UI, docs, submission material, `coord/` included), because the repo is linked in the submission and the official rule asks for English in every linked material.
+- Team chat (outside the repo): Portuguese is fine. Official names and labels of Brazilian sources may be quoted as data, with an English gloss.

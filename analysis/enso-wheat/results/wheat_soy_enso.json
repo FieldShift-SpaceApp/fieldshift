@@ -1,0 +1,6878 @@
+{
+ "sources": {
+  "ibge_localities": {
+   "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/43/municipios",
+   "accessed_utc": "2026-11-14T23:38:59+00:00"
+  },
+  "ibge_sidra_1612": {
+   "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106,4310207,4314100,4317509,4304705,4313904,4322202,4313706,4316709,4311205,4310009,4312658,4305702,4300208,4302220,4308458,4314308,4316436/v/112/p/all/c81/2713,2716/f/a",
+   "accessed_utc": "2026-11-14T23:38:59+00:00"
+  },
+  "noaa_cpc_oni": {
+   "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
+   "accessed_utc": "2026-11-14T23:39:00+00:00"
+  }
+ },
+ "oni_jja": {
+  "1981": -0.28,
+  "1982": 0.78,
+  "1983": 0.25,
+  "1984": -0.39,
+  "1985": -0.44,
+  "1986": 0.24,
+  "1987": 1.3,
+  "1988": -1.3,
+  "1989": -0.37,
+  "1990": 0.26,
+  "1991": 0.77,
+  "1992": 0.35,
+  "1993": 0.28,
+  "1994": 0.3,
+  "1995": -0.3,
+  "1996": -0.22,
+  "1997": 1.48,
+  "1998": -0.63,
+  "1999": -0.9,
+  "2000": -0.48,
+  "2001": -0.05,
+  "2002": 0.57,
+  "2003": 0.09,
+  "2004": 0.39,
+  "2005": -0.04,
+  "2006": 0.12,
+  "2007": -0.49,
+  "2008": -0.33,
+  "2009": 0.5,
+  "2010": -0.98,
+  "2011": -0.37,
+  "2012": 0.28,
+  "2013": -0.45,
+  "2014": 0.07,
+  "2015": 1.44,
+  "2016": -0.19,
+  "2017": 0.14,
+  "2018": 0.2,
+  "2019": 0.38,
+  "2020": -0.29,
+  "2021": -0.35,
+  "2022": -0.7,
+  "2023": 1.0,
+  "2024": 0.06,
+  "2025": -0.11
+ },
+ "variants": [
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.7,
+   "trend": "linear",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 62,
+     "pct": 45.3,
+     "winters": 8,
+     "median_ratio": 0.735,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 11
+      }
+     ],
+     "pct_without_top1": 37.8,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 28.8,
+     "top2_winters": [
+      1982,
+      2015
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 68,
+     "pct": 12.2,
+     "winters": 32,
+     "median_ratio": 1.014,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 3
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 7
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 9.6,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 7.3,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 1,
+     "pct": 1.2,
+     "winters": 5,
+     "median_ratio": 1.205,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1999
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1988,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.7,
+   "trend": "quadratic",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 66,
+     "pct": 48.2,
+     "winters": 8,
+     "median_ratio": 0.744,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 41.2,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 32.7,
+     "top2_winters": [
+      1982,
+      2015
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 64,
+     "pct": 11.5,
+     "winters": 32,
+     "median_ratio": 1.018,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 1
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 13
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 7
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 15
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 9.1,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 6.9,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 1,
+     "pct": 1.2,
+     "winters": 5,
+     "median_ratio": 1.209,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1999
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1988,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.75,
+   "trend": "linear",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 73,
+     "pct": 53.3,
+     "winters": 8,
+     "median_ratio": 0.735,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 47.1,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 39.4,
+     "top2_winters": [
+      1982,
+      2015
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 96,
+     "pct": 17.2,
+     "winters": 32,
+     "median_ratio": 1.014,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 4
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 3
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 8
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 14.5,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 11.9,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 3,
+     "pct": 3.5,
+     "winters": 5,
+     "median_ratio": 1.205,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.4,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.75,
+   "trend": "quadratic",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 70,
+     "pct": 51.1,
+     "winters": 8,
+     "median_ratio": 0.744,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 15
+      }
+     ],
+     "pct_without_top1": 44.5,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 36.5,
+     "top2_winters": [
+      1982,
+      2015
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 94,
+     "pct": 16.9,
+     "winters": 32,
+     "median_ratio": 1.018,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 4
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 4
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 5
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 14.1,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 11.5,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 3,
+     "pct": 3.5,
+     "winters": 5,
+     "median_ratio": 1.209,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.4,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.8,
+   "trend": "linear",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 85,
+     "pct": 62.0,
+     "winters": 8,
+     "median_ratio": 0.735,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 11
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 56.3,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 50.5,
+     "top2_winters": [
+      2002,
+      2015
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 116,
+     "pct": 20.8,
+     "winters": 32,
+     "median_ratio": 1.014,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 4
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 2
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 5
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 11
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 18.2,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 15.7,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 4,
+     "pct": 4.7,
+     "winters": 5,
+     "median_ratio": 1.205,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.4,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1981-2025",
+   "threshold": 0.8,
+   "trend": "quadratic",
+   "possible": 810,
+   "included": 780,
+   "excluded": {
+    "SIDRA marker '...'": 30
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 137,
+     "losses": 83,
+     "pct": 60.6,
+     "winters": 8,
+     "median_ratio": 0.744,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 15,
+       "losses": 15
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 11
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 54.6,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 48.5,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 557,
+     "losses": 118,
+     "pct": 21.2,
+     "winters": 32,
+     "median_ratio": 1.018,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 0
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 7
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 3
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 5
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 4
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 18.6,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 16.1,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 86,
+     "losses": 4,
+     "pct": 4.7,
+     "winters": 5,
+     "median_ratio": 1.209,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.4,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.7,
+   "trend": "linear",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 49,
+     "pct": 46.2,
+     "winters": 6,
+     "median_ratio": 0.756,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 13
+      }
+     ],
+     "pct_without_top1": 36.4,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 27.1,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 59,
+     "pct": 12.8,
+     "winters": 26,
+     "median_ratio": 1.023,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 7
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 9.7,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 6.8,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 4,
+     "median_ratio": 1.221,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.7,
+   "trend": "quadratic",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 50,
+     "pct": 47.2,
+     "winters": 6,
+     "median_ratio": 0.741,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 37.5,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 27.1,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 59,
+     "pct": 12.8,
+     "winters": 26,
+     "median_ratio": 1.019,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 4
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 7
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 15
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 9.9,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 7.1,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 4,
+     "median_ratio": 1.237,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.75,
+   "trend": "linear",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 52,
+     "pct": 49.1,
+     "winters": 6,
+     "median_ratio": 0.756,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 10
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 39.8,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 30.0,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 79,
+     "pct": 17.1,
+     "winters": 26,
+     "median_ratio": 1.023,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 13.8,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 10.6,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 3,
+     "pct": 4.3,
+     "winters": 4,
+     "median_ratio": 1.221,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.9,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.75,
+   "trend": "quadratic",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 54,
+     "pct": 50.9,
+     "winters": 6,
+     "median_ratio": 0.741,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 42.0,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 30.0,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 76,
+     "pct": 16.5,
+     "winters": 26,
+     "median_ratio": 1.019,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 4
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 8
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 13.1,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 9.9,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 3,
+     "pct": 4.3,
+     "winters": 4,
+     "median_ratio": 1.237,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.9,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.8,
+   "trend": "linear",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 70,
+     "pct": 66.0,
+     "winters": 6,
+     "median_ratio": 0.756,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 11
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 17
+      }
+     ],
+     "pct_without_top1": 59.1,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 50.0,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 100,
+     "pct": 21.7,
+     "winters": 26,
+     "median_ratio": 1.023,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 5
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 10
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 18.5,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 15.5,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 4,
+     "pct": 5.7,
+     "winters": 4,
+     "median_ratio": 1.221,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.9,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "wheat",
+   "window": "1990-2025",
+   "threshold": 0.8,
+   "trend": "quadratic",
+   "possible": 648,
+   "included": 637,
+   "excluded": {
+    "SIDRA marker '...'": 11
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 67,
+     "pct": 63.2,
+     "winters": 6,
+     "median_ratio": 0.741,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 11
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 55.7,
+     "top1_winters": [
+      2015
+     ],
+     "pct_without_top2": 47.1,
+     "top2_winters": [
+      2015,
+      2023
+     ]
+    },
+    "neutral": {
+     "pairs": 461,
+     "losses": 99,
+     "pct": 21.5,
+     "winters": 26,
+     "median_ratio": 1.019,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 8
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 16
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 10
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2025,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 18.3,
+     "top1_winters": [
+      2014
+     ],
+     "pct_without_top2": 15.3,
+     "top2_winters": [
+      2006,
+      2014
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 4,
+     "pct": 5.7,
+     "winters": 4,
+     "median_ratio": 1.237,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 1.9,
+     "top1_winters": [
+      1998
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1998,
+      1999
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.7,
+   "trend": "linear",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 7,
+     "pct": 5.1,
+     "winters": 8,
+     "median_ratio": 1.169,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 7
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 97,
+     "pct": 18.0,
+     "winters": 31,
+     "median_ratio": 1.004,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 1
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 9
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 5
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 8
+      }
+     ],
+     "pct_without_top1": 15.1,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 12.1,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 16,
+     "pct": 18.4,
+     "winters": 5,
+     "median_ratio": 0.871,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 2.9,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.7,
+   "trend": "quadratic",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 8,
+     "pct": 5.8,
+     "winters": 8,
+     "median_ratio": 1.179,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 8
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 95,
+     "pct": 17.6,
+     "winters": 31,
+     "median_ratio": 1.001,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 1
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 8
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 6
+      }
+     ],
+     "pct_without_top1": 14.8,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 11.7,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 15,
+     "pct": 17.2,
+     "winters": 5,
+     "median_ratio": 0.859,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 12
+      }
+     ],
+     "pct_without_top1": 4.3,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.75,
+   "trend": "linear",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 9,
+     "pct": 6.5,
+     "winters": 8,
+     "median_ratio": 1.169,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 9
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 110,
+     "pct": 20.4,
+     "winters": 31,
+     "median_ratio": 1.004,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 1
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 11
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 10
+      }
+     ],
+     "pct_without_top1": 17.6,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 14.7,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 20,
+     "pct": 23.0,
+     "winters": 5,
+     "median_ratio": 0.871,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 4
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 15
+      }
+     ],
+     "pct_without_top1": 7.2,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 1.9,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.75,
+   "trend": "quadratic",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 9,
+     "pct": 6.5,
+     "winters": 8,
+     "median_ratio": 1.179,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 9
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 113,
+     "pct": 20.9,
+     "winters": 31,
+     "median_ratio": 1.001,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 2
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 1
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 11
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 12
+      }
+     ],
+     "pct_without_top1": 18.2,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 15.3,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 23,
+     "pct": 26.4,
+     "winters": 5,
+     "median_ratio": 0.859,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 15
+      }
+     ],
+     "pct_without_top1": 11.6,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 5.8,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.8,
+   "trend": "linear",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 11,
+     "pct": 8.0,
+     "winters": 8,
+     "median_ratio": 1.169,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 11
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 138,
+     "pct": 25.6,
+     "winters": 31,
+     "median_ratio": 1.004,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 3
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 1
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 13
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 13
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 15
+      }
+     ],
+     "pct_without_top1": 23.0,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 20.2,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 30,
+     "pct": 34.5,
+     "winters": 5,
+     "median_ratio": 0.871,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 20.3,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 13.5,
+     "top2_winters": [
+      1998,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1981-2025",
+   "threshold": 0.8,
+   "trend": "quadratic",
+   "possible": 792,
+   "included": 765,
+   "excluded": {
+    "SIDRA marker '...'": 27
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 138,
+     "losses": 11,
+     "pct": 8.0,
+     "winters": 8,
+     "median_ratio": 1.179,
+     "by_winter": [
+      {
+       "winter_year": 1982,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1987,
+       "pairs": 16,
+       "losses": 11
+      },
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1987
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1982,
+      1987
+     ]
+    },
+    "neutral": {
+     "pairs": 540,
+     "losses": 140,
+     "pct": 25.9,
+     "winters": 31,
+     "median_ratio": 1.001,
+     "by_winter": [
+      {
+       "winter_year": 1981,
+       "pairs": 15,
+       "losses": 3
+      },
+      {
+       "winter_year": 1983,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1984,
+       "pairs": 16,
+       "losses": 1
+      },
+      {
+       "winter_year": 1985,
+       "pairs": 16,
+       "losses": 14
+      },
+      {
+       "winter_year": 1986,
+       "pairs": 16,
+       "losses": 0
+      },
+      {
+       "winter_year": 1989,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 13
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 15
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 23.4,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 20.6,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 87,
+     "losses": 29,
+     "pct": 33.3,
+     "winters": 5,
+     "median_ratio": 0.859,
+     "by_winter": [
+      {
+       "winter_year": 1988,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 18.8,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 11.5,
+     "top2_winters": [
+      1998,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.7,
+   "trend": "linear",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.22,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 87,
+     "pct": 19.6,
+     "winters": 25,
+     "median_ratio": 0.997,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 5
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 4
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 8
+      }
+     ],
+     "pct_without_top1": 16.2,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 12.5,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 16,
+     "pct": 22.9,
+     "winters": 4,
+     "median_ratio": 0.842,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 14
+      }
+     ],
+     "pct_without_top1": 3.8,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.7,
+   "trend": "quadratic",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.24,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 85,
+     "pct": 19.1,
+     "winters": 25,
+     "median_ratio": 0.986,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 5
+      }
+     ],
+     "pct_without_top1": 15.7,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 12.0,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 15,
+     "pct": 21.4,
+     "winters": 4,
+     "median_ratio": 0.833,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 12
+      }
+     ],
+     "pct_without_top1": 5.8,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.75,
+   "trend": "linear",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.22,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 98,
+     "pct": 22.1,
+     "winters": 25,
+     "median_ratio": 0.997,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 8
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 11
+      }
+     ],
+     "pct_without_top1": 18.8,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 15.2,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 23,
+     "pct": 32.9,
+     "winters": 4,
+     "median_ratio": 0.842,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 2
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 13.5,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 5.7,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.75,
+   "trend": "quadratic",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.24,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 98,
+     "pct": 22.1,
+     "winters": 25,
+     "median_ratio": 0.986,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 9
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 6
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 10
+      }
+     ],
+     "pct_without_top1": 18.8,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 15.2,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 23,
+     "pct": 32.9,
+     "winters": 4,
+     "median_ratio": 0.833,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 3
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 15
+      }
+     ],
+     "pct_without_top1": 15.4,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 8.6,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.8,
+   "trend": "linear",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.22,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 121,
+     "pct": 27.3,
+     "winters": 25,
+     "median_ratio": 0.997,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 12
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 15
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 24.2,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 20.8,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 27,
+     "pct": 38.6,
+     "winters": 4,
+     "median_ratio": 0.842,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 5
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 21.2,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 14.3,
+     "top2_winters": [
+      1999,
+      2022
+     ]
+    }
+   }
+  },
+  {
+   "series": "soybean_next_summer",
+   "window": "1990-2025",
+   "threshold": 0.8,
+   "trend": "quadratic",
+   "possible": 630,
+   "included": 620,
+   "excluded": {
+    "SIDRA marker '...'": 10
+   },
+   "phases": {
+    "el_nino": {
+     "pairs": 106,
+     "losses": 0,
+     "pct": 0.0,
+     "winters": 6,
+     "median_ratio": 1.24,
+     "by_winter": [
+      {
+       "winter_year": 1991,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1997,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 2002,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2009,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2015,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2023,
+       "pairs": 18,
+       "losses": 0
+      }
+     ],
+     "pct_without_top1": 0.0,
+     "top1_winters": [
+      1991
+     ],
+     "pct_without_top2": 0.0,
+     "top2_winters": [
+      1991,
+      1997
+     ]
+    },
+    "neutral": {
+     "pairs": 444,
+     "losses": 119,
+     "pct": 26.8,
+     "winters": 25,
+     "median_ratio": 0.986,
+     "by_winter": [
+      {
+       "winter_year": 1990,
+       "pairs": 17,
+       "losses": 17
+      },
+      {
+       "winter_year": 1992,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1993,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1994,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1995,
+       "pairs": 17,
+       "losses": 0
+      },
+      {
+       "winter_year": 1996,
+       "pairs": 17,
+       "losses": 1
+      },
+      {
+       "winter_year": 2000,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2001,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2003,
+       "pairs": 18,
+       "losses": 13
+      },
+      {
+       "winter_year": 2004,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2005,
+       "pairs": 18,
+       "losses": 2
+      },
+      {
+       "winter_year": 2006,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2007,
+       "pairs": 18,
+       "losses": 1
+      },
+      {
+       "winter_year": 2008,
+       "pairs": 18,
+       "losses": 3
+      },
+      {
+       "winter_year": 2011,
+       "pairs": 18,
+       "losses": 17
+      },
+      {
+       "winter_year": 2012,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2013,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2014,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2016,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2017,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2018,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2019,
+       "pairs": 18,
+       "losses": 14
+      },
+      {
+       "winter_year": 2020,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2021,
+       "pairs": 18,
+       "losses": 18
+      },
+      {
+       "winter_year": 2024,
+       "pairs": 18,
+       "losses": 13
+      }
+     ],
+     "pct_without_top1": 23.7,
+     "top1_winters": [
+      2004
+     ],
+     "pct_without_top2": 20.3,
+     "top2_winters": [
+      2004,
+      2021
+     ]
+    },
+    "la_nina": {
+     "pairs": 70,
+     "losses": 29,
+     "pct": 41.4,
+     "winters": 4,
+     "median_ratio": 0.833,
+     "by_winter": [
+      {
+       "winter_year": 1998,
+       "pairs": 17,
+       "losses": 7
+      },
+      {
+       "winter_year": 1999,
+       "pairs": 17,
+       "losses": 6
+      },
+      {
+       "winter_year": 2010,
+       "pairs": 18,
+       "losses": 0
+      },
+      {
+       "winter_year": 2022,
+       "pairs": 18,
+       "losses": 16
+      }
+     ],
+     "pct_without_top1": 25.0,
+     "top1_winters": [
+      2022
+     ],
+     "pct_without_top2": 17.1,
+     "top2_winters": [
+      1998,
+      2022
+     ]
+    }
+   }
+  }
+ ],
+ "permutation_by_winter": {
+  "wheat": {
+   "winters": 45,
+   "observed_diff_pp": 49.8,
+   "p_two_sided": 0.0031,
+   "permutations": 20000,
+   "seed": 20261114
+  },
+  "soybean_next_summer": {
+   "winters": 44,
+   "observed_diff_pp": -16.5,
+   "p_two_sided": 0.4013,
+   "permutations": 20000,
+   "seed": 20261114
+  }
+ },
+ "wheat_strong_el_nino": {
+  "pairs": 69,
+  "losses": 38,
+  "pct": 55.1,
+  "median_ratio": 0.702
+ },
+ "wheat_2023": {
+  "municipalities_with_data": 18,
+  "losses_75": 14,
+  "losses_70": 11,
+  "losses_80": 16,
+  "detail": [
+   {
+    "municipality": "Passo Fundo",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2883,
+    "ratio": 0.52
+   },
+   {
+    "municipality": "Cruz Alta",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2736,
+    "ratio": 0.548
+   },
+   {
+    "municipality": "Pejuçara",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2728,
+    "ratio": 0.55
+   },
+   {
+    "municipality": "Santa Bárbara do Sul",
+    "yield_kg_ha": 1600.0,
+    "trend_kg_ha": 2717,
+    "ratio": 0.589
+   },
+   {
+    "municipality": "Ijuí",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2540,
+    "ratio": 0.591
+   },
+   {
+    "municipality": "Ajuricaba",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2504,
+    "ratio": 0.599
+   },
+   {
+    "municipality": "Palmeira das Missões",
+    "yield_kg_ha": 1500.0,
+    "trend_kg_ha": 2481,
+    "ratio": 0.605
+   },
+   {
+    "municipality": "Condor",
+    "yield_kg_ha": 1800.0,
+    "trend_kg_ha": 2794,
+    "ratio": 0.644
+   },
+   {
+    "municipality": "Boa Vista do Cadeado",
+    "yield_kg_ha": 1800.0,
+    "trend_kg_ha": 2680,
+    "ratio": 0.672
+   },
+   {
+    "municipality": "Júlio de Castilhos",
+    "yield_kg_ha": 2100.0,
+    "trend_kg_ha": 3116,
+    "ratio": 0.674
+   },
+   {
+    "municipality": "Ibirubá",
+    "yield_kg_ha": 1920.0,
+    "trend_kg_ha": 2836,
+    "ratio": 0.677
+   },
+   {
+    "municipality": "Carazinho",
+    "yield_kg_ha": 2100.0,
+    "trend_kg_ha": 2996,
+    "ratio": 0.701
+   },
+   {
+    "municipality": "Santo Ângelo",
+    "yield_kg_ha": 1800.0,
+    "trend_kg_ha": 2563,
+    "ratio": 0.702
+   },
+   {
+    "municipality": "Não-Me-Toque",
+    "yield_kg_ha": 2100.0,
+    "trend_kg_ha": 2894,
+    "ratio": 0.726
+   },
+   {
+    "municipality": "Panambi",
+    "yield_kg_ha": 2000.0,
+    "trend_kg_ha": 2663,
+    "ratio": 0.751
+   },
+   {
+    "municipality": "Saldanha Marinho",
+    "yield_kg_ha": 2100.0,
+    "trend_kg_ha": 2686,
+    "ratio": 0.782
+   },
+   {
+    "municipality": "Tupanciretã",
+    "yield_kg_ha": 2400.0,
+    "trend_kg_ha": 2980,
+    "ratio": 0.805
+   },
+   {
+    "municipality": "Fortaleza dos Valos",
+    "yield_kg_ha": 2100.0,
+    "trend_kg_ha": 2597,
+    "ratio": 0.808
+   }
+  ]
+ },
+ "cruz_alta_el_nino": [
+  {
+   "year": 1982,
+   "oni_jja": 0.78,
+   "ratio": 0.329,
+   "loss": true
+  },
+  {
+   "year": 1987,
+   "oni_jja": 1.3,
+   "ratio": 1.545,
+   "loss": false
+  },
+  {
+   "year": 1991,
+   "oni_jja": 0.77,
+   "ratio": 0.772,
+   "loss": false
+  },
+  {
+   "year": 1997,
+   "oni_jja": 1.48,
+   "ratio": 0.746,
+   "loss": true
+  },
+  {
+   "year": 2002,
+   "oni_jja": 0.57,
+   "ratio": 0.745,
+   "loss": true
+  },
+  {
+   "year": 2009,
+   "oni_jja": 0.5,
+   "ratio": 0.97,
+   "loss": false
+  },
+  {
+   "year": 2015,
+   "oni_jja": 1.44,
+   "ratio": 0.622,
+   "loss": true
+  },
+  {
+   "year": 2023,
+   "oni_jja": 1.0,
+   "ratio": 0.548,
+   "loss": true
+  }
+ ],
+ "el_nino_jja_years_1981_2025": [
+  1982,
+  1987,
+  1991,
+  1997,
+  2002,
+  2009,
+  2015,
+  2023
+ ],
+ "la_nina_jja_years_1981_2025": [
+  1988,
+  1998,
+  1999,
+  2010,
+  2022
+ ],
+ "oni_before_sowing_el_nino_winters": {
+  "1982": {
+   "JFM": 0.02,
+   "FMA": 0.07,
+   "MAM": 0.34,
+   "JJA": 0.78
+  },
+  "1987": {
+   "JFM": 1.13,
+   "FMA": 1.02,
+   "MAM": 0.94,
+   "JJA": 1.3
+  },
+  "1991": {
+   "JFM": 0.26,
+   "FMA": 0.23,
+   "MAM": 0.29,
+   "JJA": 0.77
+  },
+  "1997": {
+   "JFM": -0.26,
+   "FMA": -0.03,
+   "MAM": 0.3,
+   "JJA": 1.48
+  },
+  "2002": {
+   "JFM": 0.07,
+   "FMA": 0.11,
+   "MAM": 0.15,
+   "JJA": 0.57
+  },
+  "2009": {
+   "JFM": -0.84,
+   "FMA": -0.63,
+   "MAM": -0.35,
+   "JJA": 0.5
+  },
+  "2015": {
+   "JFM": 0.65,
+   "FMA": 0.72,
+   "MAM": 0.86,
+   "JJA": 1.44
+  },
+  "2023": {
+   "JFM": -0.33,
+   "FMA": -0.11,
+   "MAM": 0.19,
+   "JJA": 1.0
+  }
+ },
+ "coverage_per_municipality_base": {
+  "wheat": {
+   "Cruz Alta": [
+    45,
+    1981
+   ],
+   "Ijuí": [
+    45,
+    1981
+   ],
+   "Passo Fundo": [
+    45,
+    1981
+   ],
+   "Santo Ângelo": [
+    45,
+    1981
+   ],
+   "Carazinho": [
+    45,
+    1981
+   ],
+   "Panambi": [
+    45,
+    1981
+   ],
+   "Tupanciretã": [
+    45,
+    1981
+   ],
+   "Palmeira das Missões": [
+    45,
+    1981
+   ],
+   "Santa Bárbara do Sul": [
+    45,
+    1981
+   ],
+   "Júlio de Castilhos": [
+    45,
+    1981
+   ],
+   "Ibirubá": [
+    45,
+    1981
+   ],
+   "Não-Me-Toque": [
+    45,
+    1981
+   ],
+   "Condor": [
+    45,
+    1981
+   ],
+   "Ajuricaba": [
+    45,
+    1981
+   ],
+   "Boa Vista do Cadeado": [
+    25,
+    2001
+   ],
+   "Fortaleza dos Valos": [
+    43,
+    1983
+   ],
+   "Pejuçara": [
+    45,
+    1981
+   ],
+   "Saldanha Marinho": [
+    37,
+    1989
+   ]
+  },
+  "soybean_next_summer": {
+   "Cruz Alta": [
+    44,
+    1982
+   ],
+   "Ijuí": [
+    44,
+    1982
+   ],
+   "Passo Fundo": [
+    44,
+    1982
+   ],
+   "Santo Ângelo": [
+    44,
+    1982
+   ],
+   "Carazinho": [
+    44,
+    1982
+   ],
+   "Panambi": [
+    44,
+    1982
+   ],
+   "Tupanciretã": [
+    44,
+    1982
+   ],
+   "Palmeira das Missões": [
+    44,
+    1982
+   ],
+   "Santa Bárbara do Sul": [
+    44,
+    1982
+   ],
+   "Júlio de Castilhos": [
+    44,
+    1982
+   ],
+   "Ibirubá": [
+    44,
+    1982
+   ],
+   "Não-Me-Toque": [
+    44,
+    1982
+   ],
+   "Condor": [
+    44,
+    1982
+   ],
+   "Ajuricaba": [
+    44,
+    1982
+   ],
+   "Boa Vista do Cadeado": [
+    25,
+    2001
+   ],
+   "Fortaleza dos Valos": [
+    43,
+    1983
+   ],
+   "Pejuçara": [
+    44,
+    1982
+   ],
+   "Saldanha Marinho": [
+    37,
+    1989
+   ]
+  }
+ }
+}
