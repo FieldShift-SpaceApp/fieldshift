@@ -67,16 +67,15 @@ class EventTimeline(Contract):
     id: ReplayKey
     title: LocalizedText
     period: Period
+    # Narrative order (the sequence the replay tells). Each event carries its own date or period,
+    # so an annual statistic can follow a dated alert without pretending to be one day.
     events: list[ReplayEvent] = Field(min_length=1)
 
     @model_validator(mode="after")
-    def _ordered(self) -> EventTimeline:
+    def _within(self) -> EventTimeline:
         ids = [e.id for e in self.events]
         if len(ids) != len(set(ids)):
             raise ValueError("event ids must be unique")
-        starts = [e.start for e in self.events]
-        if starts != sorted(starts):
-            raise ValueError("events must be in chronological order (date or period.start)")
         for e in self.events:
             end = e.date if e.date is not None else e.period.end  # type: ignore[union-attr]
             if e.start < self.period.start or end > self.period.end:

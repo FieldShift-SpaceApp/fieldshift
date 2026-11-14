@@ -267,11 +267,10 @@ def test_timeline_event_needs_exactly_one_of_date_or_period():
         EventTimeline.model_validate(data)
 
 
-def test_timeline_must_be_chronological_and_inside_its_period():
+def test_timeline_keeps_narrative_order_and_stays_inside_its_period():
     data = timeline()
     data["events"].reverse()
-    with pytest.raises(ValidationError, match="chronological"):
-        EventTimeline.model_validate(data)
+    assert EventTimeline.model_validate(data).events[0].id == "outcome"
     data = timeline()
     data["events"][1]["period"]["end"] = "2024-01-31"
     with pytest.raises(ValidationError, match="outside the timeline period"):
