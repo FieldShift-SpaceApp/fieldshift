@@ -1,6 +1,6 @@
 # Seven-city rainfall and temperature validation audit
 
-> **SI-assisted:** compiled with ChatGPT (OpenAI) from the team's public seven-city analysis, station comparison, source inventory and provider documentation; review pending (see `SI-USAGE.md`). This audit adds a 2024 station-to-grid spot check and a missing-data audit. It does not rerun the full 2000–2025 city analysis or establish multi-year forecast skill.
+> **SI-assisted:** compiled with ChatGPT (OpenAI) from the team's public seven-city analysis, station comparison, source inventory and provider documentation; review pending (see `SI-USAGE.md`). This audit adds a 2024 station-to-grid spot check and a missing-data audit. The spot-check calculations were run ad hoc for this audit; a reusable extraction script has not yet been packaged, so reproduce the result CSV before using it as a project claim. It does not rerun the full 2000–2025 city analysis or establish multi-year forecast skill.
 
 ## Confirmed study locations
 
@@ -70,7 +70,7 @@ Rainfall comes from INMET hourly precipitation summed for a UTC day only when al
 
 The full table, including alternative stations for Ijuí, Jóia and Espumoso and wet-day hit/false-alarm/miss counts, is in [`inmet_power_imerg_validation_2024.csv`](../analysis/seven-cities/results/inmet_power_imerg_validation_2024.csv). The automatic-station catalog also lists newer candidates such as B843 Ajuricaba, B833 Cruz Alta Centro and B835 Jóia; they were not used for this 2024 comparison because those codes have no 2024 daily file in the official archive. The alternative A-series candidates show station-location sensitivity: for example, Ijuí's A805 comparison is weaker for POWER rain (r=0.487 at 52.7 km) than the A853 proxy (r=0.832 at 38 km). The same INMET stations are reused for multiple municipality points, so these are not seven independent ground validations.
 
-The 2024 spot check gives daily temperature correlations of 0.932–0.948 for Tmax and 0.955–0.972 for Tmin. Rain correlations range from 0.487–0.832 for POWER and 0.542–0.808 for IMERG across the tested station-point pairs. Rain coverage is uneven: only 256 complete station-rain days at A852 and 268 at A853, against 366 calendar days. The results describe same-date agreement in this one year; they do not establish forecast skill, a correction factor, or performance in other years. Do not apply one city's bias correction to another.
+The seven-row table gives daily temperature correlations of 0.932–0.948 for Tmax and 0.955–0.972 for Tmin. The alternative stations in the CSV widen the Tmin correlation range to 0.946–0.972. Rain correlations range from 0.487–0.832 for POWER and 0.542–0.808 for IMERG across all tested station-point pairs. Rain coverage is uneven: only 256 complete station-rain days at A852 and 268 at A853, against 366 calendar days. The results describe same-date agreement in this one year; they do not establish forecast skill, a correction factor, or performance in other years. Do not apply one city's bias correction to another.
 
 ### A critical IMERG gap during May 2024
 
