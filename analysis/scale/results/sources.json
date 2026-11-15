@@ -1,0 +1,24 @@
+{
+ "ibge_pam_1612": {
+  "url": "https://apisidra.ibge.gov.br/values/t/1612/n1/all/n3/43/v/109,216,214/p/2014-2025/c81/2716",
+  "accessed_utc": "2026-11-15T02:12:03+00:00"
+ },
+ "ibge_census_6957": {
+  "url": "https://apisidra.ibge.gov.br/values/t/6957/n1/all/n2/4/n3/43/v/10084/p/2017/c829/46302/c226/113869,4896,4901,111673,4862/c218/46502/c12517/113601",
+  "accessed_utc": "2026-11-15T02:12:03+00:00"
+ },
+ "bcb_proagro": {
+  "page": "https://www.bcb.gov.br/estabilidadefinanceira/proagro",
+  "list_api": "https://www.bcb.gov.br/api/servico/sitebcb/Documentos/byListGuid?tronco=estabilidadefinanceira&guidLista=a2f0bc74-02f2-4914-938a-81bef9580ee0&ordem=Title%20desc&pasta=%2Fregiao",
+  "view": "regiao",
+  "file": "MATRIZ_PROAGRO_REGIAO_2023.gz",
+  "file_published_at": "2026-09-03T20:16:12Z",
+  "accessed_utc": "2026-11-15T02:12:05+00:00"
+ },
+ "faostat": {
+  "url": "https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+  "csv": "Production_Crops_Livestock_E_All_Data_(Normalized).csv",
+  "licence": "CC BY 4.0",
+  "accessed_utc": "2026-11-15T02:12:22+00:00"
+ }
+}
