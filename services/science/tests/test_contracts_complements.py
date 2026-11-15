@@ -1,5 +1,6 @@
 # SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
-"""Contracts v1.2.0 (MINOR): ForecastScorecard, EventTimeline and BareSoilCalendar."""
+"""Contracts v1.2.0 (MINOR): ForecastScorecard, EventTimeline and BareSoilCalendar; v1.3.0 (MINOR):
+SeasonToDate."""
 
 import copy
 
@@ -14,6 +15,7 @@ from fieldshift.contracts import (
     EventTimeline,
     ForecastScorecard,
     Provenance,
+    SeasonToDate,
 )
 from fieldshift.contracts.export import build_schema
 
@@ -429,3 +431,128 @@ def test_rain_signal_counts_and_phases_are_checked():
     data["sources"].append(copy.deepcopy(data["sources"][0]))
     with pytest.raises(ValidationError, match="unique"):
         EnsoRainSignal.model_validate(data)
+
+
+# --- SeasonToDate (v1.3.0) -------------------------------------------------------------------
+
+
+def season_to_date(**over):
+    stats = [
+        {"phase": p, "n_years": n, "mean_heavy_days": d, "mean_total_mm": t,
+         "median_total_mm": t, "years_with_heavy_day": h}
+        for p, n, d, t, h in (
+            ("el_nino", 2, 1.5, 420.0, 2),
+            ("la_nina", 1, 0.0, 250.0, 0),
+            ("neutral", 1, 1.0, 300.0, 1),
+        )
+    ]  # fmt: skip
+    data = {
+        "schema_version": SCHEMA_VERSION,
+        "site_id": "cruz-alta",
+        "label": {"en": "Rain of the 2026 wheat harvest window so far"},
+        "year": 2026,
+        "cutoff": "2026-11-13",
+        "heavy_rain_mm": 50.0,
+        "phase_season": "SON",
+        "current": {
+            "season": "ASO",
+            "year": 2026,
+            "oni": 2.46,
+            "phase": "el_nino",
+            "provenance_id": "prov:noaa:cruz-alta:oni",
+        },
+        "oni_provenance_id": "prov:noaa:cruz-alta:oni",
+        "sources": [
+            {
+                "id": "nasa-power",
+                "label": {"en": "NASA POWER"},
+                "window": {"start": "2026-09-01", "end": "2026-11-12"},
+                "n_days": 73,
+                "total_mm": 938.3,
+                "heavy_days": 5,
+                "wettest_day": "2026-10-04",
+                "wettest_day_mm": 80.1,
+                "months": [
+                    {
+                        "month": "2026-09",
+                        "n_days": 30,
+                        "total_mm": 246.3,
+                        "climatology_mean_mm": 168.0,
+                    },
+                    {
+                        "month": "2026-10",
+                        "n_days": 31,
+                        "total_mm": 381.1,
+                        "climatology_mean_mm": 207.0,
+                    },
+                    {
+                        "month": "2026-11",
+                        "n_days": 12,
+                        "total_mm": 310.9,
+                        "climatology_mean_mm": 70.0,
+                    },
+                ],  # fmt: skip
+                "same_days": [
+                    {
+                        "year": 2023,
+                        "oni": 1.8,
+                        "phase": "el_nino",
+                        "total_mm": 800.0,
+                        "heavy_days": 4,
+                    },
+                ],  # fmt: skip
+                "climatology": {"start": "1998-09-01", "end": "2025-11-12"},
+                "by_phase": stats,
+                "provenance_id": "prov:computed:cruz-alta:now-2026:nasa-power",
+            }
+        ],
+        "reported": [
+            {
+                "id": "emater-2026-10-22",
+                "text": {"en": "Production estimate 37.48% below 2025."},
+                "reported_by": "Emater/RS-Ascar, Informativo Conjuntural n. 1942",
+                "published": "2026-10-22",
+                "url": URL,
+                "provenance_id": "prov:user:cruz-alta:emater-2026-10-22",
+            }
+        ],
+    }
+    data.update(over)
+    return data
+
+
+def test_season_to_date_is_valid_and_top_level():
+    doc = SeasonToDate.model_validate(season_to_date())
+    assert doc.sources[0].same_days[0].year == 2023
+    assert SeasonToDate in TOP_LEVEL_MODELS
+    assert "SeasonToDate" in build_schema()["$defs"]
+
+
+def test_season_to_date_window_and_counts_are_checked():
+    data = season_to_date()
+    data["sources"][0]["months"][2]["n_days"] = 11
+    with pytest.raises(ValidationError, match="add up"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date()
+    data["sources"][0]["wettest_day"] = "2026-08-31"
+    with pytest.raises(ValidationError, match="wettest_day"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date(cutoff="2026-11-01")
+    with pytest.raises(ValidationError, match="cutoff"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date()
+    data["sources"][0]["climatology"]["end"] = "2026-11-12"
+    with pytest.raises(ValidationError, match="climatology"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date()
+    data["sources"][0]["same_days"][0]["year"] = 2026
+    with pytest.raises(ValidationError, match="past year"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date()
+    data["sources"].append(copy.deepcopy(data["sources"][0]))
+    with pytest.raises(ValidationError, match="unique"):
+        SeasonToDate.model_validate(data)
+    data = season_to_date()
+    data["reported"].append(copy.deepcopy(data["reported"][0]))
+    with pytest.raises(ValidationError, match="unique"):
+        SeasonToDate.model_validate(data)
