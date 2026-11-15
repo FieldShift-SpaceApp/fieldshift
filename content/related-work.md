@@ -3,13 +3,17 @@ title: Related work
 checked: "2026-11-14"
 ---
 
-<!-- SI-assisted: compiled with Claude Code (Anthropic) from web sources checked on 2026-11-14; human review pending (see SI-USAGE.md). Facts only: the "how we differ" paragraph is written by the team (event rule C1). -->
+<!-- SI-assisted: compiled with Claude Code (Anthropic) from web sources checked on 2026-11-14; human review pending (see SI-USAGE.md). Facts only. "How we differ": the bold positioning line is the team's own wording (event rule C1); the prior-art facts under it were compiled with Claude Code from the Embrapa page, IN SPA/MAPA 2/2025 and the team's prior-art research (15 November 2026). -->
 
 Tools, models and projects close to this challenge, grouped in the 11 categories of our competitive scan. Each entry says what the work is, in the words of its own source, with a link. Sources were checked on 2026-11-14.
 
 ## How we differ
 
-> **Pending D-001.** This paragraph is written by the team after the concept decision recorded in `DECISIONS.md` (D-001). It is intentionally empty until then.
+**Not a new rating — a free preview of the official soil level, early enough to change the winter.**
+
+The official ZarcNM level (NM1–NM4) is computed only by Embrapa's SINM, from data that accredited operators register at insurance time. Embrapa lists nine accredited geoprocessing operators that compute the satellite indicators field by field for insurers, banks and cooperatives: Audsat, Ensoag Consultoria Agrícola, Funarbe, Mapfre Seguros Gerais, Ruralservice, Satellus, The Soil Company, Visiona Tecnologia Espacial and 2M Inteligência Artificial ([Embrapa, Níveis de Manejo](https://www.embrapa.br/rede-zarc-embrapa/niveis-de-manejo), read 2026-11-15). The rule itself forbids a classification while any indicator is missing (IN SPA/MAPA 2/2025, Annex, item 2.2), and three of its six indicators need a soil laboratory. Embrapa Soja's [Documentos 454](https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1156802/1/DOC-454.pdf) (Franchini et al. 2023) publishes the remote-sensing method for the same three satellite indicators.
+
+We did not find anyone offering that satellite half free and in public, for every property of the rural-property registry, before the season, and comparing winter strategies (searches of 15 November 2026; not found is not proof of absence). FieldShift does not classify: it shows which winter can reach NM3–NM4 on the satellite side and points to the soil laboratory and the accredited operators that close the official classification.
 
 ## 1. Cover crop selectors
 

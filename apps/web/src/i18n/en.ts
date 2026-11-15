@@ -1,10 +1,10 @@
 // SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
 // All user-facing strings live here (NFR15). Portuguese (pt.ts) is a stretch goal.
-// The product name and concept are team decisions (C1): keep the working title until DECISIONS.md says otherwise.
+// The product name and concept are team decisions (C1); the provisional-name label was dropped by the team lead on 15 November.
 export const en = {
-  "meta.title": "FieldShift (working title)",
+  "meta.title": "FieldShift",
   "meta.description": "NASA Space Apps Challenge 2026 project. Work in progress.",
-  "canary.heading": "FieldShift (working title)",
+  "canary.heading": "FieldShift",
   "canary.body": "NASA Space Apps Challenge 2026. This page is a deployment canary: the app is under construction.",
   "disclaimer.support":
     "This tool supports, and does not replace, the judgment of farmers and agronomists. It explores options; it does not prescribe actions or promise yields, profit or carbon credits.",
@@ -135,12 +135,12 @@ export const en = {
   "content.externalLink": "(opens in a new tab)",
 
   // Data & Methods (Story 1.4, FR17, FR18)
-  "dataMethods.meta.title": "Data & Methods · FieldShift (working title)",
+  "dataMethods.meta.title": "Data & Methods · FieldShift",
   "dataMethods.meta.description":
     "Datasets, methods, limitations, validation, related work and use of AI behind the project.",
   "dataMethods.heading": "Data & Methods",
   "dataMethods.intro":
-    "Every dataset, method and tool behind this project, how each number is produced, what it cannot tell you, related work and how AI was used. Sections marked Pending are filled as the work ships.",
+    "Every dataset, method and tool behind this project, how each number is produced, what it cannot tell you, related work and how AI was used.",
   "dataMethods.toc": "On this page",
   "dataMethods.section.data": "Data, resources and tools",
   "dataMethods.section.data.intro":
@@ -148,21 +148,24 @@ export const en = {
   "dataMethods.section.satelliteGround": "Satellite vs. ground",
   "dataMethods.section.satelliteGround.legend": "Every number carries one of these four data-type labels:",
   "dataMethods.section.methods": "Methods",
-  "dataMethods.section.methods.pending":
-    "Methods for the satellite layers and for the comparison itself are added here as each one is implemented.",
   "dataMethods.section.limitations": "Limitations",
-  "dataMethods.section.limitations.pending":
-    "Limitations of layers that are not implemented yet are added with them.",
   "dataMethods.section.validation": "Validation",
-  "dataMethods.section.validation.pending":
-    "For each site, a known past event (for example a drought year) will be compared with what the NASA data recorded, and the result will be published here, including negative or inconclusive results.",
+  "dataMethods.section.validation.intro":
+    "Besides the ground check above, three public analyses compare what the NASA data recorded with what happened on the ground. Each one reruns from public sources and publishes negative or inconclusive results too.",
+  "dataMethods.section.validation.ensoWheat":
+    "El Niño and wheat losses: municipal wheat yields (IBGE) against the ENSO phase of each winter and NASA rain.",
+  "dataMethods.section.validation.groundTruth":
+    "Ground truth: insured wheat losses to excess rain (Proagro) against NASA GPM IMERG spring rain.",
+  "dataMethods.section.validation.drought":
+    "Drought resilience: a pre-registered test of whether soybean became less sensitive to summer drought after winter cover became the rule. The answer was no.",
   "dataMethods.section.scale": "Scale of the problem",
-  "dataMethods.section.scale.pending":
-    "The figures on the scale of the problem are shown here once each one has a source record, like every other number in the app.",
+  "dataMethods.section.scale.body":
+    "The figures on the scale of the problem (wheat area and production of Rio Grande do Sul and Brazil, farms that grow wheat, insured wheat losses) are rebuilt from public sources by a script, with every source in its README:",
+  "dataMethods.section.scale.link": "Scale of the problem (analysis/scale)",
   "dataMethods.section.relatedWork": "Related work",
   "dataMethods.section.useOfAi": "Use of AI",
   "dataMethods.section.useOfAi.intro":
-    "AI tools were used for research, code and text, never to choose the concept, the differentiator or the name. Every AI-assisted change is logged below (generated from SI-USAGE.md).",
+    "AI tools were used for research, code, analysis and text. The team generated the starting ideas at a human ideation meeting; at the team lead's request, AI helped compare and synthesize options from those ideas and verified data; the team chose the direction. Every AI-assisted change is logged below (generated from SI-USAGE.md).",
   "dataMethods.section.glossary": "Glossary",
   "dataMethods.section.glossary.body": "Plain-language definitions of the technical terms used on this site.",
   "dataMethods.methodFrom": "From",
@@ -175,7 +178,7 @@ export const en = {
   "site.name.cruz-alta": "Cruz Alta, RS, Brazil",
 
   // Site page (T2, FR2, FR19)
-  "site.meta.title": "{name} · FieldShift (working title)",
+  "site.meta.title": "{name} · FieldShift",
   "site.meta.description": "Climate of {name} from NASA POWER, with the provenance of every number.",
   "site.eyebrow": "Site",
   "site.header.point": "Point sent to NASA POWER",
@@ -228,7 +231,7 @@ export const en = {
   "site.limits.general": "Every number on this page is a regional value of one grid cell, not a field measurement.",
 
   // Glossary (FR8)
-  "glossary.meta.title": "Glossary · FieldShift (working title)",
+  "glossary.meta.title": "Glossary · FieldShift",
   "glossary.meta.description": "Plain-language definitions of the technical terms used in the project.",
   "glossary.heading": "Glossary",
   "glossary.intro": "Technical terms used on this site, in plain language.",
