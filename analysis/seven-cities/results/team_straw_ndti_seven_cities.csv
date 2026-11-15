@@ -1,0 +1,967 @@
+municipality,winter_year,month,winter_state,n_soy_pixels,frac_ndvi_below_0_5,n_pixels_ndvi_below_0_5,ndti_in_low_ndvi_pixels,ndvi_in_low_ndvi_pixels
+Cruz Alta,2002,oct,low green,437,0.5167,224,0.201,0.4292
+Cruz Alta,2002,oct,green,1534,0.188,288,0.2493,0.4514
+Cruz Alta,2002,nov,low green,437,0.5025,219,0.1927,0.4099
+Cruz Alta,2002,nov,green,1534,0.9727,1487,0.2097,0.3452
+Cruz Alta,2002,apr,low green,437,0.3891,169,0.2388,0.4227
+Cruz Alta,2002,apr,green,1534,0.703,1071,0.2502,0.4109
+Cruz Alta,2003,oct,low green,312,0.5836,182,0.192,0.4294
+Cruz Alta,2003,oct,green,2186,0.3011,656,0.2613,0.4549
+Cruz Alta,2003,nov,low green,312,0.6457,200,0.1757,0.3586
+Cruz Alta,2003,nov,green,2186,0.9971,2179,0.2134,0.2956
+Cruz Alta,2003,apr,low green,312,0.7074,219,0.2151,0.3868
+Cruz Alta,2003,apr,green,2186,0.9682,2112,0.2157,0.3638
+Cruz Alta,2004,oct,low green,193,0.6151,117,0.1876,0.4277
+Cruz Alta,2004,oct,green,2401,0.566,1351,0.2421,0.437
+Cruz Alta,2004,nov,low green,193,0.422,80,0.1778,0.3704
+Cruz Alta,2004,nov,green,2401,0.9931,2381,0.1971,0.3067
+Cruz Alta,2004,apr,low green,193,0.3329,64,0.2193,0.4374
+Cruz Alta,2004,apr,green,2401,0.3557,850,0.2085,0.4292
+Cruz Alta,2005,oct,low green,1171,0.7153,841,0.1954,0.4234
+Cruz Alta,2005,oct,green,648,0.0594,37,0.2433,0.4685
+Cruz Alta,2005,nov,low green,1171,0.7429,866,0.1807,0.3808
+Cruz Alta,2005,nov,green,648,0.9867,639,0.2119,0.3397
+Cruz Alta,2005,apr,low green,1171,0.7885,916,0.2253,0.3911
+Cruz Alta,2005,apr,green,648,0.7952,511,0.2355,0.3903
+Cruz Alta,2006,oct,low green,509,0.6681,340,0.2049,0.4061
+Cruz Alta,2006,oct,green,1951,0.4037,781,0.2518,0.4436
+Cruz Alta,2006,nov,low green,509,0.4914,248,0.1727,0.3481
+Cruz Alta,2006,nov,green,1951,0.9904,1931,0.2038,0.3145
+Cruz Alta,2006,apr,low green,509,0.6801,345,0.2238,0.3967
+Cruz Alta,2006,apr,green,1951,0.8401,1636,0.228,0.4002
+Cruz Alta,2007,oct,low green,599,0.5754,347,0.1889,0.4147
+Cruz Alta,2007,oct,green,1917,0.1787,341,0.229,0.4477
+Cruz Alta,2007,nov,low green,599,0.5777,341,0.1729,0.3684
+Cruz Alta,2007,nov,green,1917,0.9903,1898,0.1945,0.3177
+Cruz Alta,2007,apr,low green,599,0.7079,421,0.222,0.3925
+Cruz Alta,2007,apr,green,1917,0.8637,1645,0.2262,0.3813
+Cruz Alta,2008,oct,low green,319,0.627,200,0.2075,0.4281
+Cruz Alta,2008,oct,green,2734,0.1129,308,0.2437,0.4508
+Cruz Alta,2008,nov,low green,319,0.26,85,0.198,0.3977
+Cruz Alta,2008,nov,green,2734,0.9872,2699,0.2283,0.3276
+Cruz Alta,2008,apr,low green,319,0.7107,228,0.2155,0.3718
+Cruz Alta,2008,apr,green,2734,0.927,2532,0.2251,0.3805
+Cruz Alta,2009,oct,low green,234,0.734,171,0.1974,0.4124
+Cruz Alta,2009,oct,green,2696,0.066,176,0.2528,0.4574
+Cruz Alta,2009,nov,low green,234,0.514,121,0.2057,0.3937
+Cruz Alta,2009,nov,green,2696,0.9818,2646,0.2411,0.3609
+Cruz Alta,2009,apr,low green,234,0.6241,147,0.2092,0.3859
+Cruz Alta,2009,apr,green,2696,0.9173,2470,0.2086,0.3772
+Cruz Alta,2010,oct,low green,185,0.6992,130,0.18,0.4082
+Cruz Alta,2010,oct,green,2717,0.2782,747,0.2331,0.4409
+Cruz Alta,2010,nov,low green,185,0.5195,95,0.1787,0.376
+Cruz Alta,2010,nov,green,2717,0.9928,2698,0.1969,0.312
+Cruz Alta,2010,apr,low green,185,0.7298,135,0.209,0.3646
+Cruz Alta,2010,apr,green,2717,0.9829,2670,0.2044,0.3461
+Cruz Alta,2011,oct,low green,221,0.5701,125,0.1897,0.4353
+Cruz Alta,2011,oct,green,2742,0.2831,769,0.2453,0.4395
+Cruz Alta,2011,nov,low green,221,0.2469,53,0.1734,0.3854
+Cruz Alta,2011,nov,green,2742,0.9835,2697,0.2135,0.3094
+Cruz Alta,2011,apr,low green,221,0.571,122,0.1772,0.3768
+Cruz Alta,2011,apr,green,2742,0.9542,2615,0.1835,0.3596
+Cruz Alta,2012,oct,low green,374,0.8853,329,0.1687,0.3526
+Cruz Alta,2012,oct,green,2078,0.6177,1274,0.2378,0.415
+Cruz Alta,2012,nov,low green,374,0.6465,241,0.1649,0.3598
+Cruz Alta,2012,nov,green,2078,0.997,2072,0.197,0.299
+Cruz Alta,2012,apr,low green,374,0.62,232,0.2143,0.3777
+Cruz Alta,2012,apr,green,2078,0.9517,1975,0.2133,0.3699
+Cruz Alta,2013,oct,low green,241,0.7924,192,0.2049,0.4044
+Cruz Alta,2013,oct,green,3190,0.209,667,0.2478,0.4364
+Cruz Alta,2013,nov,low green,241,0.2177,53,0.2038,0.3944
+Cruz Alta,2013,nov,green,3190,0.9872,3147,0.2282,0.3153
+Cruz Alta,2013,apr,low green,241,0.3626,89,0.2083,0.373
+Cruz Alta,2013,apr,green,3190,0.9607,3056,0.2,0.369
+Cruz Alta,2014,oct,low green,299,0.4453,134,0.2105,0.4091
+Cruz Alta,2014,oct,green,2296,0.3049,690,0.2558,0.4365
+Cruz Alta,2014,nov,low green,299,0.3133,92,0.1667,0.3561
+Cruz Alta,2014,nov,green,2296,0.9884,2267,0.1984,0.3124
+Cruz Alta,2014,apr,low green,299,0.4176,124,0.2089,0.3723
+Cruz Alta,2014,apr,green,2296,0.9593,2203,0.2129,0.3487
+Cruz Alta,2015,oct,low green,543,0.8647,471,0.1967,0.3524
+Cruz Alta,2015,oct,green,1720,0.6779,1156,0.2343,0.4103
+Cruz Alta,2015,nov,low green,543,0.6814,372,0.1674,0.3421
+Cruz Alta,2015,nov,green,1720,0.994,1709,0.1814,0.3171
+Cruz Alta,2015,apr,low green,543,0.6352,346,0.2063,0.3952
+Cruz Alta,2015,apr,green,1720,0.9413,1619,0.2011,0.378
+Cruz Alta,2016,oct,low green,215,0.4644,101,0.1914,0.4014
+Cruz Alta,2016,oct,green,3156,0.4287,1349,0.2461,0.4317
+Cruz Alta,2016,nov,low green,215,0.2554,53,0.1765,0.3732
+Cruz Alta,2016,nov,green,3156,0.9869,3114,0.2103,0.3138
+Cruz Alta,2016,apr,low green,215,0.3859,81,0.2405,0.3893
+Cruz Alta,2016,apr,green,3156,0.9634,3038,0.2267,0.3761
+Cruz Alta,2017,oct,low green,1219,0.8429,1026,0.1927,0.3761
+Cruz Alta,2017,oct,green,579,0.6215,356,0.2379,0.4208
+Cruz Alta,2017,nov,low green,1219,0.8612,1048,0.1553,0.3348
+Cruz Alta,2017,nov,green,579,0.9982,578,0.1776,0.2973
+Cruz Alta,2017,apr,low green,1219,0.8141,987,0.2218,0.3848
+Cruz Alta,2017,apr,green,579,0.9563,552,0.222,0.3688
+Cruz Alta,2018,oct,low green,302,0.4999,152,0.197,0.3956
+Cruz Alta,2018,oct,green,2909,0.6114,1776,0.2327,0.4141
+Cruz Alta,2018,nov,low green,302,0.2606,78,0.1693,0.3637
+Cruz Alta,2018,nov,green,2909,0.9905,2879,0.2065,0.3168
+Cruz Alta,2018,apr,low green,302,0.4575,135,0.2346,0.3948
+Cruz Alta,2018,apr,green,2909,0.9503,2760,0.2321,0.3805
+Cruz Alta,2019,oct,low green,523,0.5909,310,0.1925,0.3633
+Cruz Alta,2019,oct,green,2508,0.5587,1394,0.2376,0.4148
+Cruz Alta,2019,nov,low green,523,0.3853,203,0.1597,0.3455
+Cruz Alta,2019,nov,green,2508,0.9945,2493,0.1835,0.3059
+Cruz Alta,2019,apr,low green,523,0.5979,311,0.1683,0.35
+Cruz Alta,2019,apr,green,2508,0.9914,2482,0.1676,0.3321
+Cruz Alta,2020,oct,low green,418,0.4739,199,0.1972,0.3768
+Cruz Alta,2020,oct,green,2541,0.6725,1703,0.2371,0.4153
+Cruz Alta,2020,nov,low green,418,0.3325,138,0.1718,0.3333
+Cruz Alta,2020,nov,green,2541,0.9947,2528,0.1994,0.2912
+Cruz Alta,2020,apr,low green,418,0.3123,130,0.2179,0.3956
+Cruz Alta,2020,apr,green,2541,0.7841,1991,0.2283,0.3953
+Cruz Alta,2021,oct,low green,354,0.1917,70,0.1845,0.3857
+Cruz Alta,2021,oct,green,3083,0.3946,1203,0.2452,0.4289
+Cruz Alta,2021,nov,low green,354,0.158,56,0.1941,0.3663
+Cruz Alta,2021,nov,green,3083,0.9933,3060,0.2154,0.3097
+Cruz Alta,2021,apr,low green,354,0.1224,42,0.1905,0.4265
+Cruz Alta,2021,apr,green,3083,0.6555,2008,0.1978,0.4174
+Cruz Alta,2022,oct,low green,347,0.2756,94,0.2229,0.4153
+Cruz Alta,2022,oct,green,3116,0.1072,337,0.2532,0.4489
+Cruz Alta,2022,nov,low green,347,0.1446,50,0.1807,0.3368
+Cruz Alta,2022,nov,green,3116,0.9743,3036,0.2302,0.333
+Cruz Alta,2022,apr,low green,347,0.1867,64,0.1901,0.4071
+Cruz Alta,2022,apr,green,3116,0.7742,2402,0.1895,0.4072
+Cruz Alta,2023,oct,low green,304,0.3285,100,0.2202,0.3926
+Cruz Alta,2023,oct,green,3105,0.5114,1573,0.2351,0.4001
+Cruz Alta,2023,nov,low green,304,0.2204,66,0.2007,0.3417
+Cruz Alta,2023,nov,green,3105,0.9837,3048,0.1894,0.3271
+Cruz Alta,2023,apr,low green,304,0.1608,49,0.2433,0.4
+Cruz Alta,2023,apr,green,3105,0.7547,2337,0.25,0.4042
+Cruz Alta,2024,oct,low green,126,0.2741,34,0.1609,0.3938
+Cruz Alta,2024,oct,green,3193,0.2251,717,0.2346,0.4389
+Cruz Alta,2024,nov,low green,126,0.266,33,0.1682,0.3843
+Cruz Alta,2024,nov,green,3193,0.958,3059,0.2138,0.3382
+Cruz Alta,2024,apr,low green,126,0.2564,32,0.1485,0.3864
+Cruz Alta,2024,apr,green,3193,0.8421,2680,0.1585,0.381
+Ijuí,2002,oct,low green,17,0.9378,16,0.2107,0.4023
+Ijuí,2002,oct,green,783,0.4985,394,0.2519,0.4495
+Ijuí,2002,nov,low green,17,0.7512,13,0.1891,0.3568
+Ijuí,2002,nov,green,783,0.9869,773,0.2091,0.3472
+Ijuí,2002,apr,low green,17,0.5598,9,0.2595,0.4335
+Ijuí,2002,apr,green,783,0.7893,617,0.2483,0.4272
+Ijuí,2003,oct,low green,17,0.7552,12,0.2176,0.4391
+Ijuí,2003,oct,green,783,0.771,599,0.2491,0.4323
+Ijuí,2003,nov,low green,17,0.9371,16,0.2088,0.3558
+Ijuí,2003,nov,green,783,0.996,780,0.2162,0.2971
+Ijuí,2003,apr,low green,17,1.0,17,0.2208,0.3769
+Ijuí,2003,apr,green,783,0.9745,760,0.2162,0.3684
+Ijuí,2004,oct,low green,20,0.8842,18,0.1984,0.4107
+Ijuí,2004,oct,green,782,0.8616,670,0.2351,0.4152
+Ijuí,2004,nov,low green,20,0.7639,15,0.1885,0.3739
+Ijuí,2004,nov,green,782,0.9986,781,0.2,0.3167
+Ijuí,2004,apr,low green,20,0.484,11,0.2116,0.4449
+Ijuí,2004,apr,green,782,0.5659,437,0.2122,0.4456
+Ijuí,2005,oct,low green,191,0.7571,145,0.2178,0.4076
+Ijuí,2005,oct,green,215,0.1394,30,0.2545,0.4726
+Ijuí,2005,nov,low green,191,0.8924,170,0.1932,0.3575
+Ijuí,2005,nov,green,215,0.995,214,0.2125,0.3474
+Ijuí,2005,apr,low green,191,0.7293,139,0.2264,0.4248
+Ijuí,2005,apr,green,215,0.7158,156,0.239,0.43
+Ijuí,2006,oct,low green,84,0.81,69,0.2304,0.4313
+Ijuí,2006,oct,green,571,0.6375,362,0.2466,0.4372
+Ijuí,2006,nov,low green,84,0.919,75,0.1961,0.3573
+Ijuí,2006,nov,green,571,0.9921,566,0.2078,0.3351
+Ijuí,2006,apr,low green,84,0.8315,69,0.2317,0.3958
+Ijuí,2006,apr,green,571,0.9145,524,0.2283,0.401
+Ijuí,2007,oct,low green,53,0.4777,23,0.2227,0.4549
+Ijuí,2007,oct,green,706,0.3121,217,0.2334,0.4568
+Ijuí,2007,nov,low green,53,0.8409,43,0.1887,0.3677
+Ijuí,2007,nov,green,706,0.994,701,0.1923,0.3292
+Ijuí,2007,apr,low green,53,0.7581,40,0.2215,0.3943
+Ijuí,2007,apr,green,706,0.9379,660,0.2231,0.386
+Ijuí,2008,oct,low green,45,0.8086,35,0.2219,0.3969
+Ijuí,2008,oct,green,889,0.3153,280,0.254,0.465
+Ijuí,2008,nov,low green,45,0.5065,22,0.2337,0.4071
+Ijuí,2008,nov,green,889,0.9928,883,0.2253,0.3207
+Ijuí,2008,apr,low green,45,0.8747,39,0.2202,0.3837
+Ijuí,2008,apr,green,889,0.9556,849,0.2224,0.3782
+Ijuí,2009,oct,low green,16,0.1299,2,0.2296,0.4834
+Ijuí,2009,oct,green,1257,0.1265,162,0.2676,0.4711
+Ijuí,2009,nov,low green,16,0.4545,7,0.2474,0.4247
+Ijuí,2009,nov,green,1257,0.9769,1228,0.2469,0.3577
+Ijuí,2009,apr,low green,16,0.3247,5,0.2116,0.3836
+Ijuí,2009,apr,green,1257,0.9509,1193,0.2121,0.3848
+Ijuí,2010,oct,low green,11,0.9009,10,0.2108,0.4191
+Ijuí,2010,oct,green,1026,0.4666,472,0.2373,0.4474
+Ijuí,2010,nov,low green,11,0.5946,6,0.1805,0.3129
+Ijuí,2010,nov,green,1026,0.9959,1022,0.2012,0.3186
+Ijuí,2010,apr,low green,11,0.7361,8,0.2109,0.3654
+Ijuí,2010,apr,green,1026,0.9585,982,0.2106,0.3715
+Ijuí,2011,oct,low green,15,0.5765,9,0.209,0.4167
+Ijuí,2011,oct,green,1073,0.2657,282,0.2596,0.4558
+Ijuí,2011,nov,low green,15,0.6352,9,0.2001,0.3871
+Ijuí,2011,nov,green,1073,0.9942,1066,0.2163,0.3178
+Ijuí,2011,apr,low green,15,0.7883,12,0.1973,0.3693
+Ijuí,2011,apr,green,1073,0.9519,1018,0.1974,0.3735
+Ijuí,2012,oct,low green,21,0.8911,19,0.201,0.4044
+Ijuí,2012,oct,green,807,0.8319,665,0.2423,0.4253
+Ijuí,2012,nov,low green,21,0.5789,12,0.1747,0.3342
+Ijuí,2012,nov,green,807,1.0,807,0.2051,0.3051
+Ijuí,2012,apr,low green,21,0.6652,13,0.2032,0.3577
+Ijuí,2012,apr,green,807,0.9574,773,0.2169,0.3842
+Ijuí,2013,oct,low green,21,0.9718,20,0.2286,0.4103
+Ijuí,2013,oct,green,1152,0.2288,260,0.2568,0.457
+Ijuí,2013,nov,low green,21,0.4799,11,0.2292,0.4063
+Ijuí,2013,nov,green,1152,0.9969,1148,0.2423,0.319
+Ijuí,2013,apr,low green,21,0.7498,16,0.2293,0.4147
+Ijuí,2013,apr,green,1152,0.9518,1095,0.201,0.3882
+Ijuí,2014,oct,low green,18,0.4553,8,0.2568,0.4512
+Ijuí,2014,oct,green,1047,0.3644,373,0.2709,0.4594
+Ijuí,2014,nov,low green,18,0.5624,10,0.1869,0.3594
+Ijuí,2014,nov,green,1047,0.9939,1041,0.2144,0.3171
+Ijuí,2014,apr,low green,18,0.5624,10,0.222,0.4125
+Ijuí,2014,apr,green,1047,0.9738,1020,0.2171,0.3683
+Ijuí,2015,oct,low green,82,0.8811,71,0.2047,0.3613
+Ijuí,2015,oct,green,690,0.822,561,0.2342,0.4204
+Ijuí,2015,nov,low green,82,0.7396,60,0.1848,0.3458
+Ijuí,2015,nov,green,690,0.9843,677,0.193,0.3397
+Ijuí,2015,apr,low green,82,0.7782,63,0.1938,0.3719
+Ijuí,2015,apr,green,690,0.9184,630,0.2016,0.3964
+Ijuí,2016,oct,low green,7,0.4725,3,0.2022,0.4853
+Ijuí,2016,oct,green,1298,0.4322,555,0.259,0.4542
+Ijuí,2016,nov,low green,7,0.0,0,,
+Ijuí,2016,nov,green,1298,0.994,1289,0.2242,0.3256
+Ijuí,2016,apr,low green,7,0.5763,4,0.2462,0.3893
+Ijuí,2016,apr,green,1298,0.935,1208,0.2312,0.3911
+Ijuí,2017,oct,low green,158,0.824,128,0.1982,0.3977
+Ijuí,2017,oct,green,175,0.8159,142,0.2296,0.4247
+Ijuí,2017,nov,low green,158,0.8244,129,0.1645,0.3382
+Ijuí,2017,nov,green,175,0.9771,171,0.1886,0.3176
+Ijuí,2017,apr,low green,158,0.8622,134,0.2137,0.3725
+Ijuí,2017,apr,green,175,0.9632,169,0.2228,0.3843
+Ijuí,2018,oct,low green,15,0.2931,4,0.2394,0.4433
+Ijuí,2018,oct,green,1304,0.5544,716,0.2391,0.4407
+Ijuí,2018,nov,low green,15,0.4138,7,0.1883,0.3833
+Ijuí,2018,nov,green,1304,0.9867,1287,0.2256,0.329
+Ijuí,2018,apr,low green,15,0.502,8,0.2361,0.4124
+Ijuí,2018,apr,green,1304,0.9287,1206,0.2368,0.3985
+Ijuí,2019,oct,low green,18,0.697,13,0.1916,0.3851
+Ijuí,2019,oct,green,1226,0.6754,821,0.2414,0.4376
+Ijuí,2019,nov,low green,18,0.5152,10,0.1667,0.3537
+Ijuí,2019,nov,green,1226,0.9846,1206,0.1921,0.3278
+Ijuí,2019,apr,low green,18,0.6364,12,0.1924,0.3788
+Ijuí,2019,apr,green,1226,0.9831,1205,0.1881,0.3536
+Ijuí,2020,oct,low green,20,0.7369,15,0.2071,0.4091
+Ijuí,2020,oct,green,1150,0.9714,1113,0.2291,0.3901
+Ijuí,2020,nov,low green,20,0.6317,13,0.1732,0.3728
+Ijuí,2020,nov,green,1150,0.9991,1149,0.1966,0.2947
+Ijuí,2020,apr,low green,20,0.3159,7,0.2003,0.3674
+Ijuí,2020,apr,green,1150,0.9347,1069,0.2292,0.3911
+Ijuí,2021,oct,low green,11,0.0,0,,
+Ijuí,2021,oct,green,1212,0.4265,513,0.2544,0.4437
+Ijuí,2021,nov,low green,11,0.0983,1,0.1942,0.3825
+Ijuí,2021,nov,green,1212,0.9895,1200,0.2078,0.319
+Ijuí,2021,apr,low green,11,0.1149,2,0.2549,0.4489
+Ijuí,2021,apr,green,1212,0.562,677,0.2071,0.4274
+Ijuí,2022,oct,low green,46,0.4169,19,0.2575,0.4212
+Ijuí,2022,oct,green,1411,0.068,96,0.2642,0.4709
+Ijuí,2022,nov,low green,46,0.5519,25,0.1843,0.2994
+Ijuí,2022,nov,green,1411,0.99,1395,0.236,0.3278
+Ijuí,2022,apr,low green,46,0.585,26,0.1842,0.3939
+Ijuí,2022,apr,green,1411,0.8592,1205,0.1925,0.4079
+Ijuí,2023,oct,low green,26,0.5234,14,0.2408,0.4065
+Ijuí,2023,oct,green,1360,0.81,1095,0.2549,0.403
+Ijuí,2023,nov,low green,26,0.2951,8,0.2112,0.3251
+Ijuí,2023,nov,green,1360,0.9906,1348,0.2063,0.327
+Ijuí,2023,apr,low green,26,0.3348,9,0.2324,0.3739
+Ijuí,2023,apr,green,1360,0.8326,1128,0.2421,0.4032
+Ijuí,2024,oct,low green,10,0.0,0,,
+Ijuí,2024,oct,green,1395,0.3533,493,0.2579,0.4549
+Ijuí,2024,nov,low green,10,0.0791,1,0.1617,0.3719
+Ijuí,2024,nov,green,1395,0.9675,1349,0.2192,0.3287
+Ijuí,2024,apr,low green,10,0.0791,1,0.0901,0.3967
+Ijuí,2024,apr,green,1395,0.8539,1190,0.1646,0.3858
+Jóia,2002,oct,low green,141,0.6143,87,0.2136,0.4329
+Jóia,2002,oct,green,1075,0.2338,252,0.2549,0.46
+Jóia,2002,nov,low green,141,0.5869,82,0.1888,0.3923
+Jóia,2002,nov,green,1075,0.9483,1018,0.2219,0.3573
+Jóia,2002,apr,low green,141,0.359,50,0.2432,0.4256
+Jóia,2002,apr,green,1075,0.5969,641,0.2547,0.4166
+Jóia,2003,oct,low green,101,0.566,59,0.2119,0.4397
+Jóia,2003,oct,green,1405,0.5001,704,0.2607,0.4394
+Jóia,2003,nov,low green,101,0.6644,68,0.1854,0.3582
+Jóia,2003,nov,green,1405,0.997,1400,0.217,0.2995
+Jóia,2003,apr,low green,101,0.6122,63,0.2041,0.3778
+Jóia,2003,apr,green,1405,0.9478,1330,0.2121,0.377
+Jóia,2004,oct,low green,93,0.7333,68,0.1976,0.4221
+Jóia,2004,oct,green,1516,0.6987,1059,0.2381,0.4244
+Jóia,2004,nov,low green,93,0.4434,41,0.1797,0.3719
+Jóia,2004,nov,green,1516,0.9939,1507,0.1981,0.3119
+Jóia,2004,apr,low green,93,0.2436,22,0.2317,0.4385
+Jóia,2004,apr,green,1516,0.2301,354,0.2209,0.4358
+Jóia,2005,oct,low green,343,0.446,153,0.2077,0.4434
+Jóia,2005,oct,green,520,0.0419,23,0.2593,0.4634
+Jóia,2005,nov,low green,343,0.7182,248,0.1861,0.3741
+Jóia,2005,nov,green,520,0.965,501,0.2204,0.3497
+Jóia,2005,apr,low green,343,0.409,142,0.2317,0.4309
+Jóia,2005,apr,green,520,0.6404,330,0.2341,0.4147
+Jóia,2006,oct,low green,156,0.6668,104,0.2121,0.4261
+Jóia,2006,oct,green,1421,0.4203,591,0.2632,0.4453
+Jóia,2006,nov,low green,156,0.57,88,0.1997,0.3707
+Jóia,2006,nov,green,1421,0.9889,1404,0.2164,0.3177
+Jóia,2006,apr,low green,156,0.458,72,0.2245,0.4255
+Jóia,2006,apr,green,1421,0.7887,1116,0.2242,0.4096
+Jóia,2007,oct,low green,262,0.4181,110,0.1961,0.4223
+Jóia,2007,oct,green,1236,0.2748,335,0.2401,0.4463
+Jóia,2007,nov,low green,262,0.6157,162,0.1823,0.3699
+Jóia,2007,nov,green,1236,0.9877,1218,0.1931,0.3117
+Jóia,2007,apr,low green,262,0.5107,132,0.2359,0.4156
+Jóia,2007,apr,green,1236,0.7298,901,0.2313,0.4122
+Jóia,2008,oct,low green,131,0.6888,92,0.2174,0.4198
+Jóia,2008,oct,green,1715,0.1399,239,0.2563,0.4576
+Jóia,2008,nov,low green,131,0.4873,62,0.2011,0.3695
+Jóia,2008,nov,green,1715,0.9969,1709,0.2337,0.3078
+Jóia,2008,apr,low green,131,0.7515,96,0.2161,0.381
+Jóia,2008,apr,green,1715,0.9192,1569,0.2308,0.3808
+Jóia,2009,oct,low green,74,0.6106,45,0.2062,0.3986
+Jóia,2009,oct,green,2004,0.1342,265,0.267,0.4544
+Jóia,2009,nov,low green,74,0.5226,39,0.2191,0.4108
+Jóia,2009,nov,green,2004,0.9743,1951,0.2404,0.35
+Jóia,2009,apr,low green,74,0.6321,47,0.2223,0.3603
+Jóia,2009,apr,green,2004,0.8729,1743,0.2254,0.3829
+Jóia,2010,oct,low green,111,0.6883,76,0.1829,0.3965
+Jóia,2010,oct,green,1688,0.2728,455,0.2379,0.4294
+Jóia,2010,nov,low green,111,0.849,93,0.1737,0.3481
+Jóia,2010,nov,green,1688,0.995,1678,0.2027,0.2993
+Jóia,2010,apr,low green,111,0.7627,83,0.2152,0.3984
+Jóia,2010,apr,green,1688,0.9189,1545,0.21,0.369
+Jóia,2011,oct,low green,112,0.6607,74,0.1974,0.4229
+Jóia,2011,oct,green,1743,0.2353,404,0.2559,0.4485
+Jóia,2011,nov,low green,112,0.6071,68,0.1745,0.3661
+Jóia,2011,nov,green,1743,0.9944,1730,0.22,0.2946
+Jóia,2011,apr,low green,112,0.6518,73,0.1739,0.3752
+Jóia,2011,apr,green,1743,0.9185,1595,0.1936,0.3641
+Jóia,2012,oct,low green,86,0.673,58,0.1997,0.3891
+Jóia,2012,oct,green,1776,0.5769,1020,0.254,0.4264
+Jóia,2012,nov,low green,86,0.6413,55,0.1653,0.3467
+Jóia,2012,nov,green,1776,0.9981,1772,0.2058,0.2916
+Jóia,2012,apr,low green,86,0.5821,50,0.213,0.3743
+Jóia,2012,apr,green,1776,0.8682,1536,0.219,0.386
+Jóia,2013,oct,low green,113,0.7966,90,0.2157,0.4025
+Jóia,2013,oct,green,2068,0.1539,312,0.2637,0.4517
+Jóia,2013,nov,low green,113,0.539,61,0.1718,0.327
+Jóia,2013,nov,green,2068,0.9915,2050,0.2307,0.3101
+Jóia,2013,apr,low green,113,0.5123,58,0.2021,0.3567
+Jóia,2013,apr,green,2068,0.9282,1916,0.2084,0.3777
+Jóia,2014,oct,low green,147,0.4742,69,0.2142,0.408
+Jóia,2014,oct,green,1758,0.2317,406,0.2705,0.4506
+Jóia,2014,nov,low green,147,0.5735,84,0.1648,0.3337
+Jóia,2014,nov,green,1758,0.9913,1739,0.2168,0.3092
+Jóia,2014,apr,low green,147,0.63,93,0.2053,0.3564
+Jóia,2014,apr,green,1758,0.9741,1710,0.2231,0.3519
+Jóia,2015,oct,low green,391,0.9512,372,0.2007,0.3581
+Jóia,2015,oct,green,1280,0.6162,786,0.2449,0.4195
+Jóia,2015,nov,low green,391,0.8519,335,0.1773,0.3487
+Jóia,2015,nov,green,1280,0.991,1268,0.1979,0.3271
+Jóia,2015,apr,low green,391,0.8229,324,0.1973,0.3795
+Jóia,2015,apr,green,1280,0.9186,1176,0.1936,0.3837
+Jóia,2016,oct,low green,146,0.521,76,0.1924,0.4191
+Jóia,2016,oct,green,1649,0.4024,660,0.2455,0.4307
+Jóia,2016,nov,low green,146,0.4814,69,0.1879,0.381
+Jóia,2016,nov,green,1649,0.994,1637,0.2187,0.3118
+Jóia,2016,apr,low green,146,0.6226,91,0.2326,0.3791
+Jóia,2016,apr,green,1649,0.9614,1584,0.227,0.371
+Jóia,2017,oct,low green,714,0.6808,489,0.1945,0.4029
+Jóia,2017,oct,green,272,0.4046,108,0.2395,0.4426
+Jóia,2017,nov,low green,714,0.8765,627,0.1613,0.3306
+Jóia,2017,nov,green,272,0.9948,270,0.1985,0.3083
+Jóia,2017,apr,low green,714,0.8514,608,0.2195,0.3813
+Jóia,2017,apr,green,272,0.9368,254,0.2298,0.3883
+Jóia,2018,oct,low green,181,0.6386,115,0.1954,0.3684
+Jóia,2018,oct,green,1856,0.4625,863,0.2432,0.4335
+Jóia,2018,nov,low green,181,0.5523,98,0.1935,0.3716
+Jóia,2018,nov,green,1856,0.9914,1840,0.2241,0.3165
+Jóia,2018,apr,low green,181,0.5313,97,0.2352,0.3991
+Jóia,2018,apr,green,1856,0.9441,1750,0.2372,0.3835
+Jóia,2019,oct,low green,172,0.6275,109,0.2052,0.4016
+Jóia,2019,oct,green,1713,0.4794,821,0.2485,0.4271
+Jóia,2019,nov,low green,172,0.5997,104,0.1691,0.358
+Jóia,2019,nov,green,1713,0.9963,1706,0.2014,0.31
+Jóia,2019,apr,low green,172,0.7459,127,0.1953,0.38
+Jóia,2019,apr,green,1713,0.9958,1706,0.1803,0.33
+Jóia,2020,oct,low green,157,0.5509,86,0.2102,0.4131
+Jóia,2020,oct,green,1870,0.7569,1408,0.2434,0.4122
+Jóia,2020,nov,low green,157,0.4159,63,0.1852,0.3476
+Jóia,2020,nov,green,1870,0.9939,1859,0.2082,0.2811
+Jóia,2020,apr,low green,157,0.4556,70,0.2355,0.4124
+Jóia,2020,apr,green,1870,0.7711,1439,0.2375,0.4058
+Jóia,2021,oct,low green,125,0.3147,39,0.2114,0.4027
+Jóia,2021,oct,green,1856,0.35,649,0.2519,0.433
+Jóia,2021,nov,low green,125,0.4368,55,0.2032,0.3408
+Jóia,2021,nov,green,1856,0.9944,1846,0.2167,0.3088
+Jóia,2021,apr,low green,125,0.3126,39,0.2131,0.4218
+Jóia,2021,apr,green,1856,0.53,990,0.2054,0.4147
+Jóia,2022,oct,low green,133,0.2312,30,0.2217,0.4143
+Jóia,2022,oct,green,2294,0.1182,267,0.2645,0.4458
+Jóia,2022,nov,low green,133,0.1711,23,0.2141,0.3852
+Jóia,2022,nov,green,2294,0.9861,2259,0.2343,0.3233
+Jóia,2022,apr,low green,133,0.1156,15,0.1818,0.3923
+Jóia,2022,apr,green,2294,0.7247,1653,0.2024,0.4124
+Jóia,2023,oct,low green,125,0.5047,64,0.209,0.386
+Jóia,2023,oct,green,2204,0.5356,1180,0.2574,0.4163
+Jóia,2023,nov,low green,125,0.3962,49,0.203,0.3454
+Jóia,2023,nov,green,2204,0.9746,2148,0.2064,0.3385
+Jóia,2023,apr,low green,125,0.2476,30,0.2568,0.4148
+Jóia,2023,apr,green,2204,0.6871,1519,0.2474,0.4101
+Jóia,2024,oct,low green,114,0.1665,19,0.1834,0.397
+Jóia,2024,oct,green,2166,0.2207,478,0.2509,0.4443
+Jóia,2024,nov,low green,114,0.2052,23,0.1846,0.3481
+Jóia,2024,nov,green,2166,0.9648,2084,0.2245,0.3325
+Jóia,2024,apr,low green,114,0.2052,23,0.1564,0.3628
+Jóia,2024,apr,green,2166,0.8829,1908,0.1719,0.3781
+São Miguel das Missões,2002,oct,low green,143,0.7545,108,0.1845,0.3969
+São Miguel das Missões,2002,oct,green,727,0.3348,241,0.2435,0.4375
+São Miguel das Missões,2002,nov,low green,143,0.8597,123,0.1845,0.3562
+São Miguel das Missões,2002,nov,green,727,0.9741,708,0.2115,0.3322
+São Miguel das Missões,2002,apr,low green,143,0.3086,44,0.246,0.4111
+São Miguel das Missões,2002,apr,green,727,0.5155,374,0.2515,0.4044
+São Miguel das Missões,2003,oct,low green,95,0.6402,60,0.2059,0.4186
+São Miguel das Missões,2003,oct,green,997,0.6202,619,0.2605,0.4272
+São Miguel das Missões,2003,nov,low green,95,0.7803,73,0.176,0.335
+São Miguel das Missões,2003,nov,green,997,0.9982,995,0.2143,0.2899
+São Miguel das Missões,2003,apr,low green,95,0.8126,76,0.1947,0.3879
+São Miguel das Missões,2003,apr,green,997,0.9308,927,0.2007,0.3769
+São Miguel das Missões,2004,oct,low green,103,0.8056,83,0.1735,0.3693
+São Miguel das Missões,2004,oct,green,1029,0.8493,875,0.2288,0.4043
+São Miguel das Missões,2004,nov,low green,103,0.6886,71,0.1503,0.3156
+São Miguel das Missões,2004,nov,green,1029,1.0,1029,0.1923,0.2967
+São Miguel das Missões,2004,apr,low green,103,0.0584,6,0.2252,0.4771
+São Miguel das Missões,2004,apr,green,1029,0.3616,373,0.2164,0.4269
+São Miguel das Missões,2005,oct,low green,437,0.5573,239,0.2031,0.4302
+São Miguel das Missões,2005,oct,green,402,0.0828,32,0.2605,0.4647
+São Miguel das Missões,2005,nov,low green,437,0.7889,344,0.1711,0.3576
+São Miguel das Missões,2005,nov,green,402,0.9819,395,0.2165,0.3236
+São Miguel das Missões,2005,apr,low green,437,0.3544,152,0.2199,0.4381
+São Miguel das Missões,2005,apr,green,402,0.526,214,0.2219,0.3978
+São Miguel das Missões,2006,oct,low green,286,0.6663,187,0.1928,0.4002
+São Miguel das Missões,2006,oct,green,877,0.6023,522,0.2515,0.4253
+São Miguel das Missões,2006,nov,low green,286,0.5884,166,0.1729,0.3475
+São Miguel das Missões,2006,nov,green,877,0.9953,873,0.2102,0.312
+São Miguel das Missões,2006,apr,low green,286,0.4378,122,0.2168,0.4046
+São Miguel das Missões,2006,apr,green,877,0.6749,593,0.2272,0.4135
+São Miguel das Missões,2007,oct,low green,270,0.5024,135,0.1989,0.4458
+São Miguel das Missões,2007,oct,green,912,0.3419,304,0.2408,0.4531
+São Miguel das Missões,2007,nov,low green,270,0.5776,156,0.1784,0.3582
+São Miguel das Missões,2007,nov,green,912,0.989,902,0.189,0.2902
+São Miguel das Missões,2007,apr,low green,270,0.4087,111,0.2195,0.4306
+São Miguel das Missões,2007,apr,green,912,0.6591,602,0.2153,0.4008
+São Miguel das Missões,2008,oct,low green,231,0.4475,106,0.1918,0.4039
+São Miguel das Missões,2008,oct,green,1162,0.2107,242,0.2506,0.4403
+São Miguel das Missões,2008,nov,low green,231,0.4317,102,0.1805,0.3679
+São Miguel das Missões,2008,nov,green,1162,0.9955,1156,0.2246,0.2951
+São Miguel das Missões,2008,apr,low green,231,0.451,107,0.2116,0.3821
+São Miguel das Missões,2008,apr,green,1162,0.7694,892,0.2302,0.3914
+São Miguel das Missões,2009,oct,low green,153,0.312,49,0.194,0.4107
+São Miguel das Missões,2009,oct,green,1459,0.1519,217,0.2588,0.4582
+São Miguel das Missões,2009,nov,low green,153,0.2314,36,0.1978,0.3792
+São Miguel das Missões,2009,nov,green,1459,0.9744,1422,0.2353,0.3476
+São Miguel das Missões,2009,apr,low green,153,0.2715,42,0.2177,0.3969
+São Miguel das Missões,2009,apr,green,1459,0.6947,1014,0.2293,0.383
+São Miguel das Missões,2010,oct,low green,159,0.5298,84,0.1976,0.408
+São Miguel das Missões,2010,oct,green,1238,0.329,406,0.249,0.4418
+São Miguel das Missões,2010,nov,low green,159,0.4607,74,0.1809,0.3474
+São Miguel das Missões,2010,nov,green,1238,0.9932,1228,0.203,0.29
+São Miguel das Missões,2010,apr,low green,159,0.4536,73,0.2062,0.3639
+São Miguel das Missões,2010,apr,green,1238,0.8439,1044,0.2082,0.3678
+São Miguel das Missões,2011,oct,low green,192,0.4772,90,0.1938,0.3971
+São Miguel das Missões,2011,oct,green,1347,0.2881,383,0.253,0.4413
+São Miguel das Missões,2011,nov,low green,192,0.371,72,0.1809,0.3654
+São Miguel das Missões,2011,nov,green,1347,0.9934,1337,0.2148,0.2916
+São Miguel das Missões,2011,apr,low green,192,0.5306,100,0.1606,0.3385
+São Miguel das Missões,2011,apr,green,1347,0.8772,1180,0.1951,0.3723
+São Miguel das Missões,2012,oct,low green,191,0.4902,95,0.1878,0.3768
+São Miguel das Missões,2012,oct,green,1168,0.5734,670,0.2466,0.4092
+São Miguel das Missões,2012,nov,low green,191,0.4452,85,0.1651,0.3359
+São Miguel das Missões,2012,nov,green,1168,0.9973,1164,0.2036,0.2913
+São Miguel das Missões,2012,apr,low green,191,0.3702,71,0.2123,0.3645
+São Miguel das Missões,2012,apr,green,1168,0.7596,880,0.2184,0.3796
+São Miguel das Missões,2013,oct,low green,215,0.5378,116,0.214,0.425
+São Miguel das Missões,2013,oct,green,1584,0.1979,309,0.2613,0.4484
+São Miguel das Missões,2013,nov,low green,215,0.3225,72,0.2051,0.3891
+São Miguel das Missões,2013,nov,green,1584,0.9965,1578,0.2276,0.2993
+São Miguel das Missões,2013,apr,low green,215,0.3227,72,0.2134,0.4007
+São Miguel das Missões,2013,apr,green,1584,0.8971,1422,0.2117,0.3743
+São Miguel das Missões,2014,oct,low green,224,0.2591,57,0.1949,0.3983
+São Miguel das Missões,2014,oct,green,1394,0.3618,496,0.2666,0.4463
+São Miguel das Missões,2014,nov,low green,224,0.348,77,0.1692,0.3559
+São Miguel das Missões,2014,nov,green,1394,0.9874,1377,0.2152,0.2998
+São Miguel das Missões,2014,apr,low green,224,0.33,73,0.2203,0.3864
+São Miguel das Missões,2014,apr,green,1394,0.9557,1333,0.2179,0.3518
+São Miguel das Missões,2015,oct,low green,380,0.6544,249,0.2022,0.3485
+São Miguel das Missões,2015,oct,green,1047,0.6852,708,0.244,0.4022
+São Miguel das Missões,2015,nov,low green,380,0.6476,247,0.1797,0.3459
+São Miguel das Missões,2015,nov,green,1047,0.9747,1019,0.1966,0.3168
+São Miguel das Missões,2015,apr,low green,380,0.5859,224,0.1969,0.3692
+São Miguel das Missões,2015,apr,green,1047,0.8602,896,0.1969,0.3817
+São Miguel das Missões,2016,oct,low green,292,0.4058,118,0.2073,0.4309
+São Miguel das Missões,2016,oct,green,1374,0.3683,505,0.2507,0.4325
+São Miguel das Missões,2016,nov,low green,292,0.343,101,0.1811,0.3373
+São Miguel das Missões,2016,nov,green,1374,0.9852,1352,0.218,0.3025
+São Miguel das Missões,2016,apr,low green,292,0.4545,133,0.2325,0.3851
+São Miguel das Missões,2016,apr,green,1374,0.9649,1324,0.221,0.3601
+São Miguel das Missões,2017,oct,low green,749,0.5079,379,0.1951,0.4072
+São Miguel das Missões,2017,oct,green,272,0.4399,115,0.2423,0.4471
+São Miguel das Missões,2017,nov,low green,749,0.7603,568,0.1705,0.3201
+São Miguel das Missões,2017,nov,green,272,0.9842,268,0.1961,0.3029
+São Miguel das Missões,2017,apr,low green,749,0.7264,543,0.2155,0.3611
+São Miguel das Missões,2017,apr,green,272,0.921,252,0.2292,0.376
+São Miguel das Missões,2018,oct,low green,183,0.2713,51,0.2158,0.4205
+São Miguel das Missões,2018,oct,green,1658,0.5115,837,0.2467,0.4341
+São Miguel das Missões,2018,nov,low green,183,0.2191,42,0.1728,0.3158
+São Miguel das Missões,2018,nov,green,1658,0.9865,1635,0.2225,0.3026
+São Miguel das Missões,2018,apr,low green,183,0.2248,43,0.2297,0.3817
+São Miguel das Missões,2018,apr,green,1658,0.9294,1538,0.2357,0.3847
+São Miguel das Missões,2019,oct,low green,286,0.2798,79,0.1957,0.4101
+São Miguel das Missões,2019,oct,green,1381,0.5232,718,0.245,0.4202
+São Miguel das Missões,2019,nov,low green,286,0.2436,70,0.1822,0.3773
+São Miguel das Missões,2019,nov,green,1381,0.9826,1358,0.2061,0.3125
+São Miguel das Missões,2019,apr,low green,286,0.4525,129,0.1893,0.3718
+São Miguel das Missões,2019,apr,green,1381,0.9833,1357,0.1858,0.3257
+São Miguel das Missões,2020,oct,low green,188,0.266,50,0.2007,0.3921
+São Miguel das Missões,2020,oct,green,1627,0.786,1266,0.2455,0.413
+São Miguel das Missões,2020,nov,low green,188,0.2287,43,0.2066,0.3732
+São Miguel das Missões,2020,nov,green,1627,0.9929,1615,0.205,0.2817
+São Miguel das Missões,2020,apr,low green,188,0.1011,19,0.2394,0.3856
+São Miguel das Missões,2020,apr,green,1627,0.7249,1176,0.2368,0.3996
+São Miguel das Missões,2021,oct,low green,279,0.1543,42,0.2109,0.4062
+São Miguel das Missões,2021,oct,green,1204,0.4591,547,0.2497,0.423
+São Miguel das Missões,2021,nov,low green,279,0.2497,68,0.1988,0.3665
+São Miguel das Missões,2021,nov,green,1204,0.9887,1191,0.2201,0.3077
+São Miguel das Missões,2021,apr,low green,279,0.2111,58,0.1942,0.4122
+São Miguel das Missões,2021,apr,green,1204,0.6159,731,0.2033,0.4098
+São Miguel das Missões,2022,oct,low green,238,0.0821,19,0.2087,0.4539
+São Miguel das Missões,2022,oct,green,1838,0.1333,243,0.2608,0.4518
+São Miguel das Missões,2022,nov,low green,238,0.0562,13,0.1778,0.3489
+São Miguel das Missões,2022,nov,green,1838,0.9757,1793,0.2309,0.3183
+São Miguel das Missões,2022,apr,low green,238,0.1206,30,0.1845,0.4081
+São Miguel das Missões,2022,apr,green,1838,0.7386,1344,0.1986,0.3989
+São Miguel das Missões,2023,oct,low green,242,0.1222,29,0.228,0.4247
+São Miguel das Missões,2023,oct,green,1638,0.6604,1072,0.2549,0.4025
+São Miguel das Missões,2023,nov,low green,242,0.0506,12,0.2352,0.4258
+São Miguel das Missões,2023,nov,green,1638,0.9437,1545,0.2077,0.3409
+São Miguel das Missões,2023,apr,low green,242,0.0295,7,0.2251,0.4126
+São Miguel das Missões,2023,apr,green,1638,0.6869,1120,0.2442,0.4089
+São Miguel das Missões,2024,oct,low green,178,0.0683,12,0.1799,0.3971
+São Miguel das Missões,2024,oct,green,1793,0.3488,621,0.2489,0.4356
+São Miguel das Missões,2024,nov,low green,178,0.0652,12,0.1976,0.3525
+São Miguel das Missões,2024,nov,green,1793,0.9441,1692,0.2258,0.3267
+São Miguel das Missões,2024,apr,low green,178,0.0595,11,0.1874,0.3434
+São Miguel das Missões,2024,apr,green,1793,0.7924,1413,0.1888,0.3789
+São Luiz Gonzaga,2002,oct,low green,157,0.733,115,0.2141,0.4045
+São Luiz Gonzaga,2002,oct,green,626,0.6687,417,0.223,0.414
+São Luiz Gonzaga,2002,nov,low green,157,0.5856,92,0.2067,0.3799
+São Luiz Gonzaga,2002,nov,green,626,0.9772,612,0.2181,0.3292
+São Luiz Gonzaga,2002,apr,low green,157,0.2603,41,0.2622,0.449
+São Luiz Gonzaga,2002,apr,green,626,0.4133,259,0.2681,0.4402
+São Luiz Gonzaga,2003,oct,low green,153,0.5743,87,0.2154,0.4288
+São Luiz Gonzaga,2003,oct,green,732,0.8444,617,0.2529,0.3937
+São Luiz Gonzaga,2003,nov,low green,153,0.5811,88,0.1932,0.3401
+São Luiz Gonzaga,2003,nov,green,732,0.9958,729,0.2204,0.2793
+São Luiz Gonzaga,2003,apr,low green,153,0.4666,71,0.2151,0.4201
+São Luiz Gonzaga,2003,apr,green,732,0.6948,507,0.2176,0.4122
+São Luiz Gonzaga,2004,oct,low green,108,0.5334,58,0.1867,0.3859
+São Luiz Gonzaga,2004,oct,green,852,0.9277,789,0.2322,0.3788
+São Luiz Gonzaga,2004,nov,low green,108,0.5437,60,0.1642,0.3197
+São Luiz Gonzaga,2004,nov,green,852,0.995,847,0.207,0.2867
+São Luiz Gonzaga,2004,apr,low green,108,0.1675,17,0.2042,0.4293
+São Luiz Gonzaga,2004,apr,green,852,0.0757,65,0.2325,0.4542
+São Luiz Gonzaga,2005,oct,low green,474,0.2873,138,0.2042,0.4539
+São Luiz Gonzaga,2005,oct,green,267,0.1707,45,0.2534,0.4663
+São Luiz Gonzaga,2005,nov,low green,474,0.5333,255,0.1868,0.3707
+São Luiz Gonzaga,2005,nov,green,267,1.0,267,0.2204,0.3217
+São Luiz Gonzaga,2005,apr,low green,474,0.1103,52,0.2323,0.4553
+São Luiz Gonzaga,2005,apr,green,267,0.1631,43,0.2509,0.4489
+São Luiz Gonzaga,2006,oct,low green,349,0.7042,244,0.1999,0.409
+São Luiz Gonzaga,2006,oct,green,854,0.713,607,0.2574,0.422
+São Luiz Gonzaga,2006,nov,low green,349,0.5798,202,0.1874,0.3696
+São Luiz Gonzaga,2006,nov,green,854,0.975,832,0.2229,0.328
+São Luiz Gonzaga,2006,apr,low green,349,0.2461,86,0.2385,0.4401
+São Luiz Gonzaga,2006,apr,green,854,0.4364,371,0.2521,0.4451
+São Luiz Gonzaga,2007,oct,low green,357,0.4053,144,0.2068,0.4431
+São Luiz Gonzaga,2007,oct,green,769,0.3327,256,0.2504,0.4519
+São Luiz Gonzaga,2007,nov,low green,357,0.4971,175,0.188,0.3563
+São Luiz Gonzaga,2007,nov,green,769,0.9891,760,0.2058,0.3026
+São Luiz Gonzaga,2007,apr,low green,357,0.3295,117,0.2181,0.4257
+São Luiz Gonzaga,2007,apr,green,769,0.6228,477,0.2231,0.42
+São Luiz Gonzaga,2008,oct,low green,415,0.2608,106,0.2228,0.4284
+São Luiz Gonzaga,2008,oct,green,842,0.3119,264,0.2708,0.4466
+São Luiz Gonzaga,2008,nov,low green,415,0.3914,161,0.2289,0.3991
+São Luiz Gonzaga,2008,nov,green,842,0.994,837,0.2474,0.311
+São Luiz Gonzaga,2008,apr,low green,415,0.345,142,0.2245,0.429
+São Luiz Gonzaga,2008,apr,green,842,0.6944,582,0.2399,0.4104
+São Luiz Gonzaga,2009,oct,low green,146,0.1414,21,0.2041,0.4022
+São Luiz Gonzaga,2009,oct,green,1357,0.214,286,0.2809,0.4626
+São Luiz Gonzaga,2009,nov,low green,146,0.2049,30,0.2072,0.3921
+São Luiz Gonzaga,2009,nov,green,1357,0.9619,1303,0.2474,0.3461
+São Luiz Gonzaga,2009,apr,low green,146,0.1696,25,0.2238,0.4104
+São Luiz Gonzaga,2009,apr,green,1357,0.5058,678,0.2413,0.4204
+São Luiz Gonzaga,2010,oct,low green,183,0.317,59,0.1906,0.4203
+São Luiz Gonzaga,2010,oct,green,1140,0.4768,539,0.2541,0.4347
+São Luiz Gonzaga,2010,nov,low green,183,0.4546,84,0.1946,0.3727
+São Luiz Gonzaga,2010,nov,green,1140,0.9965,1136,0.2031,0.2859
+São Luiz Gonzaga,2010,apr,low green,183,0.367,68,0.2242,0.4035
+São Luiz Gonzaga,2010,apr,green,1140,0.8995,1026,0.2155,0.3657
+São Luiz Gonzaga,2011,oct,low green,156,0.3256,49,0.1908,0.4002
+São Luiz Gonzaga,2011,oct,green,1221,0.4425,541,0.2666,0.4375
+São Luiz Gonzaga,2011,nov,low green,156,0.3837,60,0.1748,0.3756
+São Luiz Gonzaga,2011,nov,green,1221,0.9908,1210,0.2204,0.2941
+São Luiz Gonzaga,2011,apr,low green,156,0.6781,104,0.1704,0.3523
+São Luiz Gonzaga,2011,apr,green,1221,0.9269,1131,0.1872,0.3434
+São Luiz Gonzaga,2012,oct,low green,147,0.376,55,0.2001,0.408
+São Luiz Gonzaga,2012,oct,green,1078,0.7504,810,0.2426,0.393
+São Luiz Gonzaga,2012,nov,low green,147,0.3384,50,0.1758,0.366
+São Luiz Gonzaga,2012,nov,green,1078,0.999,1077,0.2077,0.287
+São Luiz Gonzaga,2012,apr,low green,147,0.2674,39,0.2176,0.3959
+São Luiz Gonzaga,2012,apr,green,1078,0.687,741,0.2245,0.3989
+São Luiz Gonzaga,2013,oct,low green,180,0.4278,77,0.1903,0.4085
+São Luiz Gonzaga,2013,oct,green,1506,0.2147,320,0.2695,0.4465
+São Luiz Gonzaga,2013,nov,low green,180,0.3653,65,0.1723,0.3614
+São Luiz Gonzaga,2013,nov,green,1506,0.9847,1483,0.2304,0.303
+São Luiz Gonzaga,2013,apr,low green,180,0.4156,74,0.2082,0.3743
+São Luiz Gonzaga,2013,apr,green,1506,0.8772,1320,0.2096,0.3841
+São Luiz Gonzaga,2014,oct,low green,257,0.2727,68,0.2017,0.4003
+São Luiz Gonzaga,2014,oct,green,1272,0.4051,514,0.2787,0.444
+São Luiz Gonzaga,2014,nov,low green,257,0.3315,85,0.1751,0.3521
+São Luiz Gonzaga,2014,nov,green,1272,0.9848,1252,0.2224,0.3104
+São Luiz Gonzaga,2014,apr,low green,257,0.4181,107,0.2393,0.393
+São Luiz Gonzaga,2014,apr,green,1272,0.9199,1171,0.2338,0.3667
+São Luiz Gonzaga,2015,oct,low green,336,0.4061,138,0.2109,0.3877
+São Luiz Gonzaga,2015,oct,green,1049,0.6936,726,0.2396,0.4048
+São Luiz Gonzaga,2015,nov,low green,336,0.4574,154,0.1701,0.3384
+São Luiz Gonzaga,2015,nov,green,1049,0.9668,1013,0.2031,0.3316
+São Luiz Gonzaga,2015,apr,low green,336,0.3686,124,0.2019,0.394
+São Luiz Gonzaga,2015,apr,green,1049,0.7793,813,0.2126,0.4046
+São Luiz Gonzaga,2016,oct,low green,335,0.3086,105,0.2056,0.4054
+São Luiz Gonzaga,2016,oct,green,1264,0.4337,544,0.2597,0.4449
+São Luiz Gonzaga,2016,nov,low green,335,0.2621,86,0.1786,0.3487
+São Luiz Gonzaga,2016,nov,green,1264,0.9802,1239,0.2175,0.3072
+São Luiz Gonzaga,2016,apr,low green,335,0.2899,95,0.2335,0.3769
+São Luiz Gonzaga,2016,apr,green,1264,0.9278,1174,0.2243,0.3704
+São Luiz Gonzaga,2017,oct,low green,702,0.3628,254,0.2001,0.4218
+São Luiz Gonzaga,2017,oct,green,234,0.4821,114,0.2432,0.447
+São Luiz Gonzaga,2017,nov,low green,702,0.6628,462,0.1806,0.346
+São Luiz Gonzaga,2017,nov,green,234,0.9956,233,0.2044,0.3075
+São Luiz Gonzaga,2017,apr,low green,702,0.6082,425,0.2243,0.3828
+São Luiz Gonzaga,2017,apr,green,234,0.9377,219,0.2294,0.3728
+São Luiz Gonzaga,2018,oct,low green,197,0.2719,53,0.2098,0.4135
+São Luiz Gonzaga,2018,oct,green,1449,0.4352,629,0.2518,0.4402
+São Luiz Gonzaga,2018,nov,low green,197,0.2925,57,0.1603,0.3305
+São Luiz Gonzaga,2018,nov,green,1449,0.9588,1385,0.2358,0.3165
+São Luiz Gonzaga,2018,apr,low green,197,0.3335,65,0.2361,0.3715
+São Luiz Gonzaga,2018,apr,green,1449,0.8763,1265,0.2397,0.3909
+São Luiz Gonzaga,2019,oct,low green,273,0.279,76,0.2033,0.4132
+São Luiz Gonzaga,2019,oct,green,1173,0.4721,553,0.2591,0.436
+São Luiz Gonzaga,2019,nov,low green,273,0.3074,84,0.176,0.3791
+São Luiz Gonzaga,2019,nov,green,1173,0.9826,1151,0.2092,0.3187
+São Luiz Gonzaga,2019,apr,low green,273,0.3563,97,0.1934,0.3633
+São Luiz Gonzaga,2019,apr,green,1173,0.9765,1144,0.2036,0.335
+São Luiz Gonzaga,2020,oct,low green,230,0.2947,70,0.1934,0.4023
+São Luiz Gonzaga,2020,oct,green,1425,0.9286,1324,0.2459,0.3942
+São Luiz Gonzaga,2020,nov,low green,230,0.3791,90,0.1951,0.3782
+São Luiz Gonzaga,2020,nov,green,1425,0.9921,1414,0.2098,0.2748
+São Luiz Gonzaga,2020,apr,low green,230,0.1173,28,0.2566,0.4447
+São Luiz Gonzaga,2020,apr,green,1425,0.6441,915,0.2379,0.4155
+São Luiz Gonzaga,2021,oct,low green,338,0.1374,46,0.2008,0.4137
+São Luiz Gonzaga,2021,oct,green,1123,0.4345,490,0.2522,0.432
+São Luiz Gonzaga,2021,nov,low green,338,0.1925,65,0.1892,0.3483
+São Luiz Gonzaga,2021,nov,green,1123,0.9878,1108,0.2137,0.3153
+São Luiz Gonzaga,2021,apr,low green,338,0.2204,74,0.1835,0.3823
+São Luiz Gonzaga,2021,apr,green,1123,0.6997,781,0.1962,0.4128
+São Luiz Gonzaga,2022,oct,low green,349,0.1328,46,0.2071,0.4326
+São Luiz Gonzaga,2022,oct,green,1613,0.1033,166,0.2609,0.4504
+São Luiz Gonzaga,2022,nov,low green,349,0.0687,25,0.1736,0.3477
+São Luiz Gonzaga,2022,nov,green,1613,0.9648,1554,0.2347,0.3242
+São Luiz Gonzaga,2022,apr,low green,349,0.1919,68,0.1815,0.3878
+São Luiz Gonzaga,2022,apr,green,1613,0.867,1395,0.1809,0.3729
+São Luiz Gonzaga,2023,oct,low green,370,0.2557,94,0.2062,0.4077
+São Luiz Gonzaga,2023,oct,green,1339,0.7833,1044,0.2527,0.3884
+São Luiz Gonzaga,2023,nov,low green,370,0.1746,64,0.17,0.3722
+São Luiz Gonzaga,2023,nov,green,1339,0.9292,1239,0.2088,0.3498
+São Luiz Gonzaga,2023,apr,low green,370,0.1471,54,0.2475,0.3814
+São Luiz Gonzaga,2023,apr,green,1339,0.6958,923,0.2476,0.4013
+São Luiz Gonzaga,2024,oct,low green,176,0.0574,10,0.1814,0.3952
+São Luiz Gonzaga,2024,oct,green,1623,0.3791,612,0.2596,0.4404
+São Luiz Gonzaga,2024,nov,low green,176,0.1007,18,0.1908,0.3608
+São Luiz Gonzaga,2024,nov,green,1623,0.9066,1468,0.2253,0.3325
+São Luiz Gonzaga,2024,apr,low green,176,0.0834,15,0.1568,0.3654
+São Luiz Gonzaga,2024,apr,green,1623,0.7532,1209,0.1706,0.3833
+Espumoso,2002,oct,low green,28,0.4472,13,0.2277,0.4484
+Espumoso,2002,oct,green,462,0.3207,149,0.2374,0.4559
+Espumoso,2002,nov,low green,28,0.6048,17,0.2027,0.4028
+Espumoso,2002,nov,green,462,0.9332,430,0.2112,0.3375
+Espumoso,2002,apr,low green,28,0.866,23,0.2399,0.4002
+Espumoso,2002,apr,green,462,0.9205,425,0.2247,0.373
+Espumoso,2003,oct,low green,39,0.1947,7,0.2163,0.461
+Espumoso,2003,oct,green,649,0.3026,196,0.2651,0.4624
+Espumoso,2003,nov,low green,39,0.6457,25,0.2124,0.3994
+Espumoso,2003,nov,green,649,0.9921,644,0.2195,0.3105
+Espumoso,2003,apr,low green,39,0.8053,32,0.2172,0.4039
+Espumoso,2003,apr,green,649,0.9912,643,0.1973,0.3406
+Espumoso,2004,oct,low green,21,0.8426,18,0.212,0.4635
+Espumoso,2004,oct,green,888,0.7022,622,0.2431,0.4384
+Espumoso,2004,nov,low green,21,0.7336,15,0.1781,0.3722
+Espumoso,2004,nov,green,888,0.9907,880,0.2085,0.3225
+Espumoso,2004,apr,low green,21,0.5279,12,0.2053,0.4421
+Espumoso,2004,apr,green,888,0.5242,462,0.2046,0.4299
+Espumoso,2005,oct,low green,107,0.726,77,0.2213,0.4388
+Espumoso,2005,oct,green,475,0.1087,53,0.2512,0.4751
+Espumoso,2005,nov,low green,107,0.6787,71,0.1976,0.3697
+Espumoso,2005,nov,green,475,0.9611,457,0.2241,0.3543
+Espumoso,2005,apr,low green,107,0.6861,71,0.2069,0.4
+Espumoso,2005,apr,green,475,0.8885,422,0.2159,0.3834
+Espumoso,2006,oct,low green,55,0.6724,37,0.2291,0.4353
+Espumoso,2006,oct,green,787,0.4809,381,0.2516,0.4437
+Espumoso,2006,nov,low green,55,0.5304,29,0.1882,0.3581
+Espumoso,2006,nov,green,787,0.9803,772,0.2101,0.3429
+Espumoso,2006,apr,low green,55,0.5382,30,0.2136,0.4174
+Espumoso,2006,apr,green,787,0.7503,593,0.2213,0.4163
+Espumoso,2007,oct,low green,48,0.3236,16,0.2122,0.4602
+Espumoso,2007,oct,green,803,0.0706,57,0.252,0.4703
+Espumoso,2007,nov,low green,48,0.3806,18,0.2104,0.4355
+Espumoso,2007,nov,green,803,0.9769,784,0.2134,0.3449
+Espumoso,2007,apr,low green,48,0.4541,22,0.2374,0.4458
+Espumoso,2007,apr,green,803,0.8772,705,0.2316,0.3932
+Espumoso,2008,oct,low green,26,0.8365,22,0.2295,0.4438
+Espumoso,2008,oct,green,1009,0.1332,135,0.2432,0.4657
+Espumoso,2008,nov,low green,26,0.2627,7,0.2334,0.4391
+Espumoso,2008,nov,green,1009,0.9811,990,0.2272,0.3381
+Espumoso,2008,apr,low green,26,0.5912,16,0.2086,0.3647
+Espumoso,2008,apr,green,1009,0.9079,916,0.2345,0.4061
+Espumoso,2009,oct,low green,13,0.7692,10,0.2248,0.4462
+Espumoso,2009,oct,green,1128,0.1394,155,0.2496,0.4484
+Espumoso,2009,nov,low green,13,0.5385,7,0.2147,0.4696
+Espumoso,2009,nov,green,1128,0.9194,1038,0.2368,0.3767
+Espumoso,2009,apr,low green,13,0.6923,9,0.231,0.3883
+Espumoso,2009,apr,green,1128,0.8956,1010,0.2123,0.3888
+Espumoso,2010,oct,low green,9,0.8323,7,0.2008,0.4503
+Espumoso,2010,oct,green,1012,0.3092,313,0.2428,0.4505
+Espumoso,2010,nov,low green,9,0.3808,3,0.1799,0.3477
+Espumoso,2010,nov,green,1012,0.9789,990,0.2093,0.3383
+Espumoso,2010,apr,low green,9,0.8323,7,0.2176,0.4059
+Espumoso,2010,apr,green,1012,0.9306,942,0.2109,0.3888
+Espumoso,2011,oct,low green,42,0.3417,14,0.2243,0.4671
+Espumoso,2011,oct,green,1023,0.1818,185,0.2527,0.4615
+Espumoso,2011,nov,low green,42,0.39,16,0.1977,0.4126
+Espumoso,2011,nov,green,1023,0.99,1013,0.2239,0.3255
+Espumoso,2011,apr,low green,42,0.6341,26,0.2,0.4343
+Espumoso,2011,apr,green,1023,0.9159,934,0.2189,0.4047
+Espumoso,2012,oct,low green,43,0.8664,37,0.1812,0.3898
+Espumoso,2012,oct,green,1036,0.6445,667,0.2432,0.4282
+Espumoso,2012,nov,low green,43,0.819,35,0.1733,0.3802
+Espumoso,2012,nov,green,1036,0.9931,1028,0.2099,0.3184
+Espumoso,2012,apr,low green,43,0.7479,32,0.2253,0.3972
+Espumoso,2012,apr,green,1036,0.9104,943,0.2249,0.393
+Espumoso,2013,oct,low green,20,0.5693,11,0.2175,0.4393
+Espumoso,2013,oct,green,1502,0.1039,158,0.2622,0.4671
+Espumoso,2013,nov,low green,20,0.4658,9,0.2013,0.4392
+Espumoso,2013,nov,green,1502,0.9782,1468,0.2363,0.3333
+Espumoso,2013,apr,low green,20,0.5693,11,0.2308,0.454
+Espumoso,2013,apr,green,1502,0.9076,1364,0.2122,0.396
+Espumoso,2014,oct,low green,24,0.1378,4,0.233,0.4478
+Espumoso,2014,oct,green,1170,0.256,302,0.2649,0.4542
+Espumoso,2014,nov,low green,24,0.2297,6,0.1984,0.4133
+Espumoso,2014,nov,green,1170,0.9785,1144,0.2116,0.3335
+Espumoso,2014,apr,low green,24,0.4866,12,0.2156,0.4337
+Espumoso,2014,apr,green,1170,0.9012,1057,0.2206,0.3928
+Espumoso,2015,oct,low green,79,0.9871,78,0.2253,0.3485
+Espumoso,2015,oct,green,845,0.6553,556,0.2452,0.4119
+Espumoso,2015,nov,low green,79,0.9228,73,0.1995,0.3569
+Espumoso,2015,nov,green,845,0.9444,796,0.1874,0.365
+Espumoso,2015,apr,low green,79,0.7941,63,0.2133,0.3973
+Espumoso,2015,apr,green,845,0.7273,617,0.225,0.4132
+Espumoso,2016,oct,low green,15,0.8462,12,0.2178,0.4023
+Espumoso,2016,oct,green,1360,0.4144,561,0.2573,0.4485
+Espumoso,2016,nov,low green,15,0.6347,9,0.1935,0.3335
+Espumoso,2016,nov,green,1360,0.987,1341,0.2225,0.3374
+Espumoso,2016,apr,low green,15,0.7052,10,0.2235,0.3999
+Espumoso,2016,apr,green,1360,0.8909,1215,0.229,0.4002
+Espumoso,2017,oct,low green,90,0.9534,85,0.2096,0.4135
+Espumoso,2017,oct,green,585,0.5983,351,0.2277,0.4241
+Espumoso,2017,nov,low green,90,0.9655,87,0.1743,0.3703
+Espumoso,2017,nov,green,585,0.9946,582,0.1917,0.3208
+Espumoso,2017,apr,low green,90,0.6763,61,0.2423,0.4115
+Espumoso,2017,apr,green,585,0.9066,531,0.2259,0.3841
+Espumoso,2018,oct,low green,13,0.6675,9,0.2155,0.3789
+Espumoso,2018,oct,green,1283,0.6016,771,0.2442,0.4306
+Espumoso,2018,nov,low green,13,0.4182,6,0.1885,0.4117
+Espumoso,2018,nov,green,1283,0.982,1259,0.2253,0.3414
+Espumoso,2018,apr,low green,13,0.1688,3,0.238,0.3631
+Espumoso,2018,apr,green,1283,0.8346,1072,0.2291,0.4092
+Espumoso,2019,oct,low green,22,0.5,11,0.2103,0.3779
+Espumoso,2019,oct,green,1294,0.4815,624,0.2461,0.436
+Espumoso,2019,nov,low green,22,0.5455,12,0.1779,0.3594
+Espumoso,2019,nov,green,1294,0.9738,1260,0.2003,0.33
+Espumoso,2019,apr,low green,22,0.6364,14,0.1785,0.3843
+Espumoso,2019,apr,green,1294,0.9831,1273,0.1771,0.3626
+Espumoso,2020,oct,low green,26,0.5385,14,0.2187,0.3763
+Espumoso,2020,oct,green,1245,0.7508,936,0.2459,0.4131
+Espumoso,2020,nov,low green,26,0.4615,12,0.2039,0.3492
+Espumoso,2020,nov,green,1245,0.9967,1241,0.2036,0.3052
+Espumoso,2020,apr,low green,26,0.3846,10,0.2008,0.343
+Espumoso,2020,apr,green,1245,0.9449,1175,0.2192,0.3731
+Espumoso,2021,oct,low green,21,0.2381,5,0.2165,0.4245
+Espumoso,2021,oct,green,1488,0.2428,361,0.2602,0.4546
+Espumoso,2021,nov,low green,21,0.2857,6,0.2025,0.4043
+Espumoso,2021,nov,green,1488,0.9964,1482,0.2234,0.3155
+Espumoso,2021,apr,low green,21,0.1429,3,0.1838,0.4093
+Espumoso,2021,apr,green,1488,0.2809,411,0.2192,0.4404
+Espumoso,2022,oct,low green,33,0.1216,4,0.2844,0.4324
+Espumoso,2022,oct,green,1454,0.0744,105,0.2527,0.461
+Espumoso,2022,nov,low green,33,0.152,5,0.2744,0.4428
+Espumoso,2022,nov,green,1454,0.9797,1425,0.2419,0.3458
+Espumoso,2022,apr,low green,33,0.0269,1,0.2859,0.4908
+Espumoso,2022,apr,green,1454,0.6926,1006,0.2087,0.4341
+Espumoso,2023,oct,low green,19,0.268,5,0.2155,0.4118
+Espumoso,2023,oct,green,1436,0.5587,800,0.2487,0.4237
+Espumoso,2023,nov,low green,19,0.1608,3,0.1874,0.3729
+Espumoso,2023,nov,green,1436,0.9699,1393,0.2111,0.3482
+Espumoso,2023,apr,low green,19,0.0536,1,0.3076,0.4915
+Espumoso,2023,apr,green,1436,0.6393,912,0.261,0.4216
+Espumoso,2024,oct,low green,30,0.1686,5,0.1878,0.4198
+Espumoso,2024,oct,green,1336,0.2833,370,0.2499,0.4562
+Espumoso,2024,nov,low green,30,0.2698,8,0.1582,0.379
+Espumoso,2024,nov,green,1336,0.9679,1294,0.2153,0.3453
+Espumoso,2024,apr,low green,30,0.3372,10,0.1765,0.43
+Espumoso,2024,apr,green,1336,0.8326,1113,0.1779,0.398
+Júlio de Castilhos,2002,oct,low green,197,0.2664,53,0.2218,0.4567
+Júlio de Castilhos,2002,oct,green,776,0.0411,32,0.235,0.4505
+Júlio de Castilhos,2002,nov,low green,197,0.5229,104,0.1968,0.4242
+Júlio de Castilhos,2002,nov,green,776,0.7467,580,0.231,0.4111
+Júlio de Castilhos,2002,apr,low green,197,0.2863,56,0.247,0.4425
+Júlio de Castilhos,2002,apr,green,776,0.4392,339,0.2537,0.4355
+Júlio de Castilhos,2003,oct,low green,260,0.3827,99,0.1817,0.4097
+Júlio de Castilhos,2003,oct,green,1030,0.0614,62,0.2532,0.4549
+Júlio de Castilhos,2003,nov,low green,260,0.7435,193,0.1804,0.4002
+Júlio de Castilhos,2003,nov,green,1030,0.954,982,0.2305,0.3744
+Júlio de Castilhos,2003,apr,low green,260,0.6771,176,0.228,0.4131
+Júlio de Castilhos,2003,apr,green,1030,0.8696,894,0.2295,0.4029
+Júlio de Castilhos,2004,oct,low green,136,0.4751,64,0.1906,0.4264
+Júlio de Castilhos,2004,oct,green,1607,0.2126,341,0.241,0.4474
+Júlio de Castilhos,2004,nov,low green,136,0.7053,95,0.1798,0.3776
+Júlio de Castilhos,2004,nov,green,1607,0.968,1556,0.2134,0.3642
+Júlio de Castilhos,2004,apr,low green,136,0.2524,34,0.2132,0.4417
+Júlio de Castilhos,2004,apr,green,1607,0.199,319,0.2202,0.4479
+Júlio de Castilhos,2005,oct,low green,403,0.5279,213,0.2072,0.4334
+Júlio de Castilhos,2005,oct,green,976,0.0042,4,0.25,0.492
+Júlio de Castilhos,2005,nov,low green,403,0.7042,285,0.1877,0.4059
+Júlio de Castilhos,2005,nov,green,976,0.8907,870,0.2342,0.3997
+Júlio de Castilhos,2005,apr,low green,403,0.591,238,0.2263,0.4051
+Júlio de Castilhos,2005,apr,green,976,0.5874,573,0.2422,0.4221
+Júlio de Castilhos,2006,oct,low green,161,0.6449,103,0.2039,0.4086
+Júlio de Castilhos,2006,oct,green,1992,0.1218,247,0.259,0.4613
+Júlio de Castilhos,2006,nov,low green,161,0.5722,91,0.1754,0.3614
+Júlio de Castilhos,2006,nov,green,1992,0.9789,1950,0.2244,0.3575
+Júlio de Castilhos,2006,apr,low green,161,0.4858,77,0.2159,0.4031
+Júlio de Castilhos,2006,apr,green,1992,0.6398,1269,0.237,0.4388
+Júlio de Castilhos,2007,oct,low green,243,0.2846,69,0.2027,0.43
+Júlio de Castilhos,2007,oct,green,1752,0.0747,128,0.2377,0.4538
+Júlio de Castilhos,2007,nov,low green,243,0.5416,132,0.1847,0.3987
+Júlio de Castilhos,2007,nov,green,1752,0.9617,1685,0.21,0.3693
+Júlio de Castilhos,2007,apr,low green,243,0.3734,91,0.2271,0.4297
+Júlio de Castilhos,2007,apr,green,1752,0.5276,924,0.2413,0.434
+Júlio de Castilhos,2008,oct,low green,271,0.4698,126,0.2084,0.4334
+Júlio de Castilhos,2008,oct,green,1539,0.0488,75,0.2489,0.4542
+Júlio de Castilhos,2008,nov,low green,271,0.5771,156,0.1987,0.393
+Júlio de Castilhos,2008,nov,green,1539,0.956,1472,0.2401,0.3763
+Júlio de Castilhos,2008,apr,low green,271,0.6078,163,0.2174,0.4012
+Júlio de Castilhos,2008,apr,green,1539,0.7372,1131,0.2385,0.4227
+Júlio de Castilhos,2009,oct,low green,154,0.4397,69,0.2133,0.4432
+Júlio de Castilhos,2009,oct,green,2004,0.0302,63,0.261,0.4643
+Júlio de Castilhos,2009,nov,low green,154,0.6014,92,0.2156,0.412
+Júlio de Castilhos,2009,nov,green,2004,0.8522,1705,0.2543,0.4067
+Júlio de Castilhos,2009,apr,low green,154,0.6932,106,0.2213,0.4203
+Júlio de Castilhos,2009,apr,green,2004,0.6778,1361,0.2305,0.4181
+Júlio de Castilhos,2010,oct,low green,155,0.3889,62,0.1902,0.4319
+Júlio de Castilhos,2010,oct,green,1672,0.0826,138,0.2394,0.4553
+Júlio de Castilhos,2010,nov,low green,155,0.7177,112,0.1844,0.3822
+Júlio de Castilhos,2010,nov,green,1672,0.9796,1638,0.2173,0.3599
+Júlio de Castilhos,2010,apr,low green,155,0.616,97,0.2074,0.4042
+Júlio de Castilhos,2010,apr,green,1672,0.8343,1394,0.2214,0.3982
+Júlio de Castilhos,2011,oct,low green,152,0.62,96,0.1986,0.4451
+Júlio de Castilhos,2011,oct,green,2025,0.1319,265,0.2403,0.4436
+Júlio de Castilhos,2011,nov,low green,152,0.5578,86,0.1782,0.3835
+Júlio de Castilhos,2011,nov,green,2025,0.9826,1988,0.2261,0.3579
+Júlio de Castilhos,2011,apr,low green,152,0.6465,97,0.1805,0.4022
+Júlio de Castilhos,2011,apr,green,2025,0.8186,1655,0.2028,0.4104
+Júlio de Castilhos,2012,oct,low green,145,0.6993,101,0.1975,0.4225
+Júlio de Castilhos,2012,oct,green,1669,0.1698,283,0.2424,0.4504
+Júlio de Castilhos,2012,nov,low green,145,0.7273,106,0.1666,0.3819
+Júlio de Castilhos,2012,nov,green,1669,0.9896,1652,0.2144,0.348
+Júlio de Castilhos,2012,apr,low green,145,0.6993,102,0.221,0.4127
+Júlio de Castilhos,2012,apr,green,1669,0.7863,1308,0.234,0.4197
+Júlio de Castilhos,2013,oct,low green,176,0.7938,138,0.2098,0.4169
+Júlio de Castilhos,2013,oct,green,2560,0.1248,319,0.2554,0.455
+Júlio de Castilhos,2013,nov,low green,176,0.7305,128,0.1838,0.378
+Júlio de Castilhos,2013,nov,green,2560,0.9816,2513,0.2361,0.3546
+Júlio de Castilhos,2013,apr,low green,176,0.7088,124,0.2307,0.4301
+Júlio de Castilhos,2013,apr,green,2560,0.8527,2179,0.2259,0.4135
+Júlio de Castilhos,2014,oct,low green,277,0.6167,170,0.2167,0.4374
+Júlio de Castilhos,2014,oct,green,1661,0.153,252,0.2586,0.4427
+Júlio de Castilhos,2014,nov,low green,277,0.85,235,0.167,0.3736
+Júlio de Castilhos,2014,nov,green,1661,0.9702,1610,0.2211,0.3587
+Júlio de Castilhos,2014,apr,low green,277,0.7795,216,0.2224,0.3901
+Júlio de Castilhos,2014,apr,green,1661,0.9585,1591,0.2359,0.3813
+Júlio de Castilhos,2015,oct,low green,415,0.9476,393,0.2044,0.364
+Júlio de Castilhos,2015,oct,green,1744,0.3634,632,0.2514,0.4367
+Júlio de Castilhos,2015,nov,low green,415,0.9179,382,0.1747,0.3558
+Júlio de Castilhos,2015,nov,green,1744,0.9603,1674,0.1943,0.3658
+Júlio de Castilhos,2015,apr,low green,415,0.7878,329,0.2208,0.4095
+Júlio de Castilhos,2015,apr,green,1744,0.7598,1322,0.2372,0.4344
+Júlio de Castilhos,2016,oct,low green,217,0.7258,158,0.2002,0.4098
+Júlio de Castilhos,2016,oct,green,2210,0.2777,609,0.2485,0.4432
+Júlio de Castilhos,2016,nov,low green,217,0.7091,154,0.1773,0.3764
+Júlio de Castilhos,2016,nov,green,2210,0.9774,2161,0.2276,0.3594
+Júlio de Castilhos,2016,apr,low green,217,0.7862,171,0.2529,0.4091
+Júlio de Castilhos,2016,apr,green,2210,0.8843,1953,0.2513,0.4167
+Júlio de Castilhos,2017,oct,low green,942,0.891,839,0.2009,0.3998
+Júlio de Castilhos,2017,oct,green,748,0.2118,157,0.2459,0.4603
+Júlio de Castilhos,2017,nov,low green,942,0.9372,884,0.1626,0.3579
+Júlio de Castilhos,2017,nov,green,748,0.9599,717,0.2098,0.349
+Júlio de Castilhos,2017,apr,low green,942,0.8451,799,0.2338,0.4105
+Júlio de Castilhos,2017,apr,green,748,0.7905,590,0.2453,0.4212
+Júlio de Castilhos,2018,oct,low green,186,0.8,149,0.1967,0.3965
+Júlio de Castilhos,2018,oct,green,2350,0.3532,829,0.2493,0.4348
+Júlio de Castilhos,2018,nov,low green,186,0.6886,128,0.181,0.3996
+Júlio de Castilhos,2018,nov,green,2350,0.9797,2299,0.2243,0.3523
+Júlio de Castilhos,2018,apr,low green,186,0.6998,130,0.2299,0.4225
+Júlio de Castilhos,2018,apr,green,2350,0.8027,1882,0.2354,0.4226
+Júlio de Castilhos,2019,oct,low green,345,0.818,282,0.2023,0.3848
+Júlio de Castilhos,2019,oct,green,1757,0.3653,641,0.2439,0.4256
+Júlio de Castilhos,2019,nov,low green,345,0.8547,296,0.166,0.3765
+Júlio de Castilhos,2019,nov,green,1757,0.9823,1725,0.2023,0.354
+Júlio de Castilhos,2019,apr,low green,345,0.9444,326,0.1667,0.3603
+Júlio de Castilhos,2019,apr,green,1757,0.9976,1752,0.1804,0.3471
+Júlio de Castilhos,2020,oct,low green,165,0.7092,118,0.1793,0.37
+Júlio de Castilhos,2020,oct,green,2475,0.4313,1062,0.23,0.4288
+Júlio de Castilhos,2020,nov,low green,165,0.597,98,0.1591,0.342
+Júlio de Castilhos,2020,nov,green,2475,0.9917,2454,0.201,0.3379
+Júlio de Castilhos,2020,apr,low green,165,0.5568,90,0.2149,0.3929
+Júlio de Castilhos,2020,apr,green,2475,0.8194,2026,0.2262,0.4156
+Júlio de Castilhos,2021,oct,low green,230,0.6214,143,0.1991,0.4013
+Júlio de Castilhos,2021,oct,green,2451,0.3598,876,0.2494,0.4318
+Júlio de Castilhos,2021,nov,low green,230,0.517,120,0.1813,0.3862
+Júlio de Castilhos,2021,nov,green,2451,0.9925,2433,0.2244,0.3404
+Júlio de Castilhos,2021,apr,low green,230,0.3473,79,0.1887,0.4195
+Júlio de Castilhos,2021,apr,green,2451,0.4265,1050,0.2154,0.4397
+Júlio de Castilhos,2022,oct,low green,138,0.3458,47,0.2109,0.4213
+Júlio de Castilhos,2022,oct,green,3021,0.1621,486,0.2614,0.4539
+Júlio de Castilhos,2022,nov,low green,138,0.3237,44,0.1965,0.3919
+Júlio de Castilhos,2022,nov,green,3021,0.9801,2959,0.2326,0.3526
+Júlio de Castilhos,2022,apr,low green,138,0.2207,30,0.2036,0.437
+Júlio de Castilhos,2022,apr,green,3021,0.6602,1984,0.2013,0.4208
+Júlio de Castilhos,2023,oct,low green,193,0.5356,102,0.19,0.3704
+Júlio de Castilhos,2023,oct,green,2978,0.3371,1002,0.2484,0.4284
+Júlio de Castilhos,2023,nov,low green,193,0.4317,83,0.1876,0.3806
+Júlio de Castilhos,2023,nov,green,2978,0.9511,2832,0.2096,0.3696
+Júlio de Castilhos,2023,apr,low green,193,0.4264,81,0.248,0.3957
+Júlio de Castilhos,2023,apr,green,2978,0.4921,1465,0.2552,0.437
+Júlio de Castilhos,2024,oct,low green,60,0.4707,28,0.1942,0.4219
+Júlio de Castilhos,2024,oct,green,3034,0.1888,572,0.2354,0.4478
+Júlio de Castilhos,2024,nov,low green,60,0.4031,24,0.2045,0.4087
+Júlio de Castilhos,2024,nov,green,3034,0.9452,2865,0.2275,0.3774
+Júlio de Castilhos,2024,apr,low green,60,0.4749,28,0.1691,0.369
+Júlio de Castilhos,2024,apr,green,3034,0.7488,2265,0.1825,0.4062

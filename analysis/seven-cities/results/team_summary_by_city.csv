@@ -1,0 +1,8 @@
+municipality,lat,annual_rain_mm,dec_feb_rain_mm,soy_thousand_ha_2021_2025,soy_yield_kg_ha_2021_2025,winter_grain_area_over_soy_2021_2025,pct_pixel_years_low_green_winter,n_satellite_soy_pixels,r_water_model_vs_yield,son_days_ge50mm_el_nino,son_days_ge50mm_other_years,wheat_margin_median_brl_ha,soy_margin_median_brl_ha,n_years_wheat,n_years_soy
+Cruz Alta,-28.72,2047,437,93,2652,0.4,6.3,1402,0.83,7.5,2.2,-852,1722,25,25
+Ijuí,-28.29,2084,473,40,2286,0.53,1.1,646,0.78,7.8,2.8,-1196,915,25,25
+Jóia,-28.74,2091,459,81,1928,0.45,3.6,977,0.84,7.8,2.6,-1137,502,25,25
+São Miguel das Missões,-28.7,2142,481,73,1886,0.49,8.6,714,0.84,8.0,3.0,-945,1016,25,25
+São Luiz Gonzaga,-28.39,2125,491,82,1809,0.43,10.9,640,0.69,6.5,3.2,-634,1139,25,25
+Espumoso,-28.85,1999,429,52,2375,0.5,0.7,612,0.7,8.8,1.9,-879,1812,25,25
+Júlio de Castilhos,-29.28,1988,424,104,2257,0.15,4.4,1355,0.75,6.5,2.4,-406,1488,25,25

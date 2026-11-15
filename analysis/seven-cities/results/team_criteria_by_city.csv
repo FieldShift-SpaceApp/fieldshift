@@ -1,0 +1,8 @@
+municipality,lat,annual_rain_mm,soy_after_fallow_water_short_in_10,soy_after_wheat_water_short_in_10,early_maize_water_short_in_10,r_water_model_vs_yield,n_seasons,son_days_ge50mm_el_nino,son_days_ge50mm_other_years,n_satellite_soy_pixels,pct_pixel_years_low_green_winter,jul_sep_low_plant_per10_low_green_winter,jul_sep_low_plant_per10_green_winter,oct_nov_low_plant_per10_low_green_winter,oct_nov_low_plant_per10_green_winter,C1_model_tracks_yield,C2_winter_does_not_change_water,C3_satellite_pattern,C4_el_nino_more_heavy_rain,criteria_passed
+Cruz Alta,-28.72,2047,4.6,4.6,3.8,0.83,24,7.5,2.2,1402,6.3,2.8,0.1,3.9,6.7,True,True,True,True,4
+Ijuí,-28.29,2084,4.2,2.9,3.8,0.78,24,7.8,2.8,646,1.1,2.5,0.0,6.3,6.5,True,False,True,True,3
+Jóia,-28.74,2091,4.6,5.0,2.9,0.84,24,7.8,2.6,977,3.6,2.7,0.0,3.9,5.9,True,True,True,True,4
+São Miguel das Missões,-28.7,2142,5.8,5.4,3.8,0.84,24,8.0,3.0,714,8.6,3.2,0.1,2.9,6.6,True,True,True,True,4
+São Luiz Gonzaga,-28.39,2125,5.0,5.8,2.5,0.69,24,6.5,3.2,640,10.9,2.7,0.1,2.1,6.9,True,False,True,True,3
+Espumoso,-28.85,1999,4.6,4.2,3.8,0.7,24,8.8,1.9,612,0.7,1.3,0.0,2.1,5.8,True,True,True,True,4
+Júlio de Castilhos,-29.28,1988,5.0,5.4,3.3,0.75,24,6.5,2.4,1355,4.4,1.6,0.0,3.5,5.0,True,True,True,True,4
