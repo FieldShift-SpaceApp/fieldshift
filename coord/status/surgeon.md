@@ -2,6 +2,20 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-15 13:45 — SURGEON (ChatGPT, OpenAI)
+Done: drafted a source-priority and adoption-gate note in PR `surgeon/data-integration-priorities`; documentation only, no new ingestion or app behavior. It prioritizes local field/soil/rotation inputs, INMET/ANA ground validation with POWER and IMERG, careful NOAA ENSO context, then SMAP, HLS/Landsat/Sentinel-2, and SRTM; it also flags the IMERG inventory wording mismatch.
+Next: EECOM review the data pipeline steps; FLIGHT review the AI-use log entry. Adopt sources only after the human concept/site inputs and consumer approvals are in place.
+Blocked by: none.
+Needs from others: EECOM: review data source priorities and validation gates; FLIGHT: review the appended SI-USAGE.md entry.
+Contract changes: none
+
+## 2026-11-15 14:00 — SURGEON (ChatGPT, OpenAI)
+Done: expanded PR #71 with a layered evidence stack for local weather, climate outlook, vegetation, thermal surface response, soil water, terrain/soil, and rotation/farmer feedback. Added the climatology/oceanography contribution and corrected thermal terminology: ECOSTRESS/Landsat report land-surface temperature, not direct leaf temperature; pixel scale, acquisition gaps, and product quality must remain visible.
+Next: EECOM review the data pipeline steps; FLIGHT review the AI-use log entry. Adopt sources only after human site inputs and consumer approvals are in place.
+Blocked by: none.
+Needs from others: EECOM: review data-source priorities and validation gates; FLIGHT: review SI-USAGE.md.
+Contract changes: none
+
 ## 2026-11-15 01:10 — coordination (Claude Code), DESCOBERTA front
 Done: pre-registered test of "soybean became less sensitive to summer drought after winter cover became the rule" (PR `surgeon/drought-resilience`): `analysis/drought-resilience/` (one command, IBGE PAM 1612 × NASA POWER Dec–Feb rain, 18 municipalities, 1982–2025; bootstrap and permutation by year; 17 robustness variants incl. ANA gauge) and `content/methods/drought-resilience.md`. Result: **not supported** (slope +21.5% → +17.1% of trend per SD of rain, Δ −4.5 points, 95% CI −24.3 to +19.2, p = 0.61; sign flips at cut 1997/1998; +25.1% since 2005). What holds: summer drought still costs 25–70% of trend yield in the driest summers.
 Next: human review; CAPCOM/FLIGHT must not use "40 years prove soil care protects income" in the pitch (see README "What can and cannot be said").
@@ -35,4 +49,11 @@ Done: Stories 1.3 and 1.4, concept-agnostic part (PR `surgeon/related-work-metho
 Next: glossary review by the agronomist (replace `reviewed_by: pending`); "Scale of the problem" needs provenance records for the FR17 numbers; Validation waits for Story 2.5.
 Blocked by: Story 1.3 AC1 (WCCC at the Nevada coordinate) depends on Q2; AC2 (the NVS-knot demo) was not seen: the project tab requires login and no public repo/video was found.
 Needs from others: FLIGHT/CAPCOM: the 5-line summary for "how we differ" is in the PR body (the sentence is the team's, C1). INCO: review the `data-prov-exempt="ui"` exemptions in the documentation blocks.
+Contract changes: none
+
+## 2026-11-15 14:40 — SURGEON (ChatGPT, OpenAI)
+Done: recorded the teammate-reported ECOSTRESS/Landsat surface-temperature and vegetation work in PR #71, while separating it from the current public inventory's app-feed status. Listed the product/version, scene, method, quality, validation, provenance, and app-path details needed to reconcile the inventory.
+Next: EECOM review the source metadata and pipeline steps; FLIGHT review the AI-use log. Keep reported analysis use distinct from verified app integration.
+Blocked by: none.
+Needs from others: EECOM: confirm product/version and data path for the reported thermal work; FLIGHT: review SI-USAGE.md.
 Contract changes: none
