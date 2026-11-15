@@ -2,6 +2,13 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-15 01:10 — coordination (Claude Code), DESCOBERTA front
+Done: pre-registered test of "soybean became less sensitive to summer drought after winter cover became the rule" (PR `surgeon/drought-resilience`): `analysis/drought-resilience/` (one command, IBGE PAM 1612 × NASA POWER Dec–Feb rain, 18 municipalities, 1982–2025; bootstrap and permutation by year; 17 robustness variants incl. ANA gauge) and `content/methods/drought-resilience.md`. Result: **not supported** (slope +21.5% → +17.1% of trend per SD of rain, Δ −4.5 points, 95% CI −24.3 to +19.2, p = 0.61; sign flips at cut 1997/1998; +25.1% since 2005). What holds: summer drought still costs 25–70% of trend yield in the driest summers.
+Next: human review; CAPCOM/FLIGHT must not use "40 years prove soil care protects income" in the pitch (see README "What can and cannot be said").
+Blocked by: nothing.
+Needs from others: none.
+Contract changes: none
+
 ## 2026-11-14 23:30 — coordination (Claude Code), PROVA-PÚBLICA front
 Done: three PRs so the judges can check the pitch from the public repo. #50 `analysis/ground-truth-proagro/` (Proagro excess-rain wheat claims × GPM IMERG Sep–Nov rain, 2013–2025: pre-registered heavy-rain days ρ = 0.41, p = 0.085; Sep–Nov total ρ = 0.69, p = 0.006, 0.61 without 2023, Bonferroni 0.031/0.050; identical to the HQ). #51 `analysis/scale/` (1.16 Mha, 46%, 19,716 farms, 5.30 → 2.59 Mt, R$ 2.07 bn, 10.3% world area: all match; field 5 wording "Rio Grande do Sul" vs the Brazil-wide FAOSTAT computation flagged). This PR: licences of ANA, INMET, CONAB, NMME, Atlas confirmed on the provider pages; preflight run 4 (R7, R8 → PASS); nothing removed.
 Next: human review; FLIGHT decides the field 5 wording and whether to list FAOSTAT in field 8.

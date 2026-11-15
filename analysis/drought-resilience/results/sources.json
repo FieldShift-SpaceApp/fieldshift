@@ -1,0 +1,51 @@
+{
+ "ibge_pam_1612": {
+  "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106,4310207,4314100,4317509,4304705,4313904,4322202,4313706,4316709,4311205,4310009,4312658,4305702,4300208,4302220,4308458,4314308,4316436/v/109,112/p/all/c81/2713?formato=json",
+  "variables": {
+   "112": "average yield kg/ha",
+   "109": "planted area ha"
+  },
+  "product": "soybean (c81/2713)",
+  "accessed_utc": "2026-11-15T03:28:29+00:00"
+ },
+ "nasa_power": {
+  "api": "https://power.larc.nasa.gov/api/temporal/daily/point",
+  "api_version": [
+   "v2.10.3"
+  ],
+  "community": "AG",
+  "time_standard": "LST (API default)",
+  "parameters": {
+   "PRECTOTCORR": "bias-corrected precipitation (MERRA-2 based), mm/day",
+   "T2M_MAX": "daily maximum 2 m temperature, C (descriptive only)"
+  },
+  "urls": {
+   "4306106": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.5626&latitude=-28.7030&start=19810101&end=20251231&format=JSON",
+   "4310207": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.8949&latitude=-28.3204&start=19810101&end=20251231&format=JSON",
+   "4314100": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-52.4525&latitude=-28.2689&start=19810101&end=20251231&format=JSON",
+   "4317509": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-54.2977&latitude=-28.2505&start=19810101&end=20251231&format=JSON",
+   "4304705": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-52.8636&latitude=-28.2779&start=19810101&end=20251231&format=JSON",
+   "4313904": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.5074&latitude=-28.3296&start=19810101&end=20251231&format=JSON",
+   "4322202": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-54.0035&latitude=-29.0205&start=19810101&end=20251231&format=JSON",
+   "4313706": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.3823&latitude=-27.9400&start=19810101&end=20251231&format=JSON",
+   "4316709": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.2846&latitude=-28.3739&start=19810101&end=20251231&format=JSON",
+   "4311205": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.6524&latitude=-29.2584&start=19810101&end=20251231&format=JSON",
+   "4310009": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.1723&latitude=-28.5950&start=19810101&end=20251231&format=JSON",
+   "4312658": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-52.8249&latitude=-28.4594&start=19810101&end=20251231&format=JSON",
+   "4305702": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.4939&latitude=-28.1655&start=19810101&end=20251231&format=JSON",
+   "4300208": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.7372&latitude=-28.2099&start=19810101&end=20251231&format=JSON",
+   "4302220": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.8376&latitude=-28.6561&start=19810101&end=20251231&format=JSON",
+   "4308458": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.2759&latitude=-28.8951&start=19810101&end=20251231&format=JSON",
+   "4314308": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.5937&latitude=-28.4538&start=19810101&end=20251231&format=JSON",
+   "4316436": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR%2CT2M_MAX&community=AG&longitude=-53.0944&latitude=-28.3868&start=19810101&end=20251231&format=JSON"
+  },
+  "rule": "Dec 1 (Y-1) to end of Feb (Y); a year only with complete rain",
+  "accessed_utc": "2026-11-15T03:28:32+00:00"
+ },
+ "ana_2853015": {
+  "url": "https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica?codEstacao=2853015&dataInicio=&dataFim=&tipoDados=2&nivelConsistencia=",
+  "accessed_at": "2026-11-14T21:43:39-03:00",
+  "station": "2853015 (Tres Capoes, 14.9 km from the Cruz Alta point)",
+  "rule": "level 2 (consisted) wins over level 1; a year only with a complete DJF"
+ }
+}

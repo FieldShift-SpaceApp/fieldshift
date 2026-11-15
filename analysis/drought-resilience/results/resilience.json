@@ -1,0 +1,814 @@
+{
+ "pre_registered": "README.md, section 'Pre-registered method' (commit before any result)",
+ "unit_of_inference": "harvest year (municipalities of a year resampled/permuted together)",
+ "draws": 10000,
+ "seed": 20261115,
+ "primary": {
+  "years_a": [
+   1982,
+   1994,
+   13
+  ],
+  "years_b": [
+   1995,
+   2025,
+   31
+  ],
+  "n_obs_a": 213,
+  "n_obs_b": 552,
+  "slope_a": 0.2151,
+  "slope_a_ci95": [
+   -0.0034,
+   0.3978
+  ],
+  "r_a": 0.597,
+  "slope_b": 0.1705,
+  "slope_b_ci95": [
+   0.0985,
+   0.2539
+  ],
+  "r_b": 0.616,
+  "delta": -0.0446,
+  "delta_ci95": [
+   -0.2435,
+   0.1917
+  ],
+  "p_two_sided_perm_by_year": 0.6143,
+  "p_one_sided_less_perm_by_year": 0.3163
+ },
+ "primary_b_prime_2005_2025": {
+  "years_a": [
+   1982,
+   1994,
+   13
+  ],
+  "years_b": [
+   2005,
+   2025,
+   21
+  ],
+  "n_obs_a": 213,
+  "n_obs_b": 378,
+  "slope_a": 0.2151,
+  "slope_a_ci95": [
+   -0.0034,
+   0.3978
+  ],
+  "r_a": 0.597,
+  "slope_b": 0.2506,
+  "slope_b_ci95": [
+   0.1437,
+   0.4089
+  ],
+  "r_b": 0.717,
+  "delta": 0.0355,
+  "delta_ci95": [
+   -0.1721,
+   0.2961
+  ],
+  "p_two_sided_perm_by_year": 0.7422,
+  "p_one_sided_less_perm_by_year": 0.6268
+ },
+ "power_vs_ana_cruz_alta": {
+  "years": 39,
+  "r_djf_rain": 0.894,
+  "ana_years_missing": [
+   2013,
+   2014,
+   2015,
+   2016,
+   2017
+  ]
+ },
+ "robustness": [
+  {
+   "variant": "primary: linear detrend, z_rain, A 1982-1994 vs B 1995-2025",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 552,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1705,
+   "slope_b_ci95": [
+    0.0985,
+    0.2539
+   ],
+   "r_b": 0.616,
+   "delta": -0.0446,
+   "delta_ci95": [
+    -0.2435,
+    0.1917
+   ],
+   "p_two_sided_perm_by_year": 0.6143,
+   "p_one_sided_less_perm_by_year": 0.3163
+  },
+  {
+   "variant": "cut year 1993",
+   "years_a": [
+    1982,
+    1992,
+    11
+   ],
+   "years_b": [
+    1993,
+    2025,
+    33
+   ],
+   "n_obs_a": 179,
+   "n_obs_b": 586,
+   "slope_a": 0.304,
+   "slope_a_ci95": [
+    0.0972,
+    0.4445
+   ],
+   "r_a": 0.737,
+   "slope_b": 0.1618,
+   "slope_b_ci95": [
+    0.0861,
+    0.2408
+   ],
+   "r_b": 0.594,
+   "delta": -0.1422,
+   "delta_ci95": [
+    -0.3001,
+    0.0699
+   ],
+   "p_two_sided_perm_by_year": 0.1278,
+   "p_one_sided_less_perm_by_year": 0.0727
+  },
+  {
+   "variant": "cut year 1994",
+   "years_a": [
+    1982,
+    1993,
+    12
+   ],
+   "years_b": [
+    1994,
+    2025,
+    32
+   ],
+   "n_obs_a": 196,
+   "n_obs_b": 569,
+   "slope_a": 0.306,
+   "slope_a_ci95": [
+    0.095,
+    0.4558
+   ],
+   "r_a": 0.728,
+   "slope_b": 0.1618,
+   "slope_b_ci95": [
+    0.089,
+    0.2393
+   ],
+   "r_b": 0.598,
+   "delta": -0.1442,
+   "delta_ci95": [
+    -0.3074,
+    0.0806
+   ],
+   "p_two_sided_perm_by_year": 0.1075,
+   "p_one_sided_less_perm_by_year": 0.0604
+  },
+  {
+   "variant": "cut year 1995",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 552,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1705,
+   "slope_b_ci95": [
+    0.0985,
+    0.2539
+   ],
+   "r_b": 0.616,
+   "delta": -0.0446,
+   "delta_ci95": [
+    -0.2435,
+    0.1917
+   ],
+   "p_two_sided_perm_by_year": 0.6143,
+   "p_one_sided_less_perm_by_year": 0.3163
+  },
+  {
+   "variant": "cut year 1996",
+   "years_a": [
+    1982,
+    1995,
+    14
+   ],
+   "years_b": [
+    1996,
+    2025,
+    30
+   ],
+   "n_obs_a": 230,
+   "n_obs_b": 535,
+   "slope_a": 0.2133,
+   "slope_a_ci95": [
+    -0.0048,
+    0.3727
+   ],
+   "r_a": 0.599,
+   "slope_b": 0.1704,
+   "slope_b_ci95": [
+    0.0953,
+    0.2562
+   ],
+   "r_b": 0.614,
+   "delta": -0.0429,
+   "delta_ci95": [
+    -0.2236,
+    0.1947
+   ],
+   "p_two_sided_perm_by_year": 0.62,
+   "p_one_sided_less_perm_by_year": 0.32
+  },
+  {
+   "variant": "cut year 1997",
+   "years_a": [
+    1982,
+    1996,
+    15
+   ],
+   "years_b": [
+    1997,
+    2025,
+    29
+   ],
+   "n_obs_a": 247,
+   "n_obs_b": 518,
+   "slope_a": 0.1723,
+   "slope_a_ci95": [
+    -0.0396,
+    0.3369
+   ],
+   "r_a": 0.523,
+   "slope_b": 0.18,
+   "slope_b_ci95": [
+    0.1044,
+    0.2734
+   ],
+   "r_b": 0.635,
+   "delta": 0.0077,
+   "delta_ci95": [
+    -0.1737,
+    0.2351
+   ],
+   "p_two_sided_perm_by_year": 0.9272,
+   "p_one_sided_less_perm_by_year": 0.5478
+  },
+  {
+   "variant": "cut year 1998",
+   "years_a": [
+    1982,
+    1997,
+    16
+   ],
+   "years_b": [
+    1998,
+    2025,
+    28
+   ],
+   "n_obs_a": 264,
+   "n_obs_b": 501,
+   "slope_a": 0.1708,
+   "slope_a_ci95": [
+    -0.0238,
+    0.3244
+   ],
+   "r_a": 0.513,
+   "slope_b": 0.1817,
+   "slope_b_ci95": [
+    0.1051,
+    0.2809
+   ],
+   "r_b": 0.642,
+   "delta": 0.0109,
+   "delta_ci95": [
+    -0.1551,
+    0.2262
+   ],
+   "p_two_sided_perm_by_year": 0.8966,
+   "p_one_sided_less_perm_by_year": 0.564
+  },
+  {
+   "variant": "without 2005",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    30
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 534,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1484,
+   "slope_b_ci95": [
+    0.0798,
+    0.2271
+   ],
+   "r_b": 0.57,
+   "delta": -0.0666,
+   "delta_ci95": [
+    -0.2637,
+    0.1648
+   ],
+   "p_two_sided_perm_by_year": 0.4223,
+   "p_one_sided_less_perm_by_year": 0.223
+  },
+  {
+   "variant": "without 2012",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    30
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 534,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1589,
+   "slope_b_ci95": [
+    0.0809,
+    0.2449
+   ],
+   "r_b": 0.591,
+   "delta": -0.0562,
+   "delta_ci95": [
+    -0.2585,
+    0.1802
+   ],
+   "p_two_sided_perm_by_year": 0.5424,
+   "p_one_sided_less_perm_by_year": 0.281
+  },
+  {
+   "variant": "without 2022",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    30
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 534,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1561,
+   "slope_b_ci95": [
+    0.0805,
+    0.2409
+   ],
+   "r_b": 0.585,
+   "delta": -0.059,
+   "delta_ci95": [
+    -0.2594,
+    0.1758
+   ],
+   "p_two_sided_perm_by_year": 0.5103,
+   "p_one_sided_less_perm_by_year": 0.2663
+  },
+  {
+   "variant": "without 2023",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    30
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 534,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.1663,
+   "slope_b_ci95": [
+    0.0848,
+    0.2558
+   ],
+   "r_b": 0.596,
+   "delta": -0.0487,
+   "delta_ci95": [
+    -0.252,
+    0.1877
+   ],
+   "p_two_sided_perm_by_year": 0.6001,
+   "p_one_sided_less_perm_by_year": 0.3143
+  },
+  {
+   "variant": "without 2005, 2012, 2022, 2023",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    27
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 480,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.0943,
+   "slope_b_ci95": [
+    0.0349,
+    0.1617
+   ],
+   "r_b": 0.414,
+   "delta": -0.1207,
+   "delta_ci95": [
+    -0.3144,
+    0.1079
+   ],
+   "p_two_sided_perm_by_year": 0.1328,
+   "p_one_sided_less_perm_by_year": 0.0747
+  },
+  {
+   "variant": "LOESS detrend (span 0.5)",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 552,
+   "slope_a": 0.2147,
+   "slope_a_ci95": [
+    -0.0018,
+    0.3964
+   ],
+   "r_a": 0.604,
+   "slope_b": 0.1622,
+   "slope_b_ci95": [
+    0.09,
+    0.2428
+   ],
+   "r_b": 0.606,
+   "delta": -0.0525,
+   "delta_ci95": [
+    -0.2492,
+    0.1812
+   ],
+   "p_two_sided_perm_by_year": 0.5416,
+   "p_one_sided_less_perm_by_year": 0.2763
+  },
+  {
+   "variant": "longest dry spell (z_dry) instead of rain",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 552,
+   "slope_a": 0.1067,
+   "slope_a_ci95": [
+    -0.0733,
+    0.2178
+   ],
+   "r_a": 0.354,
+   "slope_b": 0.0785,
+   "slope_b_ci95": [
+    -0.0307,
+    0.1909
+   ],
+   "r_b": 0.272,
+   "delta": -0.0281,
+   "delta_ci95": [
+    -0.1874,
+    0.1888
+   ],
+   "p_two_sided_perm_by_year": 0.8265,
+   "p_one_sided_less_perm_by_year": 0.4111
+  },
+  {
+   "variant": "B' = 2005-2025",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    2005,
+    2025,
+    21
+   ],
+   "n_obs_a": 213,
+   "n_obs_b": 378,
+   "slope_a": 0.2151,
+   "slope_a_ci95": [
+    -0.0034,
+    0.3978
+   ],
+   "r_a": 0.597,
+   "slope_b": 0.2506,
+   "slope_b_ci95": [
+    0.1437,
+    0.4089
+   ],
+   "r_b": 0.717,
+   "delta": 0.0355,
+   "delta_ci95": [
+    -0.1721,
+    0.2961
+   ],
+   "p_two_sided_perm_by_year": 0.7422,
+   "p_one_sided_less_perm_by_year": 0.6268
+  },
+  {
+   "variant": "regional means (one point per year)",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 13,
+   "n_obs_b": 31,
+   "slope_a": 0.2213,
+   "slope_a_ci95": [
+    -0.0016,
+    0.4187
+   ],
+   "r_a": 0.653,
+   "slope_b": 0.1733,
+   "slope_b_ci95": [
+    0.1002,
+    0.2615
+   ],
+   "r_b": 0.653,
+   "delta": -0.048,
+   "delta_ci95": [
+    -0.2577,
+    0.1933
+   ],
+   "p_two_sided_perm_by_year": 0.6003,
+   "p_one_sided_less_perm_by_year": 0.3123
+  },
+  {
+   "variant": "Cruz Alta alone, POWER",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    31
+   ],
+   "n_obs_a": 13,
+   "n_obs_b": 31,
+   "slope_a": 0.2272,
+   "slope_a_ci95": [
+    0.0018,
+    0.4423
+   ],
+   "r_a": 0.644,
+   "slope_b": 0.1702,
+   "slope_b_ci95": [
+    0.0906,
+    0.2577
+   ],
+   "r_b": 0.648,
+   "delta": -0.057,
+   "delta_ci95": [
+    -0.2867,
+    0.1844
+   ],
+   "p_two_sided_perm_by_year": 0.5362,
+   "p_one_sided_less_perm_by_year": 0.2814
+  },
+  {
+   "variant": "Cruz Alta alone, ANA gauge 2853015",
+   "years_a": [
+    1982,
+    1994,
+    13
+   ],
+   "years_b": [
+    1995,
+    2025,
+    26
+   ],
+   "n_obs_a": 13,
+   "n_obs_b": 26,
+   "slope_a": 0.1747,
+   "slope_a_ci95": [
+    -0.0133,
+    0.4004
+   ],
+   "r_a": 0.534,
+   "slope_b": 0.1639,
+   "slope_b_ci95": [
+    0.0804,
+    0.2919
+   ],
+   "r_b": 0.6,
+   "delta": -0.0108,
+   "delta_ci95": [
+    -0.2458,
+    0.2085
+   ],
+   "p_two_sided_perm_by_year": 0.9106,
+   "p_one_sided_less_perm_by_year": 0.4696
+  }
+ ],
+ "decision": {
+  "delta_negative": true,
+  "ci_excludes_zero": false,
+  "perm_p_below_0_05": false,
+  "sign_kept_in_all_cut_and_drop_variants": false,
+  "verdict": "not supported"
+ },
+ "municipalities": {
+  "with_10_or_more_harvests_in_a": 16,
+  "slope_b_lower_than_a": 14,
+  "median_delta": -0.0588,
+  "note": "descriptive; municipalities share the same summers and several share one POWER grid cell",
+  "distinct_power_cells": 9
+ },
+ "context_by_period": {
+  "A_1982_1994": {
+   "harvests": 13,
+   "sd_dev_linear_regional": 0.251,
+   "sd_z_rain_regional": 0.741,
+   "mean_z_rain_regional": 0.045,
+   "mean_z_dry_regional": 0.047,
+   "post_hoc_dry_years_z_rain_le_minus_1": [
+    {
+     "year": 1991,
+     "z_rain": -1.31,
+     "dev_linear": -0.558
+    }
+   ],
+   "post_hoc_mean_dev_in_dry_years": -0.558,
+   "mean_djf_hot_days_power_descriptive": 14.5,
+   "mean_yield_kg_ha_all_municipalities": 1646.0
+  },
+  "B_1995_2025": {
+   "harvests": 31,
+   "sd_dev_linear_regional": 0.2866,
+   "sd_z_rain_regional": 1.079,
+   "mean_z_rain_regional": -0.018,
+   "mean_z_dry_regional": -0.021,
+   "post_hoc_dry_years_z_rain_le_minus_1": [
+    {
+     "year": 2005,
+     "z_rain": -1.71,
+     "dev_linear": -0.705
+    },
+    {
+     "year": 2012,
+     "z_rain": -1.38,
+     "dev_linear": -0.512
+    },
+    {
+     "year": 2020,
+     "z_rain": -1.19,
+     "dev_linear": -0.249
+    },
+    {
+     "year": 2022,
+     "z_rain": -1.49,
+     "dev_linear": -0.569
+    },
+    {
+     "year": 2023,
+     "z_rain": -1.52,
+     "dev_linear": -0.349
+    }
+   ],
+   "post_hoc_mean_dev_in_dry_years": -0.477,
+   "mean_djf_hot_days_power_descriptive": 17.1,
+   "mean_yield_kg_ha_all_municipalities": 2473.0
+  },
+  "B_prime_2005_2025": {
+   "harvests": 21,
+   "sd_dev_linear_regional": 0.3244,
+   "sd_z_rain_regional": 0.949,
+   "mean_z_rain_regional": -0.319,
+   "mean_z_dry_regional": -0.215,
+   "post_hoc_dry_years_z_rain_le_minus_1": [
+    {
+     "year": 2005,
+     "z_rain": -1.71,
+     "dev_linear": -0.705
+    },
+    {
+     "year": 2012,
+     "z_rain": -1.38,
+     "dev_linear": -0.512
+    },
+    {
+     "year": 2020,
+     "z_rain": -1.19,
+     "dev_linear": -0.249
+    },
+    {
+     "year": 2022,
+     "z_rain": -1.49,
+     "dev_linear": -0.569
+    },
+    {
+     "year": 2023,
+     "z_rain": -1.52,
+     "dev_linear": -0.349
+    }
+   ],
+   "post_hoc_mean_dev_in_dry_years": -0.477,
+   "mean_djf_hot_days_power_descriptive": 20.9,
+   "mean_yield_kg_ha_all_municipalities": 2662.0
+  }
+ },
+ "soy_planted_area_ha_18_municipalities": {
+  "1990": 883200,
+  "1994": 711000,
+  "2000": 752400,
+  "2005": 859032,
+  "2010": 866190,
+  "2015": 906125,
+  "2020": 940896,
+  "2025": 977184
+ }
+}
