@@ -2,6 +2,13 @@
 
 > Only the FLIGHT front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-15 03:30 — FLIGHT (SUBMISSÃO front, Claude Code)
+Done: PR `flight/submission-zarcnm`: `docs/submission/page-draft.md` fields 2, 5, 6, 7, 8 rewritten for the adopted direction (three winter paths + ZarcNM pre-check). Norm quoted as written (NASADEM "or equivalent", Landsat/Sentinel-2/HLS "recommended", MODIS above 100 ha), "pre-check, 3 of 6 indicators", R$ 1 million pilot, "no green cover (mostly straw)". Landsat/HLS numbers (5.7% → 0.3%; 4 Nov 1991 vs 20 Oct 2026) and the Landsat C2/HLS items of field 7 are `[IF MERGED #54]`; NASADEM is `[PENDING]` (no code reads it). Field 8 adds IN 2/2025, Portaria 209/2026, CGSR 111/2026, Embrapa DOC 454, FAOSTAT, Proagro event view.
+Next: drop or keep the `[IF MERGED #54]` and `[IF PUBLISHED]` passages at submit time; name and one-line statement after D-001.
+Blocked by: D-001 (team); PR #54 (conflicting, review required); agronomist app publication.
+Needs from others: agronomist app — its preview still says the rule names NASA data "as proof" (home and `/soil-level`); SURGEON — `content/methods/zarcnm-precheck.md` says "the norm names Landsat, Sentinel-2/HLS and NASADEM", align with "recommends" / "such as"; NASADEM front — merge code before quoting a slope.
+Contract changes: none
+
 ## 2026-11-14 22:40 — FLIGHT (SUBMISSÃO front, Claude Code)
 Done: PR `flight/submission-text`: `docs/submission/page-draft.md` fields 2 and 5 written (verified numbers only; `[IF PUBLISHED]` for the agronomist app), field 4 public links, field 6 with two demo variants (`[CHOOSE]`), field 7 four NASA datasets with citations, field 8 partner data (Sentinel-2, WorldCover), other data, literature, libraries; `SI-USAGE.md` line 7 aligned with field 6; preflight run 3 on `main` 06dcc73: 15 PASS, 7 FAIL, 9 UNVERIFIED, 4 PENDING (was 15/6/9/5). R6 now PASS; new FAIL R7/R8 (ANA data committed with licence "check").
 Next: fill name and one-line statement after D-001; demo URL and variant; re-run the preflight on the final commit.
