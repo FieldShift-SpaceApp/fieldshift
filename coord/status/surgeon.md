@@ -36,3 +36,10 @@ Next: glossary review by the agronomist (replace `reviewed_by: pending`); "Scale
 Blocked by: Story 1.3 AC1 (WCCC at the Nevada coordinate) depends on Q2; AC2 (the NVS-knot demo) was not seen: the project tab requires login and no public repo/video was found.
 Needs from others: FLIGHT/CAPCOM: the 5-line summary for "how we differ" is in the PR body (the sentence is the team's, C1). INCO: review the `data-prov-exempt="ui"` exemptions in the documentation blocks.
 Contract changes: none
+
+## 2026-11-15 15:55 — SURGEON (ChatGPT, OpenAI)
+Done: completed a preliminary 2024 rainfall and temperature station-to-grid check for the seven confirmed municipalities; added pair counts, bias, MAE, correlation, wet-day counts and station distances to the audit and CSV. Confirmed a shared 40-date IMERG gap across all seven points, including all of May 2024, and documented that missing values must never be shown as 0 mm. PR #77 contains the handoff.
+Next: human review of station suitability, UTC day alignment and contingency-source wording in PR #77; if accepted, package a reproducible analysis and extend validation across common historical station years. No app or rotation-performance claim was made.
+Blocked by: none.
+Needs from others: FLIGHT: add the separate AI-use log entry for this validation work (issue #78); human review of station suitability, day alignment and fallback wording in PR #77.
+Contract changes: none
