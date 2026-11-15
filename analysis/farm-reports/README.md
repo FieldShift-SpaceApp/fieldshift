@@ -1,6 +1,6 @@
 # Every farm in Brazil, one free soil report from NASA data: ZarcNM pre-check for each rural property of Cruz Alta (RS)
 
-> **SI-assisted:** the idea ("every farm in Brazil, one free soil report from NASA data": run the ZarcNM pre-check on every property outline of the public rural-property registry) was synthesized with Claude Code (Anthropic) at the team lead's request; the team confirms it in D-001. The scripts, tests and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea ("every farm in Brazil, one free soil report from NASA data": run the ZarcNM pre-check on every property outline of the public rural-property registry) is one of those SI-synthesized options. The scripts, tests and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Method summary for the app: [`content/methods/farm-reports.md`](../../content/methods/farm-reports.md). Output read by the app: [`results/farm_reports.json`](results/farm_reports.json).
 
@@ -8,7 +8,7 @@ Method summary for the app: [`content/methods/farm-reports.md`](../../content/me
 
 ## What this is
 
-Since the 2026/27 season, Rio Grande do Sul soybean has a **ZarcNM** zoning (Portaria SPA/MAPA 209/2026): a field falls in a management level NM1-NM4 from six indicators (IN SPA/MAPA 2/2025), and in the 2026 pilot the federal premium subsidy for soybean is 20 / 30 / 35 / 40% of the premium for NM1 / NM2 / NM3 / NM4 (Resolução CGSR 111/2026). Three of the six indicators are about management, and the norm itself names Landsat, HLS and NASADEM as the way to read them.
+Since the 2026/27 season, Rio Grande do Sul soybean has a **ZarcNM** zoning (Portaria SPA/MAPA 209/2026): a field falls in a management level NM1-NM4 from six indicators (IN SPA/MAPA 2/2025), and in the 2026 pilot the federal premium subsidy for soybean is 20 / 30 / 35 / 40% of the premium for NM1 / NM2 / NM3 / NM4 (Resolução CGSR 111/2026). Three of the six indicators are about management, and the norm recommends Landsat, Sentinel-2 or HLS imagery to read them (item 6.4; MODIS is accepted above 100 ha, item 6.4-I) and an elevation model "such as NASADEM or equivalent" for slope (item 6.3).
 
 This folder takes **every rural property of one municipality in the CAR** (Cadastro Ambiental Rural, the public registry of rural-property outlines kept by the Serviço Florestal Brasileiro), and for each one with cropland reads, from NASA data:
 

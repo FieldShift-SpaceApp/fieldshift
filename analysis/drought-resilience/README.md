@@ -1,6 +1,6 @@
 # Did soybean become less sensitive to summer drought after winter cover became the rule? (Planalto Médio, RS, Brazil)
 
-> **SI-assisted:** the hypothesis was synthesized with Claude Code (Anthropic) at the team lead's request from the team's Landsat residue result (PR #54); the scripts and this text were written with Claude Code. Every number in this folder is produced by the scripts on the sources listed; none is produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This hypothesis (from the team's Landsat residue result, PR #54) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number in this folder is produced by the scripts on the sources listed; none is produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 ## Question
 
