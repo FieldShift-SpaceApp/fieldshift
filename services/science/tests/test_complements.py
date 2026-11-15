@@ -193,3 +193,56 @@ def test_cli_complements_offline(tmp_path, capsys):
     shutil.rmtree(root / "cache" / "power-imerg")
     assert main(["complements", "--site", SITE, "--offline", "--data-dir", str(root)]) == 1
     assert "no IMERG cache" in capsys.readouterr().err
+
+
+# --- now-2026 (v1.3.0) -----------------------------------------------------------------------
+
+
+def test_now_2026_numbers_and_cutoffs():
+    doc = committed("now-2026.json")
+    power, imerg = doc["sources"]
+    assert (power["id"], imerg["id"]) == ("nasa-power", "gpm-imerg")
+    assert power["window"] == {"start": "2026-09-01", "end": "2026-11-11"}
+    assert (power["total_mm"], power["heavy_days"], power["wettest_day"]) == (
+        935.3,
+        5,
+        "2026-11-04",
+    )
+    assert [m["total_mm"] for m in power["months"]] == [246.3, 381.1, 307.9]
+    assert imerg["window"] == {"start": "2026-09-01", "end": "2026-09-14"}  # POWER lag at access
+    assert (imerg["total_mm"], imerg["heavy_days"]) == (54.0, 1)
+    assert power["same_days"][0]["year"] == 2023
+    by = {p["phase"]: p for p in power["by_phase"]}
+    assert {p: by[p]["n_years"] for p in by} == {"el_nino": 9, "neutral": 10, "la_nina": 9}
+    assert doc["current"] == {
+        "season": "ASO", "year": 2026, "oni": 2.46, "phase": "el_nino",
+        "provenance_id": "prov:noaa:cruz-alta:oni",
+    }  # fmt: skip
+
+
+def test_now_2026_keeps_reports_apart_with_url_and_attribution():
+    doc = committed("now-2026.json")
+    records = committed("provenance.json")["records"]
+    assert [r["published"] for r in doc["reported"]] == ["2026-10-22", "2026-11-12"]
+    for r in doc["reported"]:
+        assert r["url"].startswith("https://www.emater.tche.br/")
+        rec = records[r["provenance_id"]]
+        assert rec["data_type"] == "user_provided" and rec["refs"][0]["url"] == r["url"]
+        assert "IBGE PAM" in rec["limitations"][0]["en"]
+    for s in doc["sources"]:
+        rec = records[s["provenance_id"]]
+        assert [a["group"] for a in rec["attribution"]] == ["nasa", "other_public"]
+        assert all(i in records for i in rec["inputs"])
+
+
+def test_now_window_uses_the_same_calendar_days_and_stops_at_a_gap():
+    from fieldshift.complements.now import last_valid_day, same_days, window_values
+
+    daily = {date(2026, 9, d): 1.0 for d in range(1, 11)}
+    daily[date(2026, 9, 5)] = None
+    assert last_valid_day(daily, date(2026, 9, 1), date(2026, 11, 13)) == date(2026, 9, 4)
+    with pytest.raises(PipelineError):
+        last_valid_day({}, date(2026, 9, 1), date(2026, 11, 13))
+    days = same_days(2023, date(2026, 9, 1), date(2026, 9, 3))
+    assert days == [date(2023, 9, 1), date(2023, 9, 2), date(2023, 9, 3)]
+    assert window_values({d: 2.0 for d in days[:2]}, days) is None

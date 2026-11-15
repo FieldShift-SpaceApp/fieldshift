@@ -36,6 +36,7 @@ from fieldshift.contracts import (
     Provenance,
     ProvenanceRegistry,
     RotationFile,
+    SeasonToDate,
     SeriesBundle,
     Site,
     SiteManifest,
@@ -59,6 +60,8 @@ SITE_FILES: dict[str, type[BaseModel]] = {
     "replay.json": EventTimeline,
     "bare-soil-calendar.json": BareSoilCalendar,
     "enso-rain-signal.json": EnsoRainSignal,
+    # v1.3.0 (`fieldshift complements`)
+    "now-2026.json": SeasonToDate,
 }
 SITES_INDEX = "index.json"  # data/sites/index.json -> SitesIndex
 TRACED_TYPES = ("series", "metrics", "profiles")  # items whose data_type must match the record
