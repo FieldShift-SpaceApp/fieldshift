@@ -1,0 +1,1893 @@
+{
+ "_si": "SI-assisted: script written with Claude Code (Anthropic); numbers produced by running it on the sources below.",
+ "question": "In which fortnights of the year do heavy-rain days (>= 50 mm) coincide with cropland that has no green cover?",
+ "site": {
+  "id": "cruz-alta",
+  "point": {
+   "lat": -28.703,
+   "lon": -53.563
+  }
+ },
+ "heavy_rain_mm": 50.0,
+ "rain_years": "2001-2025",
+ "cover_years": "2019-2025",
+ "ndvi_threshold": 0.25,
+ "columns": {
+  "fortnight_index": "0..23; days 1-15 and 16-end of each month (same index as bare-soil-calendar.json)",
+  "imerg_n_years": "gpm-imerg: years 2001-2025 with a complete fortnight",
+  "imerg_pct_years_heavy": "gpm-imerg: % of those years with at least one day >= 50 mm",
+  "imerg_mean_heavy_days": "gpm-imerg: mean number of days >= 50 mm per fortnight",
+  "imerg_pct_ci95_low": "gpm-imerg: 95% Wilson interval of imerg_pct_years_heavy, lower end (years as independent trials)",
+  "imerg_pct_ci95_high": "gpm-imerg: 95% Wilson interval of imerg_pct_years_heavy, upper end",
+  "ana_n_years": "ana-2853015: years 2001-2025 with a complete fortnight",
+  "ana_pct_years_heavy": "ana-2853015: % of those years with at least one day >= 50 mm",
+  "ana_mean_heavy_days": "ana-2853015: mean number of days >= 50 mm per fortnight",
+  "power_n_years": "nasa-power: years 2001-2025 with a complete fortnight",
+  "power_pct_years_heavy": "nasa-power: % of those years with at least one day >= 50 mm",
+  "power_mean_heavy_days": "nasa-power: mean number of days >= 50 mm per fortnight",
+  "ana_1982_2025_n_years": "ana-2853015: years 1982-2025 with a complete fortnight",
+  "ana_1982_2025_pct_years_heavy": "ana-2853015: % of those years with at least one day >= 50 mm",
+  "s2_no_green_median_pct": "sentinel-2: median over 2019-2025 of the cropland share with NDVI < 0.25",
+  "s2_no_green_min_pct": "sentinel-2: lowest year 2019-2025",
+  "s2_no_green_max_pct": "sentinel-2: highest year 2019-2025",
+  "s2_years": "sentinel-2: years with a usable scene (at least half of the cropland pixels clear)",
+  "modis_no_green_median_pct": "modis: median over 2019-2025 of the share of valid observations with NDVI < 0.25",
+  "exposure_index_pct": "imerg_pct_years_heavy x s2_no_green_median_pct / 100. A ranking aid that treats the two as independent; not a measured erosion quantity and not a probability of soil loss",
+  "exposure_rank": "1 = highest exposure_index_pct"
+ },
+ "sources": {
+  "gpm-imerg": {
+   "name": "GPM IMERG daily precipitation (IMERG_PRECTOT, UTC days), served by NASA POWER",
+   "group": "NASA",
+   "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.5630&latitude=-28.7030&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "accessed_at": "2026-11-14T20:39:03-03:00",
+   "doi": "10.5067/GPM/IMERG/3B-HH/07",
+   "cache": "data/cache/power-imerg/cruz-alta/daily_19980101_20251231.json",
+   "attribution": {
+    "group": "nasa",
+    "name": "NASA GPM IMERG daily precipitation, served by POWER"
+   }
+  },
+  "nasa-power": {
+   "name": "NASA POWER daily precipitation, PRECTOTCORR (MERRA-2 bias-corrected)",
+   "group": "NASA",
+   "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CT2MDEW%2CRH2M%2CWS2M%2CALLSKY_SFC_SW_DWN%2CPRECTOTCORR%2CPS%2CGWETTOP%2CGWETROOT%2CGWETPROF%2CEVLAND&community=AG&longitude=-53.5630&latitude=-28.7030&start=19810101&end=20261031&format=JSON",
+   "accessed_at": "2026-11-14T19:29:08-03:00",
+   "cache": "data/cache/power/cruz-alta/daily_19810101_20261031.json",
+   "attribution": {
+    "group": "nasa",
+    "name": "NASA POWER (MERRA-2 bias-corrected precipitation)",
+    "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program."
+   }
+  },
+  "ana-2853015": {
+   "name": "ANA rain gauge 2853015 (Tres Capoes, 14.9 km from the site point), daily rain, HidroWeb",
+   "group": "other public (Brazil)",
+   "url": "https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica?codEstacao=2853015&dataInicio=&dataFim=&tipoDados=2&nivelConsistencia=",
+   "accessed_at": "2026-11-14T21:43:39-03:00",
+   "cache": "not committed (raw folder)",
+   "attribution": {
+    "group": "other_public",
+    "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+   }
+  },
+  "sentinel-2": {
+   "name": "Copernicus Sentinel-2 L2A, 10 m, share of cropland with NDVI < 0.25 (bare-soil calendar)",
+   "group": "partner (ESA Copernicus)",
+   "url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a",
+   "accessed_at": "2026-11-14T16:41:57-03:00",
+   "file": "data/sites/cruz-alta/output/bare-soil-calendar.json",
+   "attribution": {
+    "group": "partner",
+    "name": "ESA Copernicus Sentinel-2 L2A and ESA WorldCover 2021",
+    "credit": "Contains modified Copernicus Sentinel data [2019-2025]; ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium."
+   }
+  },
+  "modis": {
+   "name": "MODIS MOD13Q1/MYD13Q1 v061 NDVI, 250 m, share of cropland with NDVI < 0.25",
+   "group": "NASA",
+   "url": "https://lpdaac.usgs.gov/products/mod13q1v061/",
+   "accessed_at": "2026-11-14T15:00:08-03:00",
+   "file": "data/sites/cruz-alta/output/bare-soil-calendar.json",
+   "attribution": {
+    "group": "nasa",
+    "name": "NASA MODIS MOD13Q1/MYD13Q1 v061 NDVI (LP DAAC)"
+   }
+  }
+ },
+ "fortnights": [
+  {
+   "fortnight_index": 0,
+   "month": 1,
+   "half": 1,
+   "label": "Jan 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 24.0,
+   "imerg_mean_heavy_days": 0.24,
+   "imerg_pct_ci95_low": 11.5,
+   "imerg_pct_ci95_high": 43.4,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 23.8,
+   "ana_mean_heavy_days": 0.286,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 16.0,
+   "power_mean_heavy_days": 0.16,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 20.0,
+   "s2_no_green_median_pct": 3.8,
+   "s2_no_green_min_pct": 0.4,
+   "s2_no_green_max_pct": 11.8,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.9,
+   "exposure_rank": 19
+  },
+  {
+   "fortnight_index": 1,
+   "month": 1,
+   "half": 2,
+   "label": "Jan 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 36.0,
+   "imerg_mean_heavy_days": 0.44,
+   "imerg_pct_ci95_low": 20.2,
+   "imerg_pct_ci95_high": 55.5,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 28.6,
+   "ana_mean_heavy_days": 0.333,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 8.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 32.5,
+   "s2_no_green_median_pct": 2.9,
+   "s2_no_green_min_pct": 1.3,
+   "s2_no_green_max_pct": 11.9,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 1.0,
+   "exposure_rank": 18
+  },
+  {
+   "fortnight_index": 2,
+   "month": 2,
+   "half": 1,
+   "label": "Feb 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 4.0,
+   "imerg_mean_heavy_days": 0.04,
+   "imerg_pct_ci95_low": 0.7,
+   "imerg_pct_ci95_high": 19.5,
+   "ana_n_years": 22,
+   "ana_pct_years_heavy": 13.6,
+   "ana_mean_heavy_days": 0.136,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 4.0,
+   "power_mean_heavy_days": 0.04,
+   "ana_1982_2025_n_years": 41,
+   "ana_1982_2025_pct_years_heavy": 19.5,
+   "s2_no_green_median_pct": 5.2,
+   "s2_no_green_min_pct": 2.4,
+   "s2_no_green_max_pct": 6.9,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.2,
+   "exposure_rank": 23
+  },
+  {
+   "fortnight_index": 3,
+   "month": 2,
+   "half": 2,
+   "label": "Feb 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 8.0,
+   "imerg_mean_heavy_days": 0.08,
+   "imerg_pct_ci95_low": 2.2,
+   "imerg_pct_ci95_high": 25.0,
+   "ana_n_years": 22,
+   "ana_pct_years_heavy": 27.3,
+   "ana_mean_heavy_days": 0.273,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 0.0,
+   "power_mean_heavy_days": 0.0,
+   "ana_1982_2025_n_years": 41,
+   "ana_1982_2025_pct_years_heavy": 19.5,
+   "s2_no_green_median_pct": 3.7,
+   "s2_no_green_min_pct": 1.5,
+   "s2_no_green_max_pct": 9.3,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.3,
+   "exposure_rank": 22
+  },
+  {
+   "fortnight_index": 4,
+   "month": 3,
+   "half": 1,
+   "label": "Mar 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 16.0,
+   "imerg_mean_heavy_days": 0.16,
+   "imerg_pct_ci95_low": 6.4,
+   "imerg_pct_ci95_high": 34.7,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 14.3,
+   "ana_mean_heavy_days": 0.143,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 0.0,
+   "power_mean_heavy_days": 0.0,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 15.0,
+   "s2_no_green_median_pct": 4.0,
+   "s2_no_green_min_pct": 1.7,
+   "s2_no_green_max_pct": 10.2,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.6,
+   "exposure_rank": 21
+  },
+  {
+   "fortnight_index": 5,
+   "month": 3,
+   "half": 2,
+   "label": "Mar 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 36.0,
+   "imerg_mean_heavy_days": 0.4,
+   "imerg_pct_ci95_low": 20.2,
+   "imerg_pct_ci95_high": 55.5,
+   "ana_n_years": 20,
+   "ana_pct_years_heavy": 25.0,
+   "ana_mean_heavy_days": 0.35,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 24.0,
+   "power_mean_heavy_days": 0.24,
+   "ana_1982_2025_n_years": 39,
+   "ana_1982_2025_pct_years_heavy": 28.2,
+   "s2_no_green_median_pct": 16.3,
+   "s2_no_green_min_pct": 3.4,
+   "s2_no_green_max_pct": 49.5,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 5.9,
+   "exposure_rank": 11
+  },
+  {
+   "fortnight_index": 6,
+   "month": 4,
+   "half": 1,
+   "label": "Apr 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 24.0,
+   "imerg_mean_heavy_days": 0.28,
+   "imerg_pct_ci95_low": 11.5,
+   "imerg_pct_ci95_high": 43.4,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 23.8,
+   "ana_mean_heavy_days": 0.333,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 12.0,
+   "power_mean_heavy_days": 0.12,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 32.5,
+   "s2_no_green_median_pct": 40.1,
+   "s2_no_green_min_pct": 23.6,
+   "s2_no_green_max_pct": 74.2,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.3,
+   "exposure_index_pct": 9.6,
+   "exposure_rank": 7
+  },
+  {
+   "fortnight_index": 7,
+   "month": 4,
+   "half": 2,
+   "label": "Apr 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 40.0,
+   "imerg_mean_heavy_days": 0.48,
+   "imerg_pct_ci95_low": 23.4,
+   "imerg_pct_ci95_high": 59.3,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 28.6,
+   "ana_mean_heavy_days": 0.333,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 8.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 35.0,
+   "s2_no_green_median_pct": 46.5,
+   "s2_no_green_min_pct": 25.6,
+   "s2_no_green_max_pct": 69.9,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.4,
+   "exposure_index_pct": 18.6,
+   "exposure_rank": 2
+  },
+  {
+   "fortnight_index": 8,
+   "month": 5,
+   "half": 1,
+   "label": "May 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 40.0,
+   "imerg_mean_heavy_days": 0.48,
+   "imerg_pct_ci95_low": 23.4,
+   "imerg_pct_ci95_high": 59.3,
+   "ana_n_years": 20,
+   "ana_pct_years_heavy": 30.0,
+   "ana_mean_heavy_days": 0.5,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 20.0,
+   "power_mean_heavy_days": 0.24,
+   "ana_1982_2025_n_years": 39,
+   "ana_1982_2025_pct_years_heavy": 28.2,
+   "s2_no_green_median_pct": 32.2,
+   "s2_no_green_min_pct": 21.4,
+   "s2_no_green_max_pct": 49.1,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.2,
+   "exposure_index_pct": 12.9,
+   "exposure_rank": 6
+  },
+  {
+   "fortnight_index": 9,
+   "month": 5,
+   "half": 2,
+   "label": "May 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 36.0,
+   "imerg_mean_heavy_days": 0.52,
+   "imerg_pct_ci95_low": 20.2,
+   "imerg_pct_ci95_high": 55.5,
+   "ana_n_years": 20,
+   "ana_pct_years_heavy": 55.0,
+   "ana_mean_heavy_days": 0.7,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 28.0,
+   "power_mean_heavy_days": 0.32,
+   "ana_1982_2025_n_years": 39,
+   "ana_1982_2025_pct_years_heavy": 46.2,
+   "s2_no_green_median_pct": 24.3,
+   "s2_no_green_min_pct": 13.1,
+   "s2_no_green_max_pct": 37.0,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 8.7,
+   "exposure_rank": 8
+  },
+  {
+   "fortnight_index": 10,
+   "month": 6,
+   "half": 1,
+   "label": "Jun 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 32.0,
+   "imerg_mean_heavy_days": 0.44,
+   "imerg_pct_ci95_low": 17.2,
+   "imerg_pct_ci95_high": 51.6,
+   "ana_n_years": 22,
+   "ana_pct_years_heavy": 9.1,
+   "ana_mean_heavy_days": 0.091,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 4.0,
+   "power_mean_heavy_days": 0.04,
+   "ana_1982_2025_n_years": 41,
+   "ana_1982_2025_pct_years_heavy": 19.5,
+   "s2_no_green_median_pct": 16.8,
+   "s2_no_green_min_pct": 4.3,
+   "s2_no_green_max_pct": 33.9,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 5.4,
+   "exposure_rank": 12
+  },
+  {
+   "fortnight_index": 11,
+   "month": 6,
+   "half": 2,
+   "label": "Jun 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 52.0,
+   "imerg_mean_heavy_days": 0.68,
+   "imerg_pct_ci95_low": 33.5,
+   "imerg_pct_ci95_high": 70.0,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 33.3,
+   "ana_mean_heavy_days": 0.429,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 12.0,
+   "power_mean_heavy_days": 0.12,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 32.5,
+   "s2_no_green_median_pct": 13.8,
+   "s2_no_green_min_pct": 6.4,
+   "s2_no_green_max_pct": 17.6,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 7.2,
+   "exposure_rank": 10
+  },
+  {
+   "fortnight_index": 12,
+   "month": 7,
+   "half": 1,
+   "label": "Jul 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 40.0,
+   "imerg_mean_heavy_days": 0.48,
+   "imerg_pct_ci95_low": 23.4,
+   "imerg_pct_ci95_high": 59.3,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 33.3,
+   "ana_mean_heavy_days": 0.381,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 16.0,
+   "power_mean_heavy_days": 0.16,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 35.0,
+   "s2_no_green_median_pct": 9.0,
+   "s2_no_green_min_pct": 1.1,
+   "s2_no_green_max_pct": 14.9,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 3.6,
+   "exposure_rank": 14
+  },
+  {
+   "fortnight_index": 13,
+   "month": 7,
+   "half": 2,
+   "label": "Jul 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 36.0,
+   "imerg_mean_heavy_days": 0.36,
+   "imerg_pct_ci95_low": 20.2,
+   "imerg_pct_ci95_high": 55.5,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 33.3,
+   "ana_mean_heavy_days": 0.429,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 8.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 27.5,
+   "s2_no_green_median_pct": 2.4,
+   "s2_no_green_min_pct": 0.6,
+   "s2_no_green_max_pct": 8.4,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.9,
+   "exposure_rank": 20
+  },
+  {
+   "fortnight_index": 14,
+   "month": 8,
+   "half": 1,
+   "label": "Aug 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 12.0,
+   "imerg_mean_heavy_days": 0.16,
+   "imerg_pct_ci95_low": 4.2,
+   "imerg_pct_ci95_high": 30.0,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 9.5,
+   "ana_mean_heavy_days": 0.143,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 8.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 22.5,
+   "s2_no_green_median_pct": 1.8,
+   "s2_no_green_min_pct": 0.6,
+   "s2_no_green_max_pct": 2.9,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 0.2,
+   "exposure_rank": 24
+  },
+  {
+   "fortnight_index": 15,
+   "month": 8,
+   "half": 2,
+   "label": "Aug 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 24.0,
+   "imerg_mean_heavy_days": 0.32,
+   "imerg_pct_ci95_low": 11.5,
+   "imerg_pct_ci95_high": 43.4,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 23.8,
+   "ana_mean_heavy_days": 0.286,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 4.0,
+   "power_mean_heavy_days": 0.04,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 17.5,
+   "s2_no_green_median_pct": 5.9,
+   "s2_no_green_min_pct": 2.5,
+   "s2_no_green_max_pct": 7.0,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.0,
+   "exposure_index_pct": 1.4,
+   "exposure_rank": 16
+  },
+  {
+   "fortnight_index": 16,
+   "month": 9,
+   "half": 1,
+   "label": "Sep 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 16.0,
+   "imerg_mean_heavy_days": 0.24,
+   "imerg_pct_ci95_low": 6.4,
+   "imerg_pct_ci95_high": 34.7,
+   "ana_n_years": 22,
+   "ana_pct_years_heavy": 27.3,
+   "ana_mean_heavy_days": 0.455,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 4.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 41,
+   "ana_1982_2025_pct_years_heavy": 19.5,
+   "s2_no_green_median_pct": 7.3,
+   "s2_no_green_min_pct": 2.8,
+   "s2_no_green_max_pct": 8.7,
+   "s2_years": 5,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 1.2,
+   "exposure_rank": 17
+  },
+  {
+   "fortnight_index": 17,
+   "month": 9,
+   "half": 2,
+   "label": "Sep 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 56.0,
+   "imerg_mean_heavy_days": 0.72,
+   "imerg_pct_ci95_low": 37.1,
+   "imerg_pct_ci95_high": 73.3,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 52.4,
+   "ana_mean_heavy_days": 0.619,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 32.0,
+   "power_mean_heavy_days": 0.32,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 47.5,
+   "s2_no_green_median_pct": 8.7,
+   "s2_no_green_min_pct": 2.7,
+   "s2_no_green_max_pct": 10.8,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 0.2,
+   "exposure_index_pct": 4.9,
+   "exposure_rank": 13
+  },
+  {
+   "fortnight_index": 18,
+   "month": 10,
+   "half": 1,
+   "label": "Oct 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 52.0,
+   "imerg_mean_heavy_days": 0.68,
+   "imerg_pct_ci95_low": 33.5,
+   "imerg_pct_ci95_high": 70.0,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 28.6,
+   "ana_mean_heavy_days": 0.381,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 20.0,
+   "power_mean_heavy_days": 0.2,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 35.0,
+   "s2_no_green_median_pct": 16.4,
+   "s2_no_green_min_pct": 5.2,
+   "s2_no_green_max_pct": 32.0,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 0.1,
+   "exposure_index_pct": 8.5,
+   "exposure_rank": 9
+  },
+  {
+   "fortnight_index": 19,
+   "month": 10,
+   "half": 2,
+   "label": "Oct 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 40.0,
+   "imerg_mean_heavy_days": 0.6,
+   "imerg_pct_ci95_low": 23.4,
+   "imerg_pct_ci95_high": 59.3,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 47.6,
+   "ana_mean_heavy_days": 0.571,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 24.0,
+   "power_mean_heavy_days": 0.24,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 37.5,
+   "s2_no_green_median_pct": 33.8,
+   "s2_no_green_min_pct": 10.4,
+   "s2_no_green_max_pct": 47.3,
+   "s2_years": 6,
+   "modis_no_green_median_pct": 1.8,
+   "exposure_index_pct": 13.5,
+   "exposure_rank": 5
+  },
+  {
+   "fortnight_index": 20,
+   "month": 11,
+   "half": 1,
+   "label": "Nov 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 44.0,
+   "imerg_mean_heavy_days": 0.48,
+   "imerg_pct_ci95_low": 26.7,
+   "imerg_pct_ci95_high": 62.9,
+   "ana_n_years": 23,
+   "ana_pct_years_heavy": 26.1,
+   "ana_mean_heavy_days": 0.304,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 16.0,
+   "power_mean_heavy_days": 0.16,
+   "ana_1982_2025_n_years": 42,
+   "ana_1982_2025_pct_years_heavy": 33.3,
+   "s2_no_green_median_pct": 67.6,
+   "s2_no_green_min_pct": 27.4,
+   "s2_no_green_max_pct": 79.3,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 8.2,
+   "exposure_index_pct": 29.7,
+   "exposure_rank": 1
+  },
+  {
+   "fortnight_index": 21,
+   "month": 11,
+   "half": 2,
+   "label": "Nov 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 24.0,
+   "imerg_mean_heavy_days": 0.32,
+   "imerg_pct_ci95_low": 11.5,
+   "imerg_pct_ci95_high": 43.4,
+   "ana_n_years": 23,
+   "ana_pct_years_heavy": 26.1,
+   "ana_mean_heavy_days": 0.348,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 16.0,
+   "power_mean_heavy_days": 0.16,
+   "ana_1982_2025_n_years": 42,
+   "ana_1982_2025_pct_years_heavy": 21.4,
+   "s2_no_green_median_pct": 75.6,
+   "s2_no_green_min_pct": 48.7,
+   "s2_no_green_max_pct": 83.5,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 12.1,
+   "exposure_index_pct": 18.1,
+   "exposure_rank": 3
+  },
+  {
+   "fortnight_index": 22,
+   "month": 12,
+   "half": 1,
+   "label": "Dec 1-15",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 24.0,
+   "imerg_mean_heavy_days": 0.44,
+   "imerg_pct_ci95_low": 11.5,
+   "imerg_pct_ci95_high": 43.4,
+   "ana_n_years": 22,
+   "ana_pct_years_heavy": 4.5,
+   "ana_mean_heavy_days": 0.091,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 16.0,
+   "power_mean_heavy_days": 0.24,
+   "ana_1982_2025_n_years": 41,
+   "ana_1982_2025_pct_years_heavy": 4.9,
+   "s2_no_green_median_pct": 59.4,
+   "s2_no_green_min_pct": 34.8,
+   "s2_no_green_max_pct": 73.1,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 6.1,
+   "exposure_index_pct": 14.3,
+   "exposure_rank": 4
+  },
+  {
+   "fortnight_index": 23,
+   "month": 12,
+   "half": 2,
+   "label": "Dec 16-end",
+   "imerg_n_years": 25,
+   "imerg_pct_years_heavy": 8.0,
+   "imerg_mean_heavy_days": 0.12,
+   "imerg_pct_ci95_low": 2.2,
+   "imerg_pct_ci95_high": 25.0,
+   "ana_n_years": 21,
+   "ana_pct_years_heavy": 23.8,
+   "ana_mean_heavy_days": 0.286,
+   "power_n_years": 25,
+   "power_pct_years_heavy": 8.0,
+   "power_mean_heavy_days": 0.08,
+   "ana_1982_2025_n_years": 40,
+   "ana_1982_2025_pct_years_heavy": 25.0,
+   "s2_no_green_median_pct": 23.0,
+   "s2_no_green_min_pct": 5.4,
+   "s2_no_green_max_pct": 34.1,
+   "s2_years": 7,
+   "modis_no_green_median_pct": 1.2,
+   "exposure_index_pct": 1.8,
+   "exposure_rank": 15
+  }
+ ],
+ "top_exposure": [
+  {
+   "label": "Nov 1-15",
+   "imerg_pct_years_heavy": 44.0,
+   "ana_pct_years_heavy": 26.1,
+   "s2_no_green_median_pct": 67.6,
+   "exposure_index_pct": 29.7
+  },
+  {
+   "label": "Apr 16-end",
+   "imerg_pct_years_heavy": 40.0,
+   "ana_pct_years_heavy": 28.6,
+   "s2_no_green_median_pct": 46.5,
+   "exposure_index_pct": 18.6
+  },
+  {
+   "label": "Nov 16-end",
+   "imerg_pct_years_heavy": 24.0,
+   "ana_pct_years_heavy": 26.1,
+   "s2_no_green_median_pct": 75.6,
+   "exposure_index_pct": 18.1
+  },
+  {
+   "label": "Dec 1-15",
+   "imerg_pct_years_heavy": 24.0,
+   "ana_pct_years_heavy": 4.5,
+   "s2_no_green_median_pct": 59.4,
+   "exposure_index_pct": 14.3
+  }
+ ],
+ "observed_2019_2025": {
+  "summary": {
+   "gpm-imerg": {
+    "heavy_days": 65,
+    "with_a_scene_in_the_same_fortnight": 57,
+    "on_no_green_ge_25pct": 20,
+    "on_no_green_ge_50pct": 5
+   },
+   "ana-2853015": {
+    "heavy_days": 68,
+    "with_a_scene_in_the_same_fortnight": 60,
+    "on_no_green_ge_25pct": 20,
+    "on_no_green_ge_50pct": 4
+   }
+  },
+  "note": "Heavy-rain day matched with the Sentinel-2 scene of the same year and fortnight; the scene date can differ from the storm by up to about two weeks, and the cover share is municipal (9 blocks), not the field under the storm.",
+  "events": [
+   {
+    "source": "gpm-imerg",
+    "date": "2019-01-16",
+    "rain_mm": 53.5,
+    "fortnight": "Jan 16-end",
+    "s2_scene_date": "2019-01-26",
+    "s2_no_green_pct": 1.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-02-25",
+    "rain_mm": 69.9,
+    "fortnight": "Feb 16-end",
+    "s2_scene_date": "2019-02-22",
+    "s2_no_green_pct": 3.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-03-12",
+    "rain_mm": 56.3,
+    "fortnight": "Mar 1-15",
+    "s2_scene_date": "2019-03-02",
+    "s2_no_green_pct": 3.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-03-17",
+    "rain_mm": 50.3,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2019-03-24",
+    "s2_no_green_pct": 26.4
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-05-10",
+    "rain_mm": 84.0,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2019-05-03",
+    "s2_no_green_pct": 29.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-07-23",
+    "rain_mm": 68.6,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2019-07-17",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-08-31",
+    "rain_mm": 54.7,
+    "fortnight": "Aug 16-end",
+    "s2_scene_date": "2019-08-29",
+    "s2_no_green_pct": 5.9
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-10-27",
+    "rain_mm": 63.7,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": "2019-10-25",
+    "s2_no_green_pct": 47.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-10-31",
+    "rain_mm": 99.7,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": "2019-10-25",
+    "s2_no_green_pct": 47.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2019-11-04",
+    "rain_mm": 57.8,
+    "fortnight": "Nov 1-15",
+    "s2_scene_date": "2019-11-09",
+    "s2_no_green_pct": 79.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-01-10",
+    "rain_mm": 64.2,
+    "fortnight": "Jan 1-15",
+    "s2_scene_date": "2020-01-13",
+    "s2_no_green_pct": 2.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-05-05",
+    "rain_mm": 59.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2020-05-02",
+    "s2_no_green_pct": 49.1
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-06-05",
+    "rain_mm": 58.6,
+    "fortnight": "Jun 1-15",
+    "s2_scene_date": "2020-06-14",
+    "s2_no_green_pct": 8.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-06-29",
+    "rain_mm": 62.0,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2020-06-21",
+    "s2_no_green_pct": 10.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-06-30",
+    "rain_mm": 102.8,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2020-06-21",
+    "s2_no_green_pct": 10.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-07-07",
+    "rain_mm": 105.0,
+    "fortnight": "Jul 1-15",
+    "s2_scene_date": "2020-07-04",
+    "s2_no_green_pct": 6.9
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-07-16",
+    "rain_mm": 58.8,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2020-07-19",
+    "s2_no_green_pct": 1.7
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2020-08-12",
+    "rain_mm": 71.7,
+    "fortnight": "Aug 1-15",
+    "s2_scene_date": "2020-08-03",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-05-21",
+    "rain_mm": 65.1,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2021-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-05-28",
+    "rain_mm": 53.1,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2021-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-06-26",
+    "rain_mm": 51.5,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-08-25",
+    "rain_mm": 124.8,
+    "fortnight": "Aug 16-end",
+    "s2_scene_date": "2021-08-30",
+    "s2_no_green_pct": 7.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-09-17",
+    "rain_mm": 61.3,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2021-09-27",
+    "s2_no_green_pct": 6.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2021-10-15",
+    "rain_mm": 59.8,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2022-03-24",
+    "rain_mm": 118.0,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2022-03-21",
+    "s2_no_green_pct": 16.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2022-03-30",
+    "rain_mm": 63.5,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2022-03-21",
+    "s2_no_green_pct": 16.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2022-04-26",
+    "rain_mm": 61.7,
+    "fortnight": "Apr 16-end",
+    "s2_scene_date": "2022-04-20",
+    "s2_no_green_pct": 25.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2022-05-02",
+    "rain_mm": 51.2,
+    "fortnight": "May 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2022-06-21",
+    "rain_mm": 67.5,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2022-06-19",
+    "s2_no_green_pct": 14.5
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-03-30",
+    "rain_mm": 61.7,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2023-03-18",
+    "s2_no_green_pct": 5.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-05-05",
+    "rain_mm": 62.7,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2023-05-15",
+    "s2_no_green_pct": 21.4
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-05-27",
+    "rain_mm": 74.0,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2023-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-07-12",
+    "rain_mm": 79.8,
+    "fortnight": "Jul 1-15",
+    "s2_scene_date": "2023-07-04",
+    "s2_no_green_pct": 8.7
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-09-03",
+    "rain_mm": 66.5,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-09-04",
+    "rain_mm": 80.7,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-09-08",
+    "rain_mm": 51.9,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-09-25",
+    "rain_mm": 56.0,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2023-09-17",
+    "s2_no_green_pct": 9.1
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-10-07",
+    "rain_mm": 59.9,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2023-10-14",
+    "s2_no_green_pct": 22.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-10-11",
+    "rain_mm": 62.3,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2023-10-14",
+    "s2_no_green_pct": 22.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-10-16",
+    "rain_mm": 101.9,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-10-17",
+    "rain_mm": 96.2,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-11-13",
+    "rain_mm": 75.9,
+    "fortnight": "Nov 1-15",
+    "s2_scene_date": "2023-11-11",
+    "s2_no_green_pct": 77.9
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-11-17",
+    "rain_mm": 77.2,
+    "fortnight": "Nov 16-end",
+    "s2_scene_date": "2023-11-26",
+    "s2_no_green_pct": 76.8
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2023-11-18",
+    "rain_mm": 75.9,
+    "fortnight": "Nov 16-end",
+    "s2_scene_date": "2023-11-26",
+    "s2_no_green_pct": 76.8
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-01-17",
+    "rain_mm": 90.1,
+    "fortnight": "Jan 16-end",
+    "s2_scene_date": "2024-01-25",
+    "s2_no_green_pct": 3.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-05-01",
+    "rain_mm": 70.2,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-05-02",
+    "rain_mm": 210.6,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-05-04",
+    "rain_mm": 58.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-05-23",
+    "rain_mm": 90.3,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2024-05-31",
+    "s2_no_green_pct": 22.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-06-16",
+    "rain_mm": 73.9,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2024-06-30",
+    "s2_no_green_pct": 17.6
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-09-20",
+    "rain_mm": 59.5,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2024-09-21",
+    "s2_no_green_pct": 2.7
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-10-15",
+    "rain_mm": 50.2,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2024-10-13",
+    "s2_no_green_pct": 9.4
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-12-02",
+    "rain_mm": 100.7,
+    "fortnight": "Dec 1-15",
+    "s2_scene_date": "2024-12-05",
+    "s2_no_green_pct": 45.5
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2024-12-07",
+    "rain_mm": 63.2,
+    "fortnight": "Dec 1-15",
+    "s2_scene_date": "2024-12-05",
+    "s2_no_green_pct": 45.5
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-03-27",
+    "rain_mm": 56.1,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2025-03-30",
+    "s2_no_green_pct": 49.5
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-05-09",
+    "rain_mm": 60.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2025-05-04",
+    "s2_no_green_pct": 32.7
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-05-27",
+    "rain_mm": 55.0,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2025-05-31",
+    "s2_no_green_pct": 37.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-05-28",
+    "rain_mm": 58.9,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2025-05-31",
+    "s2_no_green_pct": 37.0
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-06-17",
+    "rain_mm": 67.9,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-06-18",
+    "rain_mm": 98.7,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-06-19",
+    "rain_mm": 59.8,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-06-29",
+    "rain_mm": 58.0,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-07-27",
+    "rain_mm": 54.9,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2025-07-20",
+    "s2_no_green_pct": 6.3
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-09-21",
+    "rain_mm": 54.1,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2025-09-23",
+    "s2_no_green_pct": 8.7
+   },
+   {
+    "source": "gpm-imerg",
+    "date": "2025-11-07",
+    "rain_mm": 75.0,
+    "fortnight": "Nov 1-15",
+    "s2_scene_date": "2025-11-10",
+    "s2_no_green_pct": 61.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-01-24",
+    "rain_mm": 58.2,
+    "fortnight": "Jan 16-end",
+    "s2_scene_date": "2019-01-26",
+    "s2_no_green_pct": 1.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-02-25",
+    "rain_mm": 63.5,
+    "fortnight": "Feb 16-end",
+    "s2_scene_date": "2019-02-22",
+    "s2_no_green_pct": 3.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-03-17",
+    "rain_mm": 131.6,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2019-03-24",
+    "s2_no_green_pct": 26.4
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-03-18",
+    "rain_mm": 55.8,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2019-03-24",
+    "s2_no_green_pct": 26.4
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-04-27",
+    "rain_mm": 57.3,
+    "fortnight": "Apr 16-end",
+    "s2_scene_date": "2019-04-18",
+    "s2_no_green_pct": 50.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-05-11",
+    "rain_mm": 57.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2019-05-03",
+    "s2_no_green_pct": 29.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-05-22",
+    "rain_mm": 62.3,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2019-05-18",
+    "s2_no_green_pct": 13.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-07-23",
+    "rain_mm": 53.2,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2019-07-17",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-07-24",
+    "rain_mm": 94.6,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2019-07-17",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-10-05",
+    "rain_mm": 144.1,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2019-10-13",
+    "s2_no_green_pct": 32.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2019-10-28",
+    "rain_mm": 80.7,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": "2019-10-25",
+    "s2_no_green_pct": 47.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-01-11",
+    "rain_mm": 54.8,
+    "fortnight": "Jan 1-15",
+    "s2_scene_date": "2020-01-13",
+    "s2_no_green_pct": 2.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-05-22",
+    "rain_mm": 106.9,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2020-05-17",
+    "s2_no_green_pct": 29.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-06-30",
+    "rain_mm": 128.4,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2020-06-21",
+    "s2_no_green_pct": 10.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-07-08",
+    "rain_mm": 107.7,
+    "fortnight": "Jul 1-15",
+    "s2_scene_date": "2020-07-04",
+    "s2_no_green_pct": 6.9
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-07-17",
+    "rain_mm": 68.3,
+    "fortnight": "Jul 16-end",
+    "s2_scene_date": "2020-07-19",
+    "s2_no_green_pct": 1.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-08-12",
+    "rain_mm": 66.9,
+    "fortnight": "Aug 1-15",
+    "s2_scene_date": "2020-08-03",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2020-08-15",
+    "rain_mm": 56.0,
+    "fortnight": "Aug 1-15",
+    "s2_scene_date": "2020-08-03",
+    "s2_no_green_pct": 0.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-03-04",
+    "rain_mm": 59.5,
+    "fortnight": "Mar 1-15",
+    "s2_scene_date": "2021-03-11",
+    "s2_no_green_pct": 1.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-05-22",
+    "rain_mm": 120.0,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2021-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-05-29",
+    "rain_mm": 96.6,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2021-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-06-27",
+    "rain_mm": 53.0,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-08-25",
+    "rain_mm": 108.2,
+    "fortnight": "Aug 16-end",
+    "s2_scene_date": "2021-08-30",
+    "s2_no_green_pct": 7.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-08-26",
+    "rain_mm": 53.5,
+    "fortnight": "Aug 16-end",
+    "s2_scene_date": "2021-08-30",
+    "s2_no_green_pct": 7.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2021-09-18",
+    "rain_mm": 65.0,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2021-09-27",
+    "s2_no_green_pct": 6.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2022-03-24",
+    "rain_mm": 84.0,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2022-03-21",
+    "s2_no_green_pct": 16.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2022-04-04",
+    "rain_mm": 71.0,
+    "fortnight": "Apr 1-15",
+    "s2_scene_date": "2022-04-02",
+    "s2_no_green_pct": 23.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2022-05-01",
+    "rain_mm": 64.7,
+    "fortnight": "May 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2022-05-03",
+    "rain_mm": 67.5,
+    "fortnight": "May 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2022-06-17",
+    "rain_mm": 56.5,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2022-06-19",
+    "s2_no_green_pct": 14.5
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-05-27",
+    "rain_mm": 66.6,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2023-05-25",
+    "s2_no_green_pct": 24.3
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-07-08",
+    "rain_mm": 85.3,
+    "fortnight": "Jul 1-15",
+    "s2_scene_date": "2023-07-04",
+    "s2_no_green_pct": 8.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-07-13",
+    "rain_mm": 53.2,
+    "fortnight": "Jul 1-15",
+    "s2_scene_date": "2023-07-04",
+    "s2_no_green_pct": 8.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-09-04",
+    "rain_mm": 117.4,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-09-05",
+    "rain_mm": 84.5,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-09-08",
+    "rain_mm": 58.3,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-09-13",
+    "rain_mm": 66.9,
+    "fortnight": "Sep 1-15",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-09-23",
+    "rain_mm": 51.3,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2023-09-17",
+    "s2_no_green_pct": 9.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-10-04",
+    "rain_mm": 50.7,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2023-10-14",
+    "s2_no_green_pct": 22.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-10-07",
+    "rain_mm": 56.2,
+    "fortnight": "Oct 1-15",
+    "s2_scene_date": "2023-10-14",
+    "s2_no_green_pct": 22.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-10-17",
+    "rain_mm": 113.2,
+    "fortnight": "Oct 16-end",
+    "s2_scene_date": null,
+    "s2_no_green_pct": null
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-11-16",
+    "rain_mm": 75.0,
+    "fortnight": "Nov 16-end",
+    "s2_scene_date": "2023-11-26",
+    "s2_no_green_pct": 76.8
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-11-18",
+    "rain_mm": 77.5,
+    "fortnight": "Nov 16-end",
+    "s2_scene_date": "2023-11-26",
+    "s2_no_green_pct": 76.8
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2023-12-19",
+    "rain_mm": 70.4,
+    "fortnight": "Dec 16-end",
+    "s2_scene_date": "2023-12-23",
+    "s2_no_green_pct": 20.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-01-19",
+    "rain_mm": 78.9,
+    "fortnight": "Jan 16-end",
+    "s2_scene_date": "2024-01-25",
+    "s2_no_green_pct": 3.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-02-14",
+    "rain_mm": 54.5,
+    "fortnight": "Feb 1-15",
+    "s2_scene_date": "2024-02-01",
+    "s2_no_green_pct": 6.5
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-03-09",
+    "rain_mm": 65.1,
+    "fortnight": "Mar 1-15",
+    "s2_scene_date": "2024-03-12",
+    "s2_no_green_pct": 1.9
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-04-11",
+    "rain_mm": 53.3,
+    "fortnight": "Apr 1-15",
+    "s2_scene_date": "2024-04-06",
+    "s2_no_green_pct": 26.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-04-14",
+    "rain_mm": 170.0,
+    "fortnight": "Apr 1-15",
+    "s2_scene_date": "2024-04-06",
+    "s2_no_green_pct": 26.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-04-17",
+    "rain_mm": 83.5,
+    "fortnight": "Apr 16-end",
+    "s2_scene_date": "2024-04-21",
+    "s2_no_green_pct": 46.5
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-05-01",
+    "rain_mm": 52.3,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-05-02",
+    "rain_mm": 239.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-05-03",
+    "rain_mm": 89.6,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-05-12",
+    "rain_mm": 70.2,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2024-05-06",
+    "s2_no_green_pct": 39.1
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-05-24",
+    "rain_mm": 83.7,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2024-05-31",
+    "s2_no_green_pct": 22.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-06-17",
+    "rain_mm": 71.8,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2024-06-30",
+    "s2_no_green_pct": 17.6
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-08-23",
+    "rain_mm": 70.0,
+    "fortnight": "Aug 16-end",
+    "s2_scene_date": "2024-08-27",
+    "s2_no_green_pct": 2.5
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2024-09-26",
+    "rain_mm": 56.7,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2024-09-21",
+    "s2_no_green_pct": 2.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-01-11",
+    "rain_mm": 56.0,
+    "fortnight": "Jan 1-15",
+    "s2_scene_date": "2025-01-04",
+    "s2_no_green_pct": 2.4
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-02-18",
+    "rain_mm": 79.8,
+    "fortnight": "Feb 16-end",
+    "s2_scene_date": "2025-02-20",
+    "s2_no_green_pct": 3.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-03-28",
+    "rain_mm": 55.6,
+    "fortnight": "Mar 16-end",
+    "s2_scene_date": "2025-03-30",
+    "s2_no_green_pct": 49.5
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-05-10",
+    "rain_mm": 66.8,
+    "fortnight": "May 1-15",
+    "s2_scene_date": "2025-05-04",
+    "s2_no_green_pct": 32.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-05-28",
+    "rain_mm": 61.5,
+    "fortnight": "May 16-end",
+    "s2_scene_date": "2025-05-31",
+    "s2_no_green_pct": 37.0
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-06-18",
+    "rain_mm": 136.2,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-06-19",
+    "rain_mm": 109.6,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-06-29",
+    "rain_mm": 68.3,
+    "fortnight": "Jun 16-end",
+    "s2_scene_date": "2025-06-25",
+    "s2_no_green_pct": 13.2
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-09-22",
+    "rain_mm": 110.5,
+    "fortnight": "Sep 16-end",
+    "s2_scene_date": "2025-09-23",
+    "s2_no_green_pct": 8.7
+   },
+   {
+    "source": "ana-2853015",
+    "date": "2025-11-08",
+    "rain_mm": 124.1,
+    "fortnight": "Nov 1-15",
+    "s2_scene_date": "2025-11-10",
+    "s2_no_green_pct": 61.2
+   }
+  ]
+ },
+ "checks": {
+  "sep_nov_heavy_days_vs_enso_rain_signal_json": [
+   {
+    "source": "gpm-imerg",
+    "years_compared": 28,
+    "years_different": 0
+   },
+   {
+    "source": "nasa-power",
+    "years_compared": 44,
+    "years_different": 0
+   },
+   {
+    "source": "ana-2853015",
+    "years_compared": 39,
+    "years_different": 0
+   }
+  ],
+  "s2_median_recomputed_from_scenes_fortnights_different": 0
+ },
+ "ana_coverage": {
+  "2001_2025": [
+   21,
+   21,
+   22,
+   22,
+   21,
+   20,
+   21,
+   21,
+   20,
+   20,
+   22,
+   21,
+   21,
+   21,
+   21,
+   21,
+   22,
+   21,
+   21,
+   21,
+   23,
+   23,
+   22,
+   21
+  ],
+  "note": "ANA 2853015 has a gap in 2013-2016; a year counts in a fortnight only when every day has a reading."
+ },
+ "caveats": [
+  "NDVI < 0.25 does not separate straw from bare soil: under no-till, dry straw after desiccation looks like bare ground. Read it as 'no green cover', not as 'exposed soil'.",
+  "The 50 mm threshold is a convention (the same as the published ENSO heavy-rain signal), not an erosion threshold.",
+  "Rain is a single point (IMERG 0.1 degree cell, POWER 0.5 x 0.625 degree cell, one gauge 14.9 km away); cover is a municipal share. Neither is the field.",
+  "Rain covers 25 years and cover only 7: the two curves describe different periods.",
+  "IMERG and POWER use UTC days; the gauge is read in the morning, so its day is shifted against them."
+ ]
+}
