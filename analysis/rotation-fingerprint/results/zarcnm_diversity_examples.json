@@ -1,0 +1,405 @@
+{
+ "title": "Rotation fingerprint of three 9 ha cropland quadrats of Cruz Alta (RS) and the crop-diversity level of IN SPA/MAPA 2/2025 a satellite can support",
+ "quadrats_source": "selected here (rule in pick_quadrats)",
+ "selection_rule": "Rule: 300 m blocks of the analysis grid that are entirely cropland and classified in 2023-2025; for each diversity level 3, 2, 1 (2023-2025, block majority), the purest block (mean share of the yearly majority class, 2020-2026), at least 5 km from the blocks already chosen; if a level has no block, the purest block with a new 2020-2026 majority sequence. Chosen to show one example per level, not at random.",
+ "codes": {
+  "T": "wheat-like winter cereal",
+  "C": "winter cover crop",
+  "P": "fallow (no green winter)",
+  "O": "other",
+  "-": "not classified"
+ },
+ "diversity_rule": {
+  "source": "IN SPA/MAPA n. 2/2025, Annex, Table 1, indicator 6 (diversity of crops in the last three agricultural years) and item 2.4",
+  "level_1": "requirements of the other levels not met",
+  "level_2": "at least 4 crops, with at least 2 species and 2 botanical families",
+  "level_3": "at least 6 crops, with at least 2 species and 2 botanical families, and 1 cover crop for more than 4 months OR 3 cover crops (single or mixed) for more than 45 days each",
+  "level_4": "at least 6 crops, with at least 4 species and 2 botanical families, and 1 cover crop for more than 4 months AND 2 cover crops (single or mixed) for more than 45 days each",
+  "applied_here": {
+   "crops": "3 summer crops (one per agricultural year, assumed soybean, not classified) + every winter pixel-year with a green cycle (T, C or O)",
+   "species_and_families": "any winter crop -> 2 species and 2 families (soybean, Fabaceae + a winter grass, Poaceae). 4 species cannot be counted from NDVI, so level 4 is never assigned: 'level 4 possible' flags pixels whose cover durations meet level 4, pending the species declared by the farmer",
+   "cover_duration": "green-up to end of canopy in half-months: >= 3 (45.7 d) counts as 'more than 45 days', >= 8 (121.8 d) as 'more than 4 months'; covers green on 1 April give a lower bound",
+   "window": "last three complete winters before the 2026/27 soybean (2023-2025); 2024-2026 also shown (2026 imagery to 2 November, the last granule on the server at the run)"
+  }
+ },
+ "quadrats": [
+  {
+   "quadrat_id": "RF-Q1",
+   "lat": -28.51379,
+   "lon": -53.68014,
+   "size": "300 m x 300 m (9 ha), 100 HLS pixels",
+   "cropland_pixels": 100,
+   "sequence_2020_2026": "CCOCTCP",
+   "years": {
+    "2020": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jun-2",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 122
+    },
+    "2021": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Aug-1",
+     "green_days_approx": 91
+    },
+    "2022": {
+     "majority_path": "O",
+     "majority_name": "other",
+     "pixel_counts": {
+      "T": 0,
+      "C": 0,
+      "P": 0,
+      "O": 100,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-2",
+     "canopy_end_half_month": "Aug-2",
+     "green_days_approx": 30
+    },
+    "2023": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jun-1",
+     "canopy_end_half_month": "Aug-2",
+     "green_days_approx": 76
+    },
+    "2024": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Aug-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 76
+    },
+    "2025": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Apr-1",
+     "canopy_end_half_month": "Aug-1",
+     "green_days_approx": 122
+    },
+    "2026": {
+     "majority_path": "P",
+     "majority_name": "fallow (no green winter)",
+     "pixel_counts": {
+      "T": 0,
+      "C": 0,
+      "P": 100,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": null,
+     "canopy_end_half_month": null,
+     "green_days_approx": null
+    }
+   },
+   "diversity_level_IN2_2025": {
+    "2023-2025": {
+     "level_majority_of_pixels": 3,
+     "pixel_level_counts": {
+      "2": 16,
+      "3": 84
+     },
+     "level_4_possible_pixels": 84
+    },
+    "2024-2026": {
+     "level_majority_of_pixels": 2,
+     "pixel_level_counts": {
+      "2": 100
+     },
+     "level_4_possible_pixels": 0
+    }
+   },
+   "selected_as_example_of_level": 3
+  },
+  {
+   "quadrat_id": "RF-Q2",
+   "lat": -28.5725,
+   "lon": -53.58352,
+   "size": "300 m x 300 m (9 ha), 100 HLS pixels",
+   "cropland_pixels": 100,
+   "sequence_2020_2026": "TTTTTTC",
+   "years": {
+    "2020": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-2",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 107
+    },
+    "2021": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Aug-2",
+     "canopy_end_half_month": "Nov-2",
+     "green_days_approx": 91
+    },
+    "2022": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-2",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 107
+    },
+    "2023": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-1",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 122
+    },
+    "2024": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-2",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 91
+    },
+    "2025": {
+     "majority_path": "T",
+     "majority_name": "wheat-like winter cereal",
+     "pixel_counts": {
+      "T": 100,
+      "C": 0,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jul-2",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 107
+    },
+    "2026": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "Jun-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 137
+    }
+   },
+   "diversity_level_IN2_2025": {
+    "2023-2025": {
+     "level_majority_of_pixels": 2,
+     "pixel_level_counts": {
+      "2": 100
+     },
+     "level_4_possible_pixels": 0
+    },
+    "2024-2026": {
+     "level_majority_of_pixels": 3,
+     "pixel_level_counts": {
+      "3": 100
+     },
+     "level_4_possible_pixels": 0
+    }
+   },
+   "selected_as_example_of_level": 2
+  },
+  {
+   "quadrat_id": "RF-Q3",
+   "lat": -28.55737,
+   "lon": -53.52491,
+   "size": "300 m x 300 m (9 ha), 100 HLS pixels",
+   "cropland_pixels": 100,
+   "sequence_2020_2026": "CCCCCCC",
+   "years": {
+    "2020": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 167
+    },
+    "2021": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 167
+    },
+    "2022": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 167
+    },
+    "2023": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 183
+    },
+    "2024": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Oct-2",
+     "green_days_approx": 167
+    },
+    "2025": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-2",
+     "canopy_end_half_month": "Nov-1",
+     "green_days_approx": 167
+    },
+    "2026": {
+     "majority_path": "C",
+     "majority_name": "winter cover crop",
+     "pixel_counts": {
+      "T": 0,
+      "C": 100,
+      "P": 0,
+      "O": 0,
+      "-": 0
+     },
+     "green_up_half_month": "May-1",
+     "canopy_end_half_month": "Sep-2",
+     "green_days_approx": 137
+    }
+   },
+   "diversity_level_IN2_2025": {
+    "2023-2025": {
+     "level_majority_of_pixels": 3,
+     "pixel_level_counts": {
+      "3": 100
+     },
+     "level_4_possible_pixels": 100
+    },
+    "2024-2026": {
+     "level_majority_of_pixels": 3,
+     "pixel_level_counts": {
+      "3": 100
+     },
+     "level_4_possible_pixels": 100
+    }
+   },
+   "selected_as_example_of_level": 3
+  }
+ ],
+ "caveat": "Classes are phenological hypotheses from NDVI, not field labels; the level is a pre-check of one of six ZARC-NM indicators, never a classification (item 2.2: no level without every indicator).",
+ "data": "NASA HLS v2.0 L30 + S30 (LP DAAC), via Microsoft Planetary Computer"
+}
