@@ -20,7 +20,7 @@ limitations:
 
 <!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/rotation-drought-test (run of 2026-11-15 BRT); the hypothesis was synthesized with AI at the team lead's request; human review pending (see SI-USAGE.md). -->
 
-**Why this analysis.** "A cover crop protects the soybean in a drought" is the claim farmers hear most about winter cover. With the winter class of every 30 m pixel of Cruz Alta from the [rotation fingerprint](#rotation-fingerprint), the 2021/22 and 2022/23 droughts became a natural experiment. The method was written and committed before any model was run. It re-tests, at 30 m and with explicit classes, the team's earlier experiment by João (Landsat 120 m and MODIS), which found no drought protection.
+**Why this analysis.** "A cover crop protects the soybean in a drought" is the claim farmers hear most about winter cover. With the winter class of every 30 m pixel of Cruz Alta from the [rotation fingerprint](#rotation-fingerprint), the 2021/22 and 2022/23 droughts became a natural experiment. The method was written and committed before any model was run. It re-tests, at 30 m and with explicit classes, the team's earlier experiment by the team (Landsat 120 m and MODIS), which found no drought protection.
 
 **Method.**
 
@@ -36,4 +36,4 @@ limitations:
 - **What looks like protection is the calendar.** On the peak NDVI, C seems to gain +0.015 in the drought. That disappears (-0.011) once the planting half-month is held fixed. After a cover crop, soybean greens up earlier: 14.5% of C pixel-summers by early November against 0.1% of T. After a wheat-like winter, 57% green up in January or later, against 32% after a cover crop.
 - **The placebos are as large as the effects.** The following winter "predicts" the summer as much as the previous one does, and the fake droughts give +/-0.006. So the small interactions cannot be read as an effect of the winter.
 
-**How to read it.** This confirms João's result with a NASA 30 m product and explicit classes. The case for winter cover in the app rests on soil cover and income, not on drought-proofing the soybean. What the satellite shows clearly is the calendar: a wheat-like winter pushes the soybean about half a month later.
+**How to read it.** This confirms the team's earlier result with a NASA 30 m product and explicit classes. The case for winter cover in the app rests on soil cover and income, not on drought-proofing the soybean. What the satellite shows clearly is the calendar: a wheat-like winter pushes the soybean about half a month later.

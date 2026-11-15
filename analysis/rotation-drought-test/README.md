@@ -4,11 +4,11 @@
 
 **Status of this file:** the Method section below was written and committed **before any model was run** (pre-registration, commit `c75a707`, 2026-11-15 01:03 BRT). Results were added in a later commit; the method was not changed after seeing them. Deviations are listed under "Deviations".
 
-**Answer in one line:** no. Soybean after a winter cover crop did not keep more canopy in the 2021/22 and 2022/23 droughts than soybean after a wheat-like cereal, once the planting date is held fixed (drought − normal C − T: −0.008 NDVI [−0.011; −0.005], inside the year-to-year noise of ±0.006); what differs is the calendar: after wheat-like winters soybean greens up about half a month later. This confirms João's earlier result (below).
+**Answer in one line:** no. Soybean after a winter cover crop did not keep more canopy in the 2021/22 and 2022/23 droughts than soybean after a wheat-like cereal, once the planting date is held fixed (drought − normal C − T: −0.008 NDVI [−0.011; −0.005], inside the year-to-year noise of ±0.006); what differs is the calendar: after wheat-like winters soybean greens up about half a month later. This confirms the team's earlier result (below).
 
 ## Credit and what is already known
 
-This is a re-test, at 30 m and with explicit winter classes, of a natural experiment already run by **João** (FieldShift team) in the private research repository (`docs/research/rotacao/A1_experimento_natural.md`, `RESUMO.md`; Landsat 120 m and MODIS 250 m–1 km, 2002–2025). His verdicts:
+This is a re-test, at 30 m and with explicit winter classes, of a natural experiment already run by **the team's earlier analysis** in the private research repository (`docs/research/rotacao/A1_experimento_natural.md`, `RESUMO.md`; Landsat 120 m and MODIS 250 m–1 km, 2002–2025). His verdicts:
 
 1. **Not validated:** a winter crop protecting soybean from drought (municipal panel and pixel panels; the drought interaction is about zero or does not pass the placebo).
 2. **Partly validated:** on the same piece of field, soybean after a greener winter has a better canopy in a normal year (+0.026 NDVI per SD of winter NDVI, Landsat 120 m), and that gain does not grow in dry summers (+0.0015 [−0.004; +0.007]).
@@ -16,7 +16,7 @@ This is a re-test, at 30 m and with explicit winter classes, of a natural experi
 
 An earlier team probe with Sentinel-2 k-means groups (2022 only, no planting-date control) also found no sign and attributed the group differences to the sowing calendar.
 
-What is new here: (a) **classes, not a continuous winter NDVI**: wheat-like cereal (T), autumn-sown cover crop (C) and other (O) per 30 m pixel and year, from `analysis/rotation-fingerprint/`; João's winter NDVI cannot tell a cover crop from a wheat crop; (b) **a planting-date proxy per pixel-year** from the HLS green-up of the summer crop, used as an explicit control; (c) 30 m pixels inside ~1 km blocks, with block × summer fixed effects for local rain.
+What is new here: (a) **classes, not a continuous winter NDVI**: wheat-like cereal (T), autumn-sown cover crop (C) and other (O) per 30 m pixel and year, from `analysis/rotation-fingerprint/`; the team's winter NDVI cannot tell a cover crop from a wheat crop; (b) **a planting-date proxy per pixel-year** from the HLS green-up of the summer crop, used as an explicit control; (c) 30 m pixels inside ~1 km blocks, with block × summer fixed effects for local rain.
 
 ## Question (pre-registered)
 
@@ -31,7 +31,7 @@ In Cruz Alta, did the soybean that followed a **winter cover crop (C)** keep mor
 **Outcome (NASA HLS NDVI).** Half-month median composites from 1 October (year Y) to 31 March (Y+1), 12 half-months, built exactly as the fingerprint composites (Fmask-clear observations, median, linear gap fill). October–November come from the fingerprint raw vectors; December–March are read by `scenes_summer.py` with the same reader. A pixel-summer is kept when ≥ 8 of the 12 half-months are clear, ≥ 2 of the 4 January–February half-months are clear and ≥ 1 of November-1 … December-2 is clear.
 
 - **Primary:** mean NDVI of January-1 … February-2 (the "integral" of January–February; the window that tracks soybean yield in Cruz Alta, municipal r = 0.80 in the team's research note `cruz-alta-satelite.md`).
-- **Secondary:** peak NDVI of December-1 … February-2 (comparable with João's peak).
+- **Secondary:** peak NDVI of December-1 … February-2 (comparable with the earlier analysis' peak).
 - A within-summer drop ("veranico") is **not** used: in a pixel planted in early October the canopy matures in February, so a drop is confounded with maturity.
 
 **Drought summers.** Fixed in advance from the team's earlier work (soybean yield −53% and −33% in IBGE PAM, January–February NDVI z −2.95 and −1.36): **2021/22 and 2022/23**. NASA POWER (PRECTOTCORR) December–February rainfall is used only as a confirmation (`fetch_power.py`, `results/power_rain_dec_feb.csv`): 181.5 mm and 185.2 mm, the 2nd and 3rd driest of 26 summers (2000/01–2025/26). The other four summers are "normal" (2020/21 302 mm, 2023/24 460 mm, 2024/25 323 mm, 2025/26 372 mm).
@@ -58,7 +58,7 @@ Reported effects: **C − T in normal summers = b_C**; **C − T in drought = b_
 
 ## Results (run of 2026-11-15, 02:37–02:51 BRT)
 
-**Answer: no.** With 30 m winter classes and a planting-date control, soybean after a cover crop did **not** hold up better in the 2021/22 and 2022/23 droughts than soybean after a wheat-like cereal. The pre-registered decision rule fails on all three conditions (`decision_rule` in the JSON). **This confirms João's A1 verdict 1** ("not validated: a winter crop protecting soybean from drought") with a different sensor, resolution and treatment, and **sharpens his verdict 3**: after a wheat-like winter the soybean greens up about half a month later than after a cover crop.
+**Answer: no.** With 30 m winter classes and a planting-date control, soybean after a cover crop did **not** hold up better in the 2021/22 and 2022/23 droughts than soybean after a wheat-like cereal. The pre-registered decision rule fails on all three conditions (`decision_rule` in the JSON). **This confirms the team's earlier natural experiment verdict 1** ("not validated: a winter crop protecting soybean from drought") with a different sensor, resolution and treatment, and **sharpens his verdict 3**: after a wheat-like winter the soybean greens up about half a month later than after a cover crop.
 
 Data: 904 HLS granules (584 April–November from the fingerprint run + 320 December–March read here; 21 December–March granules skipped as cloudy, no read error); 6,989,490 pixel-summers, 1,165,511 pixels, 1,506 blocks of ~1 km; ≥ 99.9% of the cropland eligible in every summer. Winter classes in the panel: T 39.9%, C 48.0%, O 12.1%.
 
@@ -103,9 +103,9 @@ Soybean after a cover crop greens up earlier (one in seven C pixel-summers is gr
 
 ![C - T contrast per summer and summer green-up by winter class](results/rotation-drought-test.png)
 
-**What it adds to João's A1.**
+**What it adds to the team's earlier natural experiment.**
 
-| João's verdict (Landsat 120 m / MODIS, continuous winter NDVI) | This test (HLS 30 m, T/C classes, planting control) |
+| Team's earlier verdict (Landsat 120 m / MODIS, continuous winter NDVI) | This test (HLS 30 m, T/C classes, planting control) |
 |---|---|
 | 1. Not validated: winter crop protects soybean from drought | **Confirmed.** No protection for cover vs wheat-like; the pooled direct estimate is slightly negative (−0.008 NDVI), inside the year-to-year noise and gone when 2021/22 is dropped |
 | 2. Partly validated: greener winter → better soybean canopy in normal years | **Not tested as such**: T and C are both green winters. C − T in normal years is −0.035 (total) to +0.005 (matched), and the future-winter placebo (+0.043) shows class level differences are confounded, so no level claim is made here |
@@ -146,6 +146,6 @@ Runs the fingerprint first if its `classes.npz` is missing (`--fingerprint-raw D
 
 ## References
 
-- João (FieldShift team), `docs/research/rotacao/A1_experimento_natural.md` and `RESUMO.md`, team research repository (private), 14 Nov 2026.
+- the team's earlier analysis, `docs/research/rotacao/A1_experimento_natural.md` and `RESUMO.md`, team research repository (private), 14 Nov 2026.
 - Claverie, M. et al. (2018). The Harmonized Landsat and Sentinel-2 surface reflectance data set. *Remote Sensing of Environment* 219, 145–161. doi:10.1016/j.rse.2018.09.002
 - NASA POWER, Daily API, PRECTOTCORR. "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division."
