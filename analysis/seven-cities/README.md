@@ -93,7 +93,7 @@ An earlier team number, the share of heavy rain falling on soil without a living
 |---|---|---|
 | C1, C2, C4; annual and Dec–Feb rain; soybean yield, area and winter-grain ratio 2021–2025 (16 columns) | **re-run, identical** to the team tables in all 16 columns and 7 municipalities | `reproduce.py` + `water_balance.py` over `inputs/` |
 | ENSO phase (June–August ONI) | **re-checked against NOAA CPC**: same ONI values and phases for 2000–2024 | `oni_phase.py` (downloads `oni.ascii.txt`, no account) |
-| Daily inputs (NASA POWER, GPM IMERG) | see "Re-download check" below | `fetch_inputs.py` (no account) |
+| Daily inputs (NASA POWER, GPM IMERG) | **re-downloaded, identical** for all seven points (see "Re-download check" below) | `fetch_inputs.py` (no account) |
 | C3 and % low-green winter pixel-years | **not re-run here**; read from the team table | needs the team's ~1 km MODIS MOD13Q1 NDVI cubes with a MapBiomas soybean mask (built in the team research; the MapBiomas mask comes from Google Earth Engine) |
 | Straw signal (NDTI) | **requires Google Earth Engine account; not reproducible anonymously.** Code ported (`straw_ndti_gee.py`, not run here); result committed (`results/team_straw_ndti_seven_cities.csv`) and aggregated anonymously by `straw_summary.py` | MODIS MCD43A4 + MOD13Q1 + MapBiomas Collection 11 in Earth Engine |
 | Wheat and soybean margins | **not re-run here** | needs CONAB production-cost sheets; CONAB content is CC BY-ND 3.0 and outside the federal open-data decree, so the cost series is not committed ([`RESOURCES.md`](../../RESOURCES.md)); only the team's median margins are reported |
@@ -109,7 +109,7 @@ uv run --no-project --with pandas python fetch_inputs.py all          # slow: 14
 
 ### Re-download check
 
-RE-DOWNLOAD-RESULT
+Run of 2026-11-15 (`fetch_inputs.py all`, no account): the fresh downloads are **identical** to the committed inputs for all seven municipalities. NASA POWER (Tmax, Tmin, Tmean, relative humidity, wind at 2 m, radiation): 9,131 days per point, largest difference 0.00. GPM IMERG V07 via ClimateSERV: 9,091 days with data in both per point (about 0.4% of days have no IMERG value), largest difference 0.00 mm. So the whole chain for C1, C2 and C4 is reproducible anonymously, from the public services to the pass/fail result.
 
 ## Limitations
 
