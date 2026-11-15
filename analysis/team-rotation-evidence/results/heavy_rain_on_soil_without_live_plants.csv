@@ -1,0 +1,9 @@
+# FieldShift team research, ported; daily rain: imerg_daily_cruz_alta.csv; years 2001-2025 tried, > 10% missing skipped
+sequence,years,days_without_live_plant,mm_per_year_25mm_on_soil_without_live_plant,pct_rain_ge20mm_without_live_plant,pct_rain_ge25mm_without_live_plant,pct_rain_ge50mm_without_live_plant
+winter fallow + soybean (sown 1 Nov),24,253,999,78,79,83
+wheat (15 Jun) + soybean (20 Nov),24,145,557,43,44,50
+autumn cover (10 Apr) + wheat + soybean (20 Nov),24,97,375,29,30,33
+black oat cover (1 May) + soybean (1 Nov),24,149,655,51,52,54
+canola (1 May) + soybean (5 Nov),24,125,546,42,43,47
+black oat cover (1 May) + early maize (1 Sep),24,145,461,37,37,34
+winter fallow + early maize (1 Sep),24,249,805,64,64,63

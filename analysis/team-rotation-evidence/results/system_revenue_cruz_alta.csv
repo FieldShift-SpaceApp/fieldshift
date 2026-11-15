@@ -1,0 +1,4 @@
+# FieldShift team research, ported; gross revenue (not margin), 2025 reais (IPCA annual mean), IBGE PAM
+system,years,first_year,last_year,mean_brl_per_ha,cv_pct,worst_brl_per_ha,worst_year
+soybean + winter fallow,24,2002,2025,4828,45,1102,2005
+wheat + soybean,24,2002,2025,7312,38,2657,2005
