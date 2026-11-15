@@ -4,7 +4,7 @@
 
 Method summary for the app: [`content/methods/residue-landsat.md`](../../content/methods/residue-landsat.md).
 
-![Share of Cruz Alta cropland with a probable bare-soil signature in late October to mid November, 1984-2026](results/residue-landsat.png)
+![Share of Cruz Alta no-green cropland at straw cover C < 30% (IN 2/2025 level 1) by the Embrapa Documentos 454 ruler, late October to mid November, 1984-2026](results/residue-landsat.png)
 
 ## Question
 

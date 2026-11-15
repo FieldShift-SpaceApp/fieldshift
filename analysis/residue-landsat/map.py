@@ -183,10 +183,9 @@ def main() -> None:
     fig.text(
         0.02,
         0.875,
-        "Fair comparison, median year (20 Oct – 20 Nov, Landsat): probable bare soil "
+        "Fair comparison (median year, 20 Oct – 20 Nov, Landsat): probable bare soil "
         f"{ep['spring 1984-1994']['pct_bare_median']}% in 1984–1994 vs "
-        f"{ep['spring 2015-2026']['pct_bare_median']}% in 2015–2026. "
-        f"{d0[-4:]} is the highest year of the series, not a typical one.\n"
+        f"{ep['spring 2015-2026']['pct_bare_median']}% in 2015–2026; {d0[-4:]} is the series maximum.\n"
         f"Each 30 m cropland pixel: green NDVI ≥ {NDVI_MAIN:.2f}; otherwise straw if NDTI ≥ {NDTI_MAIN:.2f}, "
         "probable bare soil if lower. Shares are of the clear cropland.",
         fontsize=8,
