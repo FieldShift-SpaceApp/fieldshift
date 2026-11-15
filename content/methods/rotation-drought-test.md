@@ -18,7 +18,7 @@ limitations:
   - "NDVI is canopy greenness, not yield; nothing here is about soil health, straw, erosion or income, and nothing is causal for a given field."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/rotation-drought-test (run of 2026-11-15 BRT); the hypothesis was synthesized with AI at the team lead's request; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/rotation-drought-test (run of 2026-11-15 BRT); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
 **Why this analysis.** "A cover crop protects the soybean in a drought" is the claim farmers hear most about winter cover. With the winter class of every 30 m pixel of Cruz Alta from the [rotation fingerprint](#rotation-fingerprint), the 2021/22 and 2022/23 droughts became a natural experiment. The method was written and committed before any model was run. It re-tests, at 30 m and with explicit classes, the team's earlier experiment by the team (Landsat 120 m and MODIS), which found no drought protection.
 

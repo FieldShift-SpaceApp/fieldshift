@@ -1,6 +1,6 @@
 # ZarcNM pre-check: how three winter paths after soybean score on Brazil's soil-management rule (Cruz Alta, RS)
 
-> **SI-assisted:** the idea (score the three winter paths against the ZarcNM rule) was synthesized with Claude Code (Anthropic) at the team lead's request; the team confirms it in D-001. The rules module, the pre-check script, the tests and this text were written with Claude Code from the norm texts. Every rule below is transcribed from the norm with its item number; every straw number comes from the committed straw clock or the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea (score the three winter paths against the ZarcNM rule) is one of those SI-synthesized options. The rules module, the pre-check script, the tests and this text were written with Claude Code from the norm texts. Every rule below is transcribed from the norm with its item number; every straw number comes from the committed straw clock or the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Method summary for the app: [`content/methods/zarcnm-precheck.md`](../../content/methods/zarcnm-precheck.md). Output read by the app: [`results/precheck.json`](results/precheck.json).
 

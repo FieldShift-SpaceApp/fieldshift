@@ -1,6 +1,6 @@
 # Where should one public real be spent? Soil-test vouchers for the ZarcNM soybean subsidy in Cruz Alta (RS)
 
-> **SI-assisted:** the idea (turn the farm-by-farm pre-check into a public-policy instrument: "where should one public real be spent?") was synthesized with Claude Code (Anthropic) at the team lead's request; the team confirms it in D-001. The scripts, tests and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the farm-reports results and the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea (turn the farm-by-farm pre-check into a public-policy instrument: "where should one public real be spent?") is one of those SI-synthesized options. The scripts, tests and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the farm-reports results and the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Output read by the app: [`results/policy_targeting.json`](results/policy_targeting.json). **Scenario, not a forecast.**
 

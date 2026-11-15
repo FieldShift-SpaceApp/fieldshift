@@ -25,7 +25,7 @@ limitations:
   - "No April-November 2019 granule of tile T22JBP on the Planetary Computer; 2026 is provisional (last granule 2 November, harvest not over, no PAM value yet). Pixels are classified one by one, without field boundaries; dates and durations have half-month resolution."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/rotation-fingerprint (run of 2026-11-15 BRT); the idea was synthesized with AI at the team lead's request and adopted by the team; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/rotation-fingerprint (run of 2026-11-15 BRT); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
 **Why this analysis.** The winter decision the app is about (wheat, cover crop or fallow after soybean) leaves a signature in the green of each field, and the ZARC-NM rule (IN SPA/MAPA 2/2025) asks for exactly that history, from Landsat, Sentinel-2 or NASA HLS at 30 m, to score the diversity of crops in the last three agricultural years (Table 1, indicator 6). This analysis reads the winter of every 30 m cropland pixel of Cruz Alta in every year 2020-2026 from the NASA HLS NDVI series and treats each pixel's sequence as its rotation fingerprint. Every number comes from [`analysis/rotation-fingerprint/`](../../analysis/rotation-fingerprint/README.md), rerun with one command.
 

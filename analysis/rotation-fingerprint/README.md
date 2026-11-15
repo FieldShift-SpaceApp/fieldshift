@@ -1,6 +1,6 @@
 # Every field's winter, from space: the rotation fingerprint of Cruz Alta in NASA HLS (RS, Brazil, 2020–2026)
 
-> **SI-assisted:** the idea (read the winter of every 30 m pixel from the NASA HLS NDVI series and treat the 2020–2026 sequence as a rotation fingerprint, the input of the ZARC-NM diversity indicator) was synthesized with Claude Code (Anthropic) at the team lead's request, and the team adopted it; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea (read the winter of every 30 m pixel from the NASA HLS NDVI series and treat the 2020–2026 sequence as a rotation fingerprint, the input of the ZARC-NM diversity indicator) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Method summary for the app: [`content/methods/rotation-fingerprint.md`](../../content/methods/rotation-fingerprint.md).
 

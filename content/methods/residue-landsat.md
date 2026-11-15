@@ -41,7 +41,7 @@ limitations:
   - "One or two clear scenes a year (gaps in 1985, 1989, 1990, 1996, 1997, 2002, 2020 and 2026 for Landsat), on moving dates; one cropland mask (ESA WorldCover 2021) for 1984-2026. The year of change is uncertain by a few years, and the satellite alone does not prove that no-till caused it."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/residue-landsat (run of 2026-11-15 02:32 UTC); the idea was synthesized with AI at the team lead's request and adopted by the team; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/residue-landsat (run of 2026-11-15 02:32 UTC); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
 **Why this analysis.** The team's bare-soil calendar counts cropland with NDVI < 0.25 and warns that it cannot tell dry straw from bare soil. Crop residue absorbs shortwave-infrared light near 2,100-2,300 nm (cellulose and lignin) and soil does not, so the two SWIR bands that every Landsat since 1984 and NASA HLS carry can separate them. This analysis asks how much of Cruz Alta's cropland looked like bare soil in late October to mid November, before the soybean canopy closes, in every year from 1984 to 2026. Every number comes from [`analysis/residue-landsat/`](../../analysis/residue-landsat/README.md), rerun with one command.
 

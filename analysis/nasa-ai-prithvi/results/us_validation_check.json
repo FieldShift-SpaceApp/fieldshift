@@ -1,0 +1,13 @@
+{
+ "chips": 6,
+ "official_reshape": {
+  "pixel_accuracy": 0.5658,
+  "pixels": 301056
+ },
+ "semantic": {
+  "pixel_accuracy": 0.1685,
+  "pixels": 301056
+ },
+ "published_aAcc_full_validation_set": 0.6064,
+ "source": "https://huggingface.co/datasets/ibm-nasa-geospatial/multi-temporal-crop-classification"
+}

@@ -1,6 +1,6 @@
 # Did soybean after a winter cover crop suffer less in the drought? A 30 m test with NASA HLS (Cruz Alta, RS, summers 2020/21–2025/26)
 
-> **SI-assisted:** the hypothesis (use the per-pixel winter classes of `analysis/rotation-fingerprint/` as the treatment of a natural experiment on soybean vigour in the drought summers) was synthesized with Claude Code (Anthropic) at the team lead's request; the scripts and this text were written with Claude Code. Every number comes from running the scripts in this folder; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This hypothesis (use the per-pixel winter classes of `analysis/rotation-fingerprint/` as the treatment of a natural experiment on soybean vigour in the drought summers) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number comes from running the scripts in this folder; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 **Status of this file:** the Method section below was written and committed **before any model was run** (pre-registration, commit `c75a707`, 2026-11-15 01:03 BRT). Results were added in a later commit; the method was not changed after seeing them. Deviations are listed under "Deviations".
 

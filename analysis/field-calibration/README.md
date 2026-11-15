@@ -1,6 +1,6 @@
 # Field calibration: every rope in a field sharpens the satellite straw ruler for the neighbours
 
-> **SI-assisted:** the idea (turn "the satellite straw index has no field calibration in Cruz Alta" into a ruler that improves with each farmer's measurement) was synthesized with Claude Code (Anthropic) at the team lead's request; the scripts and this text were written with Claude Code. Every number below comes from running the scripts in this folder on the sources listed, or from the cited documents; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea (turn "the satellite straw index has no field calibration in Cruz Alta" into a ruler that improves with each farmer's measurement) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number below comes from running the scripts in this folder on the sources listed, or from the cited documents; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 ![The Embrapa straw ruler with its uncertainty: 19 Cambé fields as the prior, Cruz Alta slot empty](results/calibration.png)
 
