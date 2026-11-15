@@ -1,0 +1,92 @@
+{
+ "run_date": "2026-11-15",
+ "model": "Prithvi-EO-2.0-100M-TL (NASA/IBM), pre-trained encoder only, no crop fine-tuning",
+ "hugging_face": "https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-2.0-100M-TL",
+ "license": "Apache-2.0",
+ "checkpoint_sha256": "d45406d5fc51af1d9657d48f2e2c3ff077408a2e1113f9a242889a4fe4469b17",
+ "temporal_coords_year_doy": [
+  [
+   2024,
+   205
+  ],
+  [
+   2024,
+   247
+  ],
+  [
+   2024,
+   315
+  ]
+ ],
+ "location_coords_lon_lat": [
+  -53.4835,
+  -28.6684
+ ],
+ "embedding": "last encoder layer, 768-d x 3 frames per 16 x 16 patch (480 m), bilinear to 30 m",
+ "encoder_seconds_cpu": 3.8,
+ "labels_note": "weak labels = rule classes T / C / O (P merged into O); spatial hold-out west/east halves",
+ "linear_probe": {
+  "labels": [
+   "T",
+   "C",
+   "O"
+  ],
+  "confusion_rows_rules_cols_probe": [
+   [
+    8558,
+    2734,
+    6091
+   ],
+   [
+    1614,
+    3458,
+    3853
+   ],
+   [
+    464,
+    831,
+    2397
+   ]
+  ],
+  "agreement": 0.4804,
+  "kappa": 0.2295,
+  "features": 2304,
+  "train_pixels": 40000,
+  "test_pixels": 30000
+ },
+ "baseline_raw18_at_patch_scale": {
+  "labels": [
+   "T",
+   "C",
+   "O"
+  ],
+  "confusion_rows_rules_cols_probe": [
+   [
+    13017,
+    868,
+    3498
+   ],
+   [
+    833,
+    5647,
+    2445
+   ],
+   [
+    1076,
+    771,
+    1845
+   ]
+  ],
+  "agreement": 0.6836,
+  "kappa": 0.4792,
+  "features": 18,
+  "train_pixels": 40000,
+  "test_pixels": 30000
+ },
+ "classes": [
+  "T",
+  "C",
+  "P",
+  "O"
+ ]
+}

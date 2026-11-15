@@ -1,0 +1,220 @@
+{
+ "run_utc": "2026-11-15T14:46:01+00:00",
+ "model": {
+  "name": "Prithvi-EO-1.0-100M multi-temporal crop classification (NASA/IBM)",
+  "hugging_face": "https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-1.0-100M-multi-temporal-crop-classification",
+  "file": "multi_temporal_crop_classification_Prithvi_100M.pth",
+  "license": "Apache-2.0",
+  "doi": "10.57967/hf/0954",
+  "fine_tuned_on": "US HLS 2022 chips + USDA CDL labels, 13 classes (no Brazilian data, no cover-crop class)",
+  "checkpoint_meta": {
+   "exp_name": "multi_temporal_crop_classification.py",
+   "mmseg_version": "0.30.0+b8da6b9",
+   "epoch": 80,
+   "iter": 30800,
+   "mmcv_version": "1.6.2",
+   "time": "Sat Jul 29 21:38:14 2023"
+  },
+  "runtime": "CPU, plain PyTorch re-implementation (prithvi_crop.py), no mmsegmentation",
+  "inference_seconds": 51.7
+ },
+ "input": [
+  {
+   "period": "Jul",
+   "id": "HLS.S30.T22JBP.2024205T133841.v2.0",
+   "date": "2024-07-23",
+   "clear_share_cropland": 0.9989,
+   "stac_item": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/hls2-s30/items/HLS.S30.T22JBP.2024205T133841.v2.0"
+  },
+  {
+   "period": "Sep",
+   "id": "HLS.L30.T22JBP.2024247T133000.v2.0",
+   "date": "2024-09-03",
+   "clear_share_cropland": 1.0,
+   "stac_item": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/hls2-l30/items/HLS.L30.T22JBP.2024247T133000.v2.0"
+  },
+  {
+   "period": "Oct-Nov",
+   "id": "HLS.S30.T22JBP.2024315T133831.v2.0",
+   "date": "2024-11-10",
+   "clear_share_cropland": 0.9991,
+   "stac_item": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/hls2-s30/items/HLS.S30.T22JBP.2024315T133831.v2.0"
+  }
+ ],
+ "window": {
+  "row0": 488,
+  "col0": 824,
+  "size_px": 448,
+  "transform": [
+   30.0,
+   0.0,
+   250560.0,
+   0.0,
+   -30.0,
+   -3167040.0
+  ],
+  "crs": "EPSG:32622"
+ },
+ "window_cropland_share": 0.8247,
+ "year": 2024,
+ "compared_pixels": 165315,
+ "compared_rule": "cropland (WorldCover >= 50%), classified by the rules, clear in Fmask on all three dates",
+ "rules_shares_in_compared": {
+  "T": 0.5102,
+  "C": 0.3605,
+  "P": 0.003,
+  "O": 0.1263
+ },
+ "prithvi_shares_in_compared_top": {
+  "Other": 0.7785,
+  "Corn": 0.0947,
+  "Soybeans": 0.0344,
+  "Winter Wheat": 0.0243,
+  "Cotton": 0.0234,
+  "Natural Vegetation": 0.0148,
+  "Developed/Barren": 0.0118,
+  "Fallow/Idle Cropland": 0.0096,
+  "Forest": 0.0026,
+  "Alfalfa": 0.0026,
+  "Wetlands": 0.002,
+  "Open Water": 0.0013,
+  "Sorghum": 0.0001
+ },
+ "binary_wheat": {
+  "rows_rules_cols_prithvi": [
+   "T / Winter Wheat",
+   "not T / not Winter Wheat"
+  ],
+  "matrix": [
+   [
+    1632,
+    82716
+   ],
+   [
+    2378,
+    78589
+   ]
+  ],
+  "agreement": 0.4853,
+  "kappa": -0.0098,
+  "rules_T_share": 0.5102,
+  "prithvi_winter_wheat_share": 0.0243,
+  "prithvi_ww_among_rules_T": 0.0193,
+  "prithvi_ww_among_rules_C": 0.0366,
+  "mean_prob_winter_wheat_rules_T": 0.0857,
+  "mean_prob_winter_wheat_rules_C": 0.0924,
+  "posthoc_share_in_cdl_other": {
+   "T": 0.9318,
+   "C": 0.6337,
+   "P": 0.4544,
+   "O": 0.58
+  }
+ },
+ "linear_probe_prithvi_features": {
+  "labels": [
+   "T",
+   "C",
+   "O"
+  ],
+  "confusion_rows_rules_cols_probe": [
+   [
+    13607,
+    2209,
+    1567
+   ],
+   [
+    2728,
+    4398,
+    1799
+   ],
+   [
+    1355,
+    664,
+    1673
+   ]
+  ],
+  "agreement": 0.6559,
+  "kappa": 0.3916,
+  "features": 256,
+  "train_pixels": 40000,
+  "test_pixels": 30000
+ },
+ "linear_probe_prithvi_neck_features": {
+  "labels": [
+   "T",
+   "C",
+   "O"
+  ],
+  "confusion_rows_rules_cols_probe": [
+   [
+    13965,
+    1497,
+    1921
+   ],
+   [
+    1884,
+    5048,
+    1993
+   ],
+   [
+    1264,
+    532,
+    1896
+   ]
+  ],
+  "agreement": 0.697,
+  "kappa": 0.4734,
+  "features": 2304,
+  "train_pixels": 40000,
+  "test_pixels": 30000
+ },
+ "linear_probe_raw_18_bands": {
+  "labels": [
+   "T",
+   "C",
+   "O"
+  ],
+  "confusion_rows_rules_cols_probe": [
+   [
+    15373,
+    582,
+    1428
+   ],
+   [
+    438,
+    7115,
+    1372
+   ],
+   [
+    790,
+    581,
+    2321
+   ]
+  ],
+  "agreement": 0.827,
+  "kappa": 0.6997,
+  "features": 18,
+  "train_pixels": 40000,
+  "test_pixels": 30000
+ },
+ "pam_2024_municipality_reference": {
+  "winter_grains_pct_of_soy": 38.2,
+  "wheat_pct_of_soy": 27.1,
+  "note": "IBGE PAM is for the whole municipality, the window is 13.4 km x 13.4 km: level check only"
+ },
+ "cannot_say": [
+  "No field labels: every number is agreement between two methods, not accuracy.",
+  "The Prithvi head was fine-tuned on US CDL 2022 (northern-hemisphere calendar, US winter wheat); applied to a southern-hemisphere winter it is out of its training domain.",
+  "CDL has no cover-crop class, so cover crops (black oat) can only fall into other classes.",
+  "The linear probe learns the rule labels; high agreement means Prithvi features from 3 dates can reproduce the rules, not that either is right.",
+  "One window, one year, three dates: not representative of the municipality."
+ ],
+ "libraries": {
+  "python": "3.12.10",
+  "torch": "2.7.1",
+  "numpy": "2.3.4",
+  "scikit-learn": "1.7.2",
+  "rasterio": "1.4.3",
+  "matplotlib": "3.10.7"
+ }
+}
