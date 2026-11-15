@@ -1,0 +1,55 @@
+{
+ "_note": "SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md). Every number below is copied from the source named next to it; the management windows are scenario dates, not measurements.",
+ "model": "single exponential (first-order) decay: straw(t) = initial_t_ha * 2 ** (-(days since management) / half_life_days)",
+ "targets": ["11-01", "11-16", "11-30"],
+ "rotations": [
+  {
+   "id": "soy-wheat",
+   "label": "Soybean - wheat (wheat straw left at harvest)",
+   "residue": "wheat",
+   "half_life_days": 139,
+   "half_life_source": "F2",
+   "initial_t_ha": {"low": 3.0, "high": 4.12},
+   "initial_sources": {
+    "low": "F11 (3.0 t/ha wheat straw, Roman 1990, cited in Santos et al. 2019)",
+    "high": "F11 (wheat residue remaining 3.82-4.12 t/ha, Coxilha RS, 1995-2002, Santos et al. 2019)"
+   },
+   "management": "wheat harvest",
+   "window": {"start": "10-01", "end": "11-30"},
+   "window_source": "Scenario from the team brief (wheat harvest October-November). Context, Rio Grande do Sul state: 42% of the wheat area harvested on 6 Nov 2025 against a 5-season average of 64% for the same date, and harvest practically over on 11 Dec 2025 (Emater/RS Informativo Conjuntural, as reported by Revista Cultivar, refs E1 and E2). No Cruz Alta harvest calendar was found."
+  },
+  {
+   "id": "soy-cover",
+   "label": "Soybean - cover crop (black oat, desiccated)",
+   "residue": "black oat",
+   "half_life_days": 124,
+   "half_life_source": "F2",
+   "initial_t_ha": {"low": 4.39, "high": 8.2},
+   "initial_sources": {
+    "low": "F9 (black oat 4,390 kg dry matter/ha, Santa Maria RS, Aita & Giacomini 2003)",
+    "high": "F11 (black oat straw 8.2 t/ha, Roman 1990, cited in Santos et al. 2019)"
+   },
+   "management": "desiccation",
+   "window": {"start": "09-01", "end": "10-31"},
+   "window_source": "Scenario from the team brief (desiccation September-October). No published desiccation calendar for Cruz Alta was found in this session."
+  },
+  {
+   "id": "soy-fallow",
+   "label": "Soybean - winter fallow",
+   "residue": "none (no winter crop)",
+   "half_life_days": null,
+   "initial_t_ha": {"low": 0.0, "high": 0.0},
+   "initial_sources": {"low": "no winter crop", "high": "no winter crop"},
+   "management": "none",
+   "window": null,
+   "window_source": "Soybean residue from the previous April harvest is not modelled: the trial reports no soybean half-life."
+  }
+ ],
+ "sources": {
+  "F2": "Campos, B.H.C.; Amado, T.J.C.; Tornquist, C.G.; Nicoloso, R.S.; Fiorin, J.E. (2011). Long-term C-CO2 emissions and carbon crop residue mineralization in an oxisol under different tillage and crop rotation systems. Revista Brasileira de Ciencia do Solo 35(3). doi:10.1590/S0100-06832011000300017. Cruz Alta long-term trial (since 1985): straw half-life under no-till 124 days (black oat) and 139 days (wheat); under conventional tillage 54 and 57 days. https://scielo.br/j/rbcs/a/h4hf7vLvhf6CL3yqpzdqf6y/?lang=en",
+  "F9": "Aita, C.; Giacomini, S.J. (2003). Decomposicao e liberacao de nitrogenio de residuos culturais de plantas de cobertura de solo solteiras e consorciadas. Revista Brasileira de Ciencia do Solo 27(4):601-612. https://www.redalyc.org/pdf/1802/180214026004.pdf",
+  "F11": "Santos, H.P.; Fontaneli, R.S.; Spera, S.T.; Dalmago, G.A.; Pires, J.L.F.; Santi, A. (ed.) (2019). Sistemas de producao para cereais de inverno: tres decadas de estudos. Embrapa. https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1111855/1/ID446652019LVSistemasdeproducao.pdf",
+  "E1": "Revista Cultivar, 6 Nov 2025, 'RS Safra 2025/26: colheita do trigo avanca em ritmo moderado' (Emater/RS Informativo Conjuntural). https://revistacultivar.com.br/noticias/rs-safra-2025-26-colheita-do-trigo-avanca-em-ritmo-moderado",
+  "E2": "Revista Cultivar, 11 Dec 2025, 'RS Safra 2025/26: colheita do trigo e finalizada no estado' (Emater/RS Informativo Conjuntural). https://revistacultivar.com.br/noticias/rs-safra-2025-26-colheita-do-trigo-e-finalizada-no-estado"
+ }
+}
