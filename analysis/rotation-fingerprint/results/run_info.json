@@ -1,0 +1,19 @@
+{
+ "run": "steps run one by one with the same scripts reproduce.py calls: scenes.py 2026-11-15 02:56-03:24 UTC (STAC search 02:56:54 UTC), fetch_pam.py 03:03:52 UTC, classify.py and figure.py final run 03:40-03:41 UTC",
+ "python": "3.12.10",
+ "libraries": {
+  "numpy": "2.3.4",
+  "rasterio": "1.4.3",
+  "pystac-client": "0.9.0",
+  "planetary-computer": "1.0.0",
+  "matplotlib": "3.10.7",
+  "pillow": "13.0.0"
+ },
+ "granules": {
+  "searched": 636,
+  "read": 584,
+  "skipped_cloudy": 52,
+  "errors": 0
+ },
+ "raw_size_note": "about 0.7 GB of per-granule NDVI vectors in the raw directory, not committed"
+}
