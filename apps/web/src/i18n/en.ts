@@ -151,13 +151,17 @@ export const en = {
   "dataMethods.section.limitations": "Limitations",
   "dataMethods.section.validation": "Validation",
   "dataMethods.section.validation.intro":
-    "Besides the ground check above, three public analyses compare what the NASA data recorded with what happened on the ground. Each one reruns from public sources and publishes negative or inconclusive results too.",
+    "Besides the ground check above, three public analyses compare what the NASA data recorded with what happened on the ground, and two more rerun the method outside Cruz Alta with no tuning. Each one reruns from public sources and publishes negative or inconclusive results too.",
   "dataMethods.section.validation.ensoWheat":
     "El Niño and wheat losses: municipal wheat yields (IBGE) against the ENSO phase of each winter and NASA rain.",
   "dataMethods.section.validation.groundTruth":
     "Ground truth: insured wheat losses to excess rain (Proagro) against NASA GPM IMERG spring rain.",
   "dataMethods.section.validation.drought":
     "Drought resilience: a pre-registered test of whether soybean became less sensitive to summer drought after winter cover became the rule. The answer was no.",
+  "dataMethods.section.validation.secondMunicipality":
+    "Same code, second municipality: the farm-by-farm soil pre-check rerun with no tuning in Júlio de Castilhos (RS): 1,508 of 1,527 assessed farms (99%) could reach NM3+ on the satellite side if the soil test and contour agree (section \"Second municipality\").",
+  "dataMethods.section.validation.sevenCities":
+    "Seven cities: the team's rotation-risk method run unchanged in 7 municipalities against criteria written before running; all four passed in 5 of 7, three of four in the other two.",
   "dataMethods.section.scale": "Scale of the problem",
   "dataMethods.section.scale.body":
     "The figures on the scale of the problem (wheat area and production of Rio Grande do Sul and Brazil, farms that grow wheat, insured wheat losses) are rebuilt from public sources by a script, with every source in its README:",
