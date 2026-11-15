@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farm soil pre-check</title>
+<style>
+:root{--ink:#0b0b0b;--muted:#5d5c58;--line:#e2e0da;--bg:#fcfcfb;--card:#ffffff;--accent:#1f6f4a;--warn:#8a5a00;--warnbg:#fff6e0}
+@media (prefers-color-scheme: dark){:root{--ink:#f2f1ed;--muted:#b3b1aa;--line:#3a3935;--bg:#151514;--card:#1d1d1b;--accent:#7fd3a4;--warn:#ffcf70;--warnbg:#3a2f12}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:880px;margin:0 auto;padding:24px 16px 40px}
+h1{font-size:1.45rem;margin:0 0 4px}.sub{color:var(--muted);margin:0 0 16px}
+.banner{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:0 0 18px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card .k{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}.card .v{font-size:1.6rem;font-weight:700;color:var(--accent)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.88rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600}
+tr.need td{color:var(--muted)}td.ev{color:var(--muted)}.wrap{overflow-x:auto}
+h2{font-size:1.05rem;margin:22px 0 8px}ol{padding-left:20px}footer{color:var(--muted);font-size:.78rem;margin-top:22px}
+</style></head><body><main>
+<h1>Your farm's soil pre-check (ZarcNM, soybean)</h1>
+<p class="sub">Example: an anonymous medium rural property in Cruz Alta (RS) · about 180 ha declared, 120 ha of cropland seen by satellite</p>
+<div class="banner">Pre-check, not a certificate. 3 of the 6 indicators come from NASA data; 3 need a soil test. The official level comes only from Embrapa's SINM.</div>
+<div class="grid">
+<div class="card"><div class="k">If soil tests are at level 4</div><div class="v">NM4</div><div class="k">and contour sowing confirmed</div></div>
+<div class="card"><div class="k">If soil tests are at level 3</div><div class="v">NM3</div><div class="k">and contour sowing confirmed</div></div>
+<div class="card"><div class="k">Premium subsidy, soybean 2026 pilot</div><div style="font-weight:600;margin-top:6px">NM1 20% · NM2 30% · NM3 35% · NM4 40%</div></div>
+</div>
+<div class="wrap"><table><thead><tr><th></th><th>Indicator</th><th>Source</th><th>Pre-check</th><th>Evidence</th></tr></thead><tbody><tr class=''><td><b>T</b></td><td>Years without tillage</td><td>satellite</td><td>level 4</td><td class='ev'>no spring with a bare-soil signature in 37 springs observed since 1984 (NASA/USGS Landsat, NASA HLS); 23-42 complete years without tillage (the lower figure counts years with no clear scene as possible tillage)</td></tr><tr class=''><td><b>C</b></td><td>Straw cover before sowing</td><td>satellite</td><td>level 3-4</td><td class='ev'>2026 Oct-Nov (NASA HLS / Landsat): median cover 97% (Embrapa Doc 454 ruler); straw 100%, probable bare soil 0% of the field area seen without green canopy (63% of the cropland)</td></tr><tr class=''><td><b>D</b></td><td>Crop diversity (last 3 years)</td><td>satellite + farmer&#x27;s declaration</td><td>level 3-4</td><td class='ev'>winter fingerprint 2020-2026: TCTTCCC (T wheat-like, C cover crop, P fallow, O other); summer crop assumed soybean; level 4 also needs 4 species declared</td></tr><tr class=''><td><b>slope</b></td><td>Slope (contour rule)</td><td>satellite + field check</td><td>contour sowing to confirm</td><td class='ev'>NASADEM: mean slope 6.9%, 80% of the cropland at 3% or more</td></tr><tr class='need'><td><b>V%</b></td><td>Base saturation 0-20 cm</td><td>needs soil test</td><td>-</td><td class='ev'>-</td></tr><tr class='need'><td><b>Ca</b></td><td>Calcium 20-40 cm</td><td>needs soil test</td><td>-</td><td class='ev'>-</td></tr><tr class='need'><td><b>m%</b></td><td>Aluminium saturation 20-40 cm</td><td>needs soil test</td><td>-</td><td class='ev'>-</td></tr></tbody></table></div>
+<h2>What's still needed</h2><ol><li>Soil analysis of the 0-20 cm and 20-40 cm layers by an accredited laboratory (V%, Ca, m%; valid 24 months; IN 2/2025 items 4.1-III and 7)</li><li>Confirmation of contour sowing (or sowing on the level) on at least 75% of the area where the slope is 3% or more (item 3.2.1-I)</li><li>The farmer&#x27;s declaration of crops and species of the last three agricultural years (item 4.1-I and II); it can raise diversity to level 4 and corrects what the satellite misreads</li><li>Registration of the field by an accredited agent so that Embrapa&#x27;s SINM issues the official level (IN 2/2025 items 3, 4.2-4.3); useful soil depth (Portaria SPA/MAPA 209/2026 item 2.4)</li></ol>
+<footer>Rules: IN SPA/MAPA 2/2025 (Annex, soybean) and Portaria SPA/MAPA 209/2026; subsidy: Resolução CGSR 111/2026. Data: NASA/USGS Landsat Collection 2 (TM, ETM+, OLI, OLI-2); NASA HLS v2.0 (L30, S30); NASADEM (NASA JPL); property outlines: CAR/SICAR, Serviço Florestal Brasileiro; cropland: ESA WorldCover 2021 (CC BY 4.0). Read via Microsoft Planetary Computer. Made by the FieldShift team (NASA Space Apps 2026).</footer>
+</main></body></html>
