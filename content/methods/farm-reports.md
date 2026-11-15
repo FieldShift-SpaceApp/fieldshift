@@ -28,7 +28,7 @@ limitations:
 - **Properties:** CAR outlines from the public SICAR GeoServer (Serviço Florestal Brasileiro), active records only. The layer has no owner name, CPF or CNPJ; the CAR code stays outside the repository; only aggregates and one rounded anonymous example are published.
 - **C:** NASA HLS and NASA/USGS Landsat 8/9, 1 Oct - 15 Nov 2026 (fallback 2025), 30 m; median NDTI of the cropland seen without green canopy, converted to % straw cover with the Embrapa Documentos 454 ruler; Table 1 band at cover ± 8.3 points; "level 3 or 4" above the ruler's 80% plateau.
 - **T:** NASA/USGS Landsat 4-9 and HLS, 20 Oct - 20 Nov of every year since 1984; complete years since the last spring with ≥ 25% of the property's clear cropland probable bare soil (NDVI < 0.30, NDTI < 0.06).
-- **D:** NASA HLS, April-November 2020-2026; the winter path of each 30 m pixel (wheat-like cereal, cover crop, fallow) from the rules of the rotation-fingerprint analysis (`analysis/rotation-fingerprint`, in progress), and Table 1 row 6 on the 2023-2025 winters, summer assumed soybean.
+- **D:** NASA HLS, April-November 2020-2026; the winter path of each 30 m pixel (wheat-like cereal, cover crop, fallow) from the [rotation fingerprint](#rotation-fingerprint) rules, and Table 1 row 6 on the 2023-2025 winters, summer assumed soybean.
 - **Slope:** NASADEM; a mean cropland slope ≥ 3% means contour sowing must be confirmed (item 3.2.1-I).
 - **Range:** the [ZarcNM rules](#zarcnm-precheck) applied to every combination of the observed levels with the three soil indicators at level 4 (or 3).
 

@@ -21,7 +21,7 @@ limitations:
 
 <!-- SI-assisted: written with Claude Code (Anthropic) from the norm texts and analysis/zarcnm-precheck (run of 2026-11-15 BRT); the idea was synthesized with AI at the team lead's request and is confirmed by the team in D-001; human review pending (see SI-USAGE.md). -->
 
-**Why this check.** Since 2026/27, Rio Grande do Sul soybean has a ZarcNM zoning: each field falls in a management level NM1-NM4, and in the 2026 pilot the federal premium subsidy for soybean is 20, 30, 35 or 40% for NM1 to NM4. The rule (IN SPA/MAPA 2/2025) scores six indicators; three of them (years without tillage T, straw cover C, crop diversity D) depend on what the farmer does in winter, and the norm names Landsat, Sentinel-2/HLS and NASADEM as the data to read them. This page shows how each winter path scores on those three. Every number comes from [`analysis/zarcnm-precheck/`](../../analysis/zarcnm-precheck/README.md).
+**Why this check.** Since 2026/27, Rio Grande do Sul soybean has a ZarcNM zoning: each field falls in a management level NM1-NM4, and in the 2026 pilot the federal premium subsidy for soybean is 20, 30, 35 or 40% for NM1 to NM4. The rule (IN SPA/MAPA 2/2025) scores six indicators; three of them (years without tillage T, straw cover C, crop diversity D) depend on what the farmer does in winter, and the norm recommends Landsat, Sentinel-2 or HLS imagery to read them (item 6.4; MODIS is accepted above 100 ha, item 6.4-I) and an elevation model "such as NASADEM or equivalent" for slope (item 6.3). This page shows how each winter path scores on those three. Every number comes from [`analysis/zarcnm-precheck/`](../../analysis/zarcnm-precheck/README.md).
 
 **Method.**
 

@@ -4,8 +4,8 @@
     python -I winter.py [--ibge 4306106] [--raw DIR]
 
 Reads the per-granule NDVI written by `scenes.py winter` (HLS L30/S30, tile T22JBP, 1 Apr - 30 Nov, 60 m) and
-applies the phenological rules of analysis/rotation-fingerprint/classify.py (branch surgeon/rotation-fingerprint,
-work in progress when this was written; its MAIN constants are VENDORED below so this folder runs on its own):
+applies the phenological rules of analysis/rotation-fingerprint/classify.py (merged in PR #59 while this was written;
+its MAIN constants are VENDORED below, checked identical to the merged file, so this folder runs on its own):
 half-month median NDVI, linear gap filling, then per pixel-year one class: T wheat-like winter cereal, C winter
 cover crop, P fallow (no green winter), O other / ambiguous, - not enough clear half-months.
 Writes winter_pixels.npz (per-pixel classes and cover durations, raw folder) and winter_farms.json.
