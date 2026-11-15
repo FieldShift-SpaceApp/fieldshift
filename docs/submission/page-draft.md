@@ -1,16 +1,26 @@
 # Submission page draft
 
-> **SI-assisted:** written with Claude Code (Anthropic) from `RESOURCES.md`, `SI-USAGE.md`, `content/methods/`, `analysis/*/README.md`, `data/sites/cruz-alta/output/*.json`, the norm texts (IN SPA/MAPA 2/2025, Portaria SPA/MAPA 209/2026, Resolução CGSR 111/2026), the team's verified numbers and the official 2026 Project Submission Guide; human review pending. The product **name** and the **one-line statement** are not written here (rule C1): they stay `[PENDING D-001: …]` for the team.
+> **SI-assisted:** written with Claude Code (Anthropic) from `RESOURCES.md`, `SI-USAGE.md`, `content/methods/`, `analysis/*/README.md`, `data/sites/cruz-alta/output/*.json`, the norm texts (IN SPA/MAPA 2/2025, Portaria SPA/MAPA 209/2026, Resolução CGSR 111/2026), the team's verified numbers and the official 2026 Project Submission Guide; human review pending. The product **name** and the **one-line statement** are not written here (rule C1): they stay as placeholders for the team (list below).
 
 Owner: FLIGHT. This is the text to paste into the Space Apps project page. Fields are in the official order of the [Project Submission Guide](https://www.spaceappschallenge.org/resources/project-submission-guide/) (version of 2026-11-13, read 2026-11-14). Compliance status of each item: [`preflight.md`](preflight.md). Demo rules and script skeleton: [`demo-plan.md`](demo-plan.md).
 
 **Direction:** the adopted direction of 15 November (team lead, after the pivot jury): the app compares three winter strategies after soybean (a wheat-like cereal every winter, a cover crop every winter, or alternating; fallow only as a reference) and adds a **ZarcNM pre-check** read with Landsat/HLS and NASADEM. The team confirms it in D-001.
 
+## Before submitting, fill (only people can)
+
+Every other bracket has been removed. These six placeholders remain, each in capitals inside square brackets where it appears:
+
+1. `[PRODUCT NAME]` — the team (D-001): field 1 and the first line of field 5.
+2. `[ONE-LINE STATEMENT]` — the team, in its own words (D-001): first line of fields 2 and 5.
+3. `[MEMBERS]` — FLIGHT, logged in: the 6 names exactly as on the Members tab (table below).
+4. `[REVIEWERS]` — the people who reviewed SI-generated code and text (field 6; `SI-USAGE.md` column "Reviewed by").
+5. `[DEMO LINK]` — the uploaded demo video, tested logged out (field 3).
+6. `[APP SOURCE URL]` — the public repository of the farmer-facing app, once published (fields 4 and 6).
+
 ## How to use this draft
 
 - Paste only the text **inside each "Paste" block**. "Notes (do not paste)" are for the team.
-- `[PENDING D-001: …]` = only the team writes it (name and one-line statement).
-- **Links (team lead's decision, 15 November):** https://fieldshift-spaceapp.vercel.app is now the **farmer-facing app** (the product; routes `/start`, `/`, `/soil-level`, `/rotations`, `/my-farm`, `/globe`, `/sources`, `/about`). The earlier pipeline pages (`/data-methods`, `/glossary`, `/sites/cruz-alta`) stay online at https://fieldshift-data.vercel.app. The farmer-facing app's **source code is still private**: do not link its repository; field 4 says "app source to be published" with a `[PENDING]`.
+- **Links (team lead's decision, 15 November):** https://fieldshift-spaceapp.vercel.app is now the **farmer-facing app** (the product; routes `/start`, `/`, `/soil-level`, `/rotations`, `/my-farm`, `/globe`, `/sources`, `/about`). The earlier pipeline pages (`/data-methods`, `/glossary`, `/sites/cruz-alta`) stay online at https://fieldshift-data.vercel.app. The farmer-facing app's **source code is still private**: do not link its repository; field 4 says "app source to be published" with `[APP SOURCE URL]`.
 - The Landsat/HLS analysis (PR #54, `analysis/residue-landsat`) is merged (`7b7ca4f`), so its numbers are written in the present tense.
 - Field 6 demo variant chosen: captions only, no synthetic voice (round 5).
 - Tense rule: present tense only for what is on `main` or published. Never leave a bracket in the submitted page.
@@ -32,7 +42,7 @@ Owner: FLIGHT. This is the text to paste into the Space Apps project page. Field
 | Team name | FieldShift | filled |
 | Local Event | Florianópolis, Brazil (Founder Haus, Jurerê Internacional) | filled |
 | Challenge | Field Shift: Adapting Farms with NASA Data | filled |
-| Members (max 6, all confirmed at the same Local Event, none on the waitlist) | `[PENDING: the 6 names exactly as on the Members tab — checked by FLIGHT logged in]` | to verify |
+| Members (max 6, all confirmed at the same Local Event, none on the waitlist) | `[MEMBERS]` | to verify |
 
 ---
 
@@ -42,7 +52,7 @@ Owner: FLIGHT. This is the text to paste into the Space Apps project page. Field
 
 **Paste:**
 
-`[PENDING D-001: product name]`
+`[PRODUCT NAME]`
 
 ## 2. High-Level Project Summary
 
@@ -50,7 +60,7 @@ Owner: FLIGHT. This is the text to paste into the Space Apps project page. Field
 
 **Paste:**
 
-`[PENDING D-001: one-line statement]`
+`[ONE-LINE STATEMENT]`
 
 Every year, after the soybean harvest, a farmer in Rio Grande do Sul, Brazil, chooses what the field does in winter. We compare three strategies: a **wheat-like cereal every winter**, a **cover crop every winter** (black oat with vetch), or **alternating** the two. Fallow (no winter crop) is kept only as a reference: NASA HLS shows it on just 0.3–0.6% of Cruz Alta's cropland in each winter of 2020–2025. Since the 2026/27 season that choice also counts for crop insurance. Under Brazil's **ZarcNM** zoning (Portaria SPA/MAPA 209/2026 for soybean in Rio Grande do Sul), a soybean field is placed in one of four soil-management levels, NM1 to NM4, and in the 2026 pilot the federal subsidy on the soybean insurance premium goes from 20% at NM1 to 40% at NM4 (Resolução CGSR 111/2026) — a small pilot, with R$ 1 million for soybean shared by four states. The rule behind the levels (IN SPA/MAPA 2/2025) asks for field slope from 30 m products "such as NASADEM or equivalent" and for NDVI and NDTI time series at 30 m, recommending **Landsat, Sentinel-2 or the harmonized HLS product**; MODIS is accepted for fields over 100 ha.
 
@@ -85,23 +95,18 @@ Why it matters: the official rule rewards deep roots and drought resilience; our
 
 **Paste:**
 
-- **App (the product):** https://fieldshift-spaceapp.vercel.app — three winter strategies, soil-level pre-check, my farm, globe, sources. App source to be published: `[PENDING: public URL of the farmer-facing app's source code]`
-- **Data & Methods (pipeline, provenance):** https://fieldshift-data.vercel.app/data-methods
-  - Cruz Alta site page (NASA POWER climate, indices, ground check, source of every number): https://fieldshift-data.vercel.app/sites/cruz-alta
-- Code repository of the data pipeline and analyses (public, Apache-2.0): https://github.com/FieldShift-SpaceApp/fieldshift
-- ZarcNM pre-check (rules, tests, results): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/zarcnm-precheck
-- Every farm of Cruz Alta, one soil pre-check from NASA data: https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/farm-reports
-- Forty years of Landsat and HLS (straw, not bare soil): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/residue-landsat
-- Every field's winter from space (rotation fingerprint, NASA HLS): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/rotation-fingerprint
-- Where one public real unlocks the most (soil-test vouchers, app `/policy`): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/policy-targeting
-- Field calibration of the straw ruler (protocol and empty Cruz Alta slot, app `/calibrate`): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/field-calibration
-- Public reproduction of team research numbers (revenue per hectare; a heavy-rain calendar model, labelled "calendar model only"): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/team-rotation-evidence
-- NASA/IBM Prithvi foundation model tested against our winter rules (null result): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/nasa-ai-prithvi
-- Pre-registered tests with null results: drought resilience https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/drought-resilience · rotation × drought at 30 m https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/rotation-drought-test
-- Reproducible analyses: El Niño and wheat losses https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/enso-wheat · storms meet soil https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/storms-bare-soil · ground truth (insured losses vs NASA IMERG) https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/ground-truth-proagro · scale of the problem https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/scale
-- Site data files (with provenance): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/data/sites/cruz-alta/output
+- **App (the product):** https://fieldshift-spaceapp.vercel.app — app source to be published: `[APP SOURCE URL]`
 
-**Notes (do not paste):** test every link logged out before submitting. Do not link the private team workspace or the farmer-facing app's private repository. Its code must be public before submitting (the official rule asks for publicly accessible materials); until then keep the `[PENDING]`. Read 2026-11-15 (anonymous `curl`): the app no longer says "as proof", but `/sources` says "the satellite data it names (NASADEM; Landsat, Sentinel-2 or HLS)"; the faithful wording is "recommends Landsat, Sentinel-2 or HLS" (item 6.4) and "such as NASADEM or equivalent" (item 6.3) — fix in the app.
+Evidence (7 links):
+1. Data & Methods (pipeline, provenance, every dataset and method): https://fieldshift-data.vercel.app/data-methods
+2. ZarcNM pre-check (rules, tests, results): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/zarcnm-precheck
+3. Every farm of Cruz Alta, one soil pre-check from NASA data: https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/farm-reports
+4. Forty years of Landsat and HLS (straw, not bare soil): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/residue-landsat
+5. Every field's winter from space (rotation fingerprint, NASA HLS): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/rotation-fingerprint
+6. What did not hold (pre-registered null tests, NASA's Prithvi model, a calendar model): https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/drought-resilience · https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/rotation-drought-test · https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/nasa-ai-prithvi · https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/team-rotation-evidence
+7. Code repository (public, Apache-2.0; every analysis reruns from public sources): https://github.com/FieldShift-SpaceApp/fieldshift
+
+**Notes (do not paste):** test every link logged out before submitting. Do not link the private team workspace or the farmer-facing app's private repository. Its code must be public before submitting (the official rule asks for publicly accessible materials); until then keep `[APP SOURCE URL]`. Field 4 keeps at most 7 evidence links (jury round 6); the other analyses (policy-targeting, field-calibration, enso-wheat, storms-bare-soil, ground-truth-proagro, scale) and the site page are reachable from Data & Methods and the repository. Read 2026-11-15 (anonymous `curl`): the app no longer says "as proof", but `/sources` says "the satellite data it names (NASADEM; Landsat, Sentinel-2 or HLS)"; the faithful wording is "recommends Landsat, Sentinel-2 or HLS" (item 6.4) and "such as NASADEM or equivalent" (item 6.3) — fix in the app.
 
 ## 5. Detailed Project Description
 
@@ -109,7 +114,7 @@ Why it matters: the official rule rewards deep roots and drought resilience; our
 
 **Paste:**
 
-`[PENDING D-001: product name]` — `[PENDING D-001: one-line statement]`
+`[PRODUCT NAME]` — `[ONE-LINE STATEMENT]`
 
 **The decision.** In the Planalto Médio of Rio Grande do Sul, soybean fills the summer and the farmer chooses what follows it in winter. We compare three strategies: a wheat-like cereal every winter (income, exposed to the weather), a cover crop every winter such as black oat with vetch (protects the soil, costs money, earns nothing directly), or alternating the two. Fallow (no cost, no protection) is only a reference: NASA HLS finds it on 0.3–0.6% of Cruz Alta's cropland in each winter of 2020–2025. The choice comes months before winter.
 
@@ -147,6 +152,7 @@ Two things now ride on it. **Insurance:** since 2026/27, Rio Grande do Sul soybe
 - **The rule in practice:** in Paraná's first pilot season (2025/26), 29 production areas (about 2,400 ha) were classified: about 5% of the area in NM4, 27% NM3, 57% NM2 and 11% NM1 (MAPA, 17 November 2025). A pre-check that says which fields can reach NM3–NM4 addresses the level most fields did not reach.
 - **November storms:** cropland without green cover (mostly straw; Sentinel-2 10 m, NDVI < 0.25) peaks at 67.6% (1–15 November) and 75.6% (16–30 November), median 2019–2025; in 1–15 November 44% of years have a day with ≥ 50 mm in NASA IMERG (95% interval 27–63%). The straw clock gives, on 1 November, 3.1–8.2 t/ha for black oat desiccated in September–October, 2.6–4.1 t/ha for harvested wheat and no winter straw for fallow — arithmetic from measured half-lives, not a field measurement.
 - **Heavy rain at wheat harvest, by ENSO phase** (mean September–November days with ≥ 50 mm, Cruz Alta): NASA GPM IMERG 4.4 / 2.6 / 1.4 (El Niño / neutral / La Niña, 1998–2025); ANA gauge 4.0 / 2.2 / 1.5 and NASA POWER 1.9 / 1.1 / 0.9 (1982–2025).
+- **ENSO phase is defined per question, so numbers differ between analyses:** the wheat result uses the winter's ONI for June–August (≥ +0.5 °C El Niño, ≤ −0.5 °C La Niña; 53% against 3.5% of municipal harvests), and the harvest heavy-rain result uses the ONI phase of September–November (NOAA's operational five-season rule; 4.4 against 1.4 days). The same year can fall in different phases under the two definitions.
 - **Forecasts in February** do not beat "always neutral" on the winter's ENSO phase (NASA GMAO GEOS-S2S: 0.56 against 0.71, 41 years), so only odds and track records are shown.
 - **2026 so far:** 1 September–11 November 2026, NASA POWER at Cruz Alta recorded 935 mm and 5 days with ≥ 50 mm, against 537 mm and 1.2 days in an average El Niño year over the same days; NOAA's ONI for August–October 2026 is +2.46 °C.
 - **Scale:** Rio Grande do Sul planted 1.16 million ha of wheat in 2025 (46% of Brazil's) on about 20,000 farms (2017 Census of Agriculture); in 2023 its wheat output fell from 5.3 to 2.6 million t and Proagro approved R$ 2.07 billion in wheat claims.
@@ -184,16 +190,16 @@ Two things now ride on it. **Insurance:** since 2026/27, Rio Grande do Sul soybe
 
 **Answer: Yes.**
 
-We used SI tools as assistants for research, code, documentation, analysis and review. **Origin of the idea, stated as it happened:** the team generated the starting ideas at a human ideation meeting on 14 November (transcribed in the team workspace), and the farmer on the team described the real winter decision in an interview. At the team lead's request, an SI tool (Claude Code) then helped **compare and synthesize concepts from those human ideas** and from data the team had verified, and drafted the pitch text. The **ZarcNM direction** — scoring the three winter paths against Brazil's soil-management rule and reading it with Landsat/HLS and NASADEM — was also synthesized with Claude Code at the team lead's request, from two of the team's human ideas ("adapt the rotation to the year's forecast" and "validate with data what farmers already do") and from the farmer's account of the decision; an AI-assisted mock jury compared it with other options. The team adopted it and wrote the one-line statement in its own words (decision record `D-001` in `DECISIONS.md`). `[PENDING D-001: names and time of the decision; confirm the wording with the Local Lead if possible]`
+We used SI tools as assistants for research, code, documentation, analysis and review. **Origin of the idea, stated as it happened:** the team generated the starting ideas at a human ideation meeting on 14 November (transcribed in the team workspace), and the farmer on the team described the real winter decision in an interview. At the team lead's request, an SI tool (Claude Code) then helped **compare and synthesize concepts from those human ideas** and from data the team had verified, and drafted the pitch text. The **ZarcNM direction** — scoring the three winter paths against Brazil's soil-management rule and reading it with Landsat/HLS and NASADEM — was also synthesized with Claude Code at the team lead's request, from two of the team's human ideas ("adapt the rotation to the year's forecast" and "validate with data what farmers already do") and from the farmer's account of the decision; an AI-assisted mock jury compared it with other options. The team adopted it and wrote the one-line statement in its own words (decision record `D-001` in `DECISIONS.md`).
 
-- **Code (SI-generated, human-directed):** Claude Code (Anthropic) wrote most of the code in the repository under the team's instructions: NASA POWER ingestion and monthly aggregation, FAO-56 ET0, climate indices and data validation, the complement datasets (GPM IMERG via POWER, forecast archives, bare-soil calendar, 2023 replay, 2026 season so far), the data contracts and their code generation, the web app pages, the ZarcNM rules module and its tests, the analysis folders, the tests and the CI workflow. Every SI-assisted file carries an "SI-assisted" header naming the tool and the reviewer, and every SI-assisted pull request has a row in `SI-USAGE.md`. Codex (OpenAI) was used to review planning documents, the pitch draft and one pull request. The farmer-facing app was also built with Claude Code; its SI log is published with its source `[PENDING: app source URL]`.
+- **Code (SI-generated, human-directed):** Claude Code (Anthropic) wrote most of the code in the repository under the team's instructions: NASA POWER ingestion and monthly aggregation, FAO-56 ET0, climate indices and data validation, the complement datasets (GPM IMERG via POWER, forecast archives, bare-soil calendar, 2023 replay, 2026 season so far), the data contracts and their code generation, the web app pages, the ZarcNM rules module and its tests, the analysis folders, the tests and the CI workflow. Every SI-assisted file carries an "SI-assisted" header naming the tool and the reviewer, and every SI-assisted pull request has a row in `SI-USAGE.md`. Codex (OpenAI) was used to review planning documents, the pitch draft and one pull request. The farmer-facing app was also built with Claude Code; its SI log is published with its source (`[APP SOURCE URL]`).
 - **Rules from the norm (SI-transcribed, human review pending):** the ZarcNM rules were transcribed by Claude Code from the official texts (IN SPA/MAPA 2/2025, Portaria SPA/MAPA 209/2026), with the item number next to each rule and each ambiguous reading marked and tested; the team's agronomist is asked to confirm the readings.
 - **Analyses (SI-run, human-directed):** Claude Code ported the team's verification scripts to English and ran them and the new analyses against the public sources. The complement datasets, "storms meet soil", "straw, not bare soil" (Landsat/HLS), the rotation fingerprint, the farm reports, the two drought tests and the ZarcNM pre-check were requested by the team lead; as for the whole project, the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). The ported team research in `analysis/team-rotation-evidence/` is credited to the FieldShift team research.
 - **Text (SI-generated, human-directed):** Claude Code and Claude (Anthropic) drafted the documentation (README, methods, glossary, related work, resources and licences, analysis write-ups, this submission text) and the team's internal planning documents. Research used Claude Code with the Firecrawl CLI and web search to read official pages and norms; facts were checked against their sources and the sources are cited.
 - **Data:** no number shown in the project is produced by an SI model. Numbers come from NASA, ESA Copernicus and other public sources through deterministic code (FAO-56, counts, percentiles, permutation tests, exponential decay, the norm's own tables) or are transcribed from cited publications and norms; SI wrote and ran that code. Data files produced this way are declared in `SI-USAGE.md` and in each dataset's `provenance.json`.
 - **Images:** the app icon (`icon.svg`, SVG code written by Claude Code) and the static charts of the analyses (drawn by Matplotlib scripts written by Claude Code from the computed results) are declared in `SI-USAGE.md`. No NASA logo, flag or mission insignia appears in any SI-generated content.
 - **Demo:** the demo video has **no narration voice and no synthetic audio** (no audio track at all), no music and no AI-generated images: it is a screen recording of the published app with burned-in English captions. **The captions and the assembly (scene order, timing, crossfades) were scripted with Claude Code (Anthropic), SI-assisted**; this is stated in the video file's metadata and in `SI-USAGE.md`.
-- **Human review:** `[PENDING: names of the people who reviewed SI-generated code and text — SI-USAGE.md column "Reviewed by"]`
+- **Human review:** `[REVIEWERS]`
 
 Full log with dates, tools and files: https://github.com/FieldShift-SpaceApp/fieldshift/blob/main/SI-USAGE.md
 
@@ -361,9 +367,9 @@ Farmer-facing app libraries: Next.js 16.4.6, React 19.3.0, Tailwind CSS 4.3.3, L
 - App icon: `apps/web/src/app/icon.svg`, SVG code written for this project with Claude Code (declared in `SI-USAGE.md`); no third-party mark, no NASA logo.
 - Analysis charts (`analysis/storms-bare-soil/results/storms-bare-soil.png`, `analysis/ground-truth-proagro/results/ground-truth-proagro.png`, `analysis/residue-landsat/results/residue-landsat.png` and `residue-before-after.png`, `analysis/rotation-fingerprint/results/*.png` and `.gif`, `analysis/farm-reports/results/farm-reports-map.png` and `example-report.png`): drawn by the team's Matplotlib scripts (written with Claude Code) from computed results; sources in their footers; no logo.
 - App screenshots in `apps/web/docs/screenshots/`: captures of our own app.
-- `[PENDING: every image, card, icon and music track used in the slides or demo video, with source and licence]`
+- Demo video: a screen recording of our own published app (no slides, no music, no stock or AI-generated image, no voice). Map imagery seen in it is credited on screen as in the app (NASA GIBS / Blue Marble, NASA HLS, NASA/USGS Landsat; OpenFreeMap map tiles, © OpenMapTiles, © OpenStreetMap contributors, ODbL). Captions are set in the Segoe UI system font.
 
-**SI tools** (details in field 6): Claude Code and Claude (Anthropic), Codex (OpenAI), Firecrawl CLI. `[PENDING: voice and image tools used in the demo, if any — see field 6 variant]`
+**SI tools** (details in field 6): Claude Code and Claude (Anthropic), Codex (OpenAI), Firecrawl CLI. No voice or image generation tool was used in the demo (captions and assembly scripted with Claude Code).
 
 **Notes (do not paste):**
 - Norm citations from the extracted DOU texts in the team workspace; CGSR 111/2026 only from the Legismap transcription (say so if asked).
@@ -376,4 +382,4 @@ Farmer-facing app libraries: Next.js 16.4.6, React 19.3.0, Tailwind CSS 4.3.3, L
 ## Final declarations (checkboxes on the form)
 
 - [ ] Terms and Conditions and Privacy Policy accepted.
-- [ ] "I confirm that the submitted project represents my team's original work and that all external resources including code, text and images (even if they are open source or freely available) used in the project are listed in the References field" — tick only after field 8 has no `[PENDING]` left.
+- [ ] "I confirm that the submitted project represents my team's original work and that all external resources including code, text and images (even if they are open source or freely available) used in the project are listed in the References field" — tick only after the six placeholders at the top are filled.
