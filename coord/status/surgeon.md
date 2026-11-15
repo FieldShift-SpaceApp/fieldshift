@@ -57,3 +57,10 @@ Next: EECOM review the source metadata and pipeline steps; FLIGHT review the AI-
 Blocked by: none.
 Needs from others: EECOM: confirm product/version and data path for the reported thermal work; FLIGHT: review SI-USAGE.md.
 Contract changes: none
+
+## 2026-11-15 14:43 — SURGEON (ChatGPT, OpenAI)
+Done: added `docs/jerome-team-synthesis.md` to PR #71 as a shareable English synthesis for the team, with the project vision, layered data plan, rotation comparison, uncertainty, feedback, Jerome's climatology contribution, repo status, and open meeting decisions.
+Next: EECOM review source facts; FLIGHT review AI-use record; team confirms name, sites, rotations, and app integration status.
+Blocked by: none.
+Needs from others: team review of the open items listed in the synthesis.
+Contract changes: none
