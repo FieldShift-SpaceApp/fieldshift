@@ -46,6 +46,9 @@ BCB = Attribution(group="other_public", name="Banco Central do Brasil, SICOR rur
 MAPA = Attribution(group="other_public", name="MAPA (Brazil), ZARC agricultural risk zoning")
 CONAB = Attribution(group="other_public", name="CONAB production cost series")
 EMBRAPA = Attribution(group="other_public", name="Embrapa Trigo, Comunicado Técnico 207")
+EMATER_RS = Attribution(
+    group="other_public", name="Emater/RS-Ascar, Informativo Conjuntural (crop bulletin)"
+)
 NOAA_CPC_DISC = Attribution(group="other_public", name="NOAA CPC ENSO Diagnostic Discussion")
 
 TERMS_NOAA = "https://www.weather.gov/disclaimer"

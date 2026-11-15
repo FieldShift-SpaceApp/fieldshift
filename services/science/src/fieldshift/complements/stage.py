@@ -3,8 +3,9 @@
 
 Reads data/sites/<id>/input/ (forecast table, replay YAML, IBGE wheat files, rain gauge, satellite
 summaries), data/cache/noaa/ (ONI), data/cache/power/<id>/ (NASA POWER) and
-data/cache/power-imerg/<id>/ (GPM IMERG via POWER); writes forecast-scorecard.json, replay.json,
-bare-soil-calendar.json and enso-rain-signal.json, and merges their provenance records into
+data/cache/power-imerg/<id>/ (GPM IMERG via POWER) and data/cache/now-2026/ (POWER and IMERG for the
+current season); writes forecast-scorecard.json, replay.json, bare-soil-calendar.json,
+enso-rain-signal.json and now-2026.json, and merges their provenance records into
 output/provenance.json.
 """
 
@@ -15,6 +16,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
+from fieldshift.complements import now as now_mod
 from fieldshift.complements import provenance as cp
 from fieldshift.complements.baresoil import build_bare_soil
 from fieldshift.complements.oni import SEASONS, OniFile, load_oni
@@ -34,6 +36,7 @@ FILES = {
     "replay": "replay.json",
     "bare_soil": "bare-soil-calendar.json",
     "rain": "enso-rain-signal.json",
+    "now": now_mod.FILE,
 }
 IMERG_END = date(2025, 12, 31)
 FORECAST_ACCESSED_AT = "2026-11-14T19:46:32-03:00"  # start of the archive download (script log)
@@ -59,6 +62,7 @@ def oni_period(oni: OniFile) -> Period:
 
 
 def power_rain(data_dir: Path, site_id: str, lat: float, lon: float) -> dict:
+    """PRECTOTCORR of the main POWER cache (`fetch power`), the history of every rain document."""
     caches = sorted((data_dir / "cache" / "power" / site_id).glob("daily_*.json"))
     if not caches:
         raise PipelineError(f"no NASA POWER cache for {site_id}; run `fieldshift fetch power`")
@@ -100,6 +104,17 @@ def run_complements(site_id: str, *, data_dir: Path, offline: bool = False) -> C
         oni,
     )
     records.update({r.id: r for r in recs})
+    now_cache = data_dir / "cache" / "now-2026"
+    now_args = (site_id, site.lat, site.lon, now_mod.START, now_mod.CUTOFF)
+    now_doc, recs = now_mod.build_now(
+        site,
+        power.fetch(*now_args, cache_root=now_cache, offline=offline),
+        power_rain(data_dir, site_id, site.lat, site.lon),
+        power_imerg.fetch(*now_args, cache_root=now_cache, offline=offline),
+        imerg,
+        oni,
+    )
+    records.update({r.id: r for r in recs})
 
     registry = ProvenanceRegistry(schema_version=SCHEMA_VERSION, site_id=site_id, records=records)
     provenance_path = out / "provenance.json"
@@ -112,6 +127,7 @@ def run_complements(site_id: str, *, data_dir: Path, offline: bool = False) -> C
         "replay": write_model(replay, out / FILES["replay"]),
         "bare_soil": write_model(calendar, out / FILES["bare_soil"]),
         "rain": write_model(rain, out / FILES["rain"]),
+        "now": write_model(now_doc, out / FILES["now"]),
     }
     return ComplementOutputs(
         paths=paths, provenance_path=write_model(merged, provenance_path), records=len(records)
