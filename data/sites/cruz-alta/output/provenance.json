@@ -278,12 +278,13 @@
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015",
    "inputs": [
-    "prov:user:cruz-alta:ana-2853015",
-    "prov:noaa:cruz-alta:oni"
+    "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:heavy-days",
+    "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:total",
+    "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:n-years"
    ],
    "limitations": [
     {
-     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "en": "Few events: 39 complete springs in 1982-2024 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
      "pt": null
     },
     {
@@ -295,11 +296,14 @@
     "doc_anchor": "enso-heavy-rain",
     "name": "enso-heavy-rain v1",
     "parameters": {
+     "complete_years": 39.0,
      "heavy_rain_mm": 50.0,
+     "incomplete_years": "2013,2014,2015,2017,2025",
      "months": "9,10,11",
      "phase_min_seasons": 5.0,
      "phase_season": "SON",
-     "phase_threshold_degC": 0.5
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
     },
     "ref": {
      "citation": null,
@@ -317,7 +321,7 @@
    },
    "temporal": {
     "period": {
-     "end": "2025-11-30",
+     "end": "2024-11-30",
      "start": "1982-09-01"
     },
     "resolution": "annual"
@@ -327,13 +331,262 @@
     "pt": null
    },
    "variable": {
+    "code": "heavy_rain_son_by_enso_phase",
+    "name": {
+     "en": "Heavy-rain days, window total and complete years by ENSO phase",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:heavy-days": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:heavy-days",
+   "inputs": [
+    "prov:user:cruz-alta:ana-2853015",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 39 complete springs in 1982-2024 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 39.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "2013,2014,2015,2017,2025",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "point"
+   },
+   "temporal": {
+    "period": {
+     "end": "2024-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, ANA rain gauge 2853015: Days with rain >= 50 mm",
+    "pt": null
+   },
+   "variable": {
     "code": "heavy_rain_days_son",
     "name": {
-     "en": "Days with rain >= 50 mm; window total",
+     "en": "Days with rain >= 50 mm",
      "pt": null
     },
     "native_unit": null,
     "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:n-years": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:n-years",
+   "inputs": [
+    "prov:user:cruz-alta:ana-2853015",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 39 complete springs in 1982-2024 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 39.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "2013,2014,2015,2017,2025",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "point"
+   },
+   "temporal": {
+    "period": {
+     "end": "2024-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, ANA rain gauge 2853015: Years with a complete September-November window",
+    "pt": null
+   },
+   "variable": {
+    "code": "complete_years_son",
+    "name": {
+     "en": "Years with a complete September-November window",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:total": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015:total",
+   "inputs": [
+    "prov:user:cruz-alta:ana-2853015",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 39 complete springs in 1982-2024 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 39.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "2013,2014,2015,2017,2025",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "point"
+   },
+   "temporal": {
+    "period": {
+     "end": "2024-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, ANA rain gauge 2853015: Rain total of September-November",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_total_son",
+    "name": {
+     "en": "Rain total of September-November",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
    }
   },
   "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg": {
@@ -358,12 +611,13 @@
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg",
    "inputs": [
-    "prov:imerg:cruz-alta:imerg_prectot:daily",
-    "prov:noaa:cruz-alta:oni"
+    "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:heavy-days",
+    "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:total",
+    "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:n-years"
    ],
    "limitations": [
     {
-     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "en": "Few events: 28 complete springs in 1998-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
      "pt": null
     },
     {
@@ -375,11 +629,14 @@
     "doc_anchor": "enso-heavy-rain",
     "name": "enso-heavy-rain v1",
     "parameters": {
+     "complete_years": 28.0,
      "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
      "months": "9,10,11",
      "phase_min_seasons": 5.0,
      "phase_season": "SON",
-     "phase_threshold_degC": 0.5
+     "phase_threshold_degC": 0.5,
+     "years_read": "1998-2025"
     },
     "ref": {
      "citation": null,
@@ -398,7 +655,7 @@
    "temporal": {
     "period": {
      "end": "2025-11-30",
-     "start": "1982-09-01"
+     "start": "1998-09-01"
     },
     "resolution": "annual"
    },
@@ -407,13 +664,262 @@
     "pt": null
    },
    "variable": {
+    "code": "heavy_rain_son_by_enso_phase",
+    "name": {
+     "en": "Heavy-rain days, window total and complete years by ENSO phase",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:heavy-days": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:heavy-days",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 28 complete springs in 1998-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 28.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1998-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1998-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, GPM IMERG: Days with rain >= 50 mm",
+    "pt": null
+   },
+   "variable": {
     "code": "heavy_rain_days_son",
     "name": {
-     "en": "Days with rain >= 50 mm; window total",
+     "en": "Days with rain >= 50 mm",
      "pt": null
     },
     "native_unit": null,
     "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:n-years": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:n-years",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 28 complete springs in 1998-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 28.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1998-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1998-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, GPM IMERG: Years with a complete September-November window",
+    "pt": null
+   },
+   "variable": {
+    "code": "complete_years_son",
+    "name": {
+     "en": "Years with a complete September-November window",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:total": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg:total",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 28 complete springs in 1998-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 28.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1998-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1998-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, GPM IMERG: Rain total of September-November",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_total_son",
+    "name": {
+     "en": "Rain total of September-November",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
    }
   },
   "prov:computed:cruz-alta:enso-heavy-rain:nasa-power": {
@@ -438,12 +944,13 @@
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power",
    "inputs": [
-    "prov:power:cruz-alta:prectotcorr:daily",
-    "prov:noaa:cruz-alta:oni"
+    "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:heavy-days",
+    "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:total",
+    "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:n-years"
    ],
    "limitations": [
     {
-     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "en": "Few events: 44 complete springs in 1982-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
      "pt": null
     },
     {
@@ -455,11 +962,14 @@
     "doc_anchor": "enso-heavy-rain",
     "name": "enso-heavy-rain v1",
     "parameters": {
+     "complete_years": 44.0,
      "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
      "months": "9,10,11",
      "phase_min_seasons": 5.0,
      "phase_season": "SON",
-     "phase_threshold_degC": 0.5
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
     },
     "ref": {
      "citation": null,
@@ -487,13 +997,262 @@
     "pt": null
    },
    "variable": {
+    "code": "heavy_rain_son_by_enso_phase",
+    "name": {
+     "en": "Heavy-rain days, window total and complete years by ENSO phase",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:heavy-days": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:heavy-days",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 44 complete springs in 1982-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 44.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, NASA POWER: Days with rain >= 50 mm",
+    "pt": null
+   },
+   "variable": {
     "code": "heavy_rain_days_son",
     "name": {
-     "en": "Days with rain >= 50 mm; window total",
+     "en": "Days with rain >= 50 mm",
      "pt": null
     },
     "native_unit": null,
     "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:n-years": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:n-years",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 44 complete springs in 1982-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 44.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, NASA POWER: Years with a complete September-November window",
+    "pt": null
+   },
+   "variable": {
+    "code": "complete_years_son",
+    "name": {
+     "en": "Years with a complete September-November window",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:total": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power:total",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: 44 complete springs in 1982-2025 for this source, split into three ENSO phases; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "complete_years": 44.0,
+     "heavy_rain_mm": 50.0,
+     "incomplete_years": "none",
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5,
+     "years_read": "1982-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, NASA POWER: Rain total of September-November",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_total_son",
+    "name": {
+     "en": "Rain total of September-November",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm"
    }
   },
   "prov:computed:cruz-alta:et0:annual_mean:1991_2020": {
@@ -1995,6 +2754,95 @@
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:now-2026:gpm-imerg",
    "inputs": [
+    "prov:computed:cruz-alta:now-2026:gpm-imerg:total",
+    "prov:computed:cruz-alta:now-2026:gpm-imerg:heavy-days",
+    "prov:computed:cruz-alta:now-2026:gpm-imerg:n-years"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 14.0,
+     "window_end": "2026-09-14",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-09-14",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, GPM IMERG",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_season_to_date",
+    "name": {
+     "en": "Window total, days with rain >= 50 mm and climatology years",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:gpm-imerg:heavy-days": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:gpm-imerg:heavy-days",
+   "inputs": [
     "prov:imerg:cruz-alta:imerg_prectot:daily:2026-son",
     "prov:imerg:cruz-alta:imerg_prectot:daily",
     "prov:noaa:cruz-alta:oni"
@@ -2017,11 +2865,14 @@
     "doc_anchor": "now-2026",
     "name": "now-2026 v1",
     "parameters": {
+     "climatology_complete_years": 28.0,
      "climatology_years": "1998-2025",
      "compare_years": "2023",
      "cutoff": "2026-11-13",
      "heavy_rain_mm": 50.0,
      "phase_season": "SON",
+     "window_days": 14.0,
+     "window_end": "2026-09-14",
      "window_start": "2026-09-01"
     },
     "ref": {
@@ -2040,19 +2891,197 @@
    },
    "temporal": {
     "period": {
-     "end": "2026-11-13",
+     "end": "2026-09-14",
      "start": "1998-09-01"
     },
     "resolution": "daily"
    },
    "title": {
-    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, GPM IMERG",
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, GPM IMERG: Days with rain >= 50 mm",
     "pt": null
    },
    "variable": {
-    "code": "rain_season_to_date",
+    "code": "heavy_rain_days_season_to_date",
     "name": {
-     "en": "Window total; days with rain >= 50 mm",
+     "en": "Days with rain >= 50 mm",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:gpm-imerg:n-years": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:gpm-imerg:n-years",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily:2026-son",
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 14.0,
+     "window_end": "2026-09-14",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-09-14",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, GPM IMERG: Past years with the same days complete",
+    "pt": null
+   },
+   "variable": {
+    "code": "climatology_years",
+    "name": {
+     "en": "Past years with the same days complete",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:gpm-imerg:total": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:gpm-imerg:total",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily:2026-son",
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 14.0,
+     "window_end": "2026-09-14",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-09-14",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, GPM IMERG: Window total",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_total_season_to_date",
+    "name": {
+     "en": "Window total",
      "pt": null
     },
     "native_unit": null,
@@ -2081,6 +3110,95 @@
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:now-2026:nasa-power",
    "inputs": [
+    "prov:computed:cruz-alta:now-2026:nasa-power:total",
+    "prov:computed:cruz-alta:now-2026:nasa-power:heavy-days",
+    "prov:computed:cruz-alta:now-2026:nasa-power:n-years"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 72.0,
+     "window_end": "2026-11-11",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-11-11",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_season_to_date",
+    "name": {
+     "en": "Window total, days with rain >= 50 mm and climatology years",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:nasa-power:heavy-days": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:nasa-power:heavy-days",
+   "inputs": [
     "prov:power:cruz-alta:prectotcorr:daily:2026-son",
     "prov:power:cruz-alta:prectotcorr:daily",
     "prov:noaa:cruz-alta:oni"
@@ -2103,11 +3221,14 @@
     "doc_anchor": "now-2026",
     "name": "now-2026 v1",
     "parameters": {
+     "climatology_complete_years": 28.0,
      "climatology_years": "1998-2025",
      "compare_years": "2023",
      "cutoff": "2026-11-13",
      "heavy_rain_mm": 50.0,
      "phase_season": "SON",
+     "window_days": 72.0,
+     "window_end": "2026-11-11",
      "window_start": "2026-09-01"
     },
     "ref": {
@@ -2126,19 +3247,197 @@
    },
    "temporal": {
     "period": {
-     "end": "2026-11-13",
+     "end": "2026-11-11",
      "start": "1998-09-01"
     },
     "resolution": "daily"
    },
    "title": {
-    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, NASA POWER",
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, NASA POWER: Days with rain >= 50 mm",
     "pt": null
    },
    "variable": {
-    "code": "rain_season_to_date",
+    "code": "heavy_rain_days_season_to_date",
     "name": {
-     "en": "Window total; days with rain >= 50 mm",
+     "en": "Days with rain >= 50 mm",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:nasa-power:n-years": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:nasa-power:n-years",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily:2026-son",
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 72.0,
+     "window_end": "2026-11-11",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-11-11",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, NASA POWER: Past years with the same days complete",
+    "pt": null
+   },
+   "variable": {
+    "code": "climatology_years",
+    "name": {
+     "en": "Past years with the same days complete",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
+  "prov:computed:cruz-alta:now-2026:nasa-power:total": {
+   "access": null,
+   "aggregation": {
+    "en": "2026: sum and count of days >= 50 mm from September 1 to the last day with a value in the source; each past year over the same calendar days (complete windows only); per phase: mean and median over the years of that phase; per month: mean of the same days over all past years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:now-2026:nasa-power:total",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily:2026-son",
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "9 El Niño, 9 La Niña and 10 neutral springs in 1998-2025: one wet year moves a phase mean.",
+     "pt": null
+    },
+    {
+     "en": "A part of the season: the comparison holds only for the same calendar days; the rest of November can still change the totals.",
+     "pt": null
+    },
+    {
+     "en": "Rain is measured; its effect on the 2026 wheat is not (see `reported`).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "now-2026",
+    "name": "now-2026 v1",
+    "parameters": {
+     "climatology_complete_years": 28.0,
+     "climatology_years": "1998-2025",
+     "compare_years": "2023",
+     "cutoff": "2026-11-13",
+     "heavy_rain_mm": 50.0,
+     "phase_season": "SON",
+     "window_days": 72.0,
+     "window_end": "2026-11-11",
+     "window_start": "2026-09-01"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-11-11",
+     "start": "1998-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "Rain of September-November 2026 so far against the same days of 1998-2025 by ENSO phase, NASA POWER: Window total",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_total_season_to_date",
+    "name": {
+     "en": "Window total",
      "pt": null
     },
     "native_unit": null,

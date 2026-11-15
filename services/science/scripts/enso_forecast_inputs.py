@@ -15,6 +15,11 @@ Sources (open, no login; one connection at a time; raw files go to --cache, outs
   https://ftp.cpc.ncep.noaa.gov/NMME/ENSO/NASA_GEOS5v2/<MM>0100/, anomaly against the model's own
   1991-2020 climatology for the same start month and lead (removes model drift).
 
+Fails closed: each URL is retried with backoff on timeouts and transient statuses; the rows are
+checked against the EXPECTED manifest (source x target year, February issue) and the NMME
+climatology years; only a complete run replaces the ONI files and the CSV, each atomically.
+Otherwise it exits 1 and leaves them untouched.
+
 Run:
   uv run --with numpy --with xarray --with netCDF4 python -I scripts/enso_forecast_inputs.py \
       --cache <dir> --out ../../data/sites/cruz-alta/input --oni-out ../../data/cache/noaa
@@ -26,14 +31,16 @@ import argparse
 import csv
 import hashlib
 import html as htmlmod
+import io
 import json
+import os
 import re
 import time
+from collections.abc import Callable
 from datetime import datetime
 from pathlib import Path
 
 import httpx
-import numpy as np
 
 CPC = "https://www.cpc.ncep.noaa.gov"
 ONI_URL = f"{CPC}/data/indices/oni.ascii.txt"
@@ -56,21 +63,121 @@ MONTHS = [
 ]
 NUM = r"-?\d+(?:\.\d+)?"
 LAST_TARGET_YEAR = 2025  # JJA 2026 is still preliminary in the ONI file (14/11/2026)
+NMME_CLIMATOLOGY = range(1991, 2021)  # model climatology of the anomaly (same start and leads)
+
+# Expected coverage of enso-forecasts.csv: target years per source, as read on 14/11/2026
+# (121 values, equal to the team's research table). A run that yields anything else aborts and
+# leaves the canonical files untouched. Asked for but not expected: 2003 objective bars (not
+# drawn), 2012-2013 quick looks (no table), NMME 2023-2025 (no file for those starts). The NMME
+# anomaly also needs every NMME_CLIMATOLOGY year (checked apart: those rows are in 1982-2022).
+EXPECTED: dict[str, range] = {
+    "cpc-iri-official": range(2014, LAST_TARGET_YEAR + 1),
+    "iri-objective": range(2004, LAST_TARGET_YEAR + 1),
+    "iri-plume-mean": range(2003, LAST_TARGET_YEAR + 1),
+    "iri-plume-nasa-gmao": range(2003, LAST_TARGET_YEAR + 1),
+    "nmme-nasa-geos": range(1982, 2023),
+}
+RETRIES = 4  # attempts per URL
+BACKOFF_S = 2.0  # wait before attempt k >= 2: BACKOFF_S * 2 ** (k - 2)
+RETRY_STATUS = frozenset({408, 425, 429, 500, 502, 503, 504})
+
+
+class CoverageError(RuntimeError):
+    """The downloaded archive does not cover the manifest: nothing is published."""
 
 
 # ------------------------------------------------------------------ download
 
 
-def fetch(client: httpx.Client, url: str, dest: Path) -> Path | None:
+def fetch(
+    client: httpx.Client,
+    url: str,
+    dest: Path,
+    *,
+    attempts: int = RETRIES,
+    sleep: Callable[[float], None] = time.sleep,
+) -> Path | None:
+    """Raw file at `dest` (an existing non-empty file wins). Timeouts, transport errors and
+    transient statuses are retried with exponential backoff; a definitive status (e.g. 404) or
+    the last failed attempt gives None. The file is written whole or not at all."""
     if dest.exists() and dest.stat().st_size > 0:
         return dest
-    r = client.get(url)
-    if r.status_code != 200:
-        return None
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_bytes(r.content)
-    time.sleep(0.2)
-    return dest
+    for k in range(1, attempts + 1):
+        if k > 1:
+            sleep(BACKOFF_S * 2 ** (k - 2))
+        try:
+            r = client.get(url)
+        except httpx.TransportError as exc:  # every timeout is a TransportError
+            print(f"attempt {k}/{attempts} {url}: {type(exc).__name__}")
+            continue
+        if r.status_code == 200 and r.content:
+            write_atomic(dest, r.content)
+            sleep(0.2)
+            return dest
+        print(f"attempt {k}/{attempts} {url}: HTTP {r.status_code}")
+        if r.status_code not in RETRY_STATUS:
+            return None
+    return None
+
+
+def write_atomic(path: Path, data: bytes) -> None:
+    """Write next to `path`, then rename over it: a reader sees the old file or the new one."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_bytes(data)
+    os.replace(tmp, path)
+
+
+def missing_coverage(rows: list[list]) -> list[str]:
+    """(source, year) pairs of EXPECTED without exactly one row, and rows outside EXPECTED."""
+    got: dict[tuple[str, int], int] = {}
+    for r in rows:
+        key = (str(r[0]), int(r[2]))
+        got[key] = got.get(key, 0) + 1
+    out = [f"{sid} {y}" for sid, years in EXPECTED.items() for y in years if (sid, y) not in got]
+    out += [f"{sid} {y} (x{n})" for (sid, y), n in sorted(got.items()) if n > 1]
+    out += [
+        f"{sid} {y} (not in the manifest)"
+        for sid, y in sorted(got)
+        if y not in EXPECTED.get(sid, ())
+    ]
+    return out
+
+
+def csv_bytes(rows: list[list]) -> bytes:
+    buf = io.StringIO(newline="")
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(
+        [
+            "source_id",
+            "issue_month",
+            "target_year",
+            "p_la_nina",
+            "p_neutral",
+            "p_el_nino",
+            "nino34_anomaly_degC",
+            "source_url",
+        ]
+    )
+    w.writerows(sorted(rows, key=lambda r: (r[0], r[2])))
+    return buf.getvalue().encode("utf-8")
+
+
+def publish(rows: list[list], oni_raw: bytes, oni_accessed: str, out: Path, oni_out: Path) -> None:
+    """Check the manifest first; only then replace the ONI file and the CSV, each atomically."""
+    if missing := missing_coverage(rows):
+        raise CoverageError(
+            f"{len(missing)} coverage problems, {out / 'enso-forecasts.csv'} and "
+            f"{oni_out / 'oni.ascii.txt'} left untouched: {', '.join(missing)}"
+        )
+    source = {
+        "url": ONI_URL,
+        "accessed_at": oni_accessed,
+        "sha256": hashlib.sha256(oni_raw).hexdigest(),
+    }
+    write_atomic(oni_out / "oni.ascii.txt", oni_raw)
+    write_atomic(oni_out / "oni.source.json", (json.dumps(source, indent=1) + "\n").encode())
+    write_atomic(out / "enso-forecasts.csv", csv_bytes(rows))
 
 
 # ------------------------------------------------------------------ IRI SVG (matplotlib)
@@ -156,6 +263,8 @@ def plume_jja(path: Path, names: tuple[str, ...]) -> dict[str, float]:
         raise ValueError(f"{path.name}: reference lines not found")
     a = 1.0 / (half[0] - half[1])  # half[0] is +0.5 (higher on screen = smaller y)
     c = -a * zero[0]
+    import numpy as np  # only for the archive run (`uv run --with numpy`), not the CI tests
+
     ticks = _xticks(txt)
     step = float(np.median(np.diff([x for _, x in ticks])))
     jja_x = dict(ticks).get("JJA")
@@ -233,63 +342,44 @@ def nmme_jja_anomalies(files: dict[int, Path], issue_month: int) -> dict[int, fl
     """Ensemble-mean Niño-3.4 of each start year, JJA mean, minus the 1991-2020 mean of the same
     start month and leads. First target = the month in the file name (checked by the shape of the
     annual cycle in the team's analysis: 14 of 18 model/month combinations agree)."""
+    import numpy as np
     import xarray as xr
 
     idx = [6 - issue_month + i for i in range(3)]  # positions of June, July, August
-    series: dict[int, np.ndarray] = {}
+    series = {}
     for year, f in files.items():
         with xr.open_dataset(f, decode_times=False) as ds:
             v = ds["fcst"].values.ravel().astype(float)
         if np.all(np.isfinite(v)) and len(v) > max(idx):
             series[year] = v[idx]
-    clim = np.mean([v for y, v in series.items() if 1991 <= y <= 2020], axis=0)
+    if missing := sorted(set(NMME_CLIMATOLOGY) - set(series)):  # a shorter mean shifts every year
+        raise CoverageError(f"NMME climatology years without a usable forecast: {missing}")
+    clim = np.mean([series[y] for y in NMME_CLIMATOLOGY], axis=0)
     return {y: round(float(np.mean(v - clim)), 3) for y, v in sorted(series.items())}
 
 
 # ------------------------------------------------------------------ main
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--cache", type=Path, required=True)
-    ap.add_argument("--out", type=Path, required=True)
-    ap.add_argument("--oni-out", type=Path, required=True)
-    ap.add_argument("--issue-month", type=int, default=2, choices=[1, 2, 3])
-    args = ap.parse_args()
-    m, cache = args.issue_month, args.cache
-    client = httpx.Client(
-        headers={"User-Agent": "fieldshift-science"},
-        timeout=120,
-        follow_redirects=True,
-        limits=httpx.Limits(max_connections=1),
-    )
-    started = datetime.now().astimezone().isoformat(timespec="seconds")
+def collect(
+    client: httpx.Client, cache: Path, m: int, sleep: Callable[[float], None] = time.sleep
+) -> tuple[list[list], bytes, str]:
+    """Download (into `cache`) and read every source: (rows, raw ONI file, ONI access time).
+    Nothing outside `cache` is written here."""
+
+    def get(url: str, dest: Path) -> Path | None:
+        return fetch(client, url, dest, sleep=sleep)
 
     # Raw ONI file, kept as published (30 kB) so the pipeline derives every phase from it.
-    oni_path = fetch(client, ONI_URL, cache / "oni.ascii.txt")
-    assert oni_path
-    args.oni_out.mkdir(parents=True, exist_ok=True)
-    raw = oni_path.read_bytes()
-    (args.oni_out / "oni.ascii.txt").write_bytes(raw)
+    oni_path = get(ONI_URL, cache / "oni.ascii.txt")
+    if oni_path is None:
+        raise CoverageError(f"ONI file not downloaded: {ONI_URL}")
     accessed = datetime.fromtimestamp(oni_path.stat().st_mtime).astimezone()
-    (args.oni_out / "oni.source.json").write_text(
-        json.dumps(
-            {
-                "url": ONI_URL,
-                "accessed_at": accessed.isoformat(timespec="seconds"),
-                "sha256": hashlib.sha256(raw).hexdigest(),
-            },
-            indent=1,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    args.out.mkdir(parents=True, exist_ok=True)
 
     rows: list[list] = []
     for y in range(2003, LAST_TARGET_YEAR + 1):
         url = f"{IRI}/figure4_plot/{y}/{m}"
-        f4 = fetch(client, url, cache / "iri" / f"figure4_plot_{y}_{m:02d}.svg")
+        f4 = get(url, cache / "iri" / f"figure4_plot_{y}_{m:02d}.svg")
         if f4:
             vals = plume_jja(f4, ("COMBINED AVG", "NASA GMAO"))
             for name, sid in (
@@ -299,13 +389,13 @@ def main() -> None:
                 if name in vals:
                     rows.append([sid, m, y, "", "", "", f"{vals[name]:.3f}", url])
         url = f"{IRI}/figure3_plot/{y}/{m}"
-        f3 = fetch(client, url, cache / "iri" / f"figure3_plot_{y}_{m:02d}.svg")
+        f3 = get(url, cache / "iri" / f"figure3_plot_{y}_{m:02d}.svg")
         q = probbars_jja(f3) if f3 else None
         if q:
             rows.append(["iri-objective", m, y, q["la_nina"], q["neutral"], q["el_nino"], "", url])
         if y >= 2012:
             url = f"{QL}/{y}-{MONTHS[m - 1]}-quick-look/"
-            fq = fetch(client, url, cache / "iri" / f"quicklook_{y}_{m:02d}.html")
+            fq = get(url, cache / "iri" / f"quicklook_{y}_{m:02d}.html")
             q = quicklook_jja(fq) if fq else None
             if q:
                 rows.append(
@@ -316,30 +406,39 @@ def main() -> None:
     for y in range(1982, LAST_TARGET_YEAR + 1):
         name = f"NASA_GEOS5v2.tmpsfc.{y}{m:02d}.Nino34.fcst.nc"
         url = f"{NMME}/{m:02d}0100/{name}"
-        f = fetch(client, url, cache / "nmme" / name)
+        f = get(url, cache / "nmme" / name)
         if f:
             files[y], urls[y] = f, url
+    if missing := sorted(set(NMME_CLIMATOLOGY) - set(files)):
+        raise CoverageError(f"NMME climatology files not downloaded: {missing}")
     for y, v in nmme_jja_anomalies(files, m).items():
         rows.append(["nmme-nasa-geos", m, y, "", "", "", f"{v:.3f}", urls[y]])
+    return rows, oni_path.read_bytes(), accessed.isoformat(timespec="seconds")
 
-    rows.sort(key=lambda r: (r[0], r[2]))
-    with (args.out / "enso-forecasts.csv").open("w", newline="", encoding="utf-8") as fh:
-        w = csv.writer(fh, lineterminator="\n")
-        w.writerow(
-            [
-                "source_id",
-                "issue_month",
-                "target_year",
-                "p_la_nina",
-                "p_neutral",
-                "p_el_nino",
-                "nino34_anomaly_degC",
-                "source_url",
-            ]
-        )
-        w.writerows(rows)
+
+def main(argv: list[str] | None = None, client: httpx.Client | None = None) -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--cache", type=Path, required=True)
+    ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--oni-out", type=Path, required=True)
+    ap.add_argument("--issue-month", type=int, default=2, choices=[1, 2, 3])
+    args = ap.parse_args(argv)
+    client = client or httpx.Client(
+        headers={"User-Agent": "fieldshift-science"},
+        timeout=120,
+        follow_redirects=True,
+        limits=httpx.Limits(max_connections=1),
+    )
+    started = datetime.now().astimezone().isoformat(timespec="seconds")
+    try:
+        rows, oni_raw, oni_accessed = collect(client, args.cache, args.issue_month)
+        publish(rows, oni_raw, oni_accessed, args.out, args.oni_out)
+    except CoverageError as exc:
+        print(f"aborted, nothing published: {exc}")
+        return 1
     print(f"started {started}; {len(rows)} forecasts")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

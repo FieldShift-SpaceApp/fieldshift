@@ -35,23 +35,71 @@ THRESHOLD = 0.75
 SENSITIVITY = (0.70, 0.80)
 MIN_YEARS = 10
 HOME_MUNICIPALITY = "4306106"  # Cruz Alta
+# The 18 Planalto Médio municipalities of the team analysis (IBGE codes), Cruz Alta included.
+MUNICIPALITIES = frozenset(
+    {
+        "4300208", "4302220", "4304705", "4305702", "4306106", "4308458",
+        "4310009", "4310207", "4311205", "4312658", "4313706", "4313904",
+        "4314100", "4314308", "4316436", "4316709", "4317509", "4322202",
+    }
+)  # fmt: skip
 DOC_ANCHOR = "season-replay"
 SIDRA = "https://apisidra.ibge.gov.br/values/t/1612/n6/{code}/v/112/p/all/c81/2716"
 
 
+def _yield_cell(path: Path, year: str, cell: str) -> float | None:
+    """None = empty cell (SIDRA '..', '...', 'X': not available); 0.0 = SIDRA '-' (no harvest)."""
+    if cell == "":
+        return None
+    try:
+        return float(cell)
+    except ValueError:
+        raise PipelineError(f"{path}: year {year}: yield {cell!r} is not a number") from None
+
+
 def load_yields(folder: Path) -> dict[str, dict[int, float]]:
-    files = sorted(folder.glob(f"pam_1612_*_{WHEAT_PRODUCT}.csv"))
+    """Positive yields per municipality and year, for exactly the MUNICIPALITIES.
+
+    Fails (with the file path) when a municipality file is missing or unexpected, when a year
+    repeats, when the TARGET_YEAR yield is empty or zero, or when fewer than MIN_YEARS positive
+    yields fall in TREND_YEARS: the failure count must never be taken on a smaller set.
+    """
+    files = {
+        f.stem.split("_")[2]: f for f in sorted(folder.glob(f"pam_1612_*_{WHEAT_PRODUCT}.csv"))
+    }
     if not files:
         raise PipelineError(f"no IBGE PAM wheat files in {folder}")
+    missing, extra = sorted(MUNICIPALITIES - set(files)), sorted(set(files) - MUNICIPALITIES)
+    if missing or extra:
+        raise PipelineError(
+            f"{folder}: IBGE PAM wheat files must be the {len(MUNICIPALITIES)} Planalto Médio "
+            f"municipalities; missing {missing}, unexpected {extra}"
+        )
     out: dict[str, dict[int, float]] = {}
-    for f in files:
-        code = f.stem.split("_")[2]
+    for code, f in sorted(files.items()):
+        cells: dict[int, float | None] = {}
         with f.open(encoding="utf-8", newline="") as fh:
-            out[code] = {
-                int(r["year"]): float(r["yield_kg_ha"])
-                for r in csv.DictReader(fh)
-                if r["yield_kg_ha"] and float(r["yield_kg_ha"]) > 0
-            }
+            for r in csv.DictReader(fh):
+                year = int(r["year"])
+                if year in cells:
+                    raise PipelineError(f"{f}: year {year} appears twice")
+                cells[year] = _yield_cell(f, r["year"], r["yield_kg_ha"])
+        target = cells.get(TARGET_YEAR)
+        if target is None:
+            raise PipelineError(f"{f}: no {TARGET_YEAR} wheat yield (row absent or empty cell)")
+        if target <= 0:
+            raise PipelineError(
+                f"{f}: {TARGET_YEAR} wheat yield is {target:g} (SIDRA '-' = no harvest); the "
+                "failure rule needs a yield"
+            )
+        positive = {y: v for y, v in cells.items() if v is not None and v > 0}
+        history = sum(1 for y in positive if TREND_YEARS[0] <= y <= TREND_YEARS[1])
+        if history < MIN_YEARS:
+            raise PipelineError(
+                f"{f}: {history} positive yields in {TREND_YEARS[0]}-{TREND_YEARS[1]}, the trend "
+                f"needs at least {MIN_YEARS}"
+            )
+        out[code] = positive
     return out
 
 
@@ -69,7 +117,13 @@ def trend_ratio(series: dict[int, float], year: int) -> tuple[float, float] | No
 
 
 def wheat_failures(yields: dict[str, dict[int, float]]) -> dict[str, float]:
-    ratios = {c: r for c, s in yields.items() if (r := trend_ratio(s, TARGET_YEAR)) is not None}
+    if set(yields) != MUNICIPALITIES:
+        raise PipelineError(f"wheat yields must cover the {len(MUNICIPALITIES)} municipalities")
+    ratios = {c: trend_ratio(s, TARGET_YEAR) for c, s in yields.items()}
+    if any(r is None for r in ratios.values()):  # load_yields already checked each member
+        raise PipelineError(
+            f"no {TARGET_YEAR} trend for {sorted(c for c, r in ratios.items() if r is None)}"
+        )
     out: dict[str, float] = {"municipalities": float(len(ratios))}
     for thr in (THRESHOLD, *SENSITIVITY):
         out[f"below_{round(thr * 100)}"] = float(sum(1 for _, q in ratios.values() if q < thr))
