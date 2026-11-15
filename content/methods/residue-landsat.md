@@ -23,7 +23,16 @@ refs:
     url: https://doi.org/10.1016/j.rse.2015.12.024
   - label: "IBGE Censo Agropecuário 2006 (SIDRA table 849) and 2017 (table 6855), no-till area"
     url: https://sidra.ibge.gov.br/tabela/6855
+  - label: "Franchini et al. (2023), Embrapa Soja Documentos 454: remote sensing for the ZarcNM indicators (NDTI to straw cover, 19-field calibration in Cambé, PR)"
+    url: https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1156802/1/DOC-454.pdf
+  - label: "IN SPA/MAPA n. 2/2025, ZARC Níveis de Manejo (copy published by Revista Cultivar)"
+    url: https://assets.revistacultivar.com.br/a61e2073-a119-41c5-a437-fb655131e14f_in_spa_mapa2_2025.pdf
+  - label: "NASADEM Merged DEM Global 1 arc second V001 (NASA), doi:10.5067/MEaSUREs/NASADEM/NASADEM_HGT.001"
+    url: https://doi.org/10.5067/MEaSUREs/NASADEM/NASADEM_HGT.001
 limitations:
+  - "The Embrapa Documentos 454 ruler (NDTI to straw cover) was calibrated on 19 fields in Cambé (PR), clayey Latossolo, Sentinel-2, one date; here it is transferred to Cruz Alta, Landsat and HLS without local calibration. It separates IN 2/2025 cover level 1 (C < 30%) from level 3 or above, but not level 3 (60-90%) from level 4 (>= 90%): NDTI saturates near 80% cover, and since 1995 97-99% of Cruz Alta's no-green cropland reads above that plateau."
+  - "The field-free per-image NDTI scaling of Documentos 454 (mean -/+ 3 SD of each image) is relative to each scene: it cannot compare years and labels about 12% of recent no-green cropland as C < 30%."
+  - "Slope from NASADEM says where IN 2/2025 requires contour sowing (87.4% of Cruz Alta cropland has slope >= 3%), not whether fields comply: satellites and DEMs do not see contour sowing, terraces or sowing on the level."
   - "No field calibration: 'probable bare soil' is NDVI < 0.30 and NDTI < 0.06, a spectral inference with a threshold chosen by the team (no published NDTI threshold transfers to these soils); the series shows when the bare-soil signature was common and when it became rare, not hectares of ploughed land or % residue cover."
   - "The level of the early years depends on the threshold and the sensor transform (1984-1994 median 2.2% to 19.9% across NDTI 0.04-0.12; 2.6% after the Roy et al. 2016 TM/ETM+ to OLI transform); the direction of the change does not."
   - "No Landsat 5 TM and Landsat 8 OLI scenes overlap in time; the sensor pairs (within about 2 points) all fall in 1999-2026, when bare soil is rare, so the sensor effect at the 1980s-90s level is not measured."
@@ -41,6 +50,8 @@ limitations:
 **Classes.** Green: NDVI >= 0.30 (the mask "many agricultural studies" use before reading residue, Hively et al. 2021). Of the rest, straw if NDTI = (SWIR1 - SWIR2)/(SWIR1 + SWIR2) (Van Deventer et al. 1997) is 0.06 or more, probable bare soil if lower. The literature defines tillage classes in residue cover (conservation tillage above 30% after planting), and turning NDTI into residue cover needs a field-calibrated regression per region (Zheng et al. 2014) that does not exist for Cruz Alta, so 0.06 is a stated choice with 0.04 to 0.12 shown. The cellulose absorption index (Daughtry et al. 2005) needs narrow bands no Landsat or HLS sensor has.
 
 **Result.** In late October to mid November, probable bare soil was **5.7% of the cropland in the median year of 1984-1994** (22.1% in 1991) and has been **at or below 2.2% every year since 1995, 0.3% in the median year since 2005, and 0.3% in 2026** (HLS S30, 20 October). What is not green in November is now mostly straw. A before/after map of the same cropland (4 November 1991 against 20 October 2026) shows 20.0% against 0.3% probable bare soil; 1991 is the series maximum, not a typical early year.
+
+**Embrapa ruler and ZarcNM pre-check.** IN SPA/MAPA 2/2025 (ZarcNM) classes straw cover before sowing in four levels (C < 30, 30-60, 60-90, >= 90%) but gives no NDTI-to-cover conversion. The Embrapa Soja Documentos 454 calibration (19 fields in Cambé, PR; quadratic fitted here to its published table: C = -10,275.5 NDTI^2 + 2,265.4 NDTI - 27.76, R^2 0.91, RMSE 8 points, flat near 97% above NDTI 0.11) puts the level-1 share of no-green cropland at 4.5% in the median year of 1984-1994 (27.5% in 1991) and 0.1% in 2015-2026. Slope from NASADEM at 30 m: 87.4% of the cropland is at >= 3%, where the norm requires contour sowing. A per-quadrat pre-check of three 9 ha cropland cells is in `results/zarcnm_satellite_indicators.json`.
 
 **Independent check.** The IBGE Censo Agropecuário reports no-till on straw on 74,003 ha of Cruz Alta in 2006 and 105,036 ha in 2017, about 84% and 108% of the soybean + maize planted area of those years (IBGE PAM): no-till was near-universal by then, which matches the satellite's near-zero bare soil around both census years. The census does not date the adoption.
 

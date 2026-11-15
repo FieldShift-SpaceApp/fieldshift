@@ -16,6 +16,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
+MID, LO, HI = "emb_pct_C_lt30_median", "emb_pct_C_lt30_rmse_low_median", "emb_pct_C_lt30_rmse_high_median"
 # reference categorical palette (light mode), fixed order: slot 1 blue, 3 aqua, 2 orange; HLS by shape (ink)
 BLUE, AQUA, ORANGE = "#2a78d6", "#1baf7a", "#eb6834"
 INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1", "#fcfcfb"
@@ -57,7 +58,7 @@ def main() -> None:
             y = int(r["year"]) + (0.18 if key == "ETM" else 0)
             ax.plot(
                 [y, y],
-                [f(r["pct_bare_median_ndti_0_04"]), f(r["pct_bare_median_ndti_0_10"])],
+                [f(r[LO]), f(r[HI])],
                 color=color,
                 lw=2,
                 alpha=0.35,
@@ -66,7 +67,7 @@ def main() -> None:
             )
         ax.plot(
             [int(r["year"]) + (0.18 if key == "ETM" else 0) for r in sel],
-            [f(r["pct_bare_median"]) for r in sel],
+            [f(r[MID]) for r in sel],
             ls="none",
             marker="o",
             ms=5.5,
@@ -81,7 +82,7 @@ def main() -> None:
             y = int(r["year"]) - 0.25
             ax.plot(
                 [y, y],
-                [f(r["pct_bare_median_ndti_0_04"]), f(r["pct_bare_median_ndti_0_10"])],
+                [f(r[LO]), f(r[HI])],
                 color=INK2,
                 lw=1.2,
                 alpha=0.5,
@@ -89,7 +90,7 @@ def main() -> None:
             )
         ax.plot(
             [int(r["year"]) - 0.25 for r in hls],
-            [f(r["pct_bare_median"]) for r in hls],
+            [f(r[MID]) for r in hls],
             ls="none",
             marker="s",
             ms=5,
@@ -100,7 +101,7 @@ def main() -> None:
             zorder=5,
         )
 
-    ymax = max(f(r["pct_bare_median_ndti_0_10"]) or 0 for r in spring) * 1.12 + 1
+    ymax = max(f(r[HI]) or 0 for r in spring) * 1.12 + 1
     for yr in (2006, 2017):
         ax.axvline(yr, color=MUTED, lw=1, ls=(0, (3, 3)), zorder=1)
         ax.text(
@@ -113,8 +114,8 @@ def main() -> None:
         )
     last = [r for r in ls + hls if r["year"] == "2026"]
     if last:
-        r26 = min(last, key=lambda r: f(r["pct_bare_median"]))
-        v = f(r26["pct_bare_median"])
+        r26 = min(last, key=lambda r: f(r[MID]))
+        v = f(r26[MID])
         x26 = 2026 - (0.25 if r26["family"] == "hls" else 0)
         ax.annotate(
             f"2026: {v:.1f}%\n({r26['sensors']}, {r26['dates'].split()[0]})",
@@ -127,7 +128,7 @@ def main() -> None:
 
     ax.set_xlim(1983, 2027.5)
     ax.set_ylim(0, ymax)
-    ax.set_ylabel("% of cropland, probable bare soil", color=INK2)
+    ax.set_ylabel("% of no-green cropland at C < 30%", color=INK2)
     ax.grid(axis="y", color=GRID, lw=0.8)
     ax.set_axisbelow(True)
     for s in ("top", "right"):
@@ -139,15 +140,17 @@ def main() -> None:
         0.08, 0.93, "Cruz Alta in early November: from ploughed soil to straw", fontsize=12.5, weight="bold", color=INK
     )
     sub = (
-        "Share of cropland with no green (NDVI < 0.30) and a low residue index (NDTI < 0.06), 20 Oct – 20 Nov.\n"
-        "Dot = median of the clear scenes of the year; bar = same with the NDTI threshold at 0.04 and 0.10."
+        "Straw cover C from NDTI with the Embrapa Doc 454 ruler (Cambé, PR calibration, not local); "
+        "C < 30% = IN 2/2025 level 1.\n"
+        "Pixels with NDVI < 0.30, 20 Oct – 20 Nov. Dot = median of the clear scenes; "
+        "bar = calibration RMSE (±8 points)."
     )
     fig.text(0.08, 0.855, sub, fontsize=8, color=INK2, linespacing=1.4)
     fig.text(
         0.08,
         0.055,
-        "Spectral inference without field calibration. Census ratio: IBGE Censo Agropecuário no-till "
-        "area / IBGE PAM soybean + maize planted area.",
+        "Since 1995, 97–99% of no-green cropland reads above the ~80% NDTI saturation (levels 3 and 4 not separable).\n"
+        "Census ratio: IBGE Censo Agropecuário no-till area / IBGE PAM soybean + maize planted area.",
         fontsize=7,
         color=MUTED,
     )

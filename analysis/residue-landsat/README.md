@@ -87,6 +87,40 @@ Years (main threshold; median of the year's clear scenes, NDTI 0.04–0.10 in br
 
 **Autumn (April–May).** The same direction with a lower level: 1.3% in the median year of 1984–1994, 0.1% in 1995–2014 and 0.0% in 2015–2026. After the soybean harvest the ground carries soybean residue in both eras, so the window says less about tillage.
 
+### The Embrapa ruler: NDTI → straw cover → IN 2/2025 class (the series figure)
+
+The norm (IN SPA/MAPA 2/2025, Table 1, indicator 5) classes **straw cover in pre-sowing, C**: level 1 C < 30%, level 2 30–60%, level 3 60–90%, level 4 C ≥ 90%. It gives no conversion from NDTI to C. **Embrapa Soja, Documentos 454** (Franchini et al. 2023), the satellite method behind ZarcNM, publishes two ([`embrapa.py`](embrapa.py)):
+
+1. **Field calibration** (pp. 25–29): 19 fields in Cambé (north Paraná), clayey Latossolo, corn and wheat residue, Sentinel-2 image of 29 Oct 2021, cover by line transect. The document plots a second-order fit (its Figure 12) and states that **NDTI saturates near 80% cover**, but prints only the data (Table 2), not the coefficients. Fitted here to that table: **C = −10,275.5 · NDTI² + 2,265.4 · NDTI − 27.76** (R² 0.906, RMSE 8.3 points, n = 19), flat at 97.1% above NDTI 0.110. The IN limits fall at NDTI 0.029 (C = 30%), 0.050 (60%), 0.069 (80%) and 0.084 (90%).
+2. **Field-free, per image** (pp. 21–23, after Beeson et al. 2020): C = 100 · (NDTI − NDTImin)/(NDTImax − NDTImin), with NDTImin/max = image mean ∓ 3 SD. Classes there: < 45, 45–60, 60–75, > 75% (the 2023 criteria of that document, not the IN 2/2025 bands).
+
+Applied per 30 m pixel to the no-green cropland (NDVI < 0.30; Documentos 454 masks NDVI > 0.3), with the fitted ruler:
+
+| Period (Landsat, 20 Oct – 20 Nov, median year) | C < 30% (level 1) | ±RMSE | C ≥ 80% (saturated: level 3 or 4) |
+|---|---|---|---|
+| 1984–1994 | **4.5%** of no-green cropland (1991: 27.5%; 1987: 16.8%; 1992: 12.0%) | 3.4–5.9% | 72.4% |
+| 1995–2004 | 0.4% | 0.3–0.6% | 97.0% |
+| 2005–2014 | 0.2% | 0.2% | 98.5% |
+| 2015–2026 | **0.1%** (2026, HLS 20 Oct: 0.2%) | 0.1% | 98.6% |
+
+**What the satellite separates, and what it does not.** It separates **level 1 from level 3 or above** (ploughed fields in the Cambé table read NDTI 0.015–0.024, C 5–20%; wheat stubble 0.077–0.101, C 92–97%), and it sees the level-1 share fall from 1991 to today. It does **not separate level 3 (60–90%) from level 4 (≥ 90%)**: the document's own calibration plateaus near 80%, and since 1995 97–99% of Cruz Alta's no-green cropland reads above that plateau. Cruz Alta straw reads higher NDTI than any Cambé field (median of the no-green pixels 0.16–0.18 against 0.10 at most there), so the ruler's absolute values are a **transfer to another soil, region and sensor, not validated here**. The **field-free per-image method cannot compare years**: it maps each image's own spread onto 0–100%, so its mean is 50% in every scene by construction (columns `rel_*`), and it labels about 12% of the no-green cropland "C < 30%" in every recent scene, which the absolute ruler and the census do not support.
+
+### ZarcNM pre-check: slope and three quadrats (IN SPA/MAPA 2/2025)
+
+Script [`zarcnm.py`](zarcnm.py). Applied as the norm writes it: quadrats of 5–10 ha for fields > 100 ha (item 6.2; here 300 m × 300 m = 9 ha), mean slope from NASADEM at 30 m (item 6.3), NDVI and NDTI from Landsat and HLS at 30 m with every image available (items 6.4–6.5), straw cover in the month before sowing (item 6.7), tillage as a sudden change that exposes soil (item 6.8), Table 1 bands for indicators 4 and 5, and the contour rule for slope ≥ 3% (item 3.2.1 I).
+
+**Slope** (`results/nasadem_slope_classes.json`; NASADEM tile `NASADEM_HGT_s29w054` from the Planetary Computer, anonymous, reprojected to UTM 22S 30 m; 104,901 ha of WorldCover cropland): **87.4% of Cruz Alta's cropland has slope ≥ 3%**, where the norm makes contour sowing (or sowing on the level) mandatory on at least 75% of the area, else NM1; 12.6% is below 3%. Context classes (Embrapa relief classes, not the norm's): 0–3% 12.6%, 3–8% 48.7%, 8–20% 38.3%, 20–45% 0.4%. Median slope 6.8%, 90th percentile 12.3%. **The satellite and the DEM cannot see contour sowing, terraces or sowing on the level**: they say where the rule applies, not whether a field complies. NASADEM noise at 30 m inflates slope on gentle relief.
+
+**Quadrats** (no property, owner or CAR record was looked up; they are 9 ha cells of cropland, not declared fields): one per slope class, entirely WorldCover cropland and clear on both map dates, closest to the class's median slope, at least 5 km apart:
+
+| Quadrat | Centre (lat, lon) | NASADEM mean slope | Contour rule applies |
+|---|---|---|---|
+| CA-Q1 | −28.77507, −53.75102 | 2.75% | no |
+| CA-Q2 | −28.55894, −53.59518 | 5.90% | yes |
+| CA-Q3 | −28.62604, −53.48027 | 8.88% | yes |
+
+Per-year indicators for the three quadrats (cover class by the Embrapa ruler, tillage signal, years since the last bare-soil signature, Table 1 levels) are written to `results/zarcnm_satellite_indicators.json` by `zarcnm.py` (all Landsat and HLS scenes of 15 Sep – 31 Dec, 1984–2026, with ≥ 80 of the 100 quadrat pixels clear).
+
 ### Before and after
 
 ![Same Cruz Alta cropland in early November 1991 and on 20 October 2026, each 30 m pixel classed green, straw or probable bare soil](results/residue-before-after.png)
@@ -153,6 +187,7 @@ It reads about 930 scenes (small windows, about 40 minutes on a home connection;
 | 3 | [`series.py`](series.py) | `scenes.csv`, `series.csv`, `residue_landsat.json` |
 | 4 | [`figure.py`](figure.py) | `residue-landsat.png` |
 | 5 | [`map.py`](map.py) | `residue-before-after.png`, `residue_before_after.json` (re-reads the two chosen scenes at 30 m) |
+| 6 | [`zarcnm.py`](zarcnm.py) | `nasadem_slope_classes.json`, `zarcnm_satellite_indicators.json` (about 1,100 scenes, small windows; `--slope-only` writes the slope file only) |
 
 The scripts are linted with Ruff (`ruff.toml` here); they live outside the `services/science` package and its CI job. They supersede the team's sounding scripts (`t02_palha_ou_solo.py`, `t02b_chuva_antes_das_cenas.py`, private planning repository), which used one scene per year, NDVI 0.25 and the whole Landsat 5 / Landsat 8–9 contrast only; their numbers are not final.
 

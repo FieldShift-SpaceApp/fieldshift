@@ -21,6 +21,9 @@ from pathlib import Path
 import numpy as np
 from fieldshift.sources import power, power_imerg
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import embrapa  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 IMERG_CACHE = ROOT / "data" / "cache" / "power-imerg" / "cruz-alta" / "daily_19980101_20251231.json"
 POWER_CACHE = ROOT / "data" / "cache" / "power" / "cruz-alta" / "daily_19810101_20261031.json"
@@ -35,6 +38,22 @@ NDVI_MAIN, NDVI_ALT = 0.30, (0.25, 0.35)
 NDTI_MAIN, NDTI_LOW, NDTI_HIGH = 0.06, 0.04, 0.10
 NDTI_OTSU_NEAR = 0.12  # close to the Otsu valley of the 1984-1995 histograms; reported, not used
 NDTI_GRID = (0.04, 0.05, 0.06, 0.07, 0.08, 0.10)
+EMB_COLS = [
+    "emb_cover_mean",
+    "emb_pct_C_lt30",
+    "emb_pct_C_30_60",
+    "emb_pct_C_60_90",
+    "emb_pct_C_ge90",
+    "emb_pct_C_ge80_saturated",
+    "emb_pct_C_lt30_rmse_low",
+    "emb_pct_C_lt30_rmse_high",
+    "emb_pct_cropland_C_lt30",
+    "rel_cover_mean",
+    "rel_pct_C_lt30",
+    "rel_pct_C_30_60",
+    "rel_pct_C_60_90",
+    "rel_pct_C_ge90",
+]
 MIN_CLEAR = 0.5  # at least half of the municipal cropland pixels clear (same rule as the bare-soil calendar)
 WET_MM_3D = 10.0  # rain in the 3 days before the scene that marks it "wet" (convention; 5 and 20 mm also shown)
 PAIR_DAYS = 8
@@ -70,6 +89,41 @@ def ndti_median_nogreen(m: np.ndarray, ndvi_edges, ndti_edges, ndvi_t: float) ->
     cum = np.cumsum(col)
     k = int(np.searchsorted(cum, cum[-1] / 2))
     return float((ndti_edges[k] + ndti_edges[k + 1]) / 2)
+
+
+def embrapa_classes(m: np.ndarray, ndvi_edges, ndti_edges) -> dict | None:
+    """Embrapa Documentos 454 rulers on the no-green pixels (NDVI <= 0.30 kept; NDVI > 0.3 masked, as there).
+
+    absolute: cover from the quadratic fitted to the Cambe field table; relative: the field-free per-image scaling
+    (Beeson et al. 2020) with NDTImin/max = mean -/+ 3 SD of the image's no-green cropland. Shares in % of the
+    no-green clear cropland, IN SPA/MAPA 2/2025 indicator-5 bands.
+    """
+    iv = int(np.searchsorted(ndvi_edges, NDVI_MAIN - 1e-9))
+    col = m[:iv, :].sum(axis=0).astype(float)
+    n = col.sum()
+    if n == 0:
+        return None
+    centers = (ndti_edges[:-1] + ndti_edges[1:]) / 2
+    out = {}
+    c_abs = embrapa.cover(centers)
+    mu = float((col * centers).sum() / n)
+    sd = float(np.sqrt((col * (centers - mu) ** 2).sum() / n))
+    lo, hi = mu - 3 * sd, mu + 3 * sd
+    c_rel = np.clip(100 * (centers - lo) / (hi - lo), 0, 100) if hi > lo else np.full_like(centers, 50.0)
+    for name, c in (("emb", c_abs), ("rel", c_rel)):
+        out[f"{name}_cover_mean"] = float((col * c).sum() / n)
+        out[f"{name}_pct_C_lt30"] = 100 * float(col[c < 30].sum() / n)
+        out[f"{name}_pct_C_30_60"] = 100 * float(col[(c >= 30) & (c < 60)].sum() / n)
+        out[f"{name}_pct_C_60_90"] = 100 * float(col[(c >= 60) & (c < 90)].sum() / n)
+        out[f"{name}_pct_C_ge90"] = 100 * float(col[c >= 90].sum() / n)
+    out["emb_pct_C_ge80_saturated"] = 100 * float(col[c_abs >= embrapa.SATURATION_COVER].sum() / n)
+    # calibration uncertainty: the fit's RMSE (about 8 points) moved up and down
+    rmse = embrapa.FIT["rmse_points"]
+    out["emb_pct_C_lt30_rmse_low"] = 100 * float(col[c_abs + rmse < 30].sum() / n)
+    out["emb_pct_C_lt30_rmse_high"] = 100 * float(col[c_abs - rmse < 30].sum() / n)
+    # share of the whole clear cropland (green included) at C < 30 %, comparable with pct_bare
+    out["emb_pct_cropland_C_lt30"] = 100 * float(col[c_abs < 30].sum() / m.sum())
+    return out
 
 
 def otsu(counts: np.ndarray, edges: np.ndarray) -> float:
@@ -188,6 +242,9 @@ def main() -> None:
                     "ndti_median_nogreen": r3(ndti_median_nogreen(m, ndvi_edges, ndti_edges, NDVI_MAIN)),
                 }
             )
+            emb = embrapa_classes(m, ndvi_edges, ndti_edges)
+            for k in EMB_COLS:
+                row[k] = r1(emb[k]) if emb else None
         scenes.append(row)
 
     acc = [s for s in scenes if s["accepted"]]
@@ -223,6 +280,7 @@ def main() -> None:
                     "pct_green_median": r1(med([s["pct_green"] for s in ss])),
                     "pct_straw_median": r1(med([s["pct_straw"] for s in ss])),
                     "pct_bare_of_nogreen_median": r1(med([s["pct_bare_of_nogreen"] for s in ss])),
+                    **{f"{k}_median": r1(med([s[k] for s in ss])) for k in EMB_COLS},
                 }
             )
         return out
@@ -242,6 +300,7 @@ def main() -> None:
                 "pct_bare_median_ndti_0_10": r1(med([r["pct_bare_median_ndti_0_10"] for r in sel])),
                 "pct_bare_median_ndti_0_12": r1(med([r["pct_bare_median_ndti_0_12"] for r in sel])),
                 "pct_bare_median_roy2016": r1(med([r["pct_bare_median_roy2016"] for r in sel])),
+                **{f"{k}_median": r1(med([r[f"{k}_median"] for r in sel])) for k in EMB_COLS},
                 "pct_bare_median_dry_only": r1(med([r["pct_bare_median_dry_only"] for r in sel])),
             }
 
@@ -464,6 +523,14 @@ def main() -> None:
         "rain_check": rain_check,
         "sensor_checks": sensor_checks,
         "otsu_check": otsu_check,
+        "embrapa_ruler": {
+            **embrapa.summary(),
+            "applied_here": "emb_* columns: cover per NDTI bin of the no-green pixels (NDVI < 0.30) with the Cambe "
+            "quadratic, shares in IN 2/2025 indicator-5 bands (% of the no-green clear cropland). rel_* columns: the "
+            "field-free per-image scaling of Documentos 454 / Beeson et al. 2020 (NDTI mean -/+ 3 SD of the scene's "
+            "no-green cropland -> 0-100%); it is relative to each scene, so its mean is about 50% by construction and "
+            "it cannot compare years.",
+        },
         "census_check": census,
         "rain_sources": {
             "power": "NASA POWER daily PRECTOTCORR (MERRA-2 bias-corrected), committed cache "

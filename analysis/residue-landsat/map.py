@@ -71,6 +71,11 @@ def read(href: str, tr, shape, resampling) -> np.ndarray:
                 return vrt.read(1)
 
 
+def fmt_date(iso: str) -> str:
+    y, m, d = iso.split("-")
+    return f"{int(d)} {'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[int(m) - 1]} {y}"
+
+
 def pick(rows: list[dict]) -> tuple[dict, dict]:
     spring = [r for r in rows if r["season"] == "spring" and r["accepted"] == "True"]
     # requested anchor: early November 1991 (Collection 2 Tier 1 only); fallback: the earliest such year
@@ -172,16 +177,21 @@ def main() -> None:
             x0, y0 = shape[1] * 0.06, shape[0] * 0.95
             ax.plot([x0, x0 + 10000 / RES], [y0, y0], color=INK, lw=2.5, solid_capstyle="butt")
             ax.text(x0 + 5000 / RES, y0 - shape[0] * 0.02, "10 km", ha="center", va="bottom", fontsize=8, color=INK)
-    fig.text(
-        0.02, 0.945, "Same Cruz Alta cropland, early November: then and now", fontsize=12.5, weight="bold", color=INK
-    )
+    ep = json.loads((results / "residue_landsat.json").read_text(encoding="utf-8"))["epochs_landsat"]
+    d0, d1 = (fmt_date(p[1]["date"]) for p in panels)
+    fig.text(0.02, 0.945, f"Same Cruz Alta cropland: {d0} vs {d1}", fontsize=12.5, weight="bold", color=INK)
     fig.text(
         0.02,
-        0.895,
+        0.875,
+        "Fair comparison, median year (20 Oct – 20 Nov, Landsat): probable bare soil "
+        f"{ep['spring 1984-1994']['pct_bare_median']}% in 1984–1994 vs "
+        f"{ep['spring 2015-2026']['pct_bare_median']}% in 2015–2026. "
+        f"{d0[-4:]} is the highest year of the series, not a typical one.\n"
         f"Each 30 m cropland pixel: green NDVI ≥ {NDVI_MAIN:.2f}; otherwise straw if NDTI ≥ {NDTI_MAIN:.2f}, "
         "probable bare soil if lower. Shares are of the clear cropland.",
         fontsize=8,
         color=INK2,
+        linespacing=1.4,
     )
     handles = [
         Patch(color=GREEN, label="green"),

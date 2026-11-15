@@ -41,6 +41,7 @@ def main() -> None:
     run("series.py", a.raw, results)
     run("figure.py", results)
     run("map.py", results)
+    run("zarcnm.py", a.raw, results)
 
     import matplotlib
     import numpy
