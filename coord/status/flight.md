@@ -2,6 +2,13 @@
 
 > Only the FLIGHT front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 22:40 — FLIGHT (SUBMISSÃO front, Claude Code)
+Done: PR `flight/submission-text`: `docs/submission/page-draft.md` fields 2 and 5 written (verified numbers only; `[IF PUBLISHED]` for the agronomist app), field 4 public links, field 6 with two demo variants (`[CHOOSE]`), field 7 four NASA datasets with citations, field 8 partner data (Sentinel-2, WorldCover), other data, literature, libraries; `SI-USAGE.md` line 7 aligned with field 6; preflight run 3 on `main` 06dcc73: 15 PASS, 7 FAIL, 9 UNVERIFIED, 4 PENDING (was 15/6/9/5). R6 now PASS; new FAIL R7/R8 (ANA data committed with licence "check").
+Next: fill name and one-line statement after D-001; demo URL and variant; re-run the preflight on the final commit.
+Blocked by: D-001 (team); demo (CAPCOM); agronomist app publication (keep or delete `[IF PUBLISHED]`).
+Needs from others: SURGEON + EECOM — confirm ANA, NMME, CONAB, INMET licences (R7/R8); EECOM — align the POWER credit sentence in `provenance.json` attribution and replace the GMAO URL in `RESOURCES.md` (now a login page); FLIGHT (human) — decide on `AGENTS.md` C1 and `DECISIONS.md` D-001 wording vs what happened, and on R3 (icon and chart without watermark); member who made the video — `SI-USAGE.md` row.
+Contract changes: none
+
 ## 2026-11-14 14:45 — FLIGHT (SUBMISSÃO front, Claude Code)
 Done: #27 submission kit (PR `flight/submission-kit`): `docs/submission/page-draft.md` (8 official fields in order, concept-independent parts filled, D-001 placeholders), `preflight.md` (11 PASS, 14 FAIL, 9 UNVERIFIED, 1 PENDING on `main` f21d8c6, incl. `.gitleaksignore` review), `demo-plan.md` (≤ 30 s / ≤ 7 slides, SI labels for the synthetic voice and illustrative cards, script skeletons), checklist items 10–18.
 Next: fill placeholders after D-001; re-run the preflight on the final commit.
