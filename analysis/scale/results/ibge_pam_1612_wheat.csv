@@ -1,0 +1,73 @@
+place_code,place,variable_code,variable,year,product,value,unit
+1,Brasil,109,Área plantada,2014,Trigo (em grão),2836786,Hectares
+1,Brasil,109,Área plantada,2015,Trigo (em grão),2490115,Hectares
+1,Brasil,109,Área plantada,2016,Trigo (em grão),2167539,Hectares
+1,Brasil,109,Área plantada,2017,Trigo (em grão),1912129,Hectares
+1,Brasil,109,Área plantada,2018,Trigo (em grão),2090130,Hectares
+1,Brasil,109,Área plantada,2019,Trigo (em grão),2119649,Hectares
+1,Brasil,109,Área plantada,2020,Trigo (em grão),2433118,Hectares
+1,Brasil,109,Área plantada,2021,Trigo (em grão),2776044,Hectares
+1,Brasil,109,Área plantada,2022,Trigo (em grão),3167601,Hectares
+1,Brasil,109,Área plantada,2023,Trigo (em grão),3346494,Hectares
+1,Brasil,109,Área plantada,2024,Trigo (em grão),2933263,Hectares
+1,Brasil,109,Área plantada,2025,Trigo (em grão),2515514,Hectares
+1,Brasil,216,Área colhida,2014,Trigo (em grão),2834945,Hectares
+1,Brasil,216,Área colhida,2015,Trigo (em grão),2472628,Hectares
+1,Brasil,216,Área colhida,2016,Trigo (em grão),2166170,Hectares
+1,Brasil,216,Área colhida,2017,Trigo (em grão),1905617,Hectares
+1,Brasil,216,Área colhida,2018,Trigo (em grão),2080204,Hectares
+1,Brasil,216,Área colhida,2019,Trigo (em grão),2103578,Hectares
+1,Brasil,216,Área colhida,2020,Trigo (em grão),2432603,Hectares
+1,Brasil,216,Área colhida,2021,Trigo (em grão),2752664,Hectares
+1,Brasil,216,Área colhida,2022,Trigo (em grão),3167098,Hectares
+1,Brasil,216,Área colhida,2023,Trigo (em grão),3330303,Hectares
+1,Brasil,216,Área colhida,2024,Trigo (em grão),2916018,Hectares
+1,Brasil,216,Área colhida,2025,Trigo (em grão),2509516,Hectares
+1,Brasil,214,Quantidade produzida,2014,Trigo (em grão),6261895,Toneladas
+1,Brasil,214,Quantidade produzida,2015,Trigo (em grão),5508451,Toneladas
+1,Brasil,214,Quantidade produzida,2016,Trigo (em grão),6834421,Toneladas
+1,Brasil,214,Quantidade produzida,2017,Trigo (em grão),4342812,Toneladas
+1,Brasil,214,Quantidade produzida,2018,Trigo (em grão),5469236,Toneladas
+1,Brasil,214,Quantidade produzida,2019,Trigo (em grão),5590815,Toneladas
+1,Brasil,214,Quantidade produzida,2020,Trigo (em grão),6344079,Toneladas
+1,Brasil,214,Quantidade produzida,2021,Trigo (em grão),7878413,Toneladas
+1,Brasil,214,Quantidade produzida,2022,Trigo (em grão),10342986,Toneladas
+1,Brasil,214,Quantidade produzida,2023,Trigo (em grão),7730188,Toneladas
+1,Brasil,214,Quantidade produzida,2024,Trigo (em grão),7521851,Toneladas
+1,Brasil,214,Quantidade produzida,2025,Trigo (em grão),7887609,Toneladas
+43,Rio Grande do Sul,109,Área plantada,2014,Trigo (em grão),1181979,Hectares
+43,Rio Grande do Sul,109,Área plantada,2015,Trigo (em grão),882566,Hectares
+43,Rio Grande do Sul,109,Área plantada,2016,Trigo (em grão),779045,Hectares
+43,Rio Grande do Sul,109,Área plantada,2017,Trigo (em grão),691563,Hectares
+43,Rio Grande do Sul,109,Área plantada,2018,Trigo (em grão),709558,Hectares
+43,Rio Grande do Sul,109,Área plantada,2019,Trigo (em grão),760914,Hectares
+43,Rio Grande do Sul,109,Área plantada,2020,Trigo (em grão),953832,Hectares
+43,Rio Grande do Sul,109,Área plantada,2021,Trigo (em grão),1231978,Hectares
+43,Rio Grande do Sul,109,Área plantada,2022,Trigo (em grão),1532710,Hectares
+43,Rio Grande do Sul,109,Área plantada,2023,Trigo (em grão),1505807,Hectares
+43,Rio Grande do Sul,109,Área plantada,2024,Trigo (em grão),1332013,Hectares
+43,Rio Grande do Sul,109,Área plantada,2025,Trigo (em grão),1164275,Hectares
+43,Rio Grande do Sul,216,Área colhida,2014,Trigo (em grão),1180817,Hectares
+43,Rio Grande do Sul,216,Área colhida,2015,Trigo (em grão),874362,Hectares
+43,Rio Grande do Sul,216,Área colhida,2016,Trigo (em grão),778486,Hectares
+43,Rio Grande do Sul,216,Área colhida,2017,Trigo (em grão),690233,Hectares
+43,Rio Grande do Sul,216,Área colhida,2018,Trigo (em grão),709558,Hectares
+43,Rio Grande do Sul,216,Área colhida,2019,Trigo (em grão),760911,Hectares
+43,Rio Grande do Sul,216,Área colhida,2020,Trigo (em grão),953382,Hectares
+43,Rio Grande do Sul,216,Área colhida,2021,Trigo (em grão),1231978,Hectares
+43,Rio Grande do Sul,216,Área colhida,2022,Trigo (em grão),1532710,Hectares
+43,Rio Grande do Sul,216,Área colhida,2023,Trigo (em grão),1496716,Hectares
+43,Rio Grande do Sul,216,Área colhida,2024,Trigo (em grão),1331698,Hectares
+43,Rio Grande do Sul,216,Área colhida,2025,Trigo (em grão),1163320,Hectares
+43,Rio Grande do Sul,214,Quantidade produzida,2014,Trigo (em grão),1670623,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2015,Trigo (em grão),1391829,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2016,Trigo (em grão),2541889,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2017,Trigo (em grão),1192918,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2018,Trigo (em grão),1750700,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2019,Trigo (em grão),2287720,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2020,Trigo (em grão),2106447,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2021,Trigo (em grão),3547866,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2022,Trigo (em grão),5299994,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2023,Trigo (em grão),2587340,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2024,Trigo (em grão),3628046,Toneladas
+43,Rio Grande do Sul,214,Quantidade produzida,2025,Trigo (em grão),3429167,Toneladas

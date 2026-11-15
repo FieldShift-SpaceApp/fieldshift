@@ -1,0 +1,109 @@
+{
+ "checks": [
+  {
+   "id": "rs_wheat_planted_2025_mha",
+   "claim_on_page": "Rio Grande do Sul planted 1.16 million hectares of wheat in 2025",
+   "where": "page-draft.md field 2",
+   "recomputed": 1164275.0,
+   "recomputed_at_page_precision": 1.16,
+   "page_value": 1.16,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 109"
+  },
+  {
+   "id": "rs_share_brazil_wheat_planted_2025_pct",
+   "claim_on_page": "46% of Brazil's",
+   "where": "page-draft.md field 2",
+   "recomputed": 46.2838,
+   "recomputed_at_page_precision": 46,
+   "page_value": 46,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 109"
+  },
+  {
+   "id": "rs_wheat_farms_2017",
+   "claim_on_page": "on about 20,000 farms (2017 Census of Agriculture)",
+   "where": "page-draft.md field 2",
+   "recomputed": 19716.0,
+   "recomputed_at_page_precision": 20000.0,
+   "page_value": 20000,
+   "match": true,
+   "source": "IBGE Census 2017, SIDRA 6957, variable 10084"
+  },
+  {
+   "id": "rs_wheat_production_2022_mt",
+   "claim_on_page": "the state's wheat output fell from 5.3",
+   "where": "page-draft.md field 2",
+   "recomputed": 5299994.0,
+   "recomputed_at_page_precision": 5.3,
+   "page_value": 5.3,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 214"
+  },
+  {
+   "id": "rs_wheat_production_2023_mt",
+   "claim_on_page": "to 2.6 million tonnes",
+   "where": "page-draft.md field 2",
+   "recomputed": 2587340.0,
+   "recomputed_at_page_precision": 2.6,
+   "page_value": 2.6,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 214"
+  },
+  {
+   "id": "rs_wheat_production_2022_mt_2dp",
+   "claim_on_page": "5.30 Mt (team brief)",
+   "where": "team brief",
+   "recomputed": 5299994.0,
+   "recomputed_at_page_precision": 5.3,
+   "page_value": 5.3,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 214"
+  },
+  {
+   "id": "rs_wheat_production_2023_mt_2dp",
+   "claim_on_page": "2.59 Mt (team brief)",
+   "where": "team brief",
+   "recomputed": 2587340.0,
+   "recomputed_at_page_precision": 2.59,
+   "page_value": 2.59,
+   "match": true,
+   "source": "IBGE PAM 1612, variable 214"
+  },
+  {
+   "id": "proagro_rs_wheat_2023_approved_bn_brl",
+   "claim_on_page": "Proagro, approved R$ 2.07 billion in wheat claims",
+   "where": "page-draft.md field 2",
+   "recomputed": 2067090846.68,
+   "recomputed_at_page_precision": 2.07,
+   "page_value": 2.07,
+   "match": true,
+   "source": "BCB Proagro data matrix, regiao view, 2023 file"
+  },
+  {
+   "id": "world_wheat_area_share_ar_uy_au_br_2024_pct",
+   "claim_on_page": "about 10% of the world's wheat area (AR+UY+AU+BR)",
+   "where": "page-draft.md field 5",
+   "recomputed": 10.3069,
+   "recomputed_at_page_precision": 10,
+   "page_value": 10,
+   "match": true,
+   "source": "FAOSTAT QCL 2024, area harvested"
+  }
+ ],
+ "all_match": true,
+ "context": {
+  "rs_wheat_planted_2025_ha": 1164275.0,
+  "brazil_wheat_planted_2025_ha": 2515514.0,
+  "rs_wheat_production_change_2022_2023_pct": -51.2,
+  "proagro_rs_wheat_2023_insured_ha": 669546.32,
+  "proagro_rs_wheat_2023_approved_area_ha": 619785.89,
+  "proagro_rs_wheat_2023_approved_pct_of_insured_area": 92.6,
+  "faostat_2024_ar_uy_au_ha": 19704166.0,
+  "faostat_2024_world_ha": 219518805.0,
+  "world_share_ar_uy_au_2024_pct": 9.0,
+  "world_share_ar_uy_au_br_2024_pct": 10.3,
+  "world_share_ar_uy_au_plus_rs_2024_pct_mixed_sources": 9.6,
+  "rs_wheat_harvested_2024_ha_pam": 1331698.0
+ }
+}
