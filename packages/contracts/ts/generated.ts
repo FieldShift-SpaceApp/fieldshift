@@ -88,14 +88,14 @@ export type IndexKey =
 export type Country = "US" | "BR";
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
- * via the `definition` "EnsoPhase".
- */
-export type EnsoPhase = "el_nino" | "neutral" | "la_nina";
-/**
- * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "OniSeason".
  */
 export type OniSeason = string;
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "EnsoPhase".
+ */
+export type EnsoPhase = "el_nino" | "neutral" | "la_nina";
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "RainSourceId".
@@ -232,7 +232,7 @@ export type VariableKey =
 export type UnitSystem = "metric" | "imperial";
 
 /**
- * FieldShift data contracts v1.2.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
+ * FieldShift data contracts v1.3.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.
  */
 export interface FieldShiftContracts {
   [k: string]: unknown;
@@ -426,6 +426,20 @@ export interface CriterionValue {
   better: "higher" | "lower";
   provenance_id: ProvenanceId;
   confidence: Confidence;
+}
+/**
+ * ENSO state of the current year: the latest published ONI season, since the phase season
+ * of the climatology may not be complete yet.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "CurrentEnso".
+ */
+export interface CurrentEnso {
+  season: OniSeason;
+  year: number;
+  oni: number;
+  phase: EnsoPhase;
+  provenance_id: ProvenanceId;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
@@ -717,6 +731,16 @@ export interface ManifestFile {
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "MonthToDate".
+ */
+export interface MonthToDate {
+  month: IsoMonth;
+  n_days: number;
+  total_mm: number;
+  climatology_mean_mm: number | null;
+}
+/**
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "PipelineInfo".
  */
 export interface PipelineInfo {
@@ -832,6 +856,21 @@ export interface ProvenancedValue {
   provenance_id: ProvenanceId;
 }
 /**
+ * A statement published by a third party (e.g. a crop bulletin), kept apart from the
+ * measurements: reported, not measured by FieldShift.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "ReportedFact".
+ */
+export interface ReportedFact {
+  id: RainSourceId;
+  text: LocalizedText;
+  reported_by: string;
+  published: IsoDate;
+  url: string;
+  provenance_id: ProvenanceId;
+}
+/**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
  * via the `definition` "RetrospectiveCheck".
  */
@@ -938,6 +977,60 @@ export interface SoilCoverMonth {
   month: Month;
   state: SoilState;
   segment_ids: string[];
+}
+/**
+ * Rain of the current season so far at a site (v1.3.0): window total, heavy-rain days,
+ * comparison years and the mean of the same calendar days by ENSO phase, per source; plus
+ * reported third-party facts, kept apart.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "SeasonToDate".
+ */
+export interface SeasonToDate {
+  schema_version: SchemaVersion;
+  site_id: SiteId;
+  label: LocalizedText;
+  year: number;
+  cutoff: IsoDate;
+  heavy_rain_mm: number;
+  phase_season: OniSeason;
+  current: CurrentEnso;
+  oni_provenance_id: ProvenanceId;
+  /**
+   * @minItems 1
+   */
+  sources: [SeasonToDateSource, ...SeasonToDateSource[]];
+  reported?: ReportedFact[];
+  notes?: LocalizedText[];
+}
+/**
+ * One rain source over the window of the current year, set against the same calendar days of
+ * past years: chosen comparison years and the mean per ENSO phase.
+ *
+ * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
+ * via the `definition` "SeasonToDateSource".
+ */
+export interface SeasonToDateSource {
+  id: RainSourceId;
+  label: LocalizedText;
+  window: Period;
+  n_days: number;
+  total_mm: number;
+  heavy_days: number;
+  wettest_day: IsoDate;
+  wettest_day_mm: number;
+  /**
+   * @minItems 1
+   */
+  months: [MonthToDate, ...MonthToDate[]];
+  same_days?: RainYear[];
+  climatology: Period;
+  /**
+   * @minItems 3
+   * @maxItems 3
+   */
+  by_phase: [PhaseRainStats, PhaseRainStats, PhaseRainStats];
+  provenance_id: ProvenanceId;
 }
 /**
  * This interface was referenced by `FieldShiftContracts`'s JSON-Schema
