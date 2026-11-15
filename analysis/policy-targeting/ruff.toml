@@ -1,0 +1,11 @@
+# SI-assisted: Claude Code (Anthropic); review: pending (see SI-USAGE.md)
+# Lint settings for the analysis scripts (not part of the services/science package).
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[lint.per-file-ignores]
+# report.py holds the inline HTML/CSS template of the example report and long user-facing sentences
+"report.py" = ["E501"]
