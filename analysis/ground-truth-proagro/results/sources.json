@@ -1,0 +1,63 @@
+{
+ "ibge_localities": {
+  "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/43/municipios",
+  "accessed_utc": "2026-11-15T02:00:49+00:00"
+ },
+ "proagro": {
+  "page": "https://www.bcb.gov.br/estabilidadefinanceira/proagro",
+  "list_api": "https://www.bcb.gov.br/api/servico/sitebcb/Documentos/byListGuid?tronco=estabilidadefinanceira&guidLista=a2f0bc74-02f2-4914-938a-81bef9580ee0&ordem=Title%20desc&pasta=%2Fevento",
+  "view": "evento (event)",
+  "files_published_at": {
+   "MATRIZ_PROAGRO_EVENTO_2013.gz": "2026-06-28T22:35:42Z",
+   "MATRIZ_PROAGRO_EVENTO_2014.gz": "2026-06-28T22:36:02Z",
+   "MATRIZ_PROAGRO_EVENTO_2015.gz": "2026-06-28T22:36:22Z",
+   "MATRIZ_PROAGRO_EVENTO_2016.gz": "2026-06-28T22:36:40Z",
+   "MATRIZ_PROAGRO_EVENTO_2017.gz": "2026-06-28T22:37:02Z",
+   "MATRIZ_PROAGRO_EVENTO_2018.gz": "2026-06-28T22:37:55Z",
+   "MATRIZ_PROAGRO_EVENTO_2019.gz": "2026-06-28T22:38:40Z",
+   "MATRIZ_PROAGRO_EVENTO_2020.gz": "2026-06-28T22:39:00Z",
+   "MATRIZ_PROAGRO_EVENTO_2021.gz": "2026-06-28T22:39:20Z",
+   "MATRIZ_PROAGRO_EVENTO_2022.gz": "2026-06-28T22:39:43Z",
+   "MATRIZ_PROAGRO_EVENTO_2023.gz": "2026-06-28T22:40:10Z",
+   "MATRIZ_PROAGRO_EVENTO_2024.gz": "2026-06-28T22:40:36Z",
+   "MATRIZ_PROAGRO_EVENTO_2025.gz": "2026-09-10T17:44:44Z",
+   "MATRIZ_PROAGRO_EVENTO_2026.gz": "2026-09-10T17:45:24Z"
+  },
+  "accessed_utc": "2026-11-15T02:00:58+00:00"
+ },
+ "ibge_mesh_metadata": {
+  "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/<code>/metadados",
+  "field": "centroide",
+  "accessed_utc": "2026-11-15T02:00:59+00:00"
+ },
+ "imerg": {
+  "api": "https://power.larc.nasa.gov/api/temporal/daily/point",
+  "api_version": [
+   "v2.10.3"
+  ],
+  "parameter": "IMERG_PRECTOT (UTC days; fill value = missing)",
+  "doi": "10.5067/GPM/IMERG/3B-HH/07",
+  "urls": {
+   "4306106": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.5626&latitude=-28.7030&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4310207": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.8949&latitude=-28.3204&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4314100": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-52.4525&latitude=-28.2689&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4317509": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-54.2977&latitude=-28.2505&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4304705": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-52.8636&latitude=-28.2779&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4313904": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.5074&latitude=-28.3296&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4322202": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-54.0035&latitude=-29.0205&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4313706": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.3823&latitude=-27.9400&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4316709": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.2846&latitude=-28.3739&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4311205": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.6524&latitude=-29.2584&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4310009": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.1723&latitude=-28.5950&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4312658": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-52.8249&latitude=-28.4594&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4305702": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.4939&latitude=-28.1655&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4300208": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.7372&latitude=-28.2099&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4302220": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.8376&latitude=-28.6561&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4308458": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.2759&latitude=-28.8951&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4314308": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.5937&latitude=-28.4538&start=19980101&end=20251231&format=JSON&time-standard=UTC",
+   "4316436": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.0944&latitude=-28.3868&start=19980101&end=20251231&format=JSON&time-standard=UTC"
+  },
+  "rule": "Sep 1 - Nov 30; total and days >= 50 mm; a year only with a complete window",
+  "accessed_utc": "2026-11-15T02:01:00+00:00"
+ }
+}
