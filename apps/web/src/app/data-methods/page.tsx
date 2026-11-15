@@ -46,6 +46,8 @@ const VALIDATION: { href: string; label: MessageKey }[] = [
   { href: `${REPO_TREE}/analysis/enso-wheat`, label: "dataMethods.section.validation.ensoWheat" },
   { href: `${REPO_TREE}/analysis/ground-truth-proagro`, label: "dataMethods.section.validation.groundTruth" },
   { href: `${REPO_TREE}/analysis/drought-resilience`, label: "dataMethods.section.validation.drought" },
+  { href: `${REPO_TREE}/analysis/farm-reports#second-municipality-júlio-de-castilhos-scale-test`, label: "dataMethods.section.validation.secondMunicipality" },
+  { href: `${REPO_TREE}/analysis/seven-cities`, label: "dataMethods.section.validation.sevenCities" },
 ];
 
 function term(glossary: GlossaryEntry[], id: string): GlossaryEntry {
