@@ -1,11 +1,508 @@
 {
  "records": {
+  "prov:computed:cruz-alta:bare-soil:modis": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year and fortnight: share of valid observations with NDVI < 0.25; per fortnight: median over the years.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA MODIS MOD13Q1/MYD13Q1 v061 NDVI (LP DAAC)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:bare-soil:modis",
+   "inputs": [
+    "prov:nasa:cruz-alta:modis-ndvi"
+   ],
+   "limitations": [
+    {
+     "en": "NDVI < 0.25 does not separate straw from bare soil: under no-till, dry straw after desiccation looks like bare ground. Read it as 'no green cover', not as 'exposed soil'.",
+     "pt": null
+    },
+    {
+     "en": "MODIS shows far less 'no green' than Sentinel-2 in the same fortnights; Sentinel-2 aggregated to 250 m keeps its own level, so the gap is in the MODIS product, not in the pixel size.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "bare-soil-calendar",
+    "name": "bare-soil-calendar v1",
+    "parameters": {
+     "min_clear_fraction": 0.5,
+     "ndvi_threshold": 0.25,
+     "years": "2019-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": "10.1016/0034-4257(79)90013-0",
+     "label": "Tucker, C.J. (1979). Red and photographic infrared linear combinations for monitoring vegetation. Remote Sensing of Environment 8, 127-150.",
+     "url": null
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "250 m",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "2019-01-01"
+    },
+    "resolution": "16-day"
+   },
+   "title": {
+    "en": "Cropland without green cover by fortnight, MODIS 250 m (median over the years)",
+    "pt": null
+   },
+   "variable": {
+    "code": "no_green_cover_share",
+    "name": {
+     "en": "Cropland share with NDVI < 0.25",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "%"
+   }
+  },
+  "prov:computed:cruz-alta:bare-soil:s2": {
+   "access": null,
+   "aggregation": {
+    "en": "Per scene: share of clear cropland pixels with NDVI < 0.25; per fortnight: median, minimum and maximum over the years with a scene.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "Contains modified Copernicus Sentinel data [2019-2025]; ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium.",
+     "group": "partner",
+     "name": "ESA Copernicus Sentinel-2 L2A and ESA WorldCover 2021"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:bare-soil:s2",
+   "inputs": [
+    "prov:esa:cruz-alta:sentinel-2-l2a"
+   ],
+   "limitations": [
+    {
+     "en": "NDVI < 0.25 does not separate straw from bare soil: under no-till, dry straw after desiccation looks like bare ground. Read it as 'no green cover', not as 'exposed soil'.",
+     "pt": null
+    },
+    {
+     "en": "One scene per fortnight, on a different day each year; 7 years give a calendar, not a trend.",
+     "pt": null
+    },
+    {
+     "en": "The 9 blocks were chosen for having the most cropland, not at random; WorldCover is a single year (2021).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "bare-soil-calendar",
+    "name": "bare-soil-calendar v1",
+    "parameters": {
+     "min_clear_fraction": 0.5,
+     "ndvi_threshold": 0.25,
+     "years": "2019-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": "10.1016/0034-4257(79)90013-0",
+     "label": "Tucker, C.J. (1979). Red and photographic infrared linear combinations for monitoring vegetation. Remote Sensing of Environment 8, 127-150.",
+     "url": null
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "10 m",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "2019-01-01"
+    },
+    "resolution": "16-day"
+   },
+   "title": {
+    "en": "Cropland without green cover by fortnight, Sentinel-2 10 m (median, min and max over the years)",
+    "pt": null
+   },
+   "variable": {
+    "code": "no_green_cover_share",
+    "name": {
+     "en": "Cropland share with NDVI < 0.25",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "%"
+   }
+  },
+  "prov:computed:cruz-alta:enso-forecast-skill": {
+   "access": null,
+   "aggregation": {
+    "en": "Per source: all its February issues with an observed JJA, one per year.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GMAO GEOS-S2S seasonal forecast"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC North American Multi-Model Ensemble"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IRI, Columbia University, ENSO forecast archive"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC / IRI official ENSO consensus"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-forecast-skill",
+   "inputs": [
+    "prov:noaa:cruz-alta:oni",
+    "prov:forecast:cruz-alta:nmme-nasa-geos",
+    "prov:forecast:cruz-alta:iri-plume-nasa-gmao",
+    "prov:forecast:cruz-alta:iri-plume-mean",
+    "prov:forecast:cruz-alta:iri-objective",
+    "prov:forecast:cruz-alta:cpc-iri-official"
+   ],
+   "limitations": [
+    {
+     "en": "This is skill at the ENSO phase of the JJA winter, not a local measure of crop, rain or farm outcomes.",
+     "pt": null
+    },
+    {
+     "en": "Small samples: each source has 2 to 7 El Niño winters in its years; one winter moves the El Niño hit count by a large share. No confidence interval is given.",
+     "pt": null
+    },
+    {
+     "en": "Sources cover different years (n is given per source); compare rates with the 'always neutral' rate of the same years, not across sources.",
+     "pt": null
+    },
+    {
+     "en": "Brier scores exist only for probability sources; climatology = frequency of El Niño JJA in 1982-2025 (ONI >= +0.5).",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-forecast-skill",
+    "name": "enso-phase-skill v1",
+    "parameters": {
+     "climatology_p_el_nino": 0.182,
+     "climatology_years": "1982-2025",
+     "issue_month": 2.0,
+     "phase_threshold_degC": 0.5,
+     "target_season": "JJA",
+     "tie_rule": "largest probability; ties go to neutral"
+    },
+    "ref": {
+     "citation": null,
+     "doi": "10.1016/C2017-0-03921-6",
+     "label": "Wilks, D.S. (2011). Statistical Methods in the Atmospheric Sciences, 3rd ed., ch. 8 (forecast verification).",
+     "url": null
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-08-31",
+     "start": "1982-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "ENSO-phase skill of February forecasts for the JJA winter",
+    "pt": null
+   },
+   "variable": {
+    "code": "enso_phase_skill",
+    "name": {
+     "en": "Hit rate, false-alarm ratio and Brier score",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015",
+   "inputs": [
+    "prov:user:cruz-alta:ana-2853015",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "heavy_rain_mm": 50.0,
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "point"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, ANA rain gauge 2853015",
+    "pt": null
+   },
+   "variable": {
+    "code": "heavy_rain_days_son",
+    "name": {
+     "en": "Days with rain >= 50 mm; window total",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg",
+   "inputs": [
+    "prov:imerg:cruz-alta:imerg_prectot:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "heavy_rain_mm": 50.0,
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, GPM IMERG",
+    "pt": null
+   },
+   "variable": {
+    "code": "heavy_rain_days_son",
+    "name": {
+     "en": "Days with rain >= 50 mm; window total",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
+  "prov:computed:cruz-alta:enso-heavy-rain:nasa-power": {
+   "access": null,
+   "aggregation": {
+    "en": "Per year: total of September-November and number of days >= 50 mm (complete windows only); per phase: mean and median over the years of that phase.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+     "group": "nasa",
+     "name": "NASA POWER (MERRA-2 bias-corrected precipitation)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power",
+   "inputs": [
+    "prov:power:cruz-alta:prectotcorr:daily",
+    "prov:noaa:cruz-alta:oni"
+   ],
+   "limitations": [
+    {
+     "en": "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; a mean of heavy-rain days moves with one wet year.",
+     "pt": null
+    },
+    {
+     "en": "Association, not proof of cause: ENSO phase and spring rain are compared year by year, with no model of the wheat itself.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "enso-heavy-rain",
+    "name": "enso-heavy-rain v1",
+    "parameters": {
+     "heavy_rain_mm": 50.0,
+     "months": "9,10,11",
+     "phase_min_seasons": 5.0,
+     "phase_season": "SON",
+     "phase_threshold_degC": 0.5
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive overlapping seasons)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "site point",
+    "resolution_m": null,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Rain and heavy-rain days in September-November by ENSO phase, NASA POWER",
+    "pt": null
+   },
+   "variable": {
+    "code": "heavy_rain_days_son",
+    "name": {
+     "en": "Days with rain >= 50 mm; window total",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "days"
+   }
+  },
   "prov:computed:cruz-alta:et0:annual_mean:1991_2020": {
    "access": null,
    "aggregation": {
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:et0:annual_mean:1991_2020",
@@ -78,6 +575,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:et0:by_month:1991_2020",
@@ -150,6 +648,7 @@
     "en": "ET0 computed for each day (FAO-56 eq. 6, G = 0), then summed per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:et0:daily",
@@ -231,6 +730,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_days:annual_mean:1991_2020",
@@ -319,6 +819,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_days:by_month:1991_2020",
@@ -407,6 +908,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_days:daily",
@@ -492,6 +994,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_total:annual_mean:1991_2020",
@@ -580,6 +1083,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_total:by_month:1991_2020",
@@ -668,6 +1172,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:extreme_precip_total:daily",
@@ -753,6 +1258,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:frost_days:annual_mean:1991_2020",
@@ -828,6 +1334,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:frost_days:by_month:1991_2020",
@@ -903,6 +1410,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:frost_days:daily",
@@ -978,6 +1486,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, degC_d). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:growing_degree_days:annual_mean:1991_2020",
@@ -1057,6 +1566,7 @@
     "en": "Mean of the monthly values (degC_d) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:growing_degree_days:by_month:1991_2020",
@@ -1136,6 +1646,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (degC_d). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:growing_degree_days:daily",
@@ -1216,6 +1727,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:heat_days:annual_mean:1991_2020",
@@ -1299,6 +1811,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:heat_days:by_month:1991_2020",
@@ -1382,6 +1895,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:heat_days:daily",
@@ -1465,6 +1979,7 @@
     "en": "Percentile P95 (linear interpolation, Hyndman-Fan type 7) of daily precipitation on wet days (>= 1 mm) of 1991–2020. Computed only when every day of the baseline is valid.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:precip_p95:1991_2020",
@@ -1551,12 +2066,87 @@
     "unit": "mm/d"
    }
   },
+  "prov:computed:cruz-alta:replay-2023:wheat-failures": {
+   "access": null,
+   "aggregation": {
+    "en": "Per municipality: least-squares linear trend of yield on 1981-2025 (years with a positive yield, 2023 included); 2023 yield divided by the trend value.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IBGE Produção Agrícola Municipal (SIDRA 1612)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "computed",
+   "id": "prov:computed:cruz-alta:replay-2023:wheat-failures",
+   "inputs": [
+    "prov:user:cruz-alta:ibge-pam-wheat-planalto"
+   ],
+   "limitations": [
+    {
+     "en": "The count depends on the threshold: it is given at 70%, 75% and 80%.",
+     "pt": null
+    },
+    {
+     "en": "Neighbouring municipalities share the weather; 18 municipalities are one regional event, not 18 independent cases.",
+     "pt": null
+    }
+   ],
+   "method": {
+    "doc_anchor": "season-replay",
+    "name": "wheat-failure-count v1",
+    "parameters": {
+     "min_years": 10.0,
+     "sensitivity": "0.70, 0.80",
+     "target_year": 2023.0,
+     "threshold": 0.75,
+     "trend_years": "1981-2025"
+    },
+    "ref": {
+     "citation": null,
+     "doi": null,
+     "label": "Team analysis of wheat and ENSO in the Planalto Médio and its independent verification (14/11/2026): 75% of the linear trend, 1981-2025",
+     "url": null
+    }
+   },
+   "refs": [],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "1981-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Wheat failures in 2023 (yield below 75% of the linear trend)",
+    "pt": null
+   },
+   "variable": {
+    "code": "wheat_failures_2023",
+    "name": {
+     "en": "Municipalities with yield below 75% of trend",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "count"
+   }
+  },
   "prov:computed:cruz-alta:water_deficit:annual_mean:1991_2020": {
    "access": null,
    "aggregation": {
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:water_deficit:annual_mean:1991_2020",
@@ -1629,6 +2219,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:water_deficit:by_month:1991_2020",
@@ -1701,6 +2292,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:cruz-alta:water_deficit:daily",
@@ -1768,6 +2360,636 @@
     "unit": "mm/d"
    }
   },
+  "prov:esa:cruz-alta:sentinel-2-l2a": {
+   "access": {
+    "accessed_at": "2026-11-14T16:41:57-03:00",
+    "doi": null,
+    "license": "Copernicus open data licence (free use with attribution)",
+    "terms_url": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+    "url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a"
+   },
+   "aggregation": {
+    "en": "One scene per fortnight (lowest tile cloud cover, at most 70%), cropland pixels of the ESA WorldCover 2021 class 40 inside 9 blocks of the municipality (672 km2, 64% of its cropland).",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": "Contains modified Copernicus Sentinel data [2019-2025]; ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium.",
+     "group": "partner",
+     "name": "ESA Copernicus Sentinel-2 L2A and ESA WorldCover 2021"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "satellite_observed",
+   "id": "prov:esa:cruz-alta:sentinel-2-l2a",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Partner data (ESA Copernicus), not NASA data; credited as the licence asks.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": "sentinel-2-l2a",
+    "dataset": "Copernicus Sentinel-2",
+    "product": "sentinel-2-l2a",
+    "provider": "ESA (Copernicus); COGs served by Element 84 Earth Search",
+    "version": "L2A, several processing baselines (DN offset rule in the method)"
+   },
+   "spatial": {
+    "resolution": "10 m",
+    "resolution_m": 10.0,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "2019-01-01"
+    },
+    "resolution": "16-day"
+   },
+   "title": {
+    "en": "Sentinel-2 L2A surface reflectance (B04, B08, SCL), tile 22JBP",
+    "pt": null
+   },
+   "variable": {
+    "code": "NDVI",
+    "name": {
+     "en": "NDVI from B04 and B08",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:forecast:cruz-alta:cpc-iri-official": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:32-03:00",
+    "doi": null,
+    "license": null,
+    "terms_url": "https://iri.columbia.edu/resources/data-library/",
+    "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/"
+   },
+   "aggregation": {
+    "en": "One forecast per year: the February issue, read for the JJA season. The URL of the file each value was read from is kept per row.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC / IRI official ENSO consensus"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:forecast:cruz-alta:cpc-iri-official",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Forecast issued in February for the June-August (JJA) mean of the same year; one value per year, so a single winter moves every rate by several points.",
+     "pt": null
+    },
+    {
+     "en": "The archive has tables only from 2014; 2026 is left out (only the favored category is published, and JJA 2026 is still preliminary).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "NOAA CPC / IRI official ENSO consensus (early-month)",
+    "product": "Early-month official consensus table, IRI ENSO quick look page",
+    "provider": "NOAA CPC and IRI",
+    "version": "quick look archive"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-08-31",
+     "start": "2014-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "NOAA CPC / IRI official ENSO consensus (early-month), February issue, target JJA",
+    "pt": null
+   },
+   "variable": {
+    "code": "P_ENSO",
+    "name": {
+     "en": "Probability of each ENSO phase",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "probability"
+   }
+  },
+  "prov:forecast:cruz-alta:iri-objective": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:32-03:00",
+    "doi": null,
+    "license": null,
+    "terms_url": "https://iri.columbia.edu/resources/data-library/",
+    "url": "https://ensoforecast.iri.columbia.edu/"
+   },
+   "aggregation": {
+    "en": "One forecast per year: the February issue, read for the JJA season. The URL of the file each value was read from is kept per row.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IRI, Columbia University, ENSO forecast archive"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:forecast:cruz-alta:iri-objective",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Forecast issued in February for the June-August (JJA) mean of the same year; one value per year, so a single winter moves every rate by several points.",
+     "pt": null
+    },
+    {
+     "en": "Values read from the archive figures that the IRI server draws today (SVG coordinates, about 0.01 degC or 1 point of precision); the objective probabilities can differ from the text published at the time by up to 4 points.",
+     "pt": null
+    },
+    {
+     "en": "The 2009 bars are 25/50/25 in all three issues, which may be the climatology rather than a forecast.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "IRI objective probabilistic ENSO forecast",
+    "product": "IRI ENSO forecast archive, figure 3 (objective probabilities)",
+    "provider": "IRI, Columbia University",
+    "version": "archive"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-08-31",
+     "start": "2004-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "IRI objective probabilistic ENSO forecast, February issue, target JJA",
+    "pt": null
+   },
+   "variable": {
+    "code": "P_ENSO",
+    "name": {
+     "en": "Probability of each ENSO phase",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "probability"
+   }
+  },
+  "prov:forecast:cruz-alta:iri-plume-mean": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:32-03:00",
+    "doi": null,
+    "license": null,
+    "terms_url": "https://iri.columbia.edu/resources/data-library/",
+    "url": "https://ensoforecast.iri.columbia.edu/"
+   },
+   "aggregation": {
+    "en": "One forecast per year: the February issue, read for the JJA season. The URL of the file each value was read from is kept per row.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IRI, Columbia University, ENSO forecast archive"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:forecast:cruz-alta:iri-plume-mean",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Forecast issued in February for the June-August (JJA) mean of the same year; one value per year, so a single winter moves every rate by several points.",
+     "pt": null
+    },
+    {
+     "en": "Only the ensemble mean is used; the predicted phase applies the +/-0.5 degC threshold to it, which understates strong phases.",
+     "pt": null
+    },
+    {
+     "en": "Values read from the archive figures that the IRI server draws today (SVG coordinates, about 0.01 degC or 1 point of precision); the objective probabilities can differ from the text published at the time by up to 4 points.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "IRI ENSO plume, average of all models",
+    "product": "IRI ENSO forecast archive, figure 4 (model plume), line 'COMBINED AVG'",
+    "provider": "IRI, Columbia University",
+    "version": "archive"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-08-31",
+     "start": "2003-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "IRI ENSO plume, average of all models, February issue, target JJA",
+    "pt": null
+   },
+   "variable": {
+    "code": "NINO34_JJA",
+    "name": {
+     "en": "Forecast Niño-3.4 anomaly, JJA mean",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "delta_degC"
+   }
+  },
+  "prov:forecast:cruz-alta:iri-plume-nasa-gmao": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:32-03:00",
+    "doi": null,
+    "license": null,
+    "terms_url": "https://iri.columbia.edu/resources/data-library/",
+    "url": "https://ensoforecast.iri.columbia.edu/"
+   },
+   "aggregation": {
+    "en": "One forecast per year: the February issue, read for the JJA season. The URL of the file each value was read from is kept per row.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GMAO GEOS-S2S seasonal forecast"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IRI, Columbia University, ENSO forecast archive"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:forecast:cruz-alta:iri-plume-nasa-gmao",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Forecast issued in February for the June-August (JJA) mean of the same year; one value per year, so a single winter moves every rate by several points.",
+     "pt": null
+    },
+    {
+     "en": "Only the ensemble mean is used; the predicted phase applies the +/-0.5 degC threshold to it, which understates strong phases.",
+     "pt": null
+    },
+    {
+     "en": "Values read from the archive figures that the IRI server draws today (SVG coordinates, about 0.01 degC or 1 point of precision); the objective probabilities can differ from the text published at the time by up to 4 points.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA GMAO model line in the IRI ENSO plume",
+    "product": "IRI ENSO forecast archive, figure 4 (model plume), line 'NASA GMAO'",
+    "provider": "NASA GMAO via IRI",
+    "version": "archive"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-08-31",
+     "start": "2003-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "NASA GMAO model line in the IRI ENSO plume, February issue, target JJA",
+    "pt": null
+   },
+   "variable": {
+    "code": "NINO34_JJA",
+    "name": {
+     "en": "Forecast Niño-3.4 anomaly, JJA mean",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "delta_degC"
+   }
+  },
+  "prov:forecast:cruz-alta:nmme-nasa-geos": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:32-03:00",
+    "doi": null,
+    "license": null,
+    "terms_url": "https://www.weather.gov/disclaimer",
+    "url": "https://ftp.cpc.ncep.noaa.gov/NMME/ENSO/NASA_GEOS5v2/020100/"
+   },
+   "aggregation": {
+    "en": "One forecast per year: the February issue, read for the JJA season. The URL of the file each value was read from is kept per row.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GMAO GEOS-S2S seasonal forecast"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC North American Multi-Model Ensemble"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:forecast:cruz-alta:nmme-nasa-geos",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Forecast issued in February for the June-August (JJA) mean of the same year; one value per year, so a single winter moves every rate by several points.",
+     "pt": null
+    },
+    {
+     "en": "Only the ensemble mean is used; the predicted phase applies the +/-0.5 degC threshold to it, which understates strong phases.",
+     "pt": null
+    },
+    {
+     "en": "Years before 2011 are hindcasts (run later with the current model), not forecasts available at the time; the exact GEOS version behind each year was not checked.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "NASA GMAO GEOS-S2S (NMME member NASA_GEOS5v2), ensemble-mean Niño-3.4",
+    "product": "NMME ENSO files, NASA_GEOS5v2/020100 (February starts)",
+    "provider": "NASA GMAO via NOAA CPC NMME",
+    "version": "NASA_GEOS5v2"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2022-08-31",
+     "start": "1982-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "NASA GMAO GEOS-S2S (NMME member NASA_GEOS5v2), ensemble-mean Niño-3.4, February issue, target JJA",
+    "pt": null
+   },
+   "variable": {
+    "code": "NINO34_JJA",
+    "name": {
+     "en": "Forecast Niño-3.4 anomaly, JJA mean",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "delta_degC"
+   }
+  },
+  "prov:imerg:cruz-alta:imerg_prectot:daily": {
+   "access": {
+    "accessed_at": "2026-11-14T20:39:03-03:00",
+    "doi": "10.5067/GPM/IMERG/3B-HH/07",
+    "license": null,
+    "terms_url": "https://power.larc.nasa.gov/docs/referencing/",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=IMERG_PRECTOT&community=AG&longitude=-53.5630&latitude=-28.7030&start=19980101&end=20251231&format=JSON&time-standard=UTC"
+   },
+   "aggregation": {
+    "en": "Daily values as served; -999 is read as missing.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA GPM IMERG daily precipitation, served by POWER"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "satellite_observed",
+   "id": "prov:imerg:cruz-alta:imerg_prectot:daily",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "POWER serves IMERG only in UTC days and does not say which run (Early, Late, Final) or version it is; the DOI given is the IMERG Final half-hourly V07.",
+     "pt": null
+    },
+    {
+     "en": "How IMERG and NASA POWER compare with ground stations at Cruz Alta is on the satellite-vs-ground method page.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "GPM IMERG",
+    "product": "POWER Daily API, parameter IMERG_PRECTOT (UTC days)",
+    "provider": "NASA GES DISC, via NASA LaRC POWER",
+    "version": "POWER v2.10.3; IMERG run/version not stated"
+   },
+   "spatial": {
+    "resolution": "0.1° (IMERG grid)",
+    "resolution_m": 11000.0,
+    "support": "containing_pixel"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "1998-01-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "GPM IMERG daily precipitation at the site point (served by NASA POWER)",
+    "pt": null
+   },
+   "variable": {
+    "code": "IMERG_PRECTOT",
+    "name": {
+     "en": "Precipitation",
+     "pt": null
+    },
+    "native_unit": "mm/day",
+    "unit": "mm/d"
+   }
+  },
+  "prov:nasa:cruz-alta:modis-ndvi": {
+   "access": {
+    "accessed_at": "2026-11-14T15:00:08-03:00",
+    "doi": "10.5067/MODIS/MOD13Q1.061",
+    "license": null,
+    "terms_url": "https://lpdaac.usgs.gov/data/data-citation-and-policies/",
+    "url": "https://lpdaac.usgs.gov/products/mod13q1v061/"
+   },
+   "aggregation": {
+    "en": "Valid observations (reliability 0 or 1) of pixels with at least 80% WorldCover cropland, grouped by the fortnight of their acquisition day.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "nasa",
+     "name": "NASA MODIS MOD13Q1/MYD13Q1 v061 NDVI (LP DAAC)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "satellite_observed",
+   "id": "prov:nasa:cruz-alta:modis-ndvi",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "16-day maximum-value composites pick the greenest day, which hides short bare spells (hypothesis, not tested).",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "MODIS Vegetation Indices",
+    "product": "MOD13Q1 / MYD13Q1",
+    "provider": "NASA LP DAAC",
+    "version": "061"
+   },
+   "spatial": {
+    "resolution": "250 m",
+    "resolution_m": 250.0,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "2019-01-01"
+    },
+    "resolution": "16-day"
+   },
+   "title": {
+    "en": "MODIS Terra and Aqua 16-day NDVI (MOD13Q1, MYD13Q1 v061)",
+    "pt": null
+   },
+   "variable": {
+    "code": "NDVI",
+    "name": {
+     "en": "NDVI",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:noaa:cruz-alta:oni": {
+   "access": {
+    "accessed_at": "2026-11-14T19:46:33-03:00",
+    "doi": null,
+    "license": "US Government work, public domain",
+    "terms_url": "https://www.weather.gov/disclaimer",
+    "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"
+   },
+   "aggregation": {
+    "en": "Read as published: one value per overlapping 3-month season.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA Climate Prediction Center (ONI, ERSSTv5)"
+    }
+   ],
+   "authored_by": null,
+   "data_type": "modeled",
+   "id": "prov:noaa:cruz-alta:oni",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "ONI is an index of the tropical Pacific, not a local measurement; NOAA revises past values when the ERSST base period changes (2009 JJA is exactly +0.50).",
+     "pt": null
+    },
+    {
+     "en": "Since 2026 NOAA CPC verifies its official outlooks with the relative ONI (RONI); this dataset uses ONI, so a few borderline years may change phase under RONI.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [],
+   "source": {
+    "collection_id": null,
+    "dataset": "Oceanic Niño Index",
+    "product": "oni.ascii.txt (ERSSTv5, centered 30-year base periods)",
+    "provider": "NOAA Climate Prediction Center",
+    "version": "ERSSTv5"
+   },
+   "spatial": {
+    "resolution": "Niño-3.4 region (5N-5S, 170W-120W)",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2026-10-31",
+     "start": "1949-12-01"
+    },
+    "resolution": "monthly"
+   },
+   "title": {
+    "en": "Oceanic Niño Index (ONI), 3-month running mean of Niño-3.4 SST anomalies",
+    "pt": null
+   },
+   "variable": {
+    "code": "ONI",
+    "name": {
+     "en": "ONI",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "delta_degC"
+   }
+  },
   "prov:power:cruz-alta:allsky_sfc_sw_dwn:daily": {
    "access": {
     "accessed_at": "2026-11-14T19:29:08-03:00",
@@ -1780,6 +3002,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:allsky_sfc_sw_dwn:daily",
@@ -1852,6 +3075,7 @@
     "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:evland:daily",
@@ -1928,6 +3152,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:gwetprof:daily",
@@ -2004,6 +3229,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:gwetroot:daily",
@@ -2080,6 +3306,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:gwettop:daily",
@@ -2156,6 +3383,7 @@
     "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:prectotcorr:daily",
@@ -2232,6 +3460,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:ps:daily",
@@ -2304,6 +3533,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:rh2m:daily",
@@ -2376,6 +3606,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:t2m:daily",
@@ -2448,6 +3679,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:t2m_max:daily",
@@ -2524,6 +3756,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:t2m_min:daily",
@@ -2596,6 +3829,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:t2mdew:daily",
@@ -2668,6 +3902,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:cruz-alta:ws2m:daily",
@@ -2727,8 +3962,591 @@
     "native_unit": "m/s",
     "unit": "m/s"
    }
+  },
+  "prov:user:cruz-alta:ana-2853015": {
+   "access": null,
+   "aggregation": {
+    "en": "Daily values of the ANA historical series (consistency level 2 when present, else level 1 raw), September-November only.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "ANA (Brazil), HidroWeb rain gauge 2853015"
+    }
+   ],
+   "authored_by": "ANA (Agência Nacional de Águas e Saneamento Básico), HidroWeb; series copied to input/ana-2853015-sep-nov-daily.csv with the service URL per row",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:ana-2853015",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Ground observation, recorded as user_provided: the contracts have no data type for ground stations.",
+     "pt": null
+    },
+    {
+     "en": "Gap in 2013-2016 and a step of about +10-13% after it against neighbouring gauges (team station check); morning reading, so its day is shifted against the gridded sources.",
+     "pt": null
+    },
+    {
+     "en": "A point gauge sees local storms that a 10-50 km grid cell smooths out.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "ANA HidroWeb web service, HidroSerieHistorica, station 2853015",
+     "url": "https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica?codEstacao=2853015&dataInicio=&dataFim=&tipoDados=2&nivelConsistencia="
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "point (rain gauge)",
+    "resolution_m": null,
+    "support": "point"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-11-30",
+     "start": "1982-09-01"
+    },
+    "resolution": "daily"
+   },
+   "title": {
+    "en": "ANA rain gauge 2853015 (Três Capões, 14.9 km from the site point), daily rain",
+    "pt": null
+   },
+   "variable": {
+    "code": "rain_gauge",
+    "name": {
+     "en": "Daily rain",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "mm/d"
+   }
+  },
+  "prov:user:cruz-alta:ibge-pam-wheat-planalto": {
+   "access": null,
+   "aggregation": {
+    "en": "Annual municipal yield as published (SIDRA '-' = 0, '..', '...', 'X' = empty), downloaded by `fieldshift fetch ibge-pam --product 2716`; raw responses in data/cache/ibge/cruz-alta/.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IBGE Produção Agrícola Municipal (SIDRA 1612)"
+    }
+   ],
+   "authored_by": "IBGE, Produção Agrícola Municipal (official statistics)",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:ibge-pam-wheat-planalto",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Official statistics, recorded as user_provided: the contracts have no data type for them. Municipal averages, not field yields.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4300208",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4300208/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4302220",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4302220/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4304705",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4304705/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4305702",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4305702/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4306106",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4308458",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4308458/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4310009",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4310009/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4310207",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4310207/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4311205",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4311205/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4312658",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4312658/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4313706",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4313706/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4313904",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4313904/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4314100",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4314100/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4314308",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4314308/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4316436",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4316436/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4316709",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4316709/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4317509",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4317509/v/112/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield, municipality 4322202",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4322202/v/112/p/all/c81/2716"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2025-12-31",
+     "start": "1974-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "IBGE PAM wheat yield, 18 municipalities of the Planalto Médio (RS)",
+    "pt": null
+   },
+   "variable": {
+    "code": "yield_kg_ha",
+    "name": {
+     "en": "Wheat yield (kg/ha)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:user:cruz-alta:replay-2023:el-nino-advisory": {
+   "access": null,
+   "aggregation": {
+    "en": "Transcribed from the primary source named in refs; no computation.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC ENSO Diagnostic Discussion"
+    }
+   ],
+   "authored_by": "NOAA Climate Prediction Center, ENSO Diagnostic Discussion (status and synopsis transcribed)",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:replay-2023:el-nino-advisory",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "The Advisory came after the start of the ZARC sowing window for wheat.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 8 June 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_jun2023/ensodisc.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality / region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2023-06-08",
+     "start": "2023-06-08"
+    },
+    "resolution": "static"
+   },
+   "title": {
+    "en": "NOAA CPC issues an El Niño Advisory",
+    "pt": null
+   },
+   "variable": {
+    "code": "el_nino_advisory",
+    "name": {
+     "en": "NOAA CPC issues an El Niño Advisory",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:user:cruz-alta:replay-2023:el-nino-watch": {
+   "access": null,
+   "aggregation": {
+    "en": "Transcribed from the primary source named in refs; no computation.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "NOAA CPC ENSO Diagnostic Discussion"
+    }
+   ],
+   "authored_by": "NOAA Climate Prediction Center, ENSO Diagnostic Discussion (status and synopsis transcribed)",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:replay-2023:el-nino-watch",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "The Watch speaks of May-July in the Northern Hemisphere calendar; it is not a forecast for the wheat season itself.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 13 April 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_apr2023/ensodisc.shtml"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 9 March 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_mar2023/ensodisc.shtml"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality / region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2023-04-13",
+     "start": "2023-04-13"
+    },
+    "resolution": "static"
+   },
+   "title": {
+    "en": "NOAA CPC issues an El Niño Watch",
+    "pt": null
+   },
+   "variable": {
+    "code": "el_nino_watch",
+    "name": {
+     "en": "NOAA CPC issues an El Niño Watch",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:user:cruz-alta:replay-2023:wheat-credit": {
+   "access": null,
+   "aggregation": {
+    "en": "Transcribed from the primary source named in refs; no computation.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "Banco Central do Brasil, SICOR rural credit"
+    }
+   ],
+   "authored_by": "Banco Central do Brasil, SICOR open data (CusteioMunicipioProduto), recomputed by the team's independent verification of 14/11/2026",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:replay-2023:wheat-credit",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Coverage: only credit registered in SICOR for the product 'TRIGO' in 18 municipalities; wheat planted with own money or other credit is not here.",
+     "pt": null
+    },
+    {
+     "en": "Period: value by calendar year of issue; the area comparison uses January-October of both years. Credit for a winter crop is mostly contracted before sowing, so it shows the plan, not the result.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "BCB SICOR OData service, CusteioMunicipioProduto (ODbL)",
+     "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "BCB SGS series 433 (IPCA), used to deflate to December 2025",
+     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality / region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2023-12-31",
+     "start": "2023-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Wheat operating credit in the 18 Planalto Médio municipalities stayed level",
+    "pt": null
+   },
+   "variable": {
+    "code": "wheat_credit",
+    "name": {
+     "en": "Wheat operating credit in the 18 Planalto Médio municipalities stayed level",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:user:cruz-alta:replay-2023:winter-paths-2023": {
+   "access": null,
+   "aggregation": {
+    "en": "Transcribed from the primary source named in refs; no computation.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "IBGE Produção Agrícola Municipal (SIDRA 1612)"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "CONAB production cost series"
+    },
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "Embrapa Trigo, Comunicado Técnico 207"
+    }
+   ],
+   "authored_by": "FieldShift team analysis 'money per winter' (14/11/2026) from IBGE, CONAB, IPCA and Embrapa; values transcribed",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:replay-2023:winter-paths-2023",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Team analysis, not re-verified by the independent check: use it as an order of magnitude.",
+     "pt": null
+    },
+    {
+     "en": "CONAB costs are for a modal high-input farm; revenue is the municipal average, which tends to exaggerate the loss for an above-average field.",
+     "pt": null
+    },
+    {
+     "en": "The cover-crop cost is one 2007 data point updated by inflation, without desiccation; its agronomic benefits are not converted into money.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat (2716), area, production and value",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106/v/109,216,112,215/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "CONAB, wheat production cost series 1998-2025 (spreadsheet)",
+     "url": "https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/custos-de-producao/arquivos-custo-de-producao/agricolas/"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1737, IPCA index (deflator, December 2025 base)",
+     "url": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "De Mori, C. (2007). Estimativas de custo de produção de trigo e de aveia: safra 2007. Embrapa Trigo, Comunicado Técnico Online 207, Table 3",
+     "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/852400/1/pco207.pdf"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality / region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2023-12-31",
+     "start": "2023-01-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "Money per hectare in winter 2023 at Cruz Alta: wheat margin and cover-crop cost",
+    "pt": null
+   },
+   "variable": {
+    "code": "winter_paths_2023",
+    "name": {
+     "en": "Money per hectare in winter 2023 at Cruz Alta: wheat margin and cover-crop cost",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
+  },
+  "prov:user:cruz-alta:replay-2023:zarc-wheat-window": {
+   "access": null,
+   "aggregation": {
+    "en": "Transcribed from the primary source named in refs; no computation.",
+    "pt": null
+   },
+   "attribution": [
+    {
+     "credit": null,
+     "group": "other_public",
+     "name": "MAPA (Brazil), ZARC agricultural risk zoning"
+    }
+   ],
+   "authored_by": "MAPA, ZARC risk table (Tábua de risco) 2022/2023, rows of municipality 4306106 transcribed",
+   "data_type": "user_provided",
+   "id": "prov:user:cruz-alta:replay-2023:zarc-wheat-window",
+   "inputs": [],
+   "limitations": [
+    {
+     "en": "Assumed to be the table in force for the 2023 winter sowing, because it was published on 8 December 2022; the next wheat table came out on 28 December 2023.",
+     "pt": null
+    },
+    {
+     "en": "Read from the team's filtered copy of the MAPA file (all Cruz Alta rows, downloaded 14/11/2026 16:26 BRT); the portal did not answer a second download at 20:10 BRT the same day.",
+     "pt": null
+    },
+    {
+     "en": "ZARC gives the sowing date and its risk class only; it does not say when the crop is harvested.",
+     "pt": null
+    }
+   ],
+   "method": null,
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "MAPA, Tábua de risco - Safra 2022/2023 (open data portal, CC BY)",
+     "url": "https://dados.agricultura.gov.br/dataset/6d3d141c-885e-41a4-ab7f-dc8ff323b96f/resource/9201690c-ec14-4607-9f37-f6ee5b10168f/download/dados-abertos-tabua-de-risco-safra-2022-2023.csv"
+    }
+   ],
+   "source": null,
+   "spatial": {
+    "resolution": "municipality / region",
+    "resolution_m": null,
+    "support": "regional"
+   },
+   "temporal": {
+    "period": {
+     "end": "2023-07-20",
+     "start": "2023-06-01"
+    },
+    "resolution": "annual"
+   },
+   "title": {
+    "en": "ZARC sowing window for rainfed wheat at Cruz Alta (20% risk class)",
+    "pt": null
+   },
+   "variable": {
+    "code": "zarc_wheat_window",
+    "name": {
+     "en": "ZARC sowing window for rainfed wheat at Cruz Alta (20% risk class)",
+     "pt": null
+    },
+    "native_unit": null,
+    "unit": "1"
+   }
   }
  },
- "schema_version": "1.1.0",
+ "schema_version": "1.2.0",
  "site_id": "cruz-alta"
 }

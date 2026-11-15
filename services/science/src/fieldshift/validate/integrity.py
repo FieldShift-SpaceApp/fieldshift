@@ -28,7 +28,11 @@ from pydantic import BaseModel, ValidationError
 
 from fieldshift.contracts import (
     SCHEMA_VERSION,
+    BareSoilCalendar,
     ClimateIndices,
+    EnsoRainSignal,
+    EventTimeline,
+    ForecastScorecard,
     Provenance,
     ProvenanceRegistry,
     RotationFile,
@@ -50,6 +54,11 @@ SITE_FILES: dict[str, type[BaseModel]] = {
     "rotation-current.json": RotationFile,
     "validation.json": ValidationFile,
     "strategies.json": StrategySet,
+    # v1.2.0 complements (`fieldshift complements`)
+    "forecast-scorecard.json": ForecastScorecard,
+    "replay.json": EventTimeline,
+    "bare-soil-calendar.json": BareSoilCalendar,
+    "enso-rain-signal.json": EnsoRainSignal,
 }
 SITES_INDEX = "index.json"  # data/sites/index.json -> SitesIndex
 TRACED_TYPES = ("series", "metrics", "profiles")  # items whose data_type must match the record

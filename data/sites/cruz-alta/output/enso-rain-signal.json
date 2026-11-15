@@ -1,0 +1,945 @@
+{
+ "heavy_rain_mm": 50.0,
+ "label": {
+  "en": "Heavy rain in the wheat harvest window (September-November) by ENSO phase",
+  "pt": null
+ },
+ "months": [
+  9,
+  10,
+  11
+ ],
+ "notes": [],
+ "oni_provenance_id": "prov:noaa:cruz-alta:oni",
+ "phase_season": "SON",
+ "schema_version": "1.2.0",
+ "site_id": "cruz-alta",
+ "sources": [
+  {
+   "by_phase": [
+    {
+     "mean_heavy_days": 1.93,
+     "mean_total_mm": 657.5,
+     "median_total_mm": 556.0,
+     "n_years": 15,
+     "phase": "el_nino",
+     "years_with_heavy_day": 12
+    },
+    {
+     "mean_heavy_days": 1.12,
+     "mean_total_mm": 492.6,
+     "median_total_mm": 500.2,
+     "n_years": 16,
+     "phase": "neutral",
+     "years_with_heavy_day": 12
+    },
+    {
+     "mean_heavy_days": 0.92,
+     "mean_total_mm": 429.8,
+     "median_total_mm": 421.9,
+     "n_years": 13,
+     "phase": "la_nina",
+     "years_with_heavy_day": 9
+    }
+   ],
+   "first_year": 1982,
+   "id": "nasa-power",
+   "label": {
+    "en": "NASA POWER (MERRA-2 bias-corrected precipitation, PRECTOTCORR)",
+    "pt": null
+   },
+   "last_year": 2025,
+   "provenance_id": "prov:computed:cruz-alta:enso-heavy-rain:nasa-power",
+   "years": [
+    {
+     "heavy_days": 4,
+     "oni": 1.82,
+     "phase": "el_nino",
+     "total_mm": 744.8,
+     "year": 1982
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.76,
+     "phase": "la_nina",
+     "total_mm": 421.9,
+     "year": 1983
+    },
+    {
+     "heavy_days": 3,
+     "oni": -0.62,
+     "phase": "la_nina",
+     "total_mm": 570.8,
+     "year": 1984
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.3,
+     "phase": "neutral",
+     "total_mm": 243.5,
+     "year": 1985
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.86,
+     "phase": "el_nino",
+     "total_mm": 651.0,
+     "year": 1986
+    },
+    {
+     "heavy_days": 1,
+     "oni": 1.41,
+     "phase": "el_nino",
+     "total_mm": 425.1,
+     "year": 1987
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.54,
+     "phase": "la_nina",
+     "total_mm": 643.0,
+     "year": 1988
+    },
+    {
+     "heavy_days": 4,
+     "oni": -0.25,
+     "phase": "neutral",
+     "total_mm": 603.9,
+     "year": 1989
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.27,
+     "phase": "neutral",
+     "total_mm": 844.8,
+     "year": 1990
+    },
+    {
+     "heavy_days": 0,
+     "oni": 0.83,
+     "phase": "el_nino",
+     "total_mm": 237.6,
+     "year": 1991
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.22,
+     "phase": "neutral",
+     "total_mm": 498.0,
+     "year": 1992
+    },
+    {
+     "heavy_days": 0,
+     "oni": 0.2,
+     "phase": "neutral",
+     "total_mm": 558.1,
+     "year": 1993
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.66,
+     "phase": "el_nino",
+     "total_mm": 556.0,
+     "year": 1994
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.97,
+     "phase": "la_nina",
+     "total_mm": 350.4,
+     "year": 1995
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.33,
+     "phase": "neutral",
+     "total_mm": 368.2,
+     "year": 1996
+    },
+    {
+     "heavy_days": 6,
+     "oni": 2.24,
+     "phase": "el_nino",
+     "total_mm": 1081.5,
+     "year": 1997
+    },
+    {
+     "heavy_days": 0,
+     "oni": -1.12,
+     "phase": "la_nina",
+     "total_mm": 445.5,
+     "year": 1998
+    },
+    {
+     "heavy_days": 2,
+     "oni": -1.13,
+     "phase": "la_nina",
+     "total_mm": 490.9,
+     "year": 1999
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.54,
+     "phase": "la_nina",
+     "total_mm": 577.1,
+     "year": 2000
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.26,
+     "phase": "neutral",
+     "total_mm": 505.2,
+     "year": 2001
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.99,
+     "phase": "el_nino",
+     "total_mm": 909.2,
+     "year": 2002
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.23,
+     "phase": "neutral",
+     "total_mm": 486.4,
+     "year": 2003
+    },
+    {
+     "heavy_days": 0,
+     "oni": 0.61,
+     "phase": "el_nino",
+     "total_mm": 456.1,
+     "year": 2004
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.27,
+     "phase": "neutral",
+     "total_mm": 531.9,
+     "year": 2005
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.71,
+     "phase": "el_nino",
+     "total_mm": 609.6,
+     "year": 2006
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.38,
+     "phase": "la_nina",
+     "total_mm": 569.2,
+     "year": 2007
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.36,
+     "phase": "neutral",
+     "total_mm": 541.2,
+     "year": 2008
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.92,
+     "phase": "el_nino",
+     "total_mm": 966.8,
+     "year": 2009
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.54,
+     "phase": "la_nina",
+     "total_mm": 393.2,
+     "year": 2010
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.94,
+     "phase": "la_nina",
+     "total_mm": 302.4,
+     "year": 2011
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.28,
+     "phase": "neutral",
+     "total_mm": 539.0,
+     "year": 2012
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.14,
+     "phase": "neutral",
+     "total_mm": 384.5,
+     "year": 2013
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": 534.2,
+     "year": 2014
+    },
+    {
+     "heavy_days": 1,
+     "oni": 2.28,
+     "phase": "el_nino",
+     "total_mm": 510.2,
+     "year": 2015
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.51,
+     "phase": "neutral",
+     "total_mm": 494.3,
+     "year": 2016
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.44,
+     "phase": "neutral",
+     "total_mm": 502.4,
+     "year": 2017
+    },
+    {
+     "heavy_days": 0,
+     "oni": 0.82,
+     "phase": "el_nino",
+     "total_mm": 548.7,
+     "year": 2018
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": 516.4,
+     "year": 2019
+    },
+    {
+     "heavy_days": 0,
+     "oni": -1.0,
+     "phase": "la_nina",
+     "total_mm": 199.8,
+     "year": 2020
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.77,
+     "phase": "la_nina",
+     "total_mm": 395.5,
+     "year": 2021
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.89,
+     "phase": "la_nina",
+     "total_mm": 228.4,
+     "year": 2022
+    },
+    {
+     "heavy_days": 5,
+     "oni": 1.74,
+     "phase": "el_nino",
+     "total_mm": 1114.9,
+     "year": 2023
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.19,
+     "phase": "neutral",
+     "total_mm": 375.3,
+     "year": 2024
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.57,
+     "phase": "neutral",
+     "total_mm": 404.4,
+     "year": 2025
+    }
+   ]
+  },
+  {
+   "by_phase": [
+    {
+     "mean_heavy_days": 4.44,
+     "mean_total_mm": 802.5,
+     "median_total_mm": 750.4,
+     "n_years": 9,
+     "phase": "el_nino",
+     "years_with_heavy_day": 9
+    },
+    {
+     "mean_heavy_days": 2.6,
+     "mean_total_mm": 575.6,
+     "median_total_mm": 571.0,
+     "n_years": 10,
+     "phase": "neutral",
+     "years_with_heavy_day": 10
+    },
+    {
+     "mean_heavy_days": 1.44,
+     "mean_total_mm": 450.4,
+     "median_total_mm": 446.2,
+     "n_years": 9,
+     "phase": "la_nina",
+     "years_with_heavy_day": 6
+    }
+   ],
+   "first_year": 1998,
+   "id": "gpm-imerg",
+   "label": {
+    "en": "GPM IMERG (via NASA POWER, UTC days)",
+    "pt": null
+   },
+   "last_year": 2025,
+   "provenance_id": "prov:computed:cruz-alta:enso-heavy-rain:gpm-imerg",
+   "years": [
+    {
+     "heavy_days": 0,
+     "oni": -1.12,
+     "phase": "la_nina",
+     "total_mm": 442.0,
+     "year": 1998
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.13,
+     "phase": "la_nina",
+     "total_mm": 510.8,
+     "year": 1999
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.54,
+     "phase": "la_nina",
+     "total_mm": 623.4,
+     "year": 2000
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.26,
+     "phase": "neutral",
+     "total_mm": 559.3,
+     "year": 2001
+    },
+    {
+     "heavy_days": 5,
+     "oni": 0.99,
+     "phase": "el_nino",
+     "total_mm": 982.5,
+     "year": 2002
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.23,
+     "phase": "neutral",
+     "total_mm": 503.7,
+     "year": 2003
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.61,
+     "phase": "el_nino",
+     "total_mm": 467.0,
+     "year": 2004
+    },
+    {
+     "heavy_days": 3,
+     "oni": -0.27,
+     "phase": "neutral",
+     "total_mm": 645.1,
+     "year": 2005
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.71,
+     "phase": "el_nino",
+     "total_mm": 532.4,
+     "year": 2006
+    },
+    {
+     "heavy_days": 4,
+     "oni": -1.38,
+     "phase": "la_nina",
+     "total_mm": 610.5,
+     "year": 2007
+    },
+    {
+     "heavy_days": 3,
+     "oni": -0.36,
+     "phase": "neutral",
+     "total_mm": 582.6,
+     "year": 2008
+    },
+    {
+     "heavy_days": 6,
+     "oni": 0.92,
+     "phase": "el_nino",
+     "total_mm": 931.3,
+     "year": 2009
+    },
+    {
+     "heavy_days": 2,
+     "oni": -1.54,
+     "phase": "la_nina",
+     "total_mm": 489.5,
+     "year": 2010
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.94,
+     "phase": "la_nina",
+     "total_mm": 401.2,
+     "year": 2011
+    },
+    {
+     "heavy_days": 5,
+     "oni": 0.28,
+     "phase": "neutral",
+     "total_mm": 655.6,
+     "year": 2012
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.14,
+     "phase": "neutral",
+     "total_mm": 545.5,
+     "year": 2013
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": 757.9,
+     "year": 2014
+    },
+    {
+     "heavy_days": 5,
+     "oni": 2.28,
+     "phase": "el_nino",
+     "total_mm": 694.4,
+     "year": 2015
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.51,
+     "phase": "neutral",
+     "total_mm": 590.0,
+     "year": 2016
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.44,
+     "phase": "neutral",
+     "total_mm": 625.9,
+     "year": 2017
+    },
+    {
+     "heavy_days": 4,
+     "oni": 0.82,
+     "phase": "el_nino",
+     "total_mm": 693.0,
+     "year": 2018
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": 750.4,
+     "year": 2019
+    },
+    {
+     "heavy_days": 0,
+     "oni": -1.0,
+     "phase": "la_nina",
+     "total_mm": 242.7,
+     "year": 2020
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.77,
+     "phase": "la_nina",
+     "total_mm": 446.2,
+     "year": 2021
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.89,
+     "phase": "la_nina",
+     "total_mm": 287.3,
+     "year": 2022
+    },
+    {
+     "heavy_days": 11,
+     "oni": 1.74,
+     "phase": "el_nino",
+     "total_mm": 1413.2,
+     "year": 2023
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.19,
+     "phase": "neutral",
+     "total_mm": 516.8,
+     "year": 2024
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.57,
+     "phase": "neutral",
+     "total_mm": 531.6,
+     "year": 2025
+    }
+   ]
+  },
+  {
+   "by_phase": [
+    {
+     "mean_heavy_days": 4.0,
+     "mean_total_mm": 710.3,
+     "median_total_mm": 750.6,
+     "n_years": 13,
+     "phase": "el_nino",
+     "years_with_heavy_day": 12
+    },
+    {
+     "mean_heavy_days": 2.23,
+     "mean_total_mm": 491.0,
+     "median_total_mm": 497.6,
+     "n_years": 13,
+     "phase": "neutral",
+     "years_with_heavy_day": 12
+    },
+    {
+     "mean_heavy_days": 1.54,
+     "mean_total_mm": 417.3,
+     "median_total_mm": 403.2,
+     "n_years": 13,
+     "phase": "la_nina",
+     "years_with_heavy_day": 10
+    }
+   ],
+   "first_year": 1982,
+   "id": "ana-2853015",
+   "label": {
+    "en": "Rain gauge ANA 2853015 (ground check)",
+    "pt": null
+   },
+   "last_year": 2025,
+   "provenance_id": "prov:computed:cruz-alta:enso-heavy-rain:ana-2853015",
+   "years": [
+    {
+     "heavy_days": 6,
+     "oni": 1.82,
+     "phase": "el_nino",
+     "total_mm": 816.5,
+     "year": 1982
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.76,
+     "phase": "la_nina",
+     "total_mm": 364.2,
+     "year": 1983
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.62,
+     "phase": "la_nina",
+     "total_mm": 416.6,
+     "year": 1984
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.3,
+     "phase": "neutral",
+     "total_mm": 251.3,
+     "year": 1985
+    },
+    {
+     "heavy_days": 5,
+     "oni": 0.86,
+     "phase": "el_nino",
+     "total_mm": 750.6,
+     "year": 1986
+    },
+    {
+     "heavy_days": 2,
+     "oni": 1.41,
+     "phase": "el_nino",
+     "total_mm": 425.8,
+     "year": 1987
+    },
+    {
+     "heavy_days": 7,
+     "oni": -1.54,
+     "phase": "la_nina",
+     "total_mm": 820.4,
+     "year": 1988
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.25,
+     "phase": "neutral",
+     "total_mm": 546.2,
+     "year": 1989
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.27,
+     "phase": "neutral",
+     "total_mm": 661.7,
+     "year": 1990
+    },
+    {
+     "heavy_days": 0,
+     "oni": 0.83,
+     "phase": "el_nino",
+     "total_mm": 226.6,
+     "year": 1991
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.22,
+     "phase": "neutral",
+     "total_mm": 516.7,
+     "year": 1992
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.2,
+     "phase": "neutral",
+     "total_mm": 487.5,
+     "year": 1993
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.66,
+     "phase": "el_nino",
+     "total_mm": 511.6,
+     "year": 1994
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.97,
+     "phase": "la_nina",
+     "total_mm": 291.1,
+     "year": 1995
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.33,
+     "phase": "neutral",
+     "total_mm": 480.2,
+     "year": 1996
+    },
+    {
+     "heavy_days": 8,
+     "oni": 2.24,
+     "phase": "el_nino",
+     "total_mm": 1050.0,
+     "year": 1997
+    },
+    {
+     "heavy_days": 2,
+     "oni": -1.12,
+     "phase": "la_nina",
+     "total_mm": 397.1,
+     "year": 1998
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.13,
+     "phase": "la_nina",
+     "total_mm": 473.8,
+     "year": 1999
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.54,
+     "phase": "la_nina",
+     "total_mm": 532.2,
+     "year": 2000
+    },
+    {
+     "heavy_days": 3,
+     "oni": -0.26,
+     "phase": "neutral",
+     "total_mm": 533.5,
+     "year": 2001
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.99,
+     "phase": "el_nino",
+     "total_mm": 852.5,
+     "year": 2002
+    },
+    {
+     "heavy_days": 4,
+     "oni": 0.23,
+     "phase": "neutral",
+     "total_mm": 455.9,
+     "year": 2003
+    },
+    {
+     "heavy_days": 1,
+     "oni": 0.61,
+     "phase": "el_nino",
+     "total_mm": 402.1,
+     "year": 2004
+    },
+    {
+     "heavy_days": 3,
+     "oni": -0.27,
+     "phase": "neutral",
+     "total_mm": 547.0,
+     "year": 2005
+    },
+    {
+     "heavy_days": 3,
+     "oni": 0.71,
+     "phase": "el_nino",
+     "total_mm": 501.4,
+     "year": 2006
+    },
+    {
+     "heavy_days": 1,
+     "oni": -1.38,
+     "phase": "la_nina",
+     "total_mm": 546.5,
+     "year": 2007
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.36,
+     "phase": "neutral",
+     "total_mm": 497.6,
+     "year": 2008
+    },
+    {
+     "heavy_days": 6,
+     "oni": 0.92,
+     "phase": "el_nino",
+     "total_mm": 979.4,
+     "year": 2009
+    },
+    {
+     "heavy_days": 3,
+     "oni": -1.54,
+     "phase": "la_nina",
+     "total_mm": 508.2,
+     "year": 2010
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.94,
+     "phase": "la_nina",
+     "total_mm": 236.7,
+     "year": 2011
+    },
+    {
+     "heavy_days": 4,
+     "oni": 0.28,
+     "phase": "neutral",
+     "total_mm": 537.6,
+     "year": 2012
+    },
+    {
+     "heavy_days": null,
+     "oni": -0.14,
+     "phase": "neutral",
+     "total_mm": null,
+     "year": 2013
+    },
+    {
+     "heavy_days": null,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": null,
+     "year": 2014
+    },
+    {
+     "heavy_days": null,
+     "oni": 2.28,
+     "phase": "el_nino",
+     "total_mm": null,
+     "year": 2015
+    },
+    {
+     "heavy_days": 2,
+     "oni": -0.51,
+     "phase": "neutral",
+     "total_mm": 439.9,
+     "year": 2016
+    },
+    {
+     "heavy_days": null,
+     "oni": -0.44,
+     "phase": "neutral",
+     "total_mm": null,
+     "year": 2017
+    },
+    {
+     "heavy_days": 5,
+     "oni": 0.82,
+     "phase": "el_nino",
+     "total_mm": 793.7,
+     "year": 2018
+    },
+    {
+     "heavy_days": 2,
+     "oni": 0.51,
+     "phase": "el_nino",
+     "total_mm": 615.1,
+     "year": 2019
+    },
+    {
+     "heavy_days": 0,
+     "oni": -1.0,
+     "phase": "la_nina",
+     "total_mm": 212.7,
+     "year": 2020
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.77,
+     "phase": "la_nina",
+     "total_mm": 403.2,
+     "year": 2021
+    },
+    {
+     "heavy_days": 0,
+     "oni": -0.89,
+     "phase": "la_nina",
+     "total_mm": 221.8,
+     "year": 2022
+    },
+    {
+     "heavy_days": 10,
+     "oni": 1.74,
+     "phase": "el_nino",
+     "total_mm": 1308.5,
+     "year": 2023
+    },
+    {
+     "heavy_days": 1,
+     "oni": -0.19,
+     "phase": "neutral",
+     "total_mm": 428.5,
+     "year": 2024
+    },
+    {
+     "heavy_days": null,
+     "oni": -0.57,
+     "phase": "neutral",
+     "total_mm": null,
+     "year": 2025
+    }
+   ]
+  }
+ ]
+}

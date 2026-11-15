@@ -1,0 +1,323 @@
+{
+ "events": [
+  {
+   "date": "2023-04-13",
+   "detail": {
+    "en": "The ENSO Diagnostic Discussion of 13 April 2023 changed the status to \"El Niño Watch\": ENSO-neutral expected through spring, followed by a 62% chance of El Niño developing during May-July 2023. The previous discussion (9 March 2023) had been the \"Final La Niña Advisory\".",
+    "pt": null
+   },
+   "id": "el-nino-watch",
+   "kind": "forecast",
+   "period": null,
+   "provenance_id": "prov:user:cruz-alta:replay-2023:el-nino-watch",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 13 April 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_apr2023/ensodisc.shtml"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 9 March 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_mar2023/ensodisc.shtml"
+    }
+   ],
+   "title": {
+    "en": "NOAA CPC issues an El Niño Watch",
+    "pt": null
+   },
+   "values": [
+    {
+     "id": "p_el_nino_mjj",
+     "label": {
+      "en": "Chance of El Niño developing in May-July 2023",
+      "pt": null
+     },
+     "unit": "probability",
+     "value": 0.62
+    }
+   ]
+  },
+  {
+   "date": null,
+   "detail": {
+    "en": "In the ZARC risk table 2022/2023 (MAPA Portaria 385 of 8 December 2022), rainfed wheat at Cruz Alta has its lowest risk class (20%) from 1 June to 20 July for cycle group 22 (ten-day periods 16 to 20), from 11 June for group 21 and from 21 June for group 20, all ending on 20 July; the 30% class opens on 21 May. The same window holds for the three soil types of that table.",
+    "pt": null
+   },
+   "id": "zarc-wheat-window",
+   "kind": "planting_window",
+   "period": {
+    "end": "2023-07-20",
+    "start": "2023-06-01"
+   },
+   "provenance_id": "prov:user:cruz-alta:replay-2023:zarc-wheat-window",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "MAPA, Tábua de risco - Safra 2022/2023 (open data portal, CC BY)",
+     "url": "https://dados.agricultura.gov.br/dataset/6d3d141c-885e-41a4-ab7f-dc8ff323b96f/resource/9201690c-ec14-4607-9f37-f6ee5b10168f/download/dados-abertos-tabua-de-risco-safra-2022-2023.csv"
+    }
+   ],
+   "title": {
+    "en": "ZARC sowing window for rainfed wheat at Cruz Alta (20% risk class)",
+    "pt": null
+   },
+   "values": [
+    {
+     "id": "dekads_20pct_risk",
+     "label": {
+      "en": "Ten-day periods in the 20% risk class (cycle group 22)",
+      "pt": null
+     },
+     "unit": "count",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "date": "2023-06-08",
+   "detail": {
+    "en": "The ENSO Diagnostic Discussion of 8 June 2023 changed the status to \"El Niño Advisory\": El Niño conditions are present and expected to gradually strengthen into the Northern Hemisphere winter 2023-24.",
+    "pt": null
+   },
+   "id": "el-nino-advisory",
+   "kind": "forecast",
+   "period": null,
+   "provenance_id": "prov:user:cruz-alta:replay-2023:el-nino-advisory",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "NOAA CPC, ENSO Diagnostic Discussion, 8 June 2023",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_jun2023/ensodisc.shtml"
+    }
+   ],
+   "title": {
+    "en": "NOAA CPC issues an El Niño Advisory",
+    "pt": null
+   },
+   "values": []
+  },
+  {
+   "date": null,
+   "detail": {
+    "en": "Operating (custeio) credit for wheat registered in the Central Bank SICOR system, summed by calendar year of issue over 18 municipalities of the Planalto Médio: the 2023 value was 3.1% below 2022 in constant reais (December 2025, IPCA), and the financed area of January-October was 2.3% above January-October 2022 (155,964 against 152,465 ha). The annual financed area was 0.5% lower.",
+    "pt": null
+   },
+   "id": "wheat-credit",
+   "kind": "credit",
+   "period": {
+    "end": "2023-12-31",
+    "start": "2023-01-01"
+   },
+   "provenance_id": "prov:user:cruz-alta:replay-2023:wheat-credit",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "BCB SICOR OData service, CusteioMunicipioProduto (ODbL)",
+     "url": "https://olinda.bcb.gov.br/olinda/servico/SICOR/versao/v2/odata/CusteioMunicipioProduto"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "BCB SGS series 433 (IPCA), used to deflate to December 2025",
+     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json"
+    }
+   ],
+   "title": {
+    "en": "Wheat operating credit in the 18 Planalto Médio municipalities stayed level",
+    "pt": null
+   },
+   "values": [
+    {
+     "id": "credit_value_real_change_pct",
+     "label": {
+      "en": "Credit value 2023 vs 2022, constant reais",
+      "pt": null
+     },
+     "unit": "%",
+     "value": -3.1
+    },
+    {
+     "id": "financed_area_jan_oct_change_pct",
+     "label": {
+      "en": "Financed area Jan-Oct 2023 vs Jan-Oct 2022",
+      "pt": null
+     },
+     "unit": "%",
+     "value": 2.3
+    }
+   ]
+  },
+  {
+   "date": null,
+   "detail": {
+    "en": "2023 wheat yield (IBGE PAM) below 75% of each municipality's 1981-2025 linear trend in 14 of 18 municipalities (11 at 70%, 16 at 80%). Cruz Alta: 1,500 kg/ha against a trend of 2,736 kg/ha.",
+    "pt": null
+   },
+   "id": "wheat-failures",
+   "kind": "yield",
+   "period": {
+    "end": "2023-12-31",
+    "start": "2023-01-01"
+   },
+   "provenance_id": "prov:computed:cruz-alta:replay-2023:wheat-failures",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat yield (municipality 4306106)",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106/v/112/p/all/c81/2716"
+    }
+   ],
+   "title": {
+    "en": "Wheat failed in 14 of 18 Planalto Médio municipalities",
+    "pt": null
+   },
+   "values": [
+    {
+     "id": "municipalities_below_75pct",
+     "label": {
+      "en": "Municipalities below 75% of trend",
+      "pt": null
+     },
+     "unit": "count",
+     "value": 14.0
+    },
+    {
+     "id": "municipalities_below_70pct",
+     "label": {
+      "en": "Municipalities below 70% of trend",
+      "pt": null
+     },
+     "unit": "count",
+     "value": 11.0
+    },
+    {
+     "id": "municipalities_below_80pct",
+     "label": {
+      "en": "Municipalities below 80% of trend",
+      "pt": null
+     },
+     "unit": "count",
+     "value": 16.0
+    },
+    {
+     "id": "municipalities",
+     "label": {
+      "en": "Municipalities with a 2023 wheat yield",
+      "pt": null
+     },
+     "unit": "count",
+     "value": 18.0
+    },
+    {
+     "id": "cruz_alta_yield",
+     "label": {
+      "en": "Cruz Alta wheat yield 2023",
+      "pt": null
+     },
+     "unit": "kg/ha",
+     "value": 1500.0
+    },
+    {
+     "id": "cruz_alta_trend",
+     "label": {
+      "en": "Cruz Alta linear-trend yield for 2023",
+      "pt": null
+     },
+     "unit": "kg/ha",
+     "value": 2736.0
+    }
+   ]
+  },
+  {
+   "date": null,
+   "detail": {
+    "en": "Wheat: IBGE PAM revenue per planted hectare (1,500 kg/ha at the implicit 2023 price) minus the CONAB production cost for Cruz Alta (March 2023 sheet), in December 2025 reais. Against the operating cost the margin was -3,829 R$/ha; against the variable cost only, -3,268 R$/ha. Cover crop (black oat, no harvest, no revenue): 332 R$/ha of seed and sowing, from the only official cost found (Embrapa Trigo, 2007 prices updated by IPCA). Fallow has no sourced cost and is not given a value.",
+    "pt": null
+   },
+   "id": "winter-paths-2023",
+   "kind": "outcome",
+   "period": {
+    "end": "2023-12-31",
+    "start": "2023-01-01"
+   },
+   "provenance_id": "prov:user:cruz-alta:replay-2023:winter-paths-2023",
+   "refs": [
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1612, wheat (2716), area, production and value",
+     "url": "https://apisidra.ibge.gov.br/values/t/1612/n6/4306106/v/109,216,112,215/p/all/c81/2716"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "CONAB, wheat production cost series 1998-2025 (spreadsheet)",
+     "url": "https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/custos-de-producao/arquivos-custo-de-producao/agricolas/"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "IBGE SIDRA 1737, IPCA index (deflator, December 2025 base)",
+     "url": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all"
+    },
+    {
+     "citation": null,
+     "doi": null,
+     "label": "De Mori, C. (2007). Estimativas de custo de produção de trigo e de aveia: safra 2007. Embrapa Trigo, Comunicado Técnico Online 207, Table 3",
+     "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/852400/1/pco207.pdf"
+    }
+   ],
+   "title": {
+    "en": "Money per hectare in winter 2023 at Cruz Alta: wheat margin and cover-crop cost",
+    "pt": null
+   },
+   "values": [
+    {
+     "id": "wheat_margin_operating_cost",
+     "label": {
+      "en": "Wheat margin over CONAB operating cost (without land rent)",
+      "pt": null
+     },
+     "unit": "BRL/ha",
+     "value": -3829.0
+    },
+    {
+     "id": "wheat_margin_variable_cost",
+     "label": {
+      "en": "Wheat margin over CONAB variable cost",
+      "pt": null
+     },
+     "unit": "BRL/ha",
+     "value": -3268.0
+    },
+    {
+     "id": "cover_crop_cost",
+     "label": {
+      "en": "Black oat cover crop cost (seed and sowing; no revenue)",
+      "pt": null
+     },
+     "unit": "BRL/ha",
+     "value": 332.0
+    }
+   ]
+  }
+ ],
+ "id": "winter-2023",
+ "period": {
+  "end": "2023-12-31",
+  "start": "2023-01-01"
+ },
+ "schema_version": "1.2.0",
+ "site_id": "cruz-alta",
+ "title": {
+  "en": "Winter 2023 at Cruz Alta: the ENSO alert, the sowing window, credit and the wheat result",
+  "pt": null
+ }
+}
