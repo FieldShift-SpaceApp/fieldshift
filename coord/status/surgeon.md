@@ -36,3 +36,10 @@ Next: glossary review by the agronomist (replace `reviewed_by: pending`); "Scale
 Blocked by: Story 1.3 AC1 (WCCC at the Nevada coordinate) depends on Q2; AC2 (the NVS-knot demo) was not seen: the project tab requires login and no public repo/video was found.
 Needs from others: FLIGHT/CAPCOM: the 5-line summary for "how we differ" is in the PR body (the sentence is the team's, C1). INCO: review the `data-prov-exempt="ui"` exemptions in the documentation blocks.
 Contract changes: none
+
+## 2026-11-15 15:05 — SURGEON (ChatGPT, OpenAI)
+Done: added `docs/seven-cities-weather-audit.md` to a branch based on current main. It confirms the seven municipalities already in the team analysis, audits reproducibility and reported rain/temperature validation, and separates Cruz Alta ground checks from the six places without documented station comparison.
+Next: map INMET/ANA stations and record periods/quality for each site; then run matched rain and temperature metrics.
+Blocked by: none.
+Needs from others: EECOM: confirm source fetch path and IMERG/POWER data vintages; team: provide any field-level station data not in the public repo.
+Contract changes: none
