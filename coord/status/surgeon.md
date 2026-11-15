@@ -64,3 +64,10 @@ Next: EECOM review source facts; FLIGHT review AI-use record; team confirms name
 Blocked by: none.
 Needs from others: team review of the open items listed in the synthesis.
 Contract changes: none
+
+## 2026-11-15 14:50 — SURGEON (ChatGPT, OpenAI)
+Done: added `docs/climate-evidence-table-cruz-alta.md` to PR #71 with rainfall, temperature, radiation, dry-spell/extreme-rain, ENSO and seasonal-outlook evidence; includes period, scale, uncertainty, allowed interpretation, local validation results, and the 1995–2025 limits.
+Next: team reviews the source audit; repeat for the other six intended regions after boundaries/stations are confirmed.
+Blocked by: none.
+Needs from others: EECOM: confirm data-path/product versions; team: confirm seven region boundaries.
+Contract changes: none
