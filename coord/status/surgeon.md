@@ -50,3 +50,10 @@ Next: glossary review by the agronomist (replace `reviewed_by: pending`); "Scale
 Blocked by: Story 1.3 AC1 (WCCC at the Nevada coordinate) depends on Q2; AC2 (the NVS-knot demo) was not seen: the project tab requires login and no public repo/video was found.
 Needs from others: FLIGHT/CAPCOM: the 5-line summary for "how we differ" is in the PR body (the sentence is the team's, C1). INCO: review the `data-prov-exempt="ui"` exemptions in the documentation blocks.
 Contract changes: none
+
+## 2026-11-15 14:40 — SURGEON (ChatGPT, OpenAI)
+Done: recorded the teammate-reported ECOSTRESS/Landsat surface-temperature and vegetation work in PR #71, while separating it from the current public inventory's app-feed status. Listed the product/version, scene, method, quality, validation, provenance, and app-path details needed to reconcile the inventory.
+Next: EECOM review the source metadata and pipeline steps; FLIGHT review the AI-use log. Keep reported analysis use distinct from verified app integration.
+Blocked by: none.
+Needs from others: EECOM: confirm product/version and data path for the reported thermal work; FLIGHT: review SI-USAGE.md.
+Contract changes: none
