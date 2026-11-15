@@ -1,0 +1,235 @@
+{
+ "n_years": 13,
+ "years": [
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "n_permutations": 200000,
+ "seed": 20261114,
+ "primary_days50": {
+  "spearman": 0.407,
+  "p_perm_one_sided": 0.0847,
+  "pearson": 0.527,
+  "p_perm_pearson": 0.0501
+ },
+ "primary_leave_one_year_out_spearman": {
+  "2013": 0.483,
+  "2014": 0.336,
+  "2015": 0.462,
+  "2016": 0.434,
+  "2017": 0.469,
+  "2018": 0.455,
+  "2019": 0.434,
+  "2020": 0.259,
+  "2021": 0.364,
+  "2022": 0.301,
+  "2023": 0.266,
+  "2024": 0.503,
+  "2025": 0.483
+ },
+ "primary_without_2023": {
+  "spearman": 0.266,
+  "p_perm": 0.203,
+  "pearson": 0.239
+ },
+ "primary_without_2025": {
+  "spearman": 0.483,
+  "p_perm": 0.0573
+ },
+ "secondary_total_son": {
+  "spearman": 0.687,
+  "p_perm": 0.0062,
+  "fisher_95ci_approx": [
+   0.22,
+   0.9
+  ]
+ },
+ "secondary_total_son_without_2023": {
+  "spearman": 0.608,
+  "p_perm": 0.0199
+ },
+ "secondary_total_son_leave_one_year_out_min": 0.601,
+ "days50_vs_brl_excess_rain_nominal": {
+  "spearman": 0.214,
+  "p_perm": 0.2416
+ },
+ "control_frost_vs_days50": {
+  "spearman": 0.286
+ },
+ "within_year_across_municipalities": {
+  "by_year": [
+   {
+    "year": 2013,
+    "n_municipalities": 18,
+    "spearman": 0.38
+   },
+   {
+    "year": 2014,
+    "n_municipalities": 18,
+    "spearman": -0.225
+   },
+   {
+    "year": 2015,
+    "n_municipalities": 18,
+    "spearman": -0.024
+   },
+   {
+    "year": 2016,
+    "n_municipalities": 18,
+    "spearman": -0.114
+   },
+   {
+    "year": 2017,
+    "n_municipalities": 18,
+    "spearman": 0.122
+   },
+   {
+    "year": 2018,
+    "n_municipalities": 18,
+    "spearman": -0.031
+   },
+   {
+    "year": 2019,
+    "n_municipalities": 18,
+    "spearman": -0.338
+   },
+   {
+    "year": 2021,
+    "n_municipalities": 18,
+    "spearman": 0.294
+   },
+   {
+    "year": 2023,
+    "n_municipalities": 18,
+    "spearman": -0.09
+   },
+   {
+    "year": 2024,
+    "n_municipalities": 18,
+    "spearman": 0.487
+   },
+   {
+    "year": 2025,
+    "n_municipalities": 18,
+    "spearman": 0.223
+   }
+  ],
+  "mean_rho": 0.062,
+  "years_rho_positive": 5,
+  "years_tested": 11
+ },
+ "by_enso_phase": {
+  "el_nino": {
+   "years": [
+    2014,
+    2015,
+    2018,
+    2019,
+    2023
+   ],
+   "mean_pct_area_excess_rain": 43.9,
+   "median_pct_area_excess_rain": 26.2,
+   "mean_pct_area_frost": 23.8,
+   "mean_days50": 5.54
+  },
+  "neutral": {
+   "years": [
+    2013,
+    2016,
+    2017,
+    2024,
+    2025
+   ],
+   "mean_pct_area_excess_rain": 31.2,
+   "median_pct_area_excess_rain": 43.2,
+   "mean_pct_area_frost": 1.5,
+   "mean_days50": 2.43
+  },
+  "la_nina": {
+   "years": [
+    2020,
+    2021,
+    2022
+   ],
+   "mean_pct_area_excess_rain": 2.2,
+   "median_pct_area_excess_rain": 2.8,
+   "mean_pct_area_frost": 16.0,
+   "mean_days50": 0.67
+  }
+ },
+ "el_nino_vs_other_years": {
+  "diff_mean_pp": 23.5,
+  "p_perm_one_sided": 0.0929,
+  "without_2023_diff_pp": 14.7
+ },
+ "multiple_testing": {
+  "family_a_full_sample_tests": {
+   "k": 5,
+   "raw": {
+    "secondary_total_son_spearman": 0.0062,
+    "primary_days50_pearson": 0.0501,
+    "primary_days50_spearman": 0.0847,
+    "el_nino_vs_other_years": 0.0929,
+    "days50_vs_brl_nominal_spearman": 0.2416
+   },
+   "bonferroni": {
+    "secondary_total_son_spearman": 0.031,
+    "primary_days50_pearson": 0.2505,
+    "primary_days50_spearman": 0.4235,
+    "el_nino_vs_other_years": 0.4645,
+    "days50_vs_brl_nominal_spearman": 1.0
+   },
+   "holm": {
+    "secondary_total_son_spearman": 0.031,
+    "primary_days50_pearson": 0.2004,
+    "primary_days50_spearman": 0.2541,
+    "el_nino_vs_other_years": 0.2541,
+    "days50_vs_brl_nominal_spearman": 0.2541
+   }
+  },
+  "family_b_every_p_value": {
+   "k": 8,
+   "raw": {
+    "secondary_total_son_spearman": 0.0062,
+    "secondary_total_son_without_2023": 0.0199,
+    "primary_days50_pearson": 0.0501,
+    "primary_without_2025": 0.0573,
+    "primary_days50_spearman": 0.0847,
+    "el_nino_vs_other_years": 0.0929,
+    "primary_without_2023": 0.203,
+    "days50_vs_brl_nominal_spearman": 0.2416
+   },
+   "bonferroni": {
+    "secondary_total_son_spearman": 0.0496,
+    "secondary_total_son_without_2023": 0.1592,
+    "primary_days50_pearson": 0.4008,
+    "primary_without_2025": 0.4584,
+    "primary_days50_spearman": 0.6776,
+    "el_nino_vs_other_years": 0.7432,
+    "primary_without_2023": 1.0,
+    "days50_vs_brl_nominal_spearman": 1.0
+   },
+   "holm": {
+    "secondary_total_son_spearman": 0.0496,
+    "secondary_total_son_without_2023": 0.1393,
+    "primary_days50_pearson": 0.3006,
+    "primary_without_2025": 0.3006,
+    "primary_days50_spearman": 0.3388,
+    "el_nino_vs_other_years": 0.3388,
+    "primary_without_2023": 0.406,
+    "days50_vs_brl_nominal_spearman": 0.406
+   }
+  }
+ }
+}
