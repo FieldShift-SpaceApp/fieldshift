@@ -119,7 +119,15 @@ Script [`zarcnm.py`](zarcnm.py). Applied as the norm writes it: quadrats of 5–
 | CA-Q2 | −28.55894, −53.59518 | 5.90% | yes |
 | CA-Q3 | −28.62604, −53.48027 | 8.88% | yes |
 
-Per-year indicators for the three quadrats (cover class by the Embrapa ruler, tillage signal, years since the last bare-soil signature, Table 1 levels) are written to `results/zarcnm_satellite_indicators.json` by `zarcnm.py` (all Landsat and HLS scenes of 15 Sep – 31 Dec, 1984–2026, with ≥ 80 of the 100 quadrat pixels clear).
+**Per-year indicators** (`results/zarcnm_satellite_indicators.json`; 783 Landsat 4–9 and HLS L30 scenes of 15 Sep – 31 Dec, 1984–2026, an observation counts when ≥ 80 of the 100 quadrat pixels are clear; HLS S30 was left out for time, plan B). Per quadrat and year: the pre-sowing reference (the no-green observation with the lowest NDTI, Zheng et al. 2012, because the sowing date that item 6.7 refers to is unknown), straw cover C of its no-green pixels by the Embrapa ruler and the IN level, a tillage signal (an observation with half the quadrat at C < 30%, the cover of the ploughed Cambé fields), and the years since the last signal (indicator 4). A season with fewer than 3 clear observations cannot exclude a tillage, so the count restarts there as a lower bound ("at least").
+
+| Quadrat | Bare-soil (tillage) signatures | Cover, 1991 | Cover since 1995 | Indicator 4 in 2026 |
+|---|---|---|---|---|
+| CA-Q1 (2.75%) | none in 1984–2026 | C 57% (level 2) | C 87–97%, level "3 or 4" (saturated) every observed year | T ≥ 24 years (count restarts after the poorly observed 2002 season): level 4 |
+| CA-Q2 (5.90%) | 1984, 1986, 1987, 1991 | C 21% (level 1) | C 86–97%, "3 or 4"; some seasons stay green to the end of the window (not observable) | T ≥ 29 years: level 4 |
+| CA-Q3 (8.88%) | 1991, 1992, 1993 | C 22% (level 1) | C 76–97% ("3" once, 2024; otherwise "3 or 4") | T ≥ 29 years: level 4 |
+
+Read: the satellite can tell a ploughed season (level 1, the early 1990s here) from a no-till one, and can date the last bare-soil signature to within the gaps; it cannot place the quadrats in level 3 or 4 of indicator 5, because the Embrapa calibration saturates. These are 9 ha cells chosen by a rule, not declared fields, and no part of this replaces the field and soil data the norm requires.
 
 ### Before and after
 

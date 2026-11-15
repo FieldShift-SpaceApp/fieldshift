@@ -61,6 +61,7 @@ T_LEVELS = ((8, 4), (5, 3), (3, 2), (0, 1))  # Table 1, indicator 4
 SLOPE_CLASSES = ((0, 3), (3, 8), (8, 1000))
 MIN_DIST_M = 5000
 WORKERS = 24
+MIN_OBS_SEASON = 3  # clear observations needed to count a season as watched for tillage
 # Plan B (time): HLS S30 left out; Landsat 4-9 C2 L2 and HLS L30 cover 1984-2026 at <= 16 days (item 6.5).
 # Add "hls2-s30" to read the Sentinel-2 half of HLS as well (about 300 more items, slow on the anonymous server).
 HLS_COLLECTIONS = ("hls2-l30",)
@@ -381,8 +382,9 @@ def main() -> None:
         by_year = defaultdict(list)
         for o in obs[qid]:
             by_year[int(o["date"][:4])].append(o)
-        last_signal = None
-        continuous = True  # every season since the last signal had at least one no-green clear observation
+        # T counts from the last bare-soil signature (exact) or from the last season that could not be watched
+        # (fewer than MIN_OBS_SEASON clear observations: a tillage there cannot be excluded -> lower bound)
+        ref_year, ref_exact = None, False
         for year in range(1984, 2027):
             ss = sorted(by_year.get(year, []), key=lambda o: o["date"])
             rec = {
@@ -402,7 +404,7 @@ def main() -> None:
                         "notes": "no clear observation of the quadrat in 15 Sep - 31 Dec",
                     }
                 )
-                continuous = False
+                ref_year, ref_exact = year, False
                 records.append(rec)
                 continue
             nogreen = [o for o in ss if o["ndvi_mean"] < NDVI_MAIN]
@@ -414,11 +416,16 @@ def main() -> None:
             signal = emb_low_max >= TILLAGE_BARE_SHARE  # Embrapa ruler: half the quadrat at C < 30 %
             team_signal = bare_max >= TILLAGE_BARE_SHARE
             c_emb = ref.get("emb_cover_mean")
+            if ref_year is None:
+                ref_year, ref_exact = year - 1, False  # start of the series: nothing known before it
             if signal:
-                last_signal, continuous = year, True
-            elif not nogreen:
-                continuous = False
-            t_years = (year - last_signal) if (last_signal is not None and continuous) else None
+                ref_year, ref_exact = year, True
+                t_years, t_lower = 0, False
+            elif len(ss) < MIN_OBS_SEASON:
+                t_years, t_lower = None, None
+                ref_year, ref_exact = year, False
+            else:
+                t_years, t_lower = year - ref_year, not ref_exact
             notes = []
             if not nogreen:
                 notes.append("never without green cover in the clear observations: straw and soil not visible")
@@ -461,7 +468,14 @@ def main() -> None:
                     "team_threshold_bare_signature": team_signal,
                     "max_share_bare_in_season": bare_max,
                     "years_since_last_bare_signature": t_years,
-                    "indicator4_level_indicative": level(t_years, T_LEVELS) if t_years is not None else None,
+                    "years_since_is_lower_bound": t_lower,
+                    "indicator4_level_indicative": None
+                    if t_years is None
+                    else (
+                        f"at least {level(t_years, T_LEVELS)}"
+                        if t_lower and level(t_years, T_LEVELS) < 4
+                        else level(t_years, T_LEVELS)
+                    ),
                     "observation_dates": [o["date"] for o in ss],
                 }
             )
@@ -495,8 +509,10 @@ def main() -> None:
             "tillage_signal": f"at least one clear observation with >= {int(100 * TILLAGE_BARE_SHARE)}% of the quadrat "
             "pixels at C < 30% by the Embrapa ruler (ploughed fields in Doc 454 Table 2 had 5-20% cover). The team "
             "threshold (NDVI < 0.30 and NDTI < 0.06) is kept as team_threshold_* for comparison",
-            "years_since_last_signal": "counted only while every season since the last signal had a no-green clear "
-            "observation; otherwise null (a tillage in an unobserved season cannot be excluded)",
+            "years_since_last_signal": "years since the last season with a bare-soil signature; a season with "
+            f"fewer than {MIN_OBS_SEASON} clear observations (or none) cannot exclude a tillage, so T then restarts "
+            "as a lower bound (years_since_is_lower_bound true; the indicator-4 level is then 'at least N'). A season "
+            f"that stays green in >= {MIN_OBS_SEASON} clear observations counts as watched without a signature",
         },
         "embrapa_ruler": embrapa.summary(),
         "quadrats": quads,
@@ -532,7 +548,7 @@ def main() -> None:
                 r["quadrant_id"],
                 r["year"],
                 r["n_clear_observations"],
-                r.get("c_proxy_pct"),
+                r.get("c_embrapa_pct"),
                 r["tillage_signal"],
                 r.get("years_since_last_bare_signature"),
             )
