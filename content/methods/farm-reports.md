@@ -19,9 +19,9 @@ limitations:
   - "Indicators are property-level medians over a 2021 cropland mask, read in calendar windows; the norm classifies each field in the month before its sowing."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from analysis/farm-reports (run of 2026-11-15 BRT); the idea was synthesized with AI at the team lead's request and is confirmed by the team in D-001; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from analysis/farm-reports (run of 2026-11-15 BRT); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
-**Why.** The ZarcNM rule (IN SPA/MAPA 2/2025) places each soybean field of Rio Grande do Sul in a management level NM1-NM4, and in the 2026 pilot the premium subsidy is 20, 30, 35 or 40% for NM1 to NM4. Three of its six indicators (years without tillage T, straw cover C, crop diversity D) and the slope rule can be read from NASA data, and the norm names Landsat, HLS and NASADEM for that. This page runs that pre-check for **every rural property of Cruz Alta** in the public rural-property registry (CAR). Every number comes from [`analysis/farm-reports/`](../../analysis/farm-reports/README.md).
+**Why.** The ZarcNM rule (IN SPA/MAPA 2/2025) places each soybean field of Rio Grande do Sul in a management level NM1-NM4, and in the 2026 pilot the premium subsidy is 20, 30, 35 or 40% for NM1 to NM4. Three of its six indicators (years without tillage T, straw cover C, crop diversity D) and the slope rule can be read from satellite data: the norm recommends Landsat, Sentinel-2 or HLS imagery (item 6.4; MODIS is accepted above 100 ha, item 6.4-I) and an elevation model "such as NASADEM or equivalent" for slope (item 6.3). This page runs that pre-check for **every rural property of Cruz Alta** in the public rural-property registry (CAR). Every number comes from [`analysis/farm-reports/`](../../analysis/farm-reports/README.md).
 
 **Method.**
 

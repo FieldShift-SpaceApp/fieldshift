@@ -18,7 +18,7 @@ limitations:
   - "Rain is one point per municipality centroid (9 distinct POWER cells for 18 municipalities); POWER agrees with the ANA gauge at Cruz Alta (r = 0.89 for DJF totals, 39 summers)."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/drought-resilience (run of 2026-11-15); the hypothesis was synthesized with AI at the team lead's request; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/drought-resilience (run of 2026-11-15); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
 **Why this analysis.** Landsat shows that probable bare soil on Cruz Alta cropland in early November fell from a median of 5.7% in 1984–1994 to at most 2.2% every year since 1995 (`analysis/residue-landsat`). The team asked whether soybean yields became less sensitive to summer drought after that change, which would be regional evidence that soil care protects income. The method was written and committed before any number was computed. Every number comes from [`analysis/drought-resilience/`](../../analysis/drought-resilience/README.md), rerun with one command.
 

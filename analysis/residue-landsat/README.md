@@ -1,6 +1,6 @@
 # Straw, not bare soil: 40 years of Cruz Alta cropland in NASA/USGS Landsat and NASA HLS (RS, Brazil)
 
-> **SI-assisted:** the idea ("straw, not bare soil") was synthesized with Claude Code (Anthropic) at the team lead's request from the team's third innovation round, and the team adopted it; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed, or copied from the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea ("straw, not bare soil", from the team's third innovation round) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed, or copied from the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Method summary for the app: [`content/methods/residue-landsat.md`](../../content/methods/residue-landsat.md).
 

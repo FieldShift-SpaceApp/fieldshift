@@ -1,6 +1,6 @@
 # Storms meet soil: heavy rain on cropland with no green, and the straw clock (Cruz Alta, RS, Brazil)
 
-> **SI-assisted:** the idea ("Storms meet Soil") was synthesized with Claude Code (Anthropic) at the team lead's request from the team's research, and the team chose it; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed, or copied from the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
+> **SI-assisted:** origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001). This idea ("Storms meet Soil", from the team's research) is one of those SI-synthesized options; the scripts and this text were written with Claude Code. Every number below was produced by running the scripts in this folder on the sources listed, or copied from the cited literature; none was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 Method summary for the app: [`content/methods/storms-bare-soil.md`](../../content/methods/storms-bare-soil.md).
 

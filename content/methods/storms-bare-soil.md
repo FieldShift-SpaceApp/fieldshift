@@ -25,7 +25,7 @@ limitations:
   - "With 25 years, the 95% interval of a heavy-rain frequency is about plus or minus 18 points; only 5 observed heavy-rain days (2019-2025) fell when at least half of the cropland had no green."
 ---
 
-<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/storms-bare-soil (run of 2026-11-14 BRT); the idea was synthesized with AI at the team lead's request and chosen by the team; human review pending (see SI-USAGE.md). -->
+<!-- SI-assisted: written with Claude Code (Anthropic) from the scripts and results in analysis/storms-bare-soil (run of 2026-11-14 BRT); origin: the team generated the starting ideas at a human ideation meeting; at the team lead's request, SI helped compare and synthesize options from those ideas and verified data; the team chose the direction (D-001); human review pending (see SI-USAGE.md). -->
 
 **Why this analysis.** Farmers fear a bare winter, but the team's Sentinel-2 calendar shows that cropland in Cruz Alta has the least green cover in April and November, not in winter. This analysis asks what the heavy rain measured by NASA's GPM IMERG falls on, half-month by half-month, and, because a satellite cannot tell dry straw from bare soil, how much winter straw a rotation still leaves on the ground when the November storms arrive. Every number comes from [`analysis/storms-bare-soil/`](../../analysis/storms-bare-soil/README.md), rerun with one command.
 
