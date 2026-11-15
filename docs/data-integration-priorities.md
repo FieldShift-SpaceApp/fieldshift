@@ -26,11 +26,11 @@ The sources should be aligned and shown as separate evidence layers. They measur
 
 ## Thermal layer: recommended interpretation
 
-Treat ECOSTRESS as a **high-resolution, opportunistic surface-temperature observation**, not the only or automatically “best” measure of leaf temperature. NASA's product documentation describes L2 LST&E at a 70 m grid with temporal resolution that varies. Its different acquisition times can help examine surface conditions at different times of day, but the irregular coverage means it cannot provide a continuous daily farm forecast. Compare quality flags, cloud mask, acquisition time, and LST error where available.
+Treat ECOSTRESS as a **high-resolution, opportunistic surface-temperature observation**, not the only or automatically “best” measure of leaf temperature. NASA's current V003 product documentation describes L2 LST&E at a 70 m grid with temporal resolution that varies. Its different acquisition times can help examine surface conditions at different times of day, but the irregular coverage means it cannot provide a continuous daily farm forecast. Compare quality flags, cloud mask, acquisition time, and LST error where available.
 
 Use Landsat Collection 2 Surface Temperature as a historical and spatial complement. USGS notes that the thermal measurements are acquired at 100 m and can be resampled to 30 m to match multispectral bands. A 30 m output cell therefore does not mean a 30 m independent thermal measurement. Collection 2 also documents known issues, including missing emissivity support and errors where vegetation changed substantially between the ASTER emissivity baseline and the Landsat scene.
 
-Sentinel-2 can contribute optical vegetation indicators such as NDVI, but not temperature. MODIS daily LST products provide day/night, clear-sky regional context at about 1 km. Choose between them by the question: ECOSTRESS for irregular finer-scale thermal snapshots, Landsat for a longer scene-based record, and MODIS for broader temporal context.
+Sentinel-2 can contribute optical vegetation indicators such as NDVI, but not temperature. MODIS MOD11A1 V6.1 provides daily day/night LST at about 1 km under clear-sky conditions, giving broader regional context. Choose between them by the question: ECOSTRESS for irregular finer-scale thermal snapshots, Landsat for a longer scene-based record, and MODIS for broader temporal context.
 
 To interpret a hot surface, compare the same location and crop stage with:
 - air temperature, humidity, wind and incoming radiation from ground observations and NASA POWER;
@@ -74,12 +74,12 @@ The oceanography/climatology contribution can strengthen the scientific layer by
 - [Satellite and ground-station comparison](../content/methods/satellite-vs-ground.md)
 - [ENSO heavy-rain method and limits](../content/methods/enso-heavy-rain.md)
 - [ENSO forecast-skill method and limits](../content/methods/enso-forecast-skill.md)
-- [NASA ECOSTRESS LST&E product (70 m; variable temporal resolution)](https://doi.org/10.5067/ECOSTRESS/ECO_L2G_LSTE.002)
+- [NASA ECOSTRESS LST&E product V003 (70 m; variable temporal resolution)](https://doi.org/10.5067/ECOSTRESS/ECO_L2G_LSTE.003)
 - [ECOSTRESS product documentation](https://ecostress.jpl.nasa.gov/data/atbds-summary-table)
 - [USGS Landsat Collection 2 Surface Temperature](https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-temperature)
 - [USGS Landsat 8-9 instrument thermal-band sampling](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-operational-land)
 - [ESA Sentinel-2 MSI instrument](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Instrument)
-- [NASA/LP DAAC MODIS daily LST guide](https://lpdaac.usgs.gov/documents/118/MOD11_User_Guide_V6.pdf)
+- [NASA MODIS MOD11A1 V6.1 daily LST product](https://doi.org/10.5067/MODIS/MOD11A1.061)
 - [NASA SMAP L4 product description](https://smap.jpl.nasa.gov/files/smap2/smap_handbook_web.pdf)
 - [NASA GPM IMERG](https://gpm.nasa.gov/data/imerg)
 - [NOAA CPC ONI/RONI information](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v5/)
