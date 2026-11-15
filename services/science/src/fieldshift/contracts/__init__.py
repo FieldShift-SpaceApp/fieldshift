@@ -1,8 +1,9 @@
-"""Data contracts v1.1.0 between the pipeline and the app (ADR-4). Single source: these models.
+"""Data contracts v1.2.0 between the pipeline and the app (ADR-4). Single source: these models.
 
 ⏸ Crop (D9) and Ranker (D7) depend on the concept (DECISIONS.md) and are not defined yet.
 """
 
+from fieldshift.contracts.baresoil import BareSoilCalendar, FortnightCover
 from fieldshift.contracts.common import (
     CANONICAL_UNITS,
     SCHEMA_VERSION,
@@ -12,6 +13,13 @@ from fieldshift.contracts.common import (
     Ref,
 )
 from fieldshift.contracts.evidence import Confidence, Evidence
+from fieldshift.contracts.forecast import (
+    ForecastRecord,
+    ForecastScore,
+    ForecastScorecard,
+    ForecastSource,
+    ObservedWinter,
+)
 from fieldshift.contracts.indices import (
     ClimateIndices,
     Metric,
@@ -19,7 +27,9 @@ from fieldshift.contracts.indices import (
     MonthlyProfile,
 )
 from fieldshift.contracts.manifest import LayerStatus, SiteManifest
-from fieldshift.contracts.provenance import Provenance, ProvenanceRegistry
+from fieldshift.contracts.provenance import Attribution, Provenance, ProvenanceRegistry
+from fieldshift.contracts.rain import EnsoRainSignal, PhaseRainStats, RainSourceSignal, RainYear
+from fieldshift.contracts.replay import EventTimeline, ReplayEvent, ReplayValue
 from fieldshift.contracts.rotation import (
     Rotation,
     RotationFile,
@@ -50,27 +60,46 @@ TOP_LEVEL_MODELS: tuple[type[Contract], ...] = (
     StrategySet,
     SiteManifest,
     ValidationFile,
+    ForecastScorecard,  # v1.2.0
+    EventTimeline,  # v1.2.0
+    BareSoilCalendar,  # v1.2.0
+    EnsoRainSignal,  # v1.2.0
 )
 
 __all__ = [
     "CANONICAL_UNITS",
     "SCHEMA_VERSION",
     "TOP_LEVEL_MODELS",
+    "Attribution",
+    "BareSoilCalendar",
     "ClimateIndices",
     "Confidence",
     "Contract",
     "CriterionValue",
+    "EnsoRainSignal",
+    "EventTimeline",
     "Evidence",
+    "ForecastRecord",
+    "ForecastScore",
+    "ForecastScorecard",
+    "ForecastSource",
+    "FortnightCover",
     "GeoJSONPolygon",
     "LayerStatus",
     "LocalizedText",
     "Metric",
     "MetricComparison",
     "MonthlyProfile",
+    "ObservedWinter",
     "Period",
+    "PhaseRainStats",
     "Provenance",
     "ProvenanceRegistry",
+    "RainSourceSignal",
+    "RainYear",
     "Ref",
+    "ReplayEvent",
+    "ReplayValue",
     "RetrospectiveCheck",
     "Rotation",
     "RotationFile",

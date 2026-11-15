@@ -6,6 +6,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:et0:annual_mean:1991_2020",
@@ -82,6 +83,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:et0:by_month:1991_2020",
@@ -158,6 +160,7 @@
     "en": "ET0 computed for each day (FAO-56 eq. 6, G = 0), then summed per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:et0:daily",
@@ -243,6 +246,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_days:annual_mean:1991_2020",
@@ -335,6 +339,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_days:by_month:1991_2020",
@@ -427,6 +432,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_days:daily",
@@ -516,6 +522,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_total:annual_mean:1991_2020",
@@ -608,6 +615,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_total:by_month:1991_2020",
@@ -700,6 +708,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:extreme_precip_total:daily",
@@ -789,6 +798,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:frost_days:annual_mean:1991_2020",
@@ -868,6 +878,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:frost_days:by_month:1991_2020",
@@ -947,6 +958,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:frost_days:daily",
@@ -1026,6 +1038,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, degC_d). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:growing_degree_days:annual_mean:1991_2020",
@@ -1109,6 +1122,7 @@
     "en": "Mean of the monthly values (degC_d) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:growing_degree_days:by_month:1991_2020",
@@ -1192,6 +1206,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (degC_d). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:growing_degree_days:daily",
@@ -1276,6 +1291,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, days). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:heat_days:annual_mean:1991_2020",
@@ -1363,6 +1379,7 @@
     "en": "Mean of the monthly values (days) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:heat_days:by_month:1991_2020",
@@ -1450,6 +1467,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Count of flagged days per calendar month (days). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:heat_days:daily",
@@ -1537,6 +1555,7 @@
     "en": "Percentile P95 (linear interpolation, Hyndman-Fan type 7) of daily precipitation on wet days (>= 1 mm) of 1991–2020. Computed only when every day of the baseline is valid.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:precip_p95:1991_2020",
@@ -1633,6 +1652,7 @@
     "en": "Mean over 1991–2020 of the yearly total (sum of the 12 monthly values, mm). Reported only when every month of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:water_deficit:annual_mean:1991_2020",
@@ -1709,6 +1729,7 @@
     "en": "Mean of the monthly values (mm) for each calendar month over 1991–2020. A calendar month is null unless every year of 1991–2020 has a value.",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:water_deficit:by_month:1991_2020",
@@ -1785,6 +1806,7 @@
     "en": "Index computed for each day before aggregation (ADR-3). Sum of daily values per calendar month (mm). A day without every input is missing. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "computed",
    "id": "prov:computed:dev-cruz-alta:water_deficit:daily",
@@ -1868,6 +1890,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:allsky_sfc_sw_dwn:daily",
@@ -1944,6 +1967,7 @@
     "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:evland:daily",
@@ -2024,6 +2048,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:gwetprof:daily",
@@ -2104,6 +2129,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:gwetroot:daily",
@@ -2184,6 +2210,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:gwettop:daily",
@@ -2264,6 +2291,7 @@
     "en": "Calendar-month sum of daily values (mm). A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:prectotcorr:daily",
@@ -2344,6 +2372,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:ps:daily",
@@ -2420,6 +2449,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:rh2m:daily",
@@ -2496,6 +2526,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:t2m:daily",
@@ -2572,6 +2603,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:t2m_max:daily",
@@ -2652,6 +2684,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:t2m_min:daily",
@@ -2728,6 +2761,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:t2mdew:daily",
@@ -2804,6 +2838,7 @@
     "en": "Calendar-month mean of daily values. A month is reported only when every day of it has a valid daily value; otherwise it is null (no interpolation, ADR-3).",
     "pt": null
    },
+   "attribution": [],
    "authored_by": null,
    "data_type": "modeled",
    "id": "prov:power:dev-cruz-alta:ws2m:daily",
@@ -2869,6 +2904,6 @@
    }
   }
  },
- "schema_version": "1.1.0",
+ "schema_version": "1.2.0",
  "site_id": "dev-cruz-alta"
 }

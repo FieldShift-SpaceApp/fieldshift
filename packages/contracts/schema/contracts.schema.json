@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FieldShiftContracts",
-  "description": "FieldShift data contracts v1.1.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.",
+  "description": "FieldShift data contracts v1.2.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.",
   "$defs": {
     "AgYear": {
       "additionalProperties": false,
@@ -22,6 +22,95 @@
         "label"
       ],
       "title": "AgYear",
+      "type": "object"
+    },
+    "Attribution": {
+      "additionalProperties": false,
+      "properties": {
+        "group": {
+          "$ref": "#/$defs/AttributionGroup"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "credit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "group",
+        "name"
+      ],
+      "title": "Attribution",
+      "type": "object"
+    },
+    "AttributionGroup": {
+      "enum": [
+        "nasa",
+        "partner",
+        "other_public"
+      ],
+      "type": "string"
+    },
+    "BareSoilCalendar": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "ndvi_threshold": {
+          "exclusiveMaximum": 1,
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "fortnights": {
+          "items": {
+            "$ref": "#/$defs/FortnightCover"
+          },
+          "maxItems": 24,
+          "minItems": 24,
+          "type": "array"
+        },
+        "s2_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "modis_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "caveats": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "period",
+        "ndvi_threshold",
+        "fortnights",
+        "s2_provenance_id",
+        "modis_provenance_id",
+        "caveats"
+      ],
+      "title": "BareSoilCalendar",
       "type": "object"
     },
     "CanonicalUnit": {
@@ -155,6 +244,108 @@
       ],
       "type": "string"
     },
+    "EnsoPhase": {
+      "enum": [
+        "el_nino",
+        "neutral",
+        "la_nina"
+      ],
+      "type": "string"
+    },
+    "EnsoRainSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "months": {
+          "items": {
+            "$ref": "#/$defs/Month"
+          },
+          "maxItems": 12,
+          "minItems": 1,
+          "type": "array"
+        },
+        "phase_season": {
+          "$ref": "#/$defs/OniSeason"
+        },
+        "heavy_rain_mm": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "oni_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/RainSourceSignal"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "label",
+        "months",
+        "phase_season",
+        "heavy_rain_mm",
+        "oni_provenance_id",
+        "sources"
+      ],
+      "title": "EnsoRainSignal",
+      "type": "object"
+    },
+    "EventTimeline": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "id": {
+          "$ref": "#/$defs/ReplayKey"
+        },
+        "title": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "period": {
+          "$ref": "#/$defs/Period"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/ReplayEvent"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "id",
+        "title",
+        "period",
+        "events"
+      ],
+      "title": "EventTimeline",
+      "type": "object"
+    },
     "Evidence": {
       "additionalProperties": false,
       "description": "VL3: every evidence item has a number, a dataset and a period.",
@@ -211,6 +402,390 @@
         "confidence"
       ],
       "title": "Evidence",
+      "type": "object"
+    },
+    "ForecastKind": {
+      "enum": [
+        "probability",
+        "nino34_anomaly"
+      ],
+      "type": "string"
+    },
+    "ForecastRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/ForecastSourceId"
+        },
+        "issue_month": {
+          "$ref": "#/$defs/Month"
+        },
+        "target_year": {
+          "type": "integer"
+        },
+        "p_la_nina": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "p_neutral": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "p_el_nino": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "nino34_anomaly": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "predicted_phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "observed_phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "hit": {
+          "type": "boolean"
+        },
+        "source_url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "issue_month",
+        "target_year",
+        "predicted_phase",
+        "observed_phase",
+        "hit",
+        "source_url"
+      ],
+      "title": "ForecastRecord",
+      "type": "object"
+    },
+    "ForecastScore": {
+      "additionalProperties": false,
+      "description": "Verification of one source for one issue month over the target years it covers.",
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/ForecastSourceId"
+        },
+        "issue_month": {
+          "$ref": "#/$defs/Month"
+        },
+        "first_year": {
+          "type": "integer"
+        },
+        "last_year": {
+          "type": "integer"
+        },
+        "n": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "phase_hit_rate": {
+          "$ref": "#/$defs/Probability"
+        },
+        "always_neutral_hit_rate": {
+          "$ref": "#/$defs/Probability"
+        },
+        "el_nino_observed": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "el_nino_hits": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "el_nino_forecasts": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "false_alarm_ratio": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "brier_el_nino": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "brier_climatology": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "brier_always_neutral": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "brier_skill_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "source_id",
+        "issue_month",
+        "first_year",
+        "last_year",
+        "n",
+        "phase_hit_rate",
+        "always_neutral_hit_rate",
+        "el_nino_observed",
+        "el_nino_hits",
+        "el_nino_forecasts",
+        "provenance_id"
+      ],
+      "title": "ForecastScore",
+      "type": "object"
+    },
+    "ForecastScorecard": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "target_season": {
+          "const": "JJA",
+          "type": "string"
+        },
+        "observed": {
+          "items": {
+            "$ref": "#/$defs/ObservedWinter"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "observed_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/ForecastSource"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "forecasts": {
+          "items": {
+            "$ref": "#/$defs/ForecastRecord"
+          },
+          "type": "array"
+        },
+        "scores": {
+          "items": {
+            "$ref": "#/$defs/ForecastScore"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "target_season",
+        "observed",
+        "observed_provenance_id",
+        "sources",
+        "forecasts",
+        "scores"
+      ],
+      "title": "ForecastScorecard",
+      "type": "object"
+    },
+    "ForecastSource": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ForecastSourceId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "kind": {
+          "$ref": "#/$defs/ForecastKind"
+        },
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "real_time_from": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "kind",
+        "provider",
+        "provenance_id"
+      ],
+      "title": "ForecastSource",
+      "type": "object"
+    },
+    "ForecastSourceId": {
+      "pattern": "^[a-z0-9][a-z0-9-]{1,47}$",
+      "type": "string"
+    },
+    "FortnightCover": {
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "maximum": 23,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "month": {
+          "$ref": "#/$defs/Month"
+        },
+        "half": {
+          "enum": [
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "s2_median_pct": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Percent"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "s2_min_pct": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Percent"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "s2_max_pct": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Percent"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "s2_years": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "modis_median_pct": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Percent"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modis_years": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "index",
+        "month",
+        "half",
+        "s2_median_pct",
+        "s2_min_pct",
+        "s2_max_pct",
+        "s2_years",
+        "modis_median_pct",
+        "modis_years"
+      ],
+      "title": "FortnightCover",
       "type": "object"
     },
     "GeoJSONPolygon": {
@@ -634,6 +1209,36 @@
       "title": "MonthlyProfile",
       "type": "object"
     },
+    "ObservedWinter": {
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "oni_jja": {
+          "type": "number"
+        },
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        }
+      },
+      "required": [
+        "year",
+        "oni_jja",
+        "phase"
+      ],
+      "title": "ObservedWinter",
+      "type": "object"
+    },
+    "OniSeason": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "Percent": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+    },
     "Period": {
       "additionalProperties": false,
       "description": "Inclusive period.",
@@ -650,6 +1255,62 @@
         "end"
       ],
       "title": "Period",
+      "type": "object"
+    },
+    "PhaseRainStats": {
+      "additionalProperties": false,
+      "properties": {
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "n_years": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mean_heavy_days": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mean_total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "median_total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "years_with_heavy_day": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "phase",
+        "n_years",
+        "mean_heavy_days",
+        "mean_total_mm",
+        "median_total_mm",
+        "years_with_heavy_day"
+      ],
+      "title": "PhaseRainStats",
       "type": "object"
     },
     "PipelineInfo": {
@@ -672,6 +1333,11 @@
       ],
       "title": "PipelineInfo",
       "type": "object"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
     },
     "Provenance": {
       "additionalProperties": false,
@@ -756,6 +1422,12 @@
         "limitations": {
           "items": {
             "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        },
+        "attribution": {
+          "items": {
+            "$ref": "#/$defs/Attribution"
           },
           "type": "array"
         }
@@ -1044,6 +1716,99 @@
       "title": "ProvenancedValue",
       "type": "object"
     },
+    "RainSourceId": {
+      "pattern": "^[a-z0-9][a-z0-9-]{1,47}$",
+      "type": "string"
+    },
+    "RainSourceSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/RainSourceId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "first_year": {
+          "type": "integer"
+        },
+        "last_year": {
+          "type": "integer"
+        },
+        "years": {
+          "items": {
+            "$ref": "#/$defs/RainYear"
+          },
+          "type": "array"
+        },
+        "by_phase": {
+          "items": {
+            "$ref": "#/$defs/PhaseRainStats"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "first_year",
+        "last_year",
+        "years",
+        "by_phase",
+        "provenance_id"
+      ],
+      "title": "RainSourceSignal",
+      "type": "object"
+    },
+    "RainYear": {
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "oni": {
+          "type": "number"
+        },
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "total_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "heavy_days": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "year",
+        "oni",
+        "phase",
+        "total_mm"
+      ],
+      "title": "RainYear",
+      "type": "object"
+    },
     "Ref": {
       "additionalProperties": false,
       "properties": {
@@ -1088,6 +1853,124 @@
         "label"
       ],
       "title": "Ref",
+      "type": "object"
+    },
+    "ReplayEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ReplayKey"
+        },
+        "kind": {
+          "$ref": "#/$defs/ReplayEventKind"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IsoDate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "period": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Period"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "title": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "detail": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "values": {
+          "items": {
+            "$ref": "#/$defs/ReplayValue"
+          },
+          "type": "array"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "refs": {
+          "items": {
+            "$ref": "#/$defs/Ref"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "detail",
+        "provenance_id",
+        "refs"
+      ],
+      "title": "ReplayEvent",
+      "type": "object"
+    },
+    "ReplayEventKind": {
+      "enum": [
+        "forecast",
+        "planting_window",
+        "credit",
+        "yield",
+        "outcome"
+      ],
+      "type": "string"
+    },
+    "ReplayExtraUnit": {
+      "enum": [
+        "BRL/ha",
+        "kg/ha"
+      ],
+      "type": "string"
+    },
+    "ReplayKey": {
+      "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$",
+      "type": "string"
+    },
+    "ReplayValue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ReplayKey"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CanonicalUnit"
+            },
+            {
+              "$ref": "#/$defs/ReplayExtraUnit"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "value",
+        "unit"
+      ],
+      "title": "ReplayValue",
       "type": "object"
     },
     "RetrospectiveCheck": {

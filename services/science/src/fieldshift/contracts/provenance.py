@@ -70,6 +70,18 @@ class ProvenanceAccess(Contract):
     license: str | None = None
 
 
+# v1.2.0: who the data belongs to, kept apart on screen and in RESOURCES.md:
+# nasa = NASA data; partner = data of a space agency partner of the challenge (e.g. ESA
+# Copernicus); other_public = other public sources (IBGE, NOAA, BCB, MAPA, ...).
+type AttributionGroup = Literal["nasa", "partner", "other_public"]
+
+
+class Attribution(Contract):
+    group: AttributionGroup
+    name: str = Field(min_length=1)  # e.g. "ESA Copernicus Sentinel-2 L2A"
+    credit: str | None = None  # credit line the licence asks for, verbatim
+
+
 class Provenance(Contract):
     id: ProvenanceId
     data_type: DataType
@@ -85,6 +97,9 @@ class Provenance(Contract):
     refs: list[Ref] = Field(default_factory=list)
     access: ProvenanceAccess | None = None
     limitations: list[LocalizedText]
+    # v1.2.0, optional: one entry per data owner behind this number (a computed record lists the
+    # owners of its inputs). Empty = not declared yet.
+    attribution: list[Attribution] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _fr19_completeness(self) -> Provenance:
