@@ -2,7 +2,7 @@
 
 > Only the FLIGHT front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
-## 2026-11-15 03:30 — FLIGHT (SUBMISSÃO front, Claude Code)
+## 2026-11-15 00:25 — FLIGHT (SUBMISSÃO front, Claude Code)
 Done: PR `flight/submission-zarcnm`: `docs/submission/page-draft.md` fields 2, 5, 6, 7, 8 rewritten for the adopted direction (three winter paths + ZarcNM pre-check). Norm quoted as written (NASADEM "or equivalent", Landsat/Sentinel-2/HLS "recommended", MODIS above 100 ha), "pre-check, 3 of 6 indicators", R$ 1 million pilot, "no green cover (mostly straw)". Landsat/HLS numbers (5.7% → 0.3%; 4 Nov 1991 vs 20 Oct 2026) and the Landsat C2/HLS items of field 7 are `[IF MERGED #54]`; NASADEM is `[PENDING]` (no code reads it). Field 8 adds IN 2/2025, Portaria 209/2026, CGSR 111/2026, Embrapa DOC 454, FAOSTAT, Proagro event view.
 Next: drop or keep the `[IF MERGED #54]` and `[IF PUBLISHED]` passages at submit time; name and one-line statement after D-001.
 Blocked by: D-001 (team); PR #54 (conflicting, review required); agronomist app publication.
