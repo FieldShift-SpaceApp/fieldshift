@@ -215,54 +215,84 @@ def build_rain_signal(
     notes: list[LocalizedText] = []
     base_inputs = [cp.oni_prov_id(site_id)]
 
-    def comp(key: str, label: str, upstream: str, attribution: list) -> str:
+    def comp(
+        key: str,
+        label: str,
+        upstream: str,
+        attribution: list,
+        seasons: dict[int, tuple[float, int] | None],
+    ) -> str:
+        """Records of one source: its period and sample size come from its complete windows."""
+        done = sorted(y for y, v in seasons.items() if v is not None)
+        if not done:
+            raise PipelineError(f"{label}: no complete September-November window in {years}")
+        gaps = [y for y in seasons if seasons[y] is None]
         rid = f"prov:computed:{site_id}:enso-heavy-rain:{key}"
-        records.append(
-            cp.computed(
-                rid=rid,
-                title=f"Rain and heavy-rain days in September-November by ENSO phase, {label}",
-                code="heavy_rain_days_son",
-                name="Days with rain >= 50 mm; window total",
-                unit="days",
-                period=Period(start=f"{FIRST_YEAR}-09-01", end=f"{LAST_YEAR}-11-30"),
-                resolution="site point",
-                support="containing_pixel" if key != "ana-2853015" else "point",
-                temporal="annual",
-                aggregation="Per year: total of September-November and number of days >= 50 mm "
-                "(complete windows only); per phase: mean and median over the years of that phase.",
-                method="enso-heavy-rain v1",
-                doc_anchor=DOC_ANCHOR,
-                ref=Ref(
-                    label="NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive "
-                    "overlapping seasons)",
-                    url="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/"
-                    "ONI_v5.php",
-                ),
-                parameters={
-                    "months": "9,10,11",
-                    "phase_season": SEASON,
-                    "heavy_rain_mm": HEAVY_MM,
-                    "phase_threshold_degC": 0.5,
-                    "phase_min_seasons": 5,
-                },
-                inputs=[upstream, *base_inputs],
-                limitations=[
-                    "Few events: about 15 El Niño, 13 La Niña and 16 neutral springs in 1982-2025; "
-                    "a "
-                    "mean of heavy-rain days moves with one wet year.",
-                    "Association, not proof of cause: ENSO phase and spring rain are compared year "
-                    "by year, with no model of the wheat itself.",
+        summary = cp.computed(
+            rid=rid,
+            title=f"Rain and heavy-rain days in September-November by ENSO phase, {label}",
+            code="heavy_rain_son_by_enso_phase",
+            name="Heavy-rain days, window total and complete years by ENSO phase",
+            unit="1",
+            period=Period(start=f"{done[0]}-09-01", end=f"{done[-1]}-11-30"),
+            resolution="site point",
+            support="containing_pixel" if key != "ana-2853015" else "point",
+            temporal="annual",
+            aggregation="Per year: total of September-November and number of days >= 50 mm "
+            "(complete windows only); per phase: mean and median over the years of that phase.",
+            method="enso-heavy-rain v1",
+            doc_anchor=DOC_ANCHOR,
+            ref=Ref(
+                label="NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive "
+                "overlapping seasons)",
+                url="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/"
+                "ONI_v5.php",
+            ),
+            parameters={
+                "months": "9,10,11",
+                "phase_season": SEASON,
+                "heavy_rain_mm": HEAVY_MM,
+                "phase_threshold_degC": 0.5,
+                "phase_min_seasons": 5,
+                "years_read": f"{min(seasons)}-{max(seasons)}",
+                "complete_years": len(done),
+                "incomplete_years": ",".join(str(y) for y in gaps) or "none",
+            },
+            inputs=[upstream, *base_inputs],
+            limitations=[
+                f"Few events: {len(done)} complete springs in {done[0]}-{done[-1]} for this "
+                "source, split into three ENSO phases; a mean of heavy-rain days moves with one "
+                "wet year.",
+                "Association, not proof of cause: ENSO phase and spring rain are compared year "
+                "by year, with no model of the wheat itself.",
+            ],
+            attribution=attribution,
+        )
+        records.extend(
+            cp.split_by_metric(
+                summary,
+                [
+                    ("heavy-days", "heavy_rain_days_son", "Days with rain >= 50 mm", "days"),
+                    ("total", "rain_total_son", "Rain total of September-November", "mm"),
+                    (
+                        "n-years",
+                        "complete_years_son",
+                        "Years with a complete September-November window",
+                        "count",
+                    ),
                 ],
-                attribution=attribution,
+                code=summary.variable.code,
+                name=summary.variable.name.en,
             )
         )
         return rid
 
+    power_seasons = season_years(power_daily, years)
     sources.append(
         _signal(
             "nasa-power",
             "NASA POWER (MERRA-2 bias-corrected precipitation, PRECTOTCORR)",
-            season_years(power_daily, years),
+            power_seasons,
             oni,
             phases,
             comp(
@@ -270,24 +300,27 @@ def build_rain_signal(
                 "NASA POWER",
                 power_prov_id(site_id, "PRECTOTCORR"),
                 [cp.NASA_POWER, cp.NOAA_ONI],
+                power_seasons,
             ),
         )
     )
     if imerg is not None and imerg.valid_days:
-        first = min(d for d, v in imerg.daily.items() if v is not None)
+        valid = [d for d, v in imerg.daily.items() if v is not None]
+        first = min(valid)
         rec = imerg_record(
-            site_id, imerg, Period(start=first.isoformat(), end=max(imerg.daily).isoformat())
+            site_id, imerg, Period(start=first.isoformat(), end=max(valid).isoformat())
         )
         records.append(rec)
         im_years = range(max(FIRST_YEAR, first.year), LAST_YEAR + 1)
+        im_seasons = season_years(imerg.daily, im_years)
         sources.append(
             _signal(
                 "gpm-imerg",
                 "GPM IMERG (via NASA POWER, UTC days)",
-                season_years(imerg.daily, im_years),
+                im_seasons,
                 oni,
                 phases,
-                comp("gpm-imerg", "GPM IMERG", rec.id, [cp.NASA_IMERG, cp.NOAA_ONI]),
+                comp("gpm-imerg", "GPM IMERG", rec.id, [cp.NASA_IMERG, cp.NOAA_ONI], im_seasons),
             )
         )
     else:
@@ -297,19 +330,28 @@ def build_rain_signal(
                 "for this point; only NASA POWER is shown."
             )
         )
-    g_first = min(gauge_daily)
+    g_valid = [d for d, v in gauge_daily.items() if v is not None]
+    if not g_valid:
+        raise PipelineError(f"rain gauge input has no value: {GAUGE_INPUT}")
     grec = gauge_record(
-        site_id, Period(start=g_first.isoformat(), end=max(gauge_daily).isoformat())
+        site_id, Period(start=min(g_valid).isoformat(), end=max(g_valid).isoformat())
     )
     records.append(grec)
+    g_seasons = season_years(gauge_daily, years)
     sources.append(
         _signal(
             "ana-2853015",
             "Rain gauge ANA 2853015 (ground check)",
-            season_years(gauge_daily, years),
+            g_seasons,
             oni,
             phases,
-            comp("ana-2853015", "ANA rain gauge 2853015", grec.id, [cp.ANA, cp.NOAA_ONI]),
+            comp(
+                "ana-2853015",
+                "ANA rain gauge 2853015",
+                grec.id,
+                [cp.ANA, cp.NOAA_ONI],
+                g_seasons,
+            ),
         )
     )
     doc = EnsoRainSignal(
