@@ -1,7 +1,7 @@
 ---
 anchor: nasa-ai-prithvi
 title: NASA's AI on Cruz Alta's winter - the Prithvi foundation model against our rules
-order: 67
+order: 68
 refs:
   - label: "Analysis folder with scripts, results, figure and the full write-up (analysis/nasa-ai-prithvi)"
     url: https://github.com/FieldShift-SpaceApp/fieldshift/tree/main/analysis/nasa-ai-prithvi
