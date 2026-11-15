@@ -1,4 +1,4 @@
-"""Data contracts v1.2.0 between the pipeline and the app (ADR-4). Single source: these models.
+"""Data contracts v1.3.0 between the pipeline and the app (ADR-4). Single source: these models.
 
 ⏸ Crop (D9) and Ranker (D7) depend on the concept (DECISIONS.md) and are not defined yet.
 """
@@ -28,7 +28,17 @@ from fieldshift.contracts.indices import (
 )
 from fieldshift.contracts.manifest import LayerStatus, SiteManifest
 from fieldshift.contracts.provenance import Attribution, Provenance, ProvenanceRegistry
-from fieldshift.contracts.rain import EnsoRainSignal, PhaseRainStats, RainSourceSignal, RainYear
+from fieldshift.contracts.rain import (
+    CurrentEnso,
+    EnsoRainSignal,
+    MonthToDate,
+    PhaseRainStats,
+    RainSourceSignal,
+    RainYear,
+    ReportedFact,
+    SeasonToDate,
+    SeasonToDateSource,
+)
 from fieldshift.contracts.replay import EventTimeline, ReplayEvent, ReplayValue
 from fieldshift.contracts.rotation import (
     Rotation,
@@ -64,6 +74,7 @@ TOP_LEVEL_MODELS: tuple[type[Contract], ...] = (
     EventTimeline,  # v1.2.0
     BareSoilCalendar,  # v1.2.0
     EnsoRainSignal,  # v1.2.0
+    SeasonToDate,  # v1.3.0
 )
 
 __all__ = [
@@ -76,6 +87,7 @@ __all__ = [
     "Confidence",
     "Contract",
     "CriterionValue",
+    "CurrentEnso",
     "EnsoRainSignal",
     "EventTimeline",
     "Evidence",
@@ -89,6 +101,7 @@ __all__ = [
     "LocalizedText",
     "Metric",
     "MetricComparison",
+    "MonthToDate",
     "MonthlyProfile",
     "ObservedWinter",
     "Period",
@@ -100,12 +113,15 @@ __all__ = [
     "Ref",
     "ReplayEvent",
     "ReplayValue",
+    "ReportedFact",
     "RetrospectiveCheck",
     "Rotation",
     "RotationFile",
     "RotationMonthRef",
     "RotationSegment",
     "RotationTimeline",
+    "SeasonToDate",
+    "SeasonToDateSource",
     "SeriesBundle",
     "Site",
     "SiteManifest",

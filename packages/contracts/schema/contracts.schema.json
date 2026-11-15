@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FieldShiftContracts",
-  "description": "FieldShift data contracts v1.2.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.",
+  "description": "FieldShift data contracts v1.3.0. Generated from the pydantic models in services/science/src/fieldshift/contracts by `fieldshift contracts export`. Do not edit by hand.",
   "$defs": {
     "AgYear": {
       "additionalProperties": false,
@@ -233,6 +233,36 @@
         "confidence"
       ],
       "title": "CriterionValue",
+      "type": "object"
+    },
+    "CurrentEnso": {
+      "additionalProperties": false,
+      "description": "ENSO state of the current year: the latest published ONI season, since the phase season\nof the climatology may not be complete yet.",
+      "properties": {
+        "season": {
+          "$ref": "#/$defs/OniSeason"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "oni": {
+          "type": "number"
+        },
+        "phase": {
+          "$ref": "#/$defs/EnsoPhase"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "season",
+        "year",
+        "oni",
+        "phase",
+        "provenance_id"
+      ],
+      "title": "CurrentEnso",
       "type": "object"
     },
     "DataType": {
@@ -1149,6 +1179,40 @@
       ],
       "type": "integer"
     },
+    "MonthToDate": {
+      "additionalProperties": false,
+      "properties": {
+        "month": {
+          "$ref": "#/$defs/IsoMonth"
+        },
+        "n_days": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "total_mm": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "climatology_mean_mm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "month",
+        "n_days",
+        "total_mm",
+        "climatology_mean_mm"
+      ],
+      "title": "MonthToDate",
+      "type": "object"
+    },
     "MonthlyProfile": {
       "additionalProperties": false,
       "properties": {
@@ -1973,6 +2037,42 @@
       "title": "ReplayValue",
       "type": "object"
     },
+    "ReportedFact": {
+      "additionalProperties": false,
+      "description": "A statement published by a third party (e.g. a crop bulletin), kept apart from the\nmeasurements: reported, not measured by FieldShift.",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/RainSourceId"
+        },
+        "text": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "reported_by": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "published": {
+          "$ref": "#/$defs/IsoDate"
+        },
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "reported_by",
+        "published",
+        "url",
+        "provenance_id"
+      ],
+      "title": "ReportedFact",
+      "type": "object"
+    },
     "RetrospectiveCheck": {
       "additionalProperties": false,
       "properties": {
@@ -2232,6 +2332,150 @@
     "SchemaVersion": {
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
       "type": "string"
+    },
+    "SeasonToDate": {
+      "additionalProperties": false,
+      "description": "Rain of the current season so far at a site (v1.3.0): window total, heavy-rain days,\ncomparison years and the mean of the same calendar days by ENSO phase, per source; plus\nreported third-party facts, kept apart.",
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/SchemaVersion"
+        },
+        "site_id": {
+          "$ref": "#/$defs/SiteId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "cutoff": {
+          "$ref": "#/$defs/IsoDate"
+        },
+        "heavy_rain_mm": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "phase_season": {
+          "$ref": "#/$defs/OniSeason"
+        },
+        "current": {
+          "$ref": "#/$defs/CurrentEnso"
+        },
+        "oni_provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/SeasonToDateSource"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "reported": {
+          "items": {
+            "$ref": "#/$defs/ReportedFact"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "$ref": "#/$defs/LocalizedText"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "site_id",
+        "label",
+        "year",
+        "cutoff",
+        "heavy_rain_mm",
+        "phase_season",
+        "current",
+        "oni_provenance_id",
+        "sources"
+      ],
+      "title": "SeasonToDate",
+      "type": "object"
+    },
+    "SeasonToDateSource": {
+      "additionalProperties": false,
+      "description": "One rain source over the window of the current year, set against the same calendar days of\npast years: chosen comparison years and the mean per ENSO phase.",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/RainSourceId"
+        },
+        "label": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "window": {
+          "$ref": "#/$defs/Period"
+        },
+        "n_days": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "total_mm": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "heavy_days": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "wettest_day": {
+          "$ref": "#/$defs/IsoDate"
+        },
+        "wettest_day_mm": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "months": {
+          "items": {
+            "$ref": "#/$defs/MonthToDate"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "same_days": {
+          "items": {
+            "$ref": "#/$defs/RainYear"
+          },
+          "type": "array"
+        },
+        "climatology": {
+          "$ref": "#/$defs/Period"
+        },
+        "by_phase": {
+          "items": {
+            "$ref": "#/$defs/PhaseRainStats"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "provenance_id": {
+          "$ref": "#/$defs/ProvenanceId"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "window",
+        "n_days",
+        "total_mm",
+        "heavy_days",
+        "wettest_day",
+        "wettest_day_mm",
+        "months",
+        "climatology",
+        "by_phase",
+        "provenance_id"
+      ],
+      "title": "SeasonToDateSource",
+      "type": "object"
     },
     "SegmentRole": {
       "enum": [
