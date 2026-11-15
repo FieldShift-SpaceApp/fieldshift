@@ -1,5 +1,7 @@
 # Team rotation evidence: public reproduction of three numbers shown in the farmer-facing app (Cruz Alta, RS)
 
+> **Warning (team research, 15 November):** the heavy-rain shares in (b) — Calendar model only; satellite measurement (residue-landsat, storms-bare-soil) shows total-year exposure does not fall with a winter crop; protection in Oct–Nov comes from straw. The winter crop covers July–September and leaves the field without a living plant in October–November, under straw; see [`../residue-landsat/`](../residue-landsat/README.md) (probable bare soil 0.3% of cropland in the median early-November since 2005) and [`../storms-bare-soil/`](../storms-bare-soil/README.md). The (b) numbers below are kept and labelled as a calendar model; they are not evidence that a winter crop protects the soil.
+
 > **SI-assisted:** the analyses are **FieldShift team research** (the team's internal research on rotations, Cruz Alta, November 2026); the scripts here are a minimal English port written with Claude Code (Anthropic), run against the public sources listed, and each result was compared with the team's table before anything was committed. No number below was produced by the AI. Human review pending. See [`SI-USAGE.md`](../../SI-USAGE.md).
 
 ## Why this folder exists
@@ -9,10 +11,12 @@ The farmer-facing app (https://fieldshift-spaceapp.vercel.app) shows numbers tha
 | # | Number in the app | Team table | Public run here | Status |
 |---|---|---|---|---|
 | a | Hot days (Tmax ≥ 32 °C, December–March) at Cruz Alta, NASA NEX-GDDP-CMIP6, change against each model's 1995–2014: **+11 to +13 days** in 2021–2040 and **+22 to +29** in 2041–2060 (median of the models, SSP2-4.5 to SSP5-8.5) | ssp245 2021–2040 +10.7, ssp585 +13.0; ssp245 2041–2060 +22.0, ssp585 +29.1 (30 models) | not reproduced yet | **not published from this folder** (see (a) below) |
-| b | Share of the heavy rain (days ≥ 25 mm) that falls on soil with no living plant: fallow + soybean **79%**, wheat + soybean **44%**, autumn cover + wheat + soybean **30%**, black oat cover + soybean **52%** | 79 / 44 / 30 / 52% | **79 / 44 / 30 / 52%** (`results/heavy_rain_on_soil_without_live_plants.csv`) | **matches** |
+| b | **Calendar model only** (see the warning above). Share of the heavy rain (days ≥ 25 mm) that falls on soil with no living plant: fallow + soybean **79%**, wheat + soybean **44%**, autumn cover + wheat + soybean **30%**, black oat cover + soybean **52%** | 79 / 44 / 30 / 52% | **79 / 44 / 30 / 52%** (`results/heavy_rain_on_soil_without_live_plants.csv`) | **matches** |
 | c | Gross revenue per hectare, wheat + soybean **R$ 7,312/ha** against soybean + fallow **R$ 4,828/ha** (2025 reais, mean of 2002–2025) | 7,312 / 4,828 | **7,312 / 4,828** (`results/system_revenue_cruz_alta.csv`) | **matches** |
 
-## (b) Heavy rain on soil with no living plant
+## (b) Heavy rain on soil with no living plant (calendar model only)
+
+> Calendar model only; satellite measurement (residue-landsat, storms-bare-soil) shows total-year exposure does not fall with a winter crop; protection in Oct–Nov comes from straw.
 
 **Script:** [`exposure.py`](exposure.py). **Input:** `results/imerg_daily_cruz_alta.csv`, daily GPM IMERG V07 at Cruz Alta (mean of a 0.1° box centred on the site point −28.70, −53.56), 1 July 2000 – 30 June 2025, fetched by [`fetch_inputs.py`](fetch_inputs.py) from SERVIR ClimateSERV (dataset 226), the same service and box the team used. The public fetch of 2026-11-15 is **identical** to the team's daily series on all 9,091 days with data (largest difference 0.0 mm).
 
