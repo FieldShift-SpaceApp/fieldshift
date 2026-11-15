@@ -10,7 +10,6 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import type { DataType } from "@fieldshift/contracts";
 import { DocLink, Markdown } from "@/components/content/markdown";
-import { PendingNotice } from "@/components/content/pending-notice";
 import { SiteNav } from "@/components/content/site-nav";
 import { DataTypeLabel } from "@/components/provenance/data-type-label";
 import { t, type MessageKey } from "@/i18n";
@@ -39,6 +38,14 @@ const SECTIONS: { id: string; label: MessageKey }[] = [
   { id: "related-work", label: "dataMethods.section.relatedWork" },
   { id: "use-of-ai", label: "dataMethods.section.useOfAi" },
   { id: "glossary", label: "dataMethods.section.glossary" },
+];
+
+/** Public analyses that check the NASA data against the ground (repository folders, rerun from public sources). */
+const REPO_TREE = "https://github.com/FieldShift-SpaceApp/fieldshift/tree/main";
+const VALIDATION: { href: string; label: MessageKey }[] = [
+  { href: `${REPO_TREE}/analysis/enso-wheat`, label: "dataMethods.section.validation.ensoWheat" },
+  { href: `${REPO_TREE}/analysis/ground-truth-proagro`, label: "dataMethods.section.validation.groundTruth" },
+  { href: `${REPO_TREE}/analysis/drought-resilience`, label: "dataMethods.section.validation.drought" },
 ];
 
 function term(glossary: GlossaryEntry[], id: string): GlossaryEntry {
@@ -138,7 +145,6 @@ export default function DataMethodsPage() {
             </div>
           </article>
         ))}
-        <PendingNotice>{t("dataMethods.section.methods.pending")}</PendingNotice>
       </Section>
 
       <Section id="limitations" label="dataMethods.section.limitations">
@@ -154,15 +160,28 @@ export default function DataMethodsPage() {
             )),
           )}
         </ul>
-        <PendingNotice>{t("dataMethods.section.limitations.pending")}</PendingNotice>
       </Section>
 
       <Section id="validation" label="dataMethods.section.validation">
-        <PendingNotice>{t("dataMethods.section.validation.pending")}</PendingNotice>
+        <div data-prov-exempt="ui">
+          <p className="mt-3">{t("dataMethods.section.validation.intro")}</p>
+          <ul className="mt-3 list-disc space-y-2 pl-6">
+            {VALIDATION.map((v) => (
+              <li key={v.href}>
+                <DocLink href={v.href}>{t(v.label)}</DocLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Section>
 
       <Section id="scale" label="dataMethods.section.scale">
-        <PendingNotice>{t("dataMethods.section.scale.pending")}</PendingNotice>
+        <div data-prov-exempt="ui">
+          <p className="mt-3">{t("dataMethods.section.scale.body")}</p>
+          <p className="mt-2">
+            <DocLink href={`${REPO_TREE}/analysis/scale`}>{t("dataMethods.section.scale.link")}</DocLink>
+          </p>
+        </div>
       </Section>
 
       <Section id="related-work" label="dataMethods.section.relatedWork">

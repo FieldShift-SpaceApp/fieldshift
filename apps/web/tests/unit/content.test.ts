@@ -92,14 +92,15 @@ describe("content loaders on the repository files", () => {
     for (const used of provenanceDocAnchors()) expect(anchors, used).toContain(used);
   });
 
-  it("covers the 11 related-work categories with links and keeps 'how we differ' pending (FR18, C1)", () => {
+  it("covers the 11 related-work categories with links and states how we differ (FR18, C1)", () => {
     const { relatedWork } = loadDataMethods(REPO_ROOT);
     const sections = relatedWork.body.split(/^## /m).slice(1);
     const categories = sections.filter((s) => /^\d+\./.test(s));
     expect(categories.map((s) => Number.parseInt(s, 10))).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
     for (const c of categories) expect(c, c.split("\n")[0]).toMatch(/\]\((https:\/\/|\/)/);
     const differ = sections.find((s) => s.startsWith("How we differ"));
-    expect(differ).toContain("Pending D-001");
+    expect(differ).toContain("Not a new rating");
+    expect(differ).not.toContain("Pending");
   });
 
   it("explains every required glossary term and records review status (FR8)", () => {
