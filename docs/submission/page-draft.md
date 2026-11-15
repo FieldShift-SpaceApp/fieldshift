@@ -20,7 +20,7 @@ Every other bracket has been removed. These six placeholders remain, each in cap
 ## How to use this draft
 
 - Paste only the text **inside each "Paste" block**. "Notes (do not paste)" are for the team.
-- **Links (team lead's decision, 15 November):** https://fieldshift-spaceapp.vercel.app is now the **farmer-facing app** (the product; routes `/start`, `/`, `/soil-level`, `/rotations`, `/my-farm`, `/globe`, `/sources`, `/about`). The earlier pipeline pages (`/data-methods`, `/glossary`, `/sites/cruz-alta`) stay online at https://fieldshift-data.vercel.app. The farmer-facing app's **source code is still private**: do not link its repository; field 4 says "app source to be published" with `[APP SOURCE URL]`.
+- **Links (team lead's decision, 15 November):** https://fieldshift-spaceapp.vercel.app is now the **farmer-facing app** (the product; routes `/start`, `/`, `/soil-level`, `/rotations`, `/my-farm`, `/globe`, `/sources`, `/about`). The earlier pipeline pages (`/data-methods`, `/glossary`, `/sites/cruz-alta`) stay online at https://fieldshift-data.vercel.app. The farmer-facing app's **source code is still private**: do not link its repository; field 4 now links the Stella Root source (public repository).
 - The Landsat/HLS analysis (PR #54, `analysis/residue-landsat`) is merged (`7b7ca4f`), so its numbers are written in the present tense.
 - Field 6 demo variant chosen: captions only, no synthetic voice (round 5).
 - Tense rule: present tense only for what is on `main` or published. Never leave a bracket in the submitted page.
