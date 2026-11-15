@@ -301,7 +301,7 @@ All NASA data used are open, with no restriction on use ([NASA Earth science dat
 
 **Notes (do not paste):**
 - Every dataset row of `RESOURCES.md` whose "Feeds" column names public code, a public data file or a public analysis is here; `candidate` rows with "—" are not, because nothing reads them. Rows marked "analysis only (fieldshift-hq)" are included only where their results are published on Data & Methods (INMET, CHIRPS).
-- Licence gaps that are **not** cosmetic (preflight R7/R8): ANA daily rain is committed (`input/ana-2853015-sep-nov-daily.csv`) while `RESOURCES.md` says "In git? check"; CONAB and NMME are "check"; the Atlas licence is not declared (only quoted counts). The page lists them honestly; the team decides whether that is enough.
+- Licences of preflight R7/R8, checked on the provider pages on 2026-11-14 (`RESOURCES.md`, PR `surgeon/licence-checks`): ANA allows reproduction with the source cited (SNIRH metadata record), so the committed gauge file stays; NMME files come from NOAA CPC (public domain; cite Kirtman et al. 2014 and acknowledge NOAA, NSF, NASA, DOE); CONAB says it is outside Decree 8.777 and its site is CC BY-ND 3.0, so only two derived values are in git; INMET: no raw files committed; Atlas: no terms found, not committed (only quoted counts). The field 8 lines above stay accurate.
 - Copernicus DEM is not used (no code or analysis reads it); do not add it.
 
 ---
