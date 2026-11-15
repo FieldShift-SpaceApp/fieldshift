@@ -1,0 +1,46 @@
+{
+ "grid": {
+  "crs": "EPSG:32722",
+  "pixel_m": 30.0,
+  "bbox_wgs84": [
+   -53.8,
+   -28.96,
+   -53.24,
+   -28.48
+  ]
+ },
+ "thresholds": {
+  "ndvi_green_min": 0.3,
+  "ndti_bare_below": 0.06
+ },
+ "selection_rule": "before: the clearest accepted Tier 1 scene of 1-15 November 1991 (asked for by the team; 1991 is also the highest year of the series, see series.csv); after: the accepted 2026 spring scene with the clearest cropland",
+ "before": {
+  "scene": "LT05_L2SP_223080_19911104_02_T1",
+  "first_item": "LT05_L2SP_223080_19911104_02_T1",
+  "date": "1991-11-04",
+  "sensor": "Landsat 5 TM",
+  "cropland_pixels_30m": 1165563,
+  "clear_cropland_pixels_30m": 1165448,
+  "clear_fraction": 1.0,
+  "pct_of_clear_cropland": {
+   "green": 61.9,
+   "straw": 18.2,
+   "bare": 20.0
+  }
+ },
+ "after": {
+  "scene": "HLS.S30.T22JBN.2026293T133231.v2.0+HLS.S30.T22JBP.2026293T133231.v2.0",
+  "first_item": "HLS.S30.T22JBN.2026293T133231.v2.0",
+  "date": "2026-10-20",
+  "sensor": "HLS S30",
+  "cropland_pixels_30m": 1165563,
+  "clear_cropland_pixels_30m": 1015473,
+  "clear_fraction": 0.871,
+  "pct_of_clear_cropland": {
+   "green": 79.3,
+   "straw": 20.4,
+   "bare": 0.3
+  }
+ },
+ "attribution": "NASA/USGS Landsat; NASA HLS; ESA WorldCover 2021 (contains modified Copernicus Sentinel data 2021); IBGE municipal mesh 2022"
+}
