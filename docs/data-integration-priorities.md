@@ -1,49 +1,85 @@
 # Data integration priorities for Cruz Alta
 
-> **SI-assisted:** drafted with ChatGPT (OpenAI) from the public FieldShift repository and the NASA Space Apps challenge brief; human and front-owner review pending (see `SI-USAGE.md`).
+> **SI-assisted:** drafted with ChatGPT (OpenAI) from the public FieldShift repository, official challenge brief, NASA/USGS/ESA product documentation; human and front-owner review pending (see `SI-USAGE.md`).
 
-## Purpose and status
+## Purpose and current status
 
-This is a data-readiness and integration recommendation for the team. It does not change the product concept, mark any candidate dataset as adopted, or claim that a source is already wired into the farmer-facing application. The challenge asks for NASA Earth observations together with local soil information, crop characteristics, and farmer priorities; the data should support comparison and explain uncertainty, not imply a guaranteed forecast. See the [official challenge brief](https://www.spaceappschallenge.org/2026/challenges/field-shift-adapting-farms-with-nasa-data/).
+This is a data-readiness and integration recommendation for the team. It does not change the product concept or mark candidate datasets as adopted. The challenge asks for NASA Earth observations with local soil information, crop characteristics, and farmer priorities. The data should help compare options and explain uncertainty, not promise a precise farm-level forecast. See the [official challenge brief](https://www.spaceappschallenge.org/2026/challenges/field-shift-adapting-farms-with-nasa-data/).
 
-The repository identifies NASA POWER as the selected climate base. It lists SMAP, GPM IMERG, Landsat/HLS, Sentinel-2, SRTM, and the NOAA products below as candidates or research/complement sources. Check the actual application read path and provenance before describing any candidate as integrated. The current Cruz Alta site input is a municipal centroid, so its outputs are regional context, not field-specific measurements.
+The repository identifies NASA POWER as the selected climate base. Its inventory marks SMAP, ECOSTRESS, GPM IMERG, Landsat/HLS, Sentinel-2, SRTM, and NOAA sources as candidate or research/complement sources. In particular, the current inventory does **not** document ECOSTRESS as an app feed: its row has no feed. Landsat/HLS are documented as analysis products. If the team has additional ECOSTRESS processing in another workspace, it should be added to the inventory with product/version, dates, method, and provenance before describing it as part of the app.
 
-## Recommended order
+The Cruz Alta site coordinate is the municipality centroid, not a farm polygon. Until a real field boundary, rotation history, and local soil information are entered, app outputs at Cruz Alta must be described as regional context.
 
-| Priority | Source | Purpose in the app | Evidence and limits | Adoption gate |
-|---|---|---|---|---|
-| 0 — required context | Farmer's field boundary, recent rotation history, soil properties, crop traits, and farmer priorities | Make comparisons specific to a field and show why each strategy fits the farmer's stated constraints | These are part of the challenge itself. Satellite pixels and a municipal centroid cannot supply a farmer's field history, soil test, or priorities. | Human-approved site and rotation inputs; agronomist review of crop assumptions. Do not present field recommendations from a municipality centroid. |
-| 1 — local weather validation | INMET stations and ANA rain gauges, compared with NASA POWER and GPM IMERG | Show observed station data and source agreement for recent rain, dry spells, and heavy-rain events; expose gaps and quality flags | The repository already documents station comparisons. IMERG matched the INMET A853 daily rain series better than POWER in that comparison, but grids and point gauges have different spatial support; the ANA gauge has a gap and a likely level shift. This is evidence for a cross-check, not proof one source is always correct. | Match timestamps and units; preserve station quality codes and missing periods; compare point-to-point and grid-to-point; do not average sources blindly. Record the IMERG product/run and access date where available. |
-| 2 — ENSO context, with uncertainty | NOAA CPC ONI/RONI history and official outlook; optionally NMME forecast skill | Give a clearly labeled large-scale climate context alongside local observations, not a local rainfall forecast or a rotation command | The team has already used ONI, CPC discussions, official CPC/IRI probabilities, and NMME in analyses and complement outputs. The forecast-skill report finds small event samples and phase errors; skill at ENSO phase is not skill at Cruz Alta rainfall or crop yield. NOAA now identifies RONI for operational monitoring while keeping ONI available for historical use. | Decide which index is used for each historical/operational view; display issue date, probability, lead, and source; preserve neutral/uncertain outcomes. Never convert an ENSO phase directly into a farm-level rain prediction. |
-| 3 — regional soil-water context | NASA SMAP L4 (surface and root-zone soil moisture) | Add a regional wet/dry context layer to help interpret a drought signal | SMAP is currently a candidate and is much coarser than a farm field (about 9 km in the resource inventory). It should not be described as a direct measurement of an individual field's root-zone moisture. | Trial against local soil-moisture observations if available; show spatial scale and retrieval/model limits; add only if it changes an explained decision comparison. |
-| 4 — crop cover and rotation evidence | NASA/USGS HLS or Landsat, with Sentinel-2 as a partner source | Show seasonal greenness, probable bare soil/residue windows, and observed land-cover timing | These sources have already been explored in analyses, but cloud gaps, revisit timing, mixed pixels, and crop-class ambiguity remain. They do not directly measure soil fertility, nitrogen fixation, or the farmer's intended rotation. Sentinel-2 is ESA Copernicus data, not NASA data. | Start with one documented indicator and ground-check examples with farmer records or field observations. Preserve scene dates, cloud masks, spatial aggregation, and uncertainty; do not infer a named crop where the evidence is ambiguous. |
-| 5 — erosion context, if used in a decision | NASADEM/SRTM elevation and derived slope | Flag terrain context that could make erosion practices worth discussing | Slope is static terrain context, not a measure of current erosion, soil loss, or storm damage. The repository has a slope analysis, but this source is not yet an app input. | Include only with an agronomist-reviewed interpretation and a locally relevant threshold; pair with rainfall/cover context rather than presenting slope as an erosion forecast. |
+## Build complementary evidence layers
+
+The sources should be aligned and shown as separate evidence layers. They measure different parts of the climate–land–crop system; combining them does not make every value more accurate automatically.
+
+| Layer | Sources to integrate or evaluate | What the layer can show | Main caveat |
+|---|---|---|---|
+| 1. Local weather and rainfall | INMET station observations, ANA gauges, NASA POWER, NASA GPM IMERG | Recent observed weather; rainfall totals and event timing; comparison of station, reanalysis-based grid, and satellite estimates | A station is a point and a satellite/reanalysis pixel is an area. Keep source series separate, expose missingness and station quality, align time zones/accumulations, and do not average blindly. |
+| 2. Climate background and outlook | NOAA CPC RONI/ONI history and official probabilities; NMME or NASA GEOS-S2S forecast evidence; seasonal climatology | ENSO state and dated large-scale outlook context, alongside forecast lead and historical skill | ENSO phase is not a local rainfall forecast. The team's own forecast-skill analysis reports small event samples and phase errors. Keep probability, issue date, lead, and uncertainty visible. |
+| 3. Vegetation and surface cover | Landsat/HLS and Sentinel-2 surface reflectance; NDVI/EVI, residue/bare-soil indicators | Green cover, seasonal vegetation dynamics, possible residue or bare-soil windows, and crop-calendar clues | Optical imagery has cloud/revisit gaps and mixed pixels. Sentinel-2 is ESA Copernicus data and has no thermal bands; vegetation indices do not directly measure fertility, nitrogen fixation, or a farmer's intended crop. |
+| 4. Thermal stress at the surface | NASA ECOSTRESS LST&E; Landsat Collection 2 Surface Temperature; optionally MODIS MOD11A1 for regional context | Clear-sky surface-temperature patterns and anomalies. Compare with vegetation cover and weather to investigate possible water/heat stress | Satellite land-surface temperature is not air temperature or a direct leaf thermometer. Pixels can mix canopy and exposed soil. ECOSTRESS is 70 m with variable acquisition times/coverage; Landsat thermal measurements are natively coarser than the 30 m grid in which products may be delivered; clouds and overpass timing leave gaps. MODIS is about 1 km, useful for broader daily day/night context, not small fields. |
+| 5. Soil-water context | NASA SMAP L4 surface/root-zone soil-moisture analysis; local soil moisture or agronomic observations where available | Regional wet/dry context to interpret rainfall and thermal signals | SMAP's roughly 9 km grid is much larger than a field; L4 is an analysis product, not a direct point measurement of the farm's root zone. |
+| 6. Soil and terrain context | Local soil test and farmer/agronomist records; Brazilian soil sources; NASADEM/SRTM slope where useful | Soil constraints and terrain context relevant to water retention, crop options, and erosion practices | Terrain slope alone does not measure erosion. Regional soil maps do not replace a field soil test. |
+| 7. Rotation outcome and farmer feedback | Farmer's recent rotation, planting/harvest dates, crop observations and end-of-season feedback | Compare the current system with at least two alternatives and record what worked for that farmer | Satellite classification cannot reliably reconstruct every crop or management decision. Keep farmer-reported records distinct from remote-sensing estimates. |
+
+## Thermal layer: recommended interpretation
+
+Treat ECOSTRESS as a **high-resolution, opportunistic surface-temperature observation**, not the only or automatically “best” measure of leaf temperature. NASA's product documentation describes L2 LST&E at a 70 m grid with temporal resolution that varies. Its different acquisition times can help examine surface conditions at different times of day, but the irregular coverage means it cannot provide a continuous daily farm forecast. Compare quality flags, cloud mask, acquisition time, and LST error where available.
+
+Use Landsat Collection 2 Surface Temperature as a historical and spatial complement. USGS notes that the thermal measurements are acquired at 100 m and can be resampled to 30 m to match multispectral bands. A 30 m output cell therefore does not mean a 30 m independent thermal measurement. Collection 2 also documents known issues, including missing emissivity support and errors where vegetation changed substantially between the ASTER emissivity baseline and the Landsat scene.
+
+Sentinel-2 can contribute optical vegetation indicators such as NDVI, but not temperature. MODIS daily LST products provide day/night, clear-sky regional context at about 1 km. Choose between them by the question: ECOSTRESS for irregular finer-scale thermal snapshots, Landsat for a longer scene-based record, and MODIS for broader temporal context.
+
+To interpret a hot surface, compare the same location and crop stage with:
+- air temperature, humidity, wind and incoming radiation from ground observations and NASA POWER;
+- recent rainfall from INMET/ANA and GPM IMERG;
+- vegetation/cover state from Landsat/HLS or Sentinel-2;
+- regional soil-water context from SMAP; and
+- field notes or soil measurements when available.
+
+Do not collapse these into a single “stress score” until the team has chosen a method, checked it against field evidence, and documented uncertainty. A hot pixel may represent bare soil, crop residue, stressed vegetation, or a mixture.
+
+## Recommended implementation order
+
+1. **Resolve field context first:** obtain a field polygon, recent rotation history, soil data, crop assumptions, and farmer priorities. Have an agronomist review crop-specific interpretations.
+2. **Expose local weather validation:** put INMET/ANA observations beside POWER and GPM IMERG with date coverage, quality flags, missingness, units, time conventions, spatial support, and source links. The existing comparison found IMERG tracked daily INMET A853 rainfall better than POWER in that one comparison, but this is not proof that IMERG is universally best.
+3. **Add a dated climate-context panel:** show NOAA's operational ENSO outlook and the historical index used in analysis, with issue date, lead, probability, skill context, and uncertainty. Do not turn ENSO state directly into a local rainfall or crop-loss prediction.
+4. **Prototype the thermal–vegetation view:** use one ECOSTRESS or Landsat surface-temperature product with a vegetation/cover layer and quality masking. Compare candidate scenes to weather observations and field notes before showing a stress interpretation.
+5. **Add SMAP only as regional context:** show its footprint and analysis-product status, and test whether it adds useful information beyond rainfall and the thermal/vegetation view.
+6. **Add terrain and other datasets only when they change a farmer-facing comparison.** Update `RESOURCES.md`, methods, provenance, and the application read path in the same reviewed change. Shared contract changes require approval from their consumers under `AGENTS.md`.
+
+## Where oceanography and climatology expertise adds value
+
+The oceanography/climatology contribution can strengthen the scientific layer by:
+- separating climate modes (ENSO) from regional weather and field-scale impacts;
+- describing forecast horizon, issue date, and uncertainty rather than presenting one deterministic forecast;
+- checking seasonal and short-to-medium outlook skill against observed outcomes and a simple baseline;
+- defining comparable event windows (for example, heat, dry spells, heavy-rain periods) and connecting them to crop stage without claiming causation;
+- checking surface observations against station data, and noting when a grid/pixel cannot resolve a farm;
+- documenting how radiation, humidity, wind and rainfall shape surface temperature and evaporative demand; and
+- explaining to farmers what each layer observes, its spatial/temporal scale, and what it cannot tell them.
 
 ## Defer for this Brazil prototype
 
-- U.S.-specific services and maps in the challenge resource list (USDA CDL, WSS/SSURGO, PRISM, NAIP, NLCD, CoCoRaHS, USGS NWIS, AMS, NASS, and LANDFIRE) do not cover Cruz Alta in a way that supports the current use case. Use Brazilian equivalents, such as INMET, ANA, IBGE, MAPA/ZARC, Embrapa, and locally collected soil data.
-- ECOSTRESS, GLDAS, ERA5, and additional overlapping vegetation products should wait until a named app decision needs them and the team can validate their scale, timing, and incremental value.
-- Do not add a dataset only to increase the NASA-data count. The source must change a visible comparison or explain a limitation.
-
-## Implementation sequence and checks
-
-1. Resolve human-owned project and site inputs first: finalize the concept gate, select a real field boundary, enter the recent rotation, soil information, crop assumptions, and farmer priorities. The current Cruz Alta centroid is not a substitute.
-2. Promote the existing ground-check work into a small, transparent comparison view: station observations beside POWER and IMERG, with date coverage, missingness, station quality, units, spatial support, and source links. Keep raw sources distinct.
-3. Keep ENSO as a dated probability/context panel. Reconcile the historical ONI classification with NOAA's current RONI operational guidance; retain forecast lead and uncertainty.
-4. Evaluate SMAP only as a coarse regional water-context layer. Evaluate HLS/Landsat and Sentinel-2 for cover/residue observations, with field examples and cloud/scene metadata.
-5. Add SRTM slope only if an erosion-related choice is explicitly supported in the farmer workflow.
-6. For every adopted source, update `RESOURCES.md`, the method page, contracts/provenance as needed, and the application read path in the same reviewed change. Any shared contract change needs approval from its consumers under `AGENTS.md`.
-
-## Inventory follow-up
-
-The `RESOURCES.md` GPM IMERG row describes IMERG as a candidate and says it is not yet in the app, while part of its Feeds text describes a share “shown in the farmer-facing app.” Reconcile that wording against the current UI/read path before the team claims IMERG is live. This document intentionally leaves the candidate status unchanged.
+- U.S.-specific products in the challenge resource list (USDA CDL, WSS/SSURGO, PRISM, NAIP, NLCD, CoCoRaHS, USGS NWIS, AMS, NASS, and LANDFIRE) do not fit Cruz Alta. Prefer Brazilian sources such as INMET, ANA, IBGE, MAPA/ZARC, Embrapa, and farm-level soil data.
+- Add ECOSTRESS, SMAP, Landsat/HLS, Sentinel-2, or SRTM to the app only after verifying the actual data path, product/version, coverage, scale, quality flags, and how it changes an explained comparison. Do not add layers merely to increase the dataset count.
+- The GPM IMERG row in `RESOURCES.md` marks it as a candidate/not yet in the app, while part of its Feeds text says a share is “shown in the farmer-facing app.” Reconcile that statement against the app's actual read path before claiming it is live.
 
 ## References
 
-- [NASA POWER method and source inventory](../RESOURCES.md)
-- [Satellite and ground station comparison](../content/methods/satellite-vs-ground.md)
-- [ENSO heavy-rain method and limitations](../content/methods/enso-heavy-rain.md)
-- [ENSO forecast-skill method and limitations](../content/methods/enso-forecast-skill.md)
-- [NOAA CPC ONI / ERSSTv5 historical table and RONI notice](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v5/)
-- [NASA SMAP L4 product search](https://search.earthdata.nasa.gov/search?q=SPL4SMGP)
+- [NASA Space Apps challenge brief](https://www.spaceappschallenge.org/2026/challenges/field-shift-adapting-farms-with-nasa-data/)
+- [Project source inventory](../RESOURCES.md)
+- [Satellite and ground-station comparison](../content/methods/satellite-vs-ground.md)
+- [ENSO heavy-rain method and limits](../content/methods/enso-heavy-rain.md)
+- [ENSO forecast-skill method and limits](../content/methods/enso-forecast-skill.md)
+- [NASA ECOSTRESS LST&E product (70 m; variable temporal resolution)](https://doi.org/10.5067/ECOSTRESS/ECO_L2G_LSTE.002)
+- [ECOSTRESS product documentation](https://ecostress.jpl.nasa.gov/data/atbds-summary-table)
+- [USGS Landsat Collection 2 Surface Temperature](https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-temperature)
+- [USGS Landsat 8-9 instrument thermal-band sampling](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-operational-land)
+- [ESA Sentinel-2 MSI instrument](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Instrument)
+- [NASA/LP DAAC MODIS daily LST guide](https://lpdaac.usgs.gov/documents/118/MOD11_User_Guide_V6.pdf)
+- [NASA SMAP L4 product description](https://smap.jpl.nasa.gov/files/smap2/smap_handbook_web.pdf)
 - [NASA GPM IMERG](https://gpm.nasa.gov/data/imerg)
+- [NOAA CPC ONI/RONI information](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v5/)
