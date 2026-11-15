@@ -271,3 +271,33 @@ def computed(
         limitations=[t(x) for x in limitations],
         attribution=attribution,
     )
+
+
+def split_by_metric(
+    summary: Provenance,
+    metrics: list[tuple[str, str, str, str]],
+    *,
+    code: str,
+    name: str,
+) -> list[Provenance]:
+    """One computed record per metric `(key, code, name, unit)`, each with its own unit, plus the
+    summary record a document block points to (unit "1"), whose inputs are those metric records.
+    A provenance record carries a single unit, so one record must not stand for days, mm and a
+    count at once."""
+    parts = [
+        summary.model_copy(
+            update={
+                "id": f"{summary.id}:{key}",
+                "title": t(f"{summary.title.en}: {m_name}"),
+                "variable": ProvenanceVariable(code=m_code, name=t(m_name), unit=unit),
+            }
+        )
+        for key, m_code, m_name, unit in metrics
+    ]
+    head = summary.model_copy(
+        update={
+            "variable": ProvenanceVariable(code=code, name=t(name), unit="1"),
+            "inputs": [r.id for r in parts],
+        }
+    )
+    return [*parts, head]

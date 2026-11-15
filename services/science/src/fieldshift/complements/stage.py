@@ -20,7 +20,14 @@ from fieldshift.complements import now as now_mod
 from fieldshift.complements import provenance as cp
 from fieldshift.complements.baresoil import build_bare_soil
 from fieldshift.complements.oni import SEASONS, OniFile, load_oni
-from fieldshift.complements.rain_signal import GAUGE_INPUT, build_rain_signal, load_gauge
+from fieldshift.complements.rain_signal import (
+    FIRST_YEAR,
+    GAUGE_INPUT,
+    LAST_YEAR,
+    build_rain_signal,
+    load_gauge,
+    window_days,
+)
 from fieldshift.complements.replay import build_replay
 from fieldshift.complements.scorecard import INPUT as FORECASTS
 from fieldshift.complements.scorecard import build_scorecard, load_forecasts
@@ -61,13 +68,49 @@ def oni_period(oni: OniFile) -> Period:
     return Period(start=bounds(keys[0])[0].isoformat(), end=bounds(keys[-1])[1].isoformat())
 
 
+def history_days() -> list[date]:
+    """Every day the rain documents read from the POWER history: September-November of
+    FIRST_YEAR..LAST_YEAR of the heavy-rain signal (the now-2026 climatology is inside it)."""
+    return [d for y in range(FIRST_YEAR, LAST_YEAR + 1) for d in window_days(y)]
+
+
 def power_rain(data_dir: Path, site_id: str, lat: float, lon: float) -> dict:
-    """PRECTOTCORR of the main POWER cache (`fetch power`), the history of every rain document."""
-    caches = sorted((data_dir / "cache" / "power" / site_id).glob("daily_*.json"))
+    """PRECTOTCORR of the main POWER cache (`fetch power`), the history of every rain document.
+
+    The cache is chosen by what each file holds, never by its name: a cache counts only when
+    PRECTOTCORR has a value on every day of `history_days()`. Among those, the one with the most
+    valid days wins; two equally large caches must agree on every needed day, else it fails.
+    """
+    folder = data_dir / "cache" / "power" / site_id
+    caches = sorted(folder.glob("daily_*.json"))
     if not caches:
-        raise PipelineError(f"no NASA POWER cache for {site_id}; run `fieldshift fetch power`")
-    raw = power.parse(json.loads(caches[-1].read_text(encoding="utf-8")), lat=lat, lon=lon)
-    return raw.daily["PRECTOTCORR"]
+        raise PipelineError(f"no NASA POWER cache in {folder}; run `fieldshift fetch power`")
+    need = history_days()
+    full: list[tuple[int, Path, dict]] = []
+    short: list[str] = []
+    for path in caches:
+        rain = power.parse(json.loads(path.read_text(encoding="utf-8")), lat=lat, lon=lon).daily[
+            "PRECTOTCORR"
+        ]
+        missing = [d for d in need if rain.get(d) is None]
+        if missing:
+            short.append(f"{path} ({len(missing)} days missing, first {missing[0]})")
+        else:
+            full.append((sum(1 for v in rain.values() if v is not None), path, rain))
+    if not full:
+        raise PipelineError(
+            f"no NASA POWER cache covers September-November {FIRST_YEAR}-{LAST_YEAR} for "
+            f"{site_id}: {'; '.join(short)}"
+        )
+    best = max(n for n, _, _ in full)
+    top = [(p, r) for n, p, r in full if n == best]
+    for p, r in top[1:]:
+        if any(r[d] != top[0][1][d] for d in need):
+            raise PipelineError(
+                f"NASA POWER caches {top[0][0]} and {p} cover the same days with different "
+                "PRECTOTCORR values; keep one of them"
+            )
+    return top[0][1]
 
 
 def run_complements(site_id: str, *, data_dir: Path, offline: bool = False) -> ComplementOutputs:
@@ -96,9 +139,10 @@ def run_complements(site_id: str, *, data_dir: Path, offline: bool = False) -> C
         cache_root=data_dir / "cache",
         offline=offline,
     )
+    history = power_rain(data_dir, site_id, site.lat, site.lon)
     rain, recs = build_rain_signal(
         site_id,
-        power_rain(data_dir, site_id, site.lat, site.lon),
+        history,
         imerg,
         load_gauge(inp / GAUGE_INPUT),
         oni,
@@ -109,7 +153,7 @@ def run_complements(site_id: str, *, data_dir: Path, offline: bool = False) -> C
     now_doc, recs = now_mod.build_now(
         site,
         power.fetch(*now_args, cache_root=now_cache, offline=offline),
-        power_rain(data_dir, site_id, site.lat, site.lon),
+        history,
         power_imerg.fetch(*now_args, cache_root=now_cache, offline=offline),
         imerg,
         oni,

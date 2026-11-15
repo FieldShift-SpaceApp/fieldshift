@@ -83,6 +83,29 @@ def _stats(phase: str, done: list[tuple[float, int]]) -> PhaseRainStats:
     )
 
 
+def climatology_values(sid: str, history: Daily, end: date, phases: dict) -> dict[int, list[float]]:
+    """The same calendar days of every climatology year. Fails when one year lacks a value or an
+    ONI phase: a smaller climatology would change every phase mean without saying so."""
+    past: dict[int, list[float]] = {}
+    gaps: list[int] = []
+    for y in range(CLIM_FIRST, CLIM_LAST + 1):
+        if (SEASON, y) not in phases:
+            raise PipelineError(f"{sid}: no ONI {SEASON} phase for {y}")
+        v = window_values(history, same_days(y, START, end))
+        if v is None:
+            gaps.append(y)
+        else:
+            past[y] = v
+    if gaps:
+        raise PipelineError(
+            f"{sid}: the history lacks values on {START:%m-%d}..{end:%m-%d} of {gaps}; the "
+            f"{CLIM_FIRST}-{CLIM_LAST} climatology must be complete"
+        )
+    if missing := [y for y in COMPARE_YEARS if y not in past]:
+        raise PipelineError(f"{sid}: comparison years {missing} outside the climatology")
+    return past
+
+
 def source_block(
     sid: str,
     label: str,
@@ -98,10 +121,7 @@ def source_block(
     assert vals is not None
     wet = max(range(len(vals)), key=lambda i: vals[i])
 
-    past: dict[int, list[float] | None] = {
-        y: window_values(history, same_days(y, START, end))
-        for y in range(CLIM_FIRST, CLIM_LAST + 1)
-    }
+    past = climatology_values(sid, history, end, phases)
     by_phase = []
     for p in PHASES:
         done = [
@@ -303,52 +323,68 @@ def build_now(
     clim = [phases[(SEASON, y)] for y in range(CLIM_FIRST, CLIM_LAST + 1)]
     counts = {p: clim.count(p) for p in PHASES}
 
-    def comp(key: str, label: str, upstream: list[str], attribution: list) -> str:
+    def comp(key: str, label: str, upstream: list[str], attribution: list, end: date) -> str:
+        """Records of one source; `end` is the last day of its window (its own cut-off)."""
         rid = f"prov:computed:{site_id}:now-{YEAR}:{key}"
-        records.append(
-            cp.computed(
-                rid=rid,
-                title=f"Rain of September-November {YEAR} so far against the same days of "
-                f"{CLIM_FIRST}-{CLIM_LAST} by ENSO phase, {label}",
-                code="rain_season_to_date",
-                name="Window total; days with rain >= 50 mm",
-                unit="mm",
-                period=Period(start=f"{CLIM_FIRST}-09-01", end=CUTOFF.isoformat()),
-                resolution="site point",
-                support="containing_pixel",
-                temporal="daily",
-                aggregation=f"{YEAR}: sum and count of days >= 50 mm from September 1 to the last "
-                "day with a value in the source; each past year over the same calendar days "
-                "(complete windows only); per phase: mean and median over the years of that "
-                "phase; per month: mean of the same days over all past years.",
-                method="now-2026 v1",
-                doc_anchor=DOC_ANCHOR,
-                ref=Ref(
-                    label="NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive "
-                    "overlapping seasons)",
-                    url="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/"
-                    "ONI_v5.php",
-                ),
-                parameters={
-                    "window_start": START.isoformat(),
-                    "cutoff": CUTOFF.isoformat(),
-                    "phase_season": SEASON,
-                    "heavy_rain_mm": HEAVY_MM,
-                    "climatology_years": f"{CLIM_FIRST}-{CLIM_LAST}",
-                    "compare_years": ",".join(str(y) for y in COMPARE_YEARS),
-                },
-                inputs=[*upstream, cp.oni_prov_id(site_id)],
-                limitations=[
-                    f"{counts['el_nino']} El Niño, {counts['la_nina']} La Niña and "
-                    f"{counts['neutral']} neutral springs in {CLIM_FIRST}-{CLIM_LAST}: one wet "
-                    "year moves a phase mean.",
-                    "A part of the season: the comparison holds only for the same calendar days; "
-                    "the rest of November can still change the totals.",
-                    f"Rain is measured; its effect on the {YEAR} wheat is not (see `reported`).",
-                ],
-                attribution=attribution,
-            )
+        summary = cp.computed(
+            rid=rid,
+            title=f"Rain of September-November {YEAR} so far against the same days of "
+            f"{CLIM_FIRST}-{CLIM_LAST} by ENSO phase, {label}",
+            code="rain_season_to_date",
+            name="Window total, days with rain >= 50 mm and climatology years",
+            unit="1",
+            period=Period(start=f"{CLIM_FIRST}-09-01", end=end.isoformat()),
+            resolution="site point",
+            support="containing_pixel",
+            temporal="daily",
+            aggregation=f"{YEAR}: sum and count of days >= 50 mm from September 1 to the last "
+            "day with a value in the source; each past year over the same calendar days "
+            "(complete windows only); per phase: mean and median over the years of that "
+            "phase; per month: mean of the same days over all past years.",
+            method="now-2026 v1",
+            doc_anchor=DOC_ANCHOR,
+            ref=Ref(
+                label="NOAA CPC, ENSO operational definition (ONI >= +/-0.5 for 5 consecutive "
+                "overlapping seasons)",
+                url="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/"
+                "ONI_v5.php",
+            ),
+            parameters={
+                "window_start": START.isoformat(),
+                "cutoff": CUTOFF.isoformat(),
+                "window_end": end.isoformat(),
+                "window_days": (end - START).days + 1,
+                "climatology_complete_years": CLIM_LAST - CLIM_FIRST + 1,
+                "phase_season": SEASON,
+                "heavy_rain_mm": HEAVY_MM,
+                "climatology_years": f"{CLIM_FIRST}-{CLIM_LAST}",
+                "compare_years": ",".join(str(y) for y in COMPARE_YEARS),
+            },
+            inputs=[*upstream, cp.oni_prov_id(site_id)],
+            limitations=[
+                f"{counts['el_nino']} El Niño, {counts['la_nina']} La Niña and "
+                f"{counts['neutral']} neutral springs in {CLIM_FIRST}-{CLIM_LAST}: one wet "
+                "year moves a phase mean.",
+                "A part of the season: the comparison holds only for the same calendar days; "
+                "the rest of November can still change the totals.",
+                f"Rain is measured; its effect on the {YEAR} wheat is not (see `reported`).",
+            ],
+            attribution=attribution,
         )
+        records.extend(
+            cp.split_by_metric(
+                summary,
+                [
+                    ("total", "rain_total_season_to_date", "Window total", "mm"),
+                    ("heavy-days", "heavy_rain_days_season_to_date", "Days with rain >= 50 mm",
+                     "days"),
+                    ("n-years", "climatology_years", "Past years with the same days complete",
+                     "count"),
+                ],
+                code=summary.variable.code,
+                name=summary.variable.name.en,
+            )
+        )  # fmt: skip
         return rid
 
     prec = power_now_record(site, power_now)
@@ -366,6 +402,7 @@ def build_now(
                 "NASA POWER",
                 [prec.id, power_prov_id(site_id, "PRECTOTCORR")],
                 [cp.NASA_POWER, cp.NOAA_ONI],
+                last_valid_day(power_now.daily["PRECTOTCORR"], START, CUTOFF),
             ),
         )
     )
@@ -385,6 +422,7 @@ def build_now(
                 "GPM IMERG",
                 [irec.id, f"prov:imerg:{site_id}:imerg_prectot:daily"],
                 [cp.NASA_IMERG, cp.NOAA_ONI],
+                im_end,
             ),
         )
     )
