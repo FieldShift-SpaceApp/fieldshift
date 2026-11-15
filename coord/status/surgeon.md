@@ -41,5 +41,5 @@ Contract changes: none
 Done: completed a preliminary 2024 rainfall and temperature station-to-grid check for the seven confirmed municipalities; added pair counts, bias, MAE, correlation, wet-day counts and station distances to the audit and CSV. Confirmed a shared 40-date IMERG gap across all seven points, including all of May 2024, and documented that missing values must never be shown as 0 mm. PR #77 contains the handoff.
 Next: human review of station suitability, UTC day alignment and contingency-source wording in PR #77; if accepted, package a reproducible analysis and extend validation across common historical station years. No app or rotation-performance claim was made.
 Blocked by: none.
-Needs from others: review requested in PR #77.
+Needs from others: FLIGHT: add the separate AI-use log entry for this validation work (issue #78); human review of station suitability, day alignment and fallback wording in PR #77.
 Contract changes: none
