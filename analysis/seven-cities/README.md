@@ -109,7 +109,7 @@ uv run --no-project --with pandas python fetch_inputs.py all          # slow: 14
 
 ### Re-download check
 
-Run of 2026-11-15 (`fetch_inputs.py all`, no account): the fresh downloads are **identical** to the committed inputs for all seven municipalities. NASA POWER (Tmax, Tmin, Tmean, relative humidity, wind at 2 m, radiation): 9,131 days per point, largest difference 0.00. GPM IMERG V07 via ClimateSERV: 9,091 days with data in both per point (about 0.4% of days have no IMERG value), largest difference 0.00 mm. So the whole chain for C1, C2 and C4 is reproducible anonymously, from the public services to the pass/fail result.
+Run of 2026-11-15 (`fetch_inputs.py all`, no account): the fresh downloads are **identical** to the committed inputs for all seven municipalities. NASA POWER (Tmax, Tmin, Tmean, relative humidity, wind at 2 m, radiation): 9,131 days per point, largest difference 0.00. GPM IMERG V07 via ClimateSERV: 9,091 days with data in both per point (about 0.4% of days have no IMERG value), largest difference 0.00 mm. So the whole chain for C1, C2 and C4 is reproducible anonymously, from the public services to the pass/fail result. A separate 2024 station spot check and time-clustered IMERG gap audit are documented in [`docs/seven-cities-weather-audit.md`](../../docs/seven-cities-weather-audit.md).
 
 ## Limitations
 
