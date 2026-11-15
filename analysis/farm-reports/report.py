@@ -39,6 +39,7 @@ from common import (  # noqa: E402
     NDVI_GREEN,
     ROOT,
     FarmIndex,
+    area,
     raw_dir,
     read_json,
     write_json,
@@ -624,6 +625,7 @@ def main() -> None:
                 timing[f"scenes_{step}_seconds_last_run"] = read_json(p)["seconds"]
     g = read_json(raw / "grid.json")
     car = read_json(raw / "car_access.json")
+    ar = area(a.ibge)
     out = {
         "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "what": "Satellite-side pre-check of the ZarcNM soybean management level (IN SPA/MAPA 2/2025) for every "
@@ -640,8 +642,9 @@ def main() -> None:
             "note": "CAR is self-declared; outlines overlap and are mostly not yet analysed by the state agency",
         },
         "sources": {
-            "landsat": "NASA/USGS Landsat Collection 2 Level-2 (TM, ETM+, OLI, OLI-2), WRS-2 223/080 and 222/080",
-            "hls": "NASA HLS v2.0 L30 and S30 (LP DAAC), tiles T22JBP/T22JBN",
+            "landsat": "NASA/USGS Landsat Collection 2 Level-2 (TM, ETM+, OLI, OLI-2), WRS-2 "
+            + " and ".join(f"{p}/{r}" for p, r in sorted(ar["landsat_path_rows"], reverse=True)),
+            "hls": "NASA HLS v2.0 L30 and S30 (LP DAAC), tiles " + "/".join(sorted(ar["hls_tiles"], reverse=True)),
             "nasadem": g["nasadem_items"],
             "worldcover": g["worldcover_items"],
             "access": "Microsoft Planetary Computer STAC, anonymous",
@@ -659,8 +662,8 @@ def main() -> None:
                 "signature_rule": f">= {int(ind.SIGNATURE_SHARE * 100)}% of the farm's clear cropland probable bare "
                 f"soil in one scene (sensitivity {ind.SIGNATURE_SENSITIVITY})",
             },
-            "winter": "rules of analysis/rotation-fingerprint (HLS T22JBP, 1 Apr - 30 Nov, half-month medians, "
-            "2020-2026); diversity on the 2023-2025 winters",
+            "winter": f"rules of analysis/rotation-fingerprint (HLS {ar['winter_tile']}, 1 Apr - 30 Nov, half-month "
+            "medians, 2020-2026); diversity on the 2023-2025 winters",
             "slope": "NASADEM 30 m, percent slope; mean over the farm's cropland",
             "nm_range": "zarcnm_rules.classify over every combination of the observed level ranges, the three soil "
             "indicators at level 4 (or 3); contour assumed confirmed; literal 'consecutive soybean' reading at the "

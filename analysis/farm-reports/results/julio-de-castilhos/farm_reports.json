@@ -1,0 +1,466 @@
+{
+ "generated_at": "2026-11-15T17:04:32Z",
+ "what": "Satellite-side pre-check of the ZarcNM soybean management level (IN SPA/MAPA 2/2025) for every rural property of the municipality in the CAR. Pre-check, not a certificate; never a final NM.",
+ "municipality": {
+  "name": "Júlio de Castilhos (RS)",
+  "ibge": "4311205"
+ },
+ "privacy": "No owner name, CPF, CNPJ or CAR code is stored in this repository; the CAR layer has no personal fields and its code is replaced by a sequential number kept outside git. Only aggregates and one rounded anonymous example are published.",
+ "car": {
+  "source": "SFB / SICAR public GeoServer (WFS), layer sicar:sicar_imoveis_<uf>",
+  "accessed_utc": "2026-11-15T16:49:03Z",
+  "records_returned": 1917,
+  "active_records": 1906,
+  "note": "CAR is self-declared; outlines overlap and are mostly not yet analysed by the state agency"
+ },
+ "sources": {
+  "landsat": "NASA/USGS Landsat Collection 2 Level-2 (TM, ETM+, OLI, OLI-2), WRS-2 223/080 and 222/080",
+  "hls": "NASA HLS v2.0 L30 and S30 (LP DAAC), tiles T22JBP/T22JBN",
+  "nasadem": [
+   "NASADEM_HGT_s30w055",
+   "NASADEM_HGT_s30w054",
+   "NASADEM_HGT_s29w055",
+   "NASADEM_HGT_s29w054"
+  ],
+  "worldcover": [
+   "ESA_WorldCover_10m_2021_v200_S30W057",
+   "ESA_WorldCover_10m_2021_v200_S30W054"
+  ],
+  "access": "Microsoft Planetary Computer STAC, anonymous"
+ },
+ "method": {
+  "pixel_classes": "green NDVI >= 0.3; straw NDVI < 0.3 and NDTI >= 0.06; probable bare soil NDVI < 0.3 and NDTI < 0.06 (analysis/residue-landsat)",
+  "embrapa_ruler": "C = -10275.5 * NDTI^2 + 2265.4 * NDTI + -27.76, flat at 97.1% above NDTI 0.110, clipped to 0-100",
+  "straw_now_windows": {
+   "2026": [
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-31",
+    "2026-11-02",
+    "2026-11-05",
+    "2026-11-12"
+   ],
+   "2025": [
+    "2025-10-08",
+    "2025-10-09",
+    "2025-10-13",
+    "2025-10-15",
+    "2025-10-21",
+    "2025-10-23",
+    "2025-10-31",
+    "2025-11-01",
+    "2025-11-02",
+    "2025-11-04",
+    "2025-11-09",
+    "2025-11-10",
+    "2025-11-15",
+    "2025-11-18",
+    "2025-11-20",
+    "2025-11-24",
+    "2025-11-25",
+    "2025-11-26",
+    "2025-11-27"
+   ]
+  },
+  "bare_series": {
+   "window": "20 Oct - 20 Nov, every year 1984-2026",
+   "years_with_data": [
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "scenes_used": 157,
+   "scenes_found": 325,
+   "signature_rule": ">= 25% of the farm's clear cropland probable bare soil in one scene (sensitivity (0.1, 0.5))"
+  },
+  "winter": "rules of analysis/rotation-fingerprint (HLS T22JBN, 1 Apr - 30 Nov, half-month medians, 2020-2026); diversity on the 2023-2025 winters",
+  "slope": "NASADEM 30 m, percent slope; mean over the farm's cropland",
+  "nm_range": "zarcnm_rules.classify over every combination of the observed level ranges, the three soil indicators at level 4 (or 3); contour assumed confirmed; literal 'consecutive soybean' reading at the lower end when most winters were fallow"
+ },
+ "results": {
+  "farms_active": 1906,
+  "farms_with_cropland": 1818,
+  "farms_assessed": 1527,
+  "farms_not_assessed": {
+   "missing satellite indicator(s): C": 58,
+   "missing satellite indicator(s): T, C, D": 14,
+   "missing satellite indicator(s): T": 161,
+   "missing satellite indicator(s): T, C": 40,
+   "missing satellite indicator(s): T, D": 18
+  },
+  "by_band_if_soil_level4": {
+   "NM4": {
+    "farms": 1109,
+    "declared_area_ha": 142293,
+    "cropland_ha": 94171
+   },
+   "NM3-NM4": {
+    "farms": 350,
+    "declared_area_ha": 36770,
+    "cropland_ha": 24651
+   },
+   "NM3": {
+    "farms": 49,
+    "declared_area_ha": 4192,
+    "cropland_ha": 2514
+   },
+   "NM2": {
+    "farms": 17,
+    "declared_area_ha": 752,
+    "cropland_ha": 603
+   },
+   "NM1-NM4": {
+    "farms": 2,
+    "declared_area_ha": 110,
+    "cropland_ha": 94
+   },
+   "no cropland": {
+    "farms": 88,
+    "declared_area_ha": 1181,
+    "cropland_ha": 0
+   },
+   "not assessed": {
+    "farms": 291,
+    "declared_area_ha": 6428,
+    "cropland_ha": 2622
+   }
+  },
+  "by_ceiling_if_soil_level4": {
+   "NM4": {
+    "farms": 1461,
+    "declared_area_ha": 179173,
+    "cropland_ha": 118916
+   },
+   "NM3": {
+    "farms": 49,
+    "declared_area_ha": 4192,
+    "cropland_ha": 2514
+   },
+   "NM2": {
+    "farms": 17,
+    "declared_area_ha": 752,
+    "cropland_ha": 603
+   },
+   "NM1": {
+    "farms": 0,
+    "declared_area_ha": 0,
+    "cropland_ha": 0
+   }
+  },
+  "satellite_ready_nm3_plus": {
+   "strict_whole_range_nm3_plus_if_soil_level4": {
+    "farms": 1508,
+    "declared_area_ha": 183255,
+    "cropland_ha": 121336
+   },
+   "loose_upper_end_nm3_plus_if_soil_level4": {
+    "farms": 1510,
+    "declared_area_ha": 183365,
+    "cropland_ha": 121430
+   },
+   "strict_if_soil_level3": {
+    "farms": 1468,
+    "declared_area_ha": 176246,
+    "cropland_ha": 117808
+   },
+   "note": "if the three soil tests (V%, Ca, m%) come back at the stated level and contour sowing is confirmed where the mean slope is >= 3%; never a final NM"
+  },
+  "by_size_class": {
+   "small": {
+    "all": {
+     "farms": 1579,
+     "declared_area_ha": 66615,
+     "cropland_ha": 45080
+    },
+    "assessed": {
+     "farms": 1207,
+     "declared_area_ha": 60988,
+     "cropland_ha": 43621
+    },
+    "by_ceiling": {
+     "NM4": {
+      "farms": 1150,
+      "declared_area_ha": 59103,
+      "cropland_ha": 42220
+     },
+     "NM3": {
+      "farms": 41,
+      "declared_area_ha": 1337,
+      "cropland_ha": 946
+     },
+     "NM2": {
+      "farms": 16,
+      "declared_area_ha": 548,
+      "cropland_ha": 455
+     },
+     "NM1": {
+      "farms": 0,
+      "declared_area_ha": 0,
+      "cropland_ha": 0
+     }
+    },
+    "ready_nm3_plus_strict": {
+     "farms": 1189,
+     "declared_area_ha": 60330,
+     "cropland_ha": 43072
+    }
+   },
+   "medium": {
+    "all": {
+     "farms": 262,
+     "declared_area_ha": 71487,
+     "cropland_ha": 48172
+    },
+    "assessed": {
+     "farms": 256,
+     "declared_area_ha": 70113,
+     "cropland_ha": 47496
+    },
+    "by_ceiling": {
+     "NM4": {
+      "farms": 249,
+      "declared_area_ha": 68411,
+      "cropland_ha": 46435
+     },
+     "NM3": {
+      "farms": 6,
+      "declared_area_ha": 1499,
+      "cropland_ha": 913
+     },
+     "NM2": {
+      "farms": 1,
+      "declared_area_ha": 204,
+      "cropland_ha": 148
+     },
+     "NM1": {
+      "farms": 0,
+      "declared_area_ha": 0,
+      "cropland_ha": 0
+     }
+    },
+    "ready_nm3_plus_strict": {
+     "farms": 255,
+     "declared_area_ha": 69909,
+     "cropland_ha": 47348
+    }
+   },
+   "large": {
+    "all": {
+     "farms": 65,
+     "declared_area_ha": 53623,
+     "cropland_ha": 31403
+    },
+    "assessed": {
+     "farms": 64,
+     "declared_area_ha": 53016,
+     "cropland_ha": 30916
+    },
+    "by_ceiling": {
+     "NM4": {
+      "farms": 62,
+      "declared_area_ha": 51659,
+      "cropland_ha": 30261
+     },
+     "NM3": {
+      "farms": 2,
+      "declared_area_ha": 1357,
+      "cropland_ha": 655
+     },
+     "NM2": {
+      "farms": 0,
+      "declared_area_ha": 0,
+      "cropland_ha": 0
+     },
+     "NM1": {
+      "farms": 0,
+      "declared_area_ha": 0,
+      "cropland_ha": 0
+     }
+    },
+    "ready_nm3_plus_strict": {
+     "farms": 64,
+     "declared_area_ha": 53016,
+     "cropland_ha": 30916
+    }
+   }
+  },
+  "indicator_level_distribution_assessed": {
+   "T": {
+    "1": 37,
+    "1-4": 8,
+    "2": 67,
+    "3": 8,
+    "3-4": 47,
+    "4": 1360
+   },
+   "C": {
+    "3": 6,
+    "3-4": 1521
+   },
+   "D": {
+    "2": 272,
+    "3": 421,
+    "3-4": 834
+   }
+  },
+  "last_bare_signature_period_cropland_farms": {
+   "1980-1984": 6,
+   "1985-1989": 102,
+   "1990-1994": 196,
+   "1995-1999": 26,
+   "2000-2004": 10,
+   "2005-2009": 12,
+   "2010-2014": 31,
+   "2015-2019": 19,
+   "2020-2024": 97,
+   "2025-2029": 17,
+   "never (in the observed years)": 1069,
+   "no observation": 233
+  },
+  "contour_to_confirm_farms": 1527,
+  "cropland_slope_ge3_share_median": 0.891,
+  "top_fingerprints_2020_2026": {
+   "CCCCCCC": 154,
+   "CCCCCCO": 101,
+   "CCCOCCO": 41,
+   "CCOOCOO": 32,
+   "CCCOCCC": 32,
+   "CCOCCCO": 26,
+   "CCOOCCO": 26,
+   "CCTCCCC": 25
+  }
+ },
+ "example_report": {
+  "municipality": "Júlio de Castilhos (RS)",
+  "size_class": "medium",
+  "declared_area_ha_rounded": 200,
+  "cropland_ha_rounded": 170,
+  "satellite_side_nm_range_if_soil_level4": "NM4",
+  "satellite_side_nm_range_if_soil_level3": "NM3",
+  "subsidy_pct_soy_2026_pilot": {
+   "NM1": 20,
+   "NM2": 30,
+   "NM3": 35,
+   "NM4": 40
+  },
+  "contour_note": "and contour sowing confirmed",
+  "indicators": [
+   {
+    "code": "T",
+    "name": "Years without tillage",
+    "status": "satellite",
+    "level": "level 4",
+    "evidence": "last spring with a bare-soil signature: 1985 in 40 springs observed since 1984 (NASA/USGS Landsat, NASA HLS); 28-40 complete years without tillage (the lower figure counts years with no clear scene as possible tillage)"
+   },
+   {
+    "code": "C",
+    "name": "Straw cover before sowing",
+    "status": "satellite",
+    "level": "level 3-4",
+    "evidence": "2026 Oct-Nov (NASA HLS / Landsat): median cover 97% (Embrapa Doc 454 ruler); straw 100%, probable bare soil 0% of the field area seen without green canopy (49% of the cropland)"
+   },
+   {
+    "code": "D",
+    "name": "Crop diversity (last 3 years)",
+    "status": "satellite + farmer's declaration",
+    "level": "level 3",
+    "evidence": "winter fingerprint 2020-2026: CCCCTTC (T wheat-like, C cover crop, P fallow, O other); summer crop assumed soybean; level 4 also needs 4 species declared"
+   },
+   {
+    "code": "slope",
+    "name": "Slope (contour rule)",
+    "status": "satellite + field check",
+    "level": "contour sowing to confirm",
+    "evidence": "NASADEM: mean slope 6.3%, 87% of the cropland at 3% or more"
+   },
+   {
+    "code": "V%",
+    "name": "Base saturation 0-20 cm",
+    "status": "needs soil test",
+    "level": "-",
+    "evidence": "-"
+   },
+   {
+    "code": "Ca",
+    "name": "Calcium 20-40 cm",
+    "status": "needs soil test",
+    "level": "-",
+    "evidence": "-"
+   },
+   {
+    "code": "m%",
+    "name": "Aluminium saturation 20-40 cm",
+    "status": "needs soil test",
+    "level": "-",
+    "evidence": "-"
+   }
+  ],
+  "still_needed": [
+   "Soil analysis of the 0-20 cm and 20-40 cm layers by an accredited laboratory (V%, Ca, m%; valid 24 months; IN 2/2025 items 4.1-III and 7)",
+   "Confirmation of contour sowing (or sowing on the level) on at least 75% of the area where the slope is 3% or more (item 3.2.1-I)",
+   "The farmer's declaration of crops and species of the last three agricultural years (item 4.1-I and II); it can raise diversity to level 4 and corrects what the satellite misreads",
+   "Registration of the field by an accredited agent so that Embrapa's SINM issues the official level (IN 2/2025 items 3, 4.2-4.3); useful soil depth (Portaria SPA/MAPA 209/2026 item 2.4)"
+  ]
+ },
+ "processing": {
+  "step_seconds": {
+   "note": "measured on 2026-11-15 BRT (daytime), home connection; scenes_now, scenes_series and scenes_winter ran in parallel (16 threads each), started 13:52:09, last finished 14:02:31; 0 failed reads",
+   "fetch_car": 14.4,
+   "grids": 71,
+   "scenes_now": 617,
+   "scenes_series": 608,
+   "scenes_winter": 595,
+   "winter": 46,
+   "report": 21,
+   "wall_clock_minutes_parallel": 10.4,
+   "scenes_read": {
+    "now": 81,
+    "series": 325,
+    "winter": 624
+   }
+  },
+  "grid_seconds": 64.9,
+  "python": "3.12.10"
+ },
+ "attribution": "Data: NASA/USGS Landsat Collection 2 (TM, ETM+, OLI, OLI-2); NASA HLS v2.0 (L30, S30); NASADEM (NASA JPL); property outlines: CAR/SICAR, Serviço Florestal Brasileiro; cropland: ESA WorldCover 2021 (CC BY 4.0). Read via Microsoft Planetary Computer."
+}

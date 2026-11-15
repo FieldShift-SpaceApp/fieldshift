@@ -39,10 +39,31 @@ BANDS = {
     "hls2-l30": {"red": "B04", "nir": "B05", "sw1": "B06", "sw2": "B07", "qa": "Fmask"},
     "landsat-c2-l2": {"red": "red", "nir": "nir08", "sw1": "swir16", "sw2": "swir22", "qa": "qa_pixel"},
 }
-LANDSAT_PATH_ROWS = {("223", "080"), ("222", "080")}  # WRS-2 scenes over Cruz Alta (as in residue-landsat)
-HLS_TILES = {"T22JBP", "T22JBN"}
+# Scenes read per municipality: the WRS-2 path/rows and MGRS tiles over its cropland, and the one HLS tile the winter
+# fingerprint reads (the tile that covers most of the cropland, as analysis/rotation-fingerprint reads one tile).
+# Thresholds and rules do not change between municipalities; only these footprints do.
+AREAS = {
+    "4306106": {  # Cruz Alta (RS): 223/080 and T22JBP cover all of its cropland (as in residue-landsat)
+        "landsat_path_rows": {("223", "080"), ("222", "080")},
+        "hls_tiles": {"T22JBP", "T22JBN"},
+        "winter_tile": "T22JBP",
+    },
+    "4311205": {  # Julio de Castilhos (RS): 223/080 covers all of its cropland, T22JBN about 98%
+        "landsat_path_rows": {("223", "080"), ("222", "080")},
+        "hls_tiles": {"T22JBP", "T22JBN"},
+        "winter_tile": "T22JBN",
+    },
+}
+LANDSAT_PATH_ROWS = AREAS["4306106"]["landsat_path_rows"]  # Cruz Alta defaults, kept for callers of the module
+HLS_TILES = AREAS["4306106"]["hls_tiles"]
 
 DEFAULT_IBGE = "4306106"  # Cruz Alta (RS)
+
+
+def area(ibge: str) -> dict:
+    if ibge not in AREAS:
+        raise SystemExit(f"add the Landsat path/rows and HLS tiles of IBGE {ibge} to AREAS in common.py")
+    return AREAS[ibge]
 
 
 def raw_dir(ibge: str, override: str | None = None) -> Path:
@@ -136,12 +157,14 @@ def nd(a: np.ndarray, b: np.ndarray) -> np.ndarray:
         return (a - b) / (a + b)
 
 
-def item_keep(item) -> bool:
-    """Landsat WRS-2 223/080 and 222/080, HLS MGRS tiles T22JBP/T22JBN."""
+def item_keep(item, ibge: str = DEFAULT_IBGE) -> bool:
+    """The municipality's Landsat WRS-2 path/rows and HLS MGRS tiles (AREAS; Cruz Alta: 223/080, 222/080,
+    T22JBP, T22JBN)."""
+    ar = area(ibge)
     if item.collection_id == "landsat-c2-l2":
         p = item.properties
-        return (p["landsat:wrs_path"], p["landsat:wrs_row"]) in LANDSAT_PATH_ROWS
-    return item.id.split(".")[2] in HLS_TILES
+        return (p["landsat:wrs_path"], p["landsat:wrs_row"]) in ar["landsat_path_rows"]
+    return item.id.split(".")[2] in ar["hls_tiles"]
 
 
 def retry(fn, tries: int = 4, wait: float = 5.0):

@@ -9,8 +9,9 @@ series  Landsat C2 L2 (TM, ETM+, OLI, OLI-2) and HLS L30/S30, 20 Oct - 20 Nov of
         (the rule of analysis/residue-landsat).
 now     HLS L30/S30 and Landsat 8/9, 1 Oct - 15 Nov 2026 and 1 Oct - 30 Nov 2025 (fallback), 30 m grid.
         Per scene: NDVI and NDTI of every farm cropland pixel (NaN when not clear), for per-pixel medians.
-winter  HLS L30/S30 tile T22JBP, 1 Apr - 30 Nov of 2020-2026, 60 m grid. Per granule: NDVI of every farm
-        cropland pixel (int16 x 10,000; -32768 when not clear), for the winter fingerprint (winter.py).
+winter  HLS L30/S30, the municipality's winter tile (Cruz Alta T22JBP), 1 Apr - 30 Nov of 2020-2026, 60 m grid.
+        Per granule: NDVI of every farm cropland pixel (int16 x 10,000; -32768 when not clear), for the winter
+        fingerprint (winter.py).
 Search filters: scene/tile cloud cover < 70% (series, now) or < 90% (winter, as analysis/rotation-fingerprint).
 """
 
@@ -36,6 +37,7 @@ from common import (  # noqa: E402
     NDVI_GREEN,
     STAC,
     FarmIndex,
+    area,
     item_keep,
     nd,
     raw_dir,
@@ -65,7 +67,6 @@ MODES = {
         "grid": 60,
         "spans": [(c, f"{y}-04-01", f"{y}-11-30") for c in ("hls2-l30", "hls2-s30") for y in range(2020, 2027)],
         "cloud": 90,
-        "tiles": {"T22JBP"},
     },
 }
 MIN_CLEAR_SERIES = 0.5
@@ -73,15 +74,15 @@ MIN_CLEAR_OTHER = 0.02
 NODATA_I16 = -32768
 
 
-def search(cat, mode: str, bbox) -> list:
+def search(cat, mode: str, bbox, ibge: str = DEFAULT_IBGE) -> list:
     cfg = MODES[mode]
     items = {}
     for coll, a, b in cfg["spans"]:
         q = {"eo:cloud_cover": {"lt": cfg["cloud"]}}
         for it in cat.search(collections=[coll], bbox=bbox, datetime=f"{a}/{b}", query=q).items():
-            if not item_keep(it):
+            if not item_keep(it, ibge):
                 continue
-            if "tiles" in cfg and coll.startswith("hls") and it.id.split(".")[2] not in cfg["tiles"]:
+            if mode == "winter" and coll.startswith("hls") and it.id.split(".")[2] != area(ibge)["winter_tile"]:
                 continue
             if coll == "landsat-c2-l2" and it.properties.get("platform") == "landsat-7" and mode == "now":
                 continue
@@ -154,7 +155,7 @@ def main() -> None:
     out_dir.mkdir(exist_ok=True)
     t0 = time.time()
     cat = pystac_client.Client.open(STAC)
-    items = search(cat, a.mode, bbox)
+    items = search(cat, a.mode, bbox, a.ibge)
     t_search = time.time() - t0
     print(f"{a.mode}: {len(items)} items ({t_search:.0f} s search)", flush=True)
     index_path = out_dir / "index.json"
