@@ -61,6 +61,9 @@ T_LEVELS = ((8, 4), (5, 3), (3, 2), (0, 1))  # Table 1, indicator 4
 SLOPE_CLASSES = ((0, 3), (3, 8), (8, 1000))
 MIN_DIST_M = 5000
 WORKERS = 24
+# Plan B (time): HLS S30 left out; Landsat 4-9 C2 L2 and HLS L30 cover 1984-2026 at <= 16 days (item 6.5).
+# Add "hls2-s30" to read the Sentinel-2 half of HLS as well (about 300 more items, slow on the anonymous server).
+HLS_COLLECTIONS = ("hls2-l30",)
 
 
 def level(value: float, table) -> int:
@@ -186,7 +189,7 @@ def search_items(cat) -> list:
         if (p["landsat:wrs_path"], p["landsat:wrs_row"]) in (("223", "080"), ("222", "080")):
             if WINDOW[0] <= p["datetime"][5:10] <= WINDOW[1]:
                 items.append(it)
-    for coll in ("hls2-l30", "hls2-s30"):
+    for coll in HLS_COLLECTIONS:
         for it in cat.search(collections=[coll], bbox=bbox, datetime="2013-01-01/2026-12-31", query=q).items():
             if (
                 it.id.split(".")[2] in ("T22JBP", "T22JBN")
@@ -471,8 +474,9 @@ def main() -> None:
         "norm": "Instrucao Normativa SPA/MAPA n. 2/2025 (ZARC Niveis de Manejo), items 2 (Table 1), 3.2.1, 6.2-6.8",
         "applied_from_norm": {
             "quadrat_size": "9 ha (300 m x 300 m); norm item 6.2 IV: 5-10 ha for fields > 100 ha",
-            "sensors": "Landsat C2 L2 (TM, ETM+, OLI, OLI-2) and HLS v2.0 L30/S30 at 30 m (item 6.4)",
-            "all_images": "every scene of WRS-2 223/080, 222/080 and HLS tiles T22JBP/T22JBN, 15 Sep - 31 Dec, with "
+            "sensors": "Landsat C2 L2 (TM, ETM+, OLI, OLI-2) and HLS v2.0 L30 at 30 m (item 6.4; S30 left out, plan_b)",
+            "all_images": "every scene of WRS-2 223/080, 222/080 and HLS L30 tiles T22JBP/T22JBN, "
+            "15 Sep - 31 Dec, with "
             ">= 80 of the 100 quadrat pixels clear (item 6.5 asks for all images, >= every 16 days)",
             "indicator_5_bands": "C < 30 level 1; 30-60 level 2; 60-90 level 3; >= 90 level 4 (Table 1)",
             "indicator_4_bands": "T < 3 level 1; 3-5 level 2; 5-8 level 3; >= 8 level 4 (Table 1)",
@@ -501,6 +505,9 @@ def main() -> None:
         "class (< 3%, 3-8%, >= 8% block mean), closest to the class median slope, >= 5 km apart. No property, "
         "owner or registry (CAR) was looked up; the quadrats are not real field samples.",
         "items_searched": len(items),
+        "plan_b": "HLS S30 (the Sentinel-2 half of HLS) was left out for time; Landsat 4-9 and HLS L30 give every "
+        "year 1984-2026 (16-day revisit per Landsat, 8 days with two in orbit). Reading S30 would add observations "
+        "only from 2020 on.",
         "read_errors": errors,
         "caveats": [
             "No field calibration in Cruz Alta: the Embrapa ruler was calibrated in Cambe (PR) on 19 fields with "
