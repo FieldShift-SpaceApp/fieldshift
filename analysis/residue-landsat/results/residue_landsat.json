@@ -1,0 +1,575 @@
+{
+ "question": "Share of Cruz Alta cropland with a probable bare-soil signature (no green, low NDTI), per year, in late October - mid November (before soybean canopy closes) and in April - May, 1984-2026 (Landsat 5 starts in 1984).",
+ "thresholds": {
+  "ndvi_green_min": 0.3,
+  "ndvi_sensitivity": [
+   0.25,
+   0.35
+  ],
+  "ndti_bare_below": 0.06,
+  "ndti_sensitivity": [
+   0.04,
+   0.1
+  ],
+  "ndti_grid_available": [
+   0.04,
+   0.05,
+   0.06,
+   0.07,
+   0.08,
+   0.1
+  ],
+  "min_cropland_clear_fraction": 0.5,
+  "wet_scene_rain_3d_mm": 10.0
+ },
+ "classes": {
+  "green": "NDVI >= 0.30",
+  "straw": "NDVI < 0.30 and NDTI >= 0.06 (non-photosynthetic residue signature)",
+  "probable_bare_soil": "NDVI < 0.30 and NDTI < 0.06"
+ },
+ "search": {
+  "searched_utc": "2026-11-15T02:32:22+00:00",
+  "stac": "https://planetarycomputer.microsoft.com/api/stac/v1",
+  "windows": {
+   "spring": [
+    "10-20",
+    "11-20"
+   ],
+   "autumn": [
+    "04-01",
+    "05-31"
+   ]
+  },
+  "max_tile_cloud_cover": 70,
+  "landsat_wrs": [
+   "223/080",
+   "222/080"
+  ],
+  "hls_tiles": [
+   "T22JBP",
+   "T22JBN"
+  ],
+  "worldcover_item": "ESA_WorldCover_10m_2021_v200_S30W054"
+ },
+ "scene_read_errors": {},
+ "counts": {
+  "scenes_read": 739,
+  "scenes_accepted": 317,
+  "landsat_accepted": 185,
+  "hls_accepted": 132,
+  "by_sensor_accepted": {
+   "HLS L30": 30,
+   "HLS S30": 102,
+   "Landsat 5 TM": 67,
+   "Landsat 7 ETM+": 66,
+   "Landsat 8 OLI": 38,
+   "Landsat 9 OLI-2": 14
+  }
+ },
+ "epochs_landsat": {
+  "spring 1984-1994": {
+   "years_with_data": 8,
+   "pct_bare_median": 5.7,
+   "pct_bare_median_ndti_0_04": 2.2,
+   "pct_bare_median_ndti_0_10": 14.7,
+   "pct_bare_median_ndti_0_12": 19.9,
+   "pct_bare_median_roy2016": 2.6,
+   "pct_bare_median_dry_only": 14.5
+  },
+  "spring 1995-2004": {
+   "years_with_data": 7,
+   "pct_bare_median": 0.7,
+   "pct_bare_median_ndti_0_04": 0.2,
+   "pct_bare_median_ndti_0_10": 2.2,
+   "pct_bare_median_ndti_0_12": 4.1,
+   "pct_bare_median_roy2016": 0.5,
+   "pct_bare_median_dry_only": 0.9
+  },
+  "spring 2005-2014": {
+   "years_with_data": 10,
+   "pct_bare_median": 0.3,
+   "pct_bare_median_ndti_0_04": 0.1,
+   "pct_bare_median_ndti_0_10": 2.0,
+   "pct_bare_median_ndti_0_12": 4.3,
+   "pct_bare_median_roy2016": 0.2,
+   "pct_bare_median_dry_only": 0.5
+  },
+  "spring 2015-2026": {
+   "years_with_data": 10,
+   "pct_bare_median": 0.3,
+   "pct_bare_median_ndti_0_04": 0.1,
+   "pct_bare_median_ndti_0_10": 2.5,
+   "pct_bare_median_ndti_0_12": 5.5,
+   "pct_bare_median_roy2016": 0.2,
+   "pct_bare_median_dry_only": 0.5
+  },
+  "autumn 1984-1994": {
+   "years_with_data": 11,
+   "pct_bare_median": 1.3,
+   "pct_bare_median_ndti_0_04": 0.6,
+   "pct_bare_median_ndti_0_10": 6.5,
+   "pct_bare_median_ndti_0_12": 9.2,
+   "pct_bare_median_roy2016": 0.6,
+   "pct_bare_median_dry_only": 1.9
+  },
+  "autumn 1995-2004": {
+   "years_with_data": 8,
+   "pct_bare_median": 0.1,
+   "pct_bare_median_ndti_0_04": 0.0,
+   "pct_bare_median_ndti_0_10": 1.0,
+   "pct_bare_median_ndti_0_12": 2.5,
+   "pct_bare_median_roy2016": 0.0,
+   "pct_bare_median_dry_only": 0.1
+  },
+  "autumn 2005-2014": {
+   "years_with_data": 10,
+   "pct_bare_median": 0.1,
+   "pct_bare_median_ndti_0_04": 0.0,
+   "pct_bare_median_ndti_0_10": 0.8,
+   "pct_bare_median_ndti_0_12": 1.9,
+   "pct_bare_median_roy2016": 0.0,
+   "pct_bare_median_dry_only": 0.1
+  },
+  "autumn 2015-2026": {
+   "years_with_data": 12,
+   "pct_bare_median": 0.0,
+   "pct_bare_median_ndti_0_04": 0.0,
+   "pct_bare_median_ndti_0_10": 0.6,
+   "pct_bare_median_ndti_0_12": 2.6,
+   "pct_bare_median_roy2016": 0.0,
+   "pct_bare_median_dry_only": 0.1
+  }
+ },
+ "rain_check": {
+  "1984-1999 wet>=5mm": {
+   "n_wet": 9,
+   "n_dry": 6,
+   "pct_bare_median_wet": 3.2,
+   "pct_bare_median_dry": 10.3,
+   "ndti_nogreen_median_wet": 0.107,
+   "ndti_nogreen_median_dry": 0.104
+  },
+  "1984-1999 wet>=10mm": {
+   "n_wet": 8,
+   "n_dry": 7,
+   "pct_bare_median_wet": 2.8,
+   "pct_bare_median_dry": 9.7,
+   "ndti_nogreen_median_wet": 0.107,
+   "ndti_nogreen_median_dry": 0.128
+  },
+  "1984-1999 wet>=20mm": {
+   "n_wet": 7,
+   "n_dry": 8,
+   "pct_bare_median_wet": 3.2,
+   "pct_bare_median_dry": 6.0,
+   "ndti_nogreen_median_wet": 0.107,
+   "ndti_nogreen_median_dry": 0.117
+  },
+  "2000-2012 wet>=5mm": {
+   "n_wet": 9,
+   "n_dry": 14,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.182,
+   "ndti_nogreen_median_dry": 0.174
+  },
+  "2000-2012 wet>=10mm": {
+   "n_wet": 8,
+   "n_dry": 15,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.185,
+   "ndti_nogreen_median_dry": 0.177
+  },
+  "2000-2012 wet>=20mm": {
+   "n_wet": 8,
+   "n_dry": 15,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.185,
+   "ndti_nogreen_median_dry": 0.177
+  },
+  "2013-2026 wet>=5mm": {
+   "n_wet": 12,
+   "n_dry": 15,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.172,
+   "ndti_nogreen_median_dry": 0.163
+  },
+  "2013-2026 wet>=10mm": {
+   "n_wet": 10,
+   "n_dry": 17,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.172,
+   "ndti_nogreen_median_dry": 0.163
+  },
+  "2013-2026 wet>=20mm": {
+   "n_wet": 8,
+   "n_dry": 19,
+   "pct_bare_median_wet": 0.2,
+   "pct_bare_median_dry": 0.4,
+   "ndti_nogreen_median_wet": 0.17,
+   "ndti_nogreen_median_dry": 0.168
+  }
+ },
+ "sensor_checks": {
+  "L7 minus L5 (<= 8 days)": {
+   "pairs": 27,
+   "definition": "Landsat 7 minus Landsat 5",
+   "median_diff_pct_bare_points": 0.1,
+   "median_abs_diff_pct_bare_points": 0.2,
+   "max_abs_diff_pct_bare_points": 1.4,
+   "median_diff_ndti_nogreen": -0.011,
+   "examples": [
+    {
+     "a": "LT05_L2SP_223080_20000402_02_T2",
+     "b": "LE07_L2SP_223080_20000410_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.3
+    },
+    {
+     "a": "LT05_L2SP_222080_20000427_02_T1",
+     "b": "LE07_L2SP_223080_20000426_02_T1",
+     "days": 1,
+     "a_pct_bare": 0.2,
+     "b_pct_bare": 0.3
+    },
+    {
+     "a": "LT05_L2SP_222080_20000513_02_T1",
+     "b": "LE07_L2SP_223080_20000512_02_T1",
+     "days": 1,
+     "a_pct_bare": 0.3,
+     "b_pct_bare": 0.5
+    },
+    {
+     "a": "LT05_L2SP_223080_20000520_02_T2",
+     "b": "LE07_L2SP_223080_20000512_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.5
+    },
+    {
+     "a": "LT05_L2SP_223080_20000520_02_T2",
+     "b": "LE07_L2SP_223080_20000528_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 1.1
+    },
+    {
+     "a": "LT05_L2SP_222080_20000529_02_T1",
+     "b": "LE07_L2SP_223080_20000528_02_T1",
+     "days": 1,
+     "a_pct_bare": 0.5,
+     "b_pct_bare": 1.1
+    }
+   ]
+  },
+  "L8 minus L7 (<= 8 days)": {
+   "pairs": 28,
+   "definition": "Landsat 8 minus Landsat 7",
+   "median_diff_pct_bare_points": 0.0,
+   "median_abs_diff_pct_bare_points": 0.2,
+   "max_abs_diff_pct_bare_points": 0.6,
+   "median_diff_ndti_nogreen": -0.02,
+   "examples": [
+    {
+     "a": "LE07_L2SP_223080_20130414_02_T1",
+     "b": "LC08_L2SP_222080_20130408_02_T1",
+     "days": 6,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "LE07_L2SP_223080_20130414_02_T1",
+     "b": "LC08_L2SP_223080_20130422_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.1
+    },
+    {
+     "a": "LE07_L2SP_223080_20131108_02_T1",
+     "b": "LC08_L2SP_223080_20131116_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.3,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "LE07_L2SP_223080_20140503_02_T1",
+     "b": "LC08_L2SP_223080_20140425_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.2
+    },
+    {
+     "a": "LE07_L2SP_223080_20140503_02_T1",
+     "b": "LC08_L2SP_223080_20140511_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "LE07_L2SP_223080_20150506_02_T1",
+     "b": "LC08_L2SP_223080_20150428_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.1,
+     "b_pct_bare": 0.2
+    }
+   ]
+  },
+  "L9 minus L8 (<= 8 days)": {
+   "pairs": 12,
+   "definition": "Landsat 9 minus Landsat 8",
+   "median_diff_pct_bare_points": 0.0,
+   "median_abs_diff_pct_bare_points": 0.3,
+   "max_abs_diff_pct_bare_points": 1.2,
+   "median_diff_ndti_nogreen": 0.005,
+   "examples": [
+    {
+     "a": "LC08_L2SP_223080_20221109_02_T1",
+     "b": "LC09_L2SP_223080_20221117_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.5,
+     "b_pct_bare": 0.7
+    },
+    {
+     "a": "LC08_L2SP_223080_20230402_02_T1",
+     "b": "LC09_L2SP_223080_20230410_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.6,
+     "b_pct_bare": 0.1
+    },
+    {
+     "a": "LC08_L2SP_223080_20230520_02_T1",
+     "b": "LC09_L2SP_223080_20230512_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.2
+    },
+    {
+     "a": "LC08_L2SP_223080_20241029_02_T1",
+     "b": "LC09_L2SP_223080_20241021_02_T1",
+     "days": 8,
+     "a_pct_bare": 1.2,
+     "b_pct_bare": 0.3
+    },
+    {
+     "a": "LC08_L2SP_223080_20241029_02_T1",
+     "b": "LC09_L2SP_223080_20241106_02_T1",
+     "days": 8,
+     "a_pct_bare": 1.2,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "LC08_L2SP_223080_20241114_02_T1",
+     "b": "LC09_L2SP_223080_20241106_02_T1",
+     "days": 8,
+     "a_pct_bare": 0.7,
+     "b_pct_bare": 0.0
+    }
+   ]
+  },
+  "HLS L30 minus Landsat C2 L2 (same day)": {
+   "pairs": 27,
+   "definition": "HLS L30 minus Landsat 8/9 C2 L2 of the same acquisition",
+   "median_diff_pct_bare_points": 0.2,
+   "median_abs_diff_pct_bare_points": 0.2,
+   "max_abs_diff_pct_bare_points": 0.8,
+   "median_diff_ndti_nogreen": 0.0,
+   "examples": [
+    {
+     "a": "LC08_L2SP_223080_20171111_02_T1",
+     "b": "HLS.L30.T22JBN.2017315T133056.v2.0+HLS.L30.T22JBP.2017315T133032.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.2,
+     "b_pct_bare": 0.4
+    },
+    {
+     "a": "LC08_L2SP_223080_20200409_02_T1",
+     "b": "HLS.L30.T22JBN.2020100T133018.v2.0+HLS.L30.T22JBP.2020100T132954.v2.0",
+     "days": 0,
+     "a_pct_bare": 1.0,
+     "b_pct_bare": 1.8
+    },
+    {
+     "a": "LC08_L2SP_223080_20200527_02_T1",
+     "b": "HLS.L30.T22JBN.2020148T133008.v2.0+HLS.L30.T22JBP.2020148T132944.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.2,
+     "b_pct_bare": 0.3
+    },
+    {
+     "a": "LC08_L2SP_223080_20210428_02_T1",
+     "b": "HLS.L30.T22JBN.2021118T133014.v2.0+HLS.L30.T22JBP.2021118T132950.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.2,
+     "b_pct_bare": 0.4
+    },
+    {
+     "a": "LC08_L2SP_223080_20210530_02_T1",
+     "b": "HLS.L30.T22JBN.2021150T133024.v2.0+HLS.L30.T22JBP.2021150T133000.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.0,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "LC08_L2SP_223080_20211021_02_T1",
+     "b": "HLS.L30.T22JBN.2021294T133106.v2.0+HLS.L30.T22JBP.2021294T133042.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.4,
+     "b_pct_bare": 0.6
+    }
+   ]
+  },
+  "HLS S30 minus HLS L30 (<= 3 days)": {
+   "pairs": 42,
+   "definition": "HLS S30 minus HLS L30",
+   "median_diff_pct_bare_points": -0.2,
+   "median_abs_diff_pct_bare_points": 0.3,
+   "max_abs_diff_pct_bare_points": 1.7,
+   "median_diff_ndti_nogreen": 0.006,
+   "examples": [
+    {
+     "a": "HLS.L30.T22JBN.2020100T133018.v2.0+HLS.L30.T22JBP.2020100T132954.v2.0",
+     "b": "HLS.S30.T22JBN.2020098T133219.v2.0+HLS.S30.T22JBP.2020098T133219.v2.0",
+     "days": 2,
+     "a_pct_bare": 1.8,
+     "b_pct_bare": 0.1
+    },
+    {
+     "a": "HLS.L30.T22JBN.2020148T133008.v2.0+HLS.L30.T22JBP.2020148T132944.v2.0",
+     "b": "HLS.S30.T22JBN.2020146T134221.v2.0+HLS.S30.T22JBP.2020146T134221.v2.0",
+     "days": 2,
+     "a_pct_bare": 0.3,
+     "b_pct_bare": 0.0
+    },
+    {
+     "a": "HLS.L30.T22JBN.2020148T133008.v2.0+HLS.L30.T22JBP.2020148T132944.v2.0",
+     "b": "HLS.S30.T22JBN.2020148T133229.v2.0+HLS.S30.T22JBP.2020148T133229.v2.0",
+     "days": 0,
+     "a_pct_bare": 0.3,
+     "b_pct_bare": 0.2
+    },
+    {
+     "a": "HLS.L30.T22JBN.2020148T133008.v2.0+HLS.L30.T22JBP.2020148T132944.v2.0",
+     "b": "HLS.S30.T22JBN.2020151T134209.v2.0+HLS.S30.T22JBP.2020151T134209.v2.0",
+     "days": 3,
+     "a_pct_bare": 0.3,
+     "b_pct_bare": 0.7
+    },
+    {
+     "a": "HLS.L30.T22JBN.2021118T133014.v2.0+HLS.L30.T22JBP.2021118T132950.v2.0",
+     "b": "HLS.S30.T22JBN.2021117T133221.v2.0+HLS.S30.T22JBP.2021117T133221.v2.0",
+     "days": 1,
+     "a_pct_bare": 0.4,
+     "b_pct_bare": 0.2
+    },
+    {
+     "a": "HLS.L30.T22JBN.2021118T133014.v2.0+HLS.L30.T22JBP.2021118T132950.v2.0",
+     "b": "HLS.S30.T22JBN.2021120T134211.v2.0+HLS.S30.T22JBP.2021120T134211.v2.0",
+     "days": 2,
+     "a_pct_bare": 0.4,
+     "b_pct_bare": 0.1
+    }
+   ]
+  },
+  "Roy et al. 2016 ETM+->OLI transform applied to TM/ETM+": {
+   "scenes": 133,
+   "median_diff_pct_bare_points": -0.1,
+   "max_abs_diff_pct_bare_points": 6.5
+  }
+ },
+ "otsu_check": {
+  "Landsat spring 1984-1995": {
+   "scenes": 13,
+   "otsu_ndti": 0.115
+  },
+  "Landsat spring, all years": {
+   "scenes": 65,
+   "otsu_ndti": 0.145
+  },
+  "Landsat autumn, all years": {
+   "scenes": 120,
+   "otsu_ndti": 0.145
+  }
+ },
+ "census_check": {
+  "sources": {
+   "census_2006_849": {
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/849/periodos/2006/variaveis/2016|2018?localidades=N6[4306106]|N3[43]&classificacao=218[0]|220[0]",
+    "accessed_utc": "2026-11-15T02:33:06+00:00"
+   },
+   "census_2017_6855": {
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6855/periodos/2017/variaveis/9562|9563|9564|9565|2016|2018?localidades=N6[4306106]|N3[43]&classificacao=829[46302]|12564[41145]|12771[45951]|218[46502]",
+    "accessed_utc": "2026-11-15T02:33:06+00:00"
+   },
+   "pam_1612_area": {
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1612/periodos/2006|2017/variaveis/109?localidades=N6[4306106]&classificacao=81[2713,2711]",
+    "accessed_utc": "2026-11-15T02:33:06+00:00"
+   }
+  },
+  "census_2006_849": {
+   "Número de estabelecimentos agropecuários que utilizaram plantio direto na palha | Cruz Alta (RS) | Total/Total | 2006": "418",
+   "Número de estabelecimentos agropecuários que utilizaram plantio direto na palha | Rio Grande do Sul | Total/Total | 2006": "161130",
+   "Área com plantio direto na palha | Cruz Alta (RS) | Total/Total | 2006": "74003",
+   "Área com plantio direto na palha | Rio Grande do Sul | Total/Total | 2006": "4085316"
+  },
+  "census_2017_6855": {
+   "Número de estabelecimentos agropecuários que não utilizaram sistema de preparo do solo | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "77",
+   "Número de estabelecimentos agropecuários que não utilizaram sistema de preparo do solo | Rio Grande do Sul | Total/Total/Total/Total | 2017": "63705",
+   "Número de estabelecimentos agropecuários que utilizaram sistema de preparo do solo | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "500",
+   "Número de estabelecimentos agropecuários que utilizaram sistema de preparo do solo | Rio Grande do Sul | Total/Total/Total/Total | 2017": "300784",
+   "Número de estabelecimentos agropecuários que utilizaram cultivo convencional | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "57",
+   "Número de estabelecimentos agropecuários que utilizaram cultivo convencional | Rio Grande do Sul | Total/Total/Total/Total | 2017": "116194",
+   "Número de estabelecimentos agropecuários que utilizaram cultivo mínimo | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "47",
+   "Número de estabelecimentos agropecuários que utilizaram cultivo mínimo | Rio Grande do Sul | Total/Total/Total/Total | 2017": "68192",
+   "Número de estabelecimentos agropecuários que utilizaram plantio direto na palha | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "404",
+   "Número de estabelecimentos agropecuários que utilizaram plantio direto na palha | Rio Grande do Sul | Total/Total/Total/Total | 2017": "165283",
+   "Área com plantio direto na palha | Cruz Alta (RS) | Total/Total/Total/Total | 2017": "105036",
+   "Área com plantio direto na palha | Rio Grande do Sul | Total/Total/Total/Total | 2017": "6051978"
+  },
+  "pam_1612_area": {
+   "Área plantada | Cruz Alta (RS) | Soja (em grão) | 2006": "78000",
+   "Área plantada | Cruz Alta (RS) | Soja (em grão) | 2017": "89500",
+   "Área plantada | Cruz Alta (RS) | Milho (em grão) | 2006": "10000",
+   "Área plantada | Cruz Alta (RS) | Milho (em grão) | 2017": "7500"
+  },
+  "summary": {
+   "no_till_area_ha": {
+    "2006": 74003.0,
+    "2017": 105036.0
+   },
+   "pam_planted_soybean_ha": {
+    "2006": 78000.0,
+    "2017": 89500.0
+   },
+   "pam_planted_maize_ha": {
+    "2006": 10000.0,
+    "2017": 7500.0
+   },
+   "no_till_area_over_soybean_plus_maize_pct": {
+    "2006": 84.1,
+    "2017": 108.3
+   },
+   "satellite_spring_pct_bare_median_of_years_within_2": {
+    "2006": 0.3,
+    "2017": 0.2
+   },
+   "note": "Census no-till area counts every crop of the reference year on establishments that used no-till, so it is compared with the summer-crop planted area (soybean + maize, PAM) only as an order of magnitude. Both census years say no-till covers about the whole summer-crop area of Cruz Alta; the satellite agrees if probable bare soil in the spring window is near zero around those years."
+  }
+ },
+ "rain_sources": {
+  "power": "NASA POWER daily PRECTOTCORR (MERRA-2 bias-corrected), committed cache data/cache/power/cruz-alta/daily_19810101_20261031.json plus a run-time tail: https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=-53.563&latitude=-28.703&start=20261101&end=20261113&format=JSON",
+  "power_tail_accessed_utc": "2026-11-15T02:33:06+00:00",
+  "imerg": "GPM IMERG daily as served by NASA POWER (IMERG_PRECTOT, UTC days), committed cache data/cache/power-imerg/cruz-alta/daily_19980101_20251231.json"
+ },
+ "attribution": "NASA/USGS Landsat Collection 2 Level-2; NASA HLS v2.0 (LP DAAC), both read through the Microsoft Planetary Computer; ESA WorldCover 2021 (contains modified Copernicus Sentinel data 2021); IBGE Censo Agropecuario 2006 and 2017, IBGE PAM; NASA POWER; GPM IMERG.",
+ "caveats": [
+  "No field calibration: 'probable bare soil' is a spectral inference with a threshold chosen by this analysis, not a measured residue cover.",
+  "NDTI is sensitive to soil and residue moisture (Quemada and Daughtry 2016) and to kaolinite-rich soils (Hively et al. 2021); the Oxisols of Cruz Alta are kaolinitic.",
+  "Different sensors (TM, ETM+, OLI, OLI-2, MSI) without a field-based cross-calibration of NDTI.",
+  "One cropland mask (WorldCover 2021) for 40 years: fields that changed use are misclassified."
+ ]
+}
