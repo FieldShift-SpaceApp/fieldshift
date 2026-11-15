@@ -2,6 +2,13 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-14 23:30 — coordination (Claude Code), PROVA-PÚBLICA front
+Done: three PRs so the judges can check the pitch from the public repo. #50 `analysis/ground-truth-proagro/` (Proagro excess-rain wheat claims × GPM IMERG Sep–Nov rain, 2013–2025: pre-registered heavy-rain days ρ = 0.41, p = 0.085; Sep–Nov total ρ = 0.69, p = 0.006, 0.61 without 2023, Bonferroni 0.031/0.050; identical to the HQ). #51 `analysis/scale/` (1.16 Mha, 46%, 19,716 farms, 5.30 → 2.59 Mt, R$ 2.07 bn, 10.3% world area: all match; field 5 wording "Rio Grande do Sul" vs the Brazil-wide FAOSTAT computation flagged). This PR: licences of ANA, INMET, CONAB, NMME, Atlas confirmed on the provider pages; preflight run 4 (R7, R8 → PASS); nothing removed.
+Next: human review; FLIGHT decides the field 5 wording and whether to list FAOSTAT in field 8.
+Blocked by: nothing.
+Needs from others: FLIGHT: merge order of #50/#51/this PR does not matter (different rows). EECOM: if CONAB objects to derived figures (CC BY-ND), drop the two margins from `replay-2023.yaml`.
+Contract changes: none
+
 ## 2026-11-14 20:50 — coordination (Claude Code), REPRODUTIBILIDADE front
 Done: the statistical validation behind the ENSO × wheat numbers is now public and reproducible (PR `surgeon/analysis-enso-wheat`): `analysis/enso-wheat/` (scripts ported from the HQ's independent verification, one command `reproduce.py`, small results with access times, README with limitations), method page `content/methods/enso-wheat.md` (listed on /data-methods with no code change), `RESOURCES.md` rows marked "used in `analysis/enso-wheat/`". Rerun on 2026-11-14 reproduced the HQ numbers exactly (53.3% vs 3.5%, p = 0.003, 14/18 in 2023).
 Next: human review of the README wording; the station-vs-satellite scripts (method `satellite-vs-ground-check`) are still only in the HQ.
