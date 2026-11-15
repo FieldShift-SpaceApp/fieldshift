@@ -2,6 +2,13 @@
 
 > Only the SURGEON front edits this file. Newest entry on top. Format: AGENTS.md §4.2
 
+## 2026-11-15 13:45 — SURGEON (ChatGPT, OpenAI)
+Done: drafted a source-priority and adoption-gate note in PR `surgeon/data-integration-priorities`; documentation only, no new ingestion or app behavior. It prioritizes local field/soil/rotation inputs, INMET/ANA ground validation with POWER and IMERG, careful NOAA ENSO context, then SMAP, HLS/Landsat/Sentinel-2, and SRTM; it also flags the IMERG inventory wording mismatch.
+Next: EECOM review the data pipeline steps; FLIGHT review the AI-use log entry. Adopt sources only after the human concept/site inputs and consumer approvals are in place.
+Blocked by: none.
+Needs from others: EECOM: review data source priorities and validation gates; FLIGHT: review the appended SI-USAGE.md entry.
+Contract changes: none
+
 ## 2026-11-15 01:10 — coordination (Claude Code), DESCOBERTA front
 Done: pre-registered test of "soybean became less sensitive to summer drought after winter cover became the rule" (PR `surgeon/drought-resilience`): `analysis/drought-resilience/` (one command, IBGE PAM 1612 × NASA POWER Dec–Feb rain, 18 municipalities, 1982–2025; bootstrap and permutation by year; 17 robustness variants incl. ANA gauge) and `content/methods/drought-resilience.md`. Result: **not supported** (slope +21.5% → +17.1% of trend per SD of rain, Δ −4.5 points, 95% CI −24.3 to +19.2, p = 0.61; sign flips at cut 1997/1998; +25.1% since 2005). What holds: summer drought still costs 25–70% of trend yield in the driest summers.
 Next: human review; CAPCOM/FLIGHT must not use "40 years prove soil care protects income" in the pitch (see README "What can and cannot be said").
