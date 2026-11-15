@@ -82,6 +82,33 @@ Small properties are three quarters of the registry but a fifth of the cropland,
 
 The example (rule in `pick_example`: a medium property read in 2026 whose upper end is the most common one, closest to the median cropland of those): about 180 ha declared, 120 ha of cropland; **NM4 if the soil tests are at level 4, NM3 if at level 3**, contour sowing to confirm.
 
+## Second municipality: Júlio de Castilhos (scale test)
+
+To test that the method scales, the **same code, rules and thresholds** (no tuning) were run for a second Planalto Médio municipality, **Júlio de Castilhos (RS), IBGE 4311205** (code checked on the IBGE localidades API), on 15 November 2026, step by step as `reproduce.py --ibge 4311205 --name "Júlio de Castilhos (RS)" --results results/julio-de-castilhos` would, with the three scene steps run in parallel (16 threads each), as for Cruz Alta. The only per-municipality input is the scene footprint in `common.AREAS`: the same Landsat path/rows (223/080 covers all of its cropland) and HLS tiles as Cruz Alta, and the winter fingerprint reads tile **T22JBN** instead of T22JBP (T22JBN covers about 98% of its cropland; the rest has no winter class, limitation 7). Same privacy treatment: no CAR code, no names, no raw geometry committed; only aggregates, the unlabelled map and one rounded anonymous example. Files: [`results/julio-de-castilhos/`](results/julio-de-castilhos/).
+
+![Júlio de Castilhos: best satellite-side ZarcNM level of each rural property in the CAR](results/julio-de-castilhos/farm-reports-map.png)
+
+| | Cruz Alta (RS) | Júlio de Castilhos (RS) |
+|---|---|---|
+| CAR records returned / active | 1,583 / 1,554 | 1,917 / 1,906 |
+| With cropland in the mask (cropland summed over properties) | 1,509 (108,575 ha) | 1,818 (124,655 ha) |
+| Assessed (all three satellite indicators) | 1,286 (85% of those with cropland) | 1,527 (84%) |
+| **Satellite-ready NM3+** (whole range NM3+, soil tests at level 4) | **1,263 (98% of assessed; 102,774 ha)** | **1,508 (99% of assessed; 121,336 ha)** |
+| Satellite-ready NM3+, soil tests at level 3 | 1,223 (95%) | 1,468 (96%) |
+| Upper end NM4 / NM3 / NM2 / NM1 | 1,217 / 53 / 16 / 0 | 1,461 / 49 / 17 / 0 |
+| **Bottleneck: contour to confirm** (mean cropland slope ≥ 3%) | **1,284 of 1,286 assessed** | **1,527 of 1,527 assessed** |
+| Median share of cropland at ≥ 3% slope | 89.7% | 89.1% |
+| T level 4 / C "3 or 4" / D level 2 (assessed) | 1,193 / 1,269 / 329 | 1,360 / 1,521 / 272 |
+| Last bare-soil signature 2020-2026 / never in the observed springs (cropland properties) | 79 / 335 | 114 / 1,069 |
+| Signature since 2019 at the 25% rule / 10% / 50% / NDTI 0.10 | 96 / 205 / 38 / 578 | 115 / 318 / 24 / 614 |
+| Scenes found (C / T / D) | 80 / 323 / 636 | 81 / 325 / 624 |
+| Scene steps, wall-clock (parallel) | about 75 min (night, 4 failed reads retried) | **10.4 min** (13:52-14:02 BRT, 0 failed reads) |
+| CAR download / grids / winter + report | 8 s / 28 s / 34 s | 14 s / 71 s / 67 s |
+
+**What stays the same.** The picture repeats almost number for number: if the three soil tests come back at level 4, 99% of the assessed properties have their whole satellite-side range at NM3 or above, and **every assessed property has a mean cropland slope of 3% or more**, so in both municipalities the bottleneck to the subsidy is not what the satellite reads but **the soil tests and confirming contour sowing**. The gaps are the same kind as well: 291 properties with cropland lack an indicator (mostly T, 233 with no clear observation, as small properties have too few clear 60 m pixels) and 88 have no cropland in the mask; small properties are 1,579 of the 1,906 active records but 45,080 of the 124,655 ha of cropland. All nine limitations above apply unchanged; none of the thresholds was calibrated in either municipality.
+
+**What changes.** The only result that moves a lot is the one already flagged as the most threshold-sensitive: in Júlio de Castilhos 1,069 cropland properties show **no** bare-soil signature in any observed spring (Cruz Alta: 335), and the oldest-signature peak of 1990-1994 is smaller (196 vs 659). With the NDTI threshold at 0.10 instead of 0.06 the "never" count falls to 504 and properties with a signature since 2019 rise to 614, so this reads as the NDTI threshold meeting a different soil/residue background (limitation 3), not as a finding about tillage history. Winters also differ: more fallow years in the fingerprints (most common CCCCCCC 154, CCCCCCO 101, CCCOCCO 41), fewer properties at diversity level 2 (272 vs 329). The processing time differs by a factor of seven for about the same number of scenes (1,030 vs 1,039): the time is set by the network reads of the Planetary Computer at the time of the run, not by the municipality or its number of properties. Example property (same `pick_example` rule): about 200 ha declared, 170 ha of cropland; NM4 if the soil tests are at level 4, NM3 if at level 3, contour sowing to confirm.
+
 ## Method
 
 **Properties.** SICAR WFS, filter `cod_municipio_ibge` (`fetch_car.py`). Active records (status AT; cancelled CA dropped). Size class by fiscal modules (Lei 8.629/1993, art. 4): small ≤ 4, medium > 4 to 15, large > 15 (Cruz Alta's fiscal module: as declared in the record, `m_fiscal`).
@@ -114,7 +141,7 @@ The example (rule in `pick_example`: a medium property read in 2026 whose upper 
 
 ## How to scale
 
-The same code runs for any municipality the SICAR WFS serves: `python -I reproduce.py --ibge <code> --name "<name>"` (add the state's two-digit IBGE prefix to `UF_BY_PREFIX` in `fetch_car.py`, and the Landsat path/rows and HLS tiles of the area in `common.py`; for Cruz Alta they are WRS-2 223/080 and 222/080 and MGRS T22JBP/T22JBN). **Time per municipality** (Cruz Alta, 1,554 properties, measured on a home connection on 15 November 2026): about **75 minutes wall-clock**, almost all of it network reads of 1,039 scene windows (80 + 323 + 636) through the Planetary Computer, with the three scene steps run in parallel (16 threads each); the CAR download takes 8 s, the grids 28 s, and the per-property part (`winter.py` + `report.py`) about 35 s. The time depends on the area and the number of scenes, not on the number of properties, and neighbouring municipalities share scenes: a state run should read each scene once for many municipalities (not done here). Rio Grande do Sul has 497 municipalities; at this rate one machine would take about 26 days run municipality by municipality, so scaling means reading each Landsat/HLS tile once and running many tiles in parallel near the data.
+The same code runs for any municipality the SICAR WFS serves: `python -I reproduce.py --ibge <code> --name "<name>"` (add the state's two-digit IBGE prefix to `UF_BY_PREFIX` in `fetch_car.py`, and the municipality's Landsat path/rows, HLS tiles and winter tile to `AREAS` in `common.py`; for Cruz Alta they are WRS-2 223/080 and 222/080, MGRS T22JBP/T22JBN and winter tile T22JBP). Thresholds and rules are not per municipality and do not change. **Time per municipality** (Cruz Alta, 1,554 properties, measured on a home connection on 15 November 2026): about **75 minutes wall-clock**, almost all of it network reads of 1,039 scene windows (80 + 323 + 636) through the Planetary Computer, with the three scene steps run in parallel (16 threads each); the CAR download takes 8 s, the grids 28 s, and the per-property part (`winter.py` + `report.py`) about 35 s. The second municipality, Júlio de Castilhos (1,906 properties, 1,030 scene windows), took **10.4 minutes** for the scene steps on a home connection in the afternoon, with no failed read, and about 2.5 minutes for the rest (see the table above). The time depends on the area and the number of scenes, not on the number of properties, and neighbouring municipalities share scenes: a state run should read each scene once for many municipalities (not done here). Rio Grande do Sul has 497 municipalities; at this rate one machine would take about 26 days run municipality by municipality (about 4.5 days at the second run's 13 minutes), so scaling means reading each Landsat/HLS tile once and running many tiles in parallel near the data.
 
 ## Reproduce
 
@@ -133,7 +160,7 @@ uv run --project services/science --with numpy==2.3.4 --with rasterio==1.4.3 --w
 | 4 | [`winter.py`](winter.py) | per-pixel winter classes, `winter_farms.json` |
 | 5 | [`report.py`](report.py) | `farm_results.json` (per property, raw folder only); **`results/`**: `farm_reports.json`, `farm-reports-map.png`, `example-report.html`, `summary_by_size.csv` |
 
-The tests (`tests/test_indicators.py`) cover the property-level choices on top of the rules module; they are not part of the CI `science` job, which runs only `services/science`.
+The tests (`tests/test_indicators.py`, `tests/test_areas.py`) cover the property-level choices on top of the rules module and the per-municipality scene footprints; they are not part of the CI `science` job, which runs only `services/science`.
 
 ## Sources
 
