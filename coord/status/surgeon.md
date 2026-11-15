@@ -37,9 +37,9 @@ Blocked by: Story 1.3 AC1 (WCCC at the Nevada coordinate) depends on Q2; AC2 (th
 Needs from others: FLIGHT/CAPCOM: the 5-line summary for "how we differ" is in the PR body (the sentence is the team's, C1). INCO: review the `data-prov-exempt="ui"` exemptions in the documentation blocks.
 Contract changes: none
 
-## 2026-11-15 15:05 — SURGEON (ChatGPT, OpenAI)
-Done: added `docs/seven-cities-weather-audit.md` to a branch based on current main. It confirms the seven municipalities already in the team analysis, audits reproducibility and reported rain/temperature validation, and separates Cruz Alta ground checks from the six places without documented station comparison.
-Next: map INMET/ANA stations and record periods/quality for each site; then run matched rain and temperature metrics.
+## 2026-11-15 15:55 — SURGEON (ChatGPT, OpenAI)
+Done: completed a preliminary 2024 rainfall and temperature station-to-grid check for the seven confirmed municipalities; added pair counts, bias, MAE, correlation, wet-day counts and station distances to the audit and CSV. Confirmed a shared 40-date IMERG gap across all seven points, including all of May 2024, and documented that missing values must never be shown as 0 mm. PR #77 contains the handoff.
+Next: human review of station suitability, UTC day alignment and contingency-source wording in PR #77; if accepted, package a reproducible analysis and extend validation across common historical station years. No app or rotation-performance claim was made.
 Blocked by: none.
-Needs from others: EECOM: confirm source fetch path and IMERG/POWER data vintages; team: provide any field-level station data not in the public repo.
+Needs from others: review requested in PR #77.
 Contract changes: none
