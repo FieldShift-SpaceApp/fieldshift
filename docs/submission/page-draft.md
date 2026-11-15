@@ -11,7 +11,7 @@ Owner: FLIGHT. This is the text to paste into the Space Apps project page. Field
 Every other bracket has been removed. These six placeholders remain, each in capitals inside square brackets where it appears:
 
 1. `[PRODUCT NAME]` — the team (D-001): field 1 and the first line of field 5.
-2. `[ONE-LINE STATEMENT]` — the team, in its own words (D-001): first line of fields 2 and 5.
+2. `[ONE-LINE STATEMENT]` — the team, in its own words (D-001): first line of fields 2 and 5. Starting point to rewrite (SI-proposed after jury round 7, team lead chose this shape on 15 November): "Every winter, farmers in Cruz Alta choose wheat or a cover crop in the middle of the soybean season, with no satellite view of their own fields. Brazil's new soil rule recommends satellite checks with Landsat or HLS. We turned it into open code and pre-checked 1,286 farms, free, before winter."
 3. `[MEMBERS]` — FLIGHT, logged in: the 6 names exactly as on the Members tab (table below).
 4. `[REVIEWERS]` — the people who reviewed SI-generated code and text (field 6; `SI-USAGE.md` column "Reviewed by").
 5. `[DEMO LINK]` — the uploaded demo video, tested logged out (field 3).
