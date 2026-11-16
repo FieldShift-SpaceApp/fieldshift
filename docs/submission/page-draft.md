@@ -14,7 +14,7 @@ Every other bracket has been removed. These six placeholders remain, each in cap
 2. `[ONE-LINE STATEMENT]` — the team, in its own words (D-001): first line of fields 2 and 5. Starting point to rewrite (SI-proposed after jury round 7, team lead chose this shape on 15 November): "Every winter, farmers in Cruz Alta choose wheat or a cover crop in the middle of the soybean season, with no satellite view of their own fields. Brazil's new soil rule recommends satellite checks with Landsat or HLS. We turned it into open code and pre-checked 1,286 farms, free, before winter."
 3. `[MEMBERS]` — FLIGHT, logged in: the 6 names exactly as on the Members tab (table below).
 4. `[REVIEWERS]` — the people who reviewed SI-generated code and text (field 6; `SI-USAGE.md` column "Reviewed by").
-5. `[DEMO LINK]` — the uploaded demo video, tested logged out (field 3).
+5. ~~`[DEMO LINK]`~~ — resolved: https://youtu.be/QersTIlqA8Y (Stella Root demo, 28.999 s, opens logged out; checked 15 November).
 6. `[APP SOURCE URL]` — the public repository of the farmer-facing app, once published (fields 4 and 6).
 
 ## How to use this draft
@@ -85,7 +85,7 @@ Why it matters: the official rule rewards deep roots and drought resilience; our
 
 > *Official prompt:* a 7-slide presentation (including title and introductory slides) **or** a video of 30 seconds or less; the link "should not require a password, permission, or registration".
 
-**Paste:** `[DEMO LINK]`
+**Paste:** https://youtu.be/QersTIlqA8Y
 
 **Notes (do not paste):** the demo is a **28-second video** (28.2 s by `ffprobe`; 1920×1080, H.264, no audio track): a real screen recording of the published farmer-facing app (`/globe`, home, `/start`) with **burned-in English captions**, **no voice**, no music, no AI-generated images, no people and no NASA logo. The captions and the assembly were scripted with Claude Code (SI-assisted, declared in field 6 and in the file's metadata). File: `demo-28s.mp4` in the team's demo folder (not in the repo). Before pasting: upload as YouTube Unlisted/Public or Drive "Anyone with the link", open the link in a private window, and have a person who did not make it watch it on a phone.
 
